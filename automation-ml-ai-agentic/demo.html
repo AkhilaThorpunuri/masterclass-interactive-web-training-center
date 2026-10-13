@@ -1,0 +1,2521 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AI & Automation Interactive Demo Lab | Tinitiate MasterClass Academy</title>
+  <meta name="description" content="Explore live interactive AI Automation, Agentic loops, Remotion animated video simulations, and multi-tool swarm architectures.">
+  <meta name="theme-color" content="#ffffff">
+  <link rel="icon" type="image/png" href="favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Roboto+Mono:wght@400;500&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,400,0..1,0&display=block">
+  <link rel="stylesheet" href="../assets/css/master-global-layout.css">
+  <script src="../assets/js/master-global-nav.js" defer></script>
+  <style>
+    /* ==========================================================================
+       AI AUTOMATION DEMO LAB — MATERIAL DESIGN 3 (LIGHT)
+       Tokens follow the M3 baseline scheme; tonal accents per AI epoch.
+       ========================================================================== */
+    :root {
+      --font-sans: "Roboto", "Helvetica Neue", Arial, sans-serif;
+      --font-mono: "Roboto Mono", ui-monospace, Consolas, monospace;
+
+      /* M3 colour roles */
+      --md-primary: #6750a4;
+      --md-on-primary: #ffffff;
+      --md-primary-container: #eaddff;
+      --md-on-primary-container: #21005d;
+      --md-secondary: #625b71;
+      --md-secondary-container: #e8def8;
+      --md-on-secondary-container: #1d192b;
+      --md-tertiary: #7d5260;
+      --md-tertiary-container: #ffd8e4;
+      --md-error: #b3261e;
+      --md-error-container: #f9dedc;
+      --md-on-error-container: #410e0b;
+      --md-background: #ffffff;
+      --md-surface: #ffffff;
+      --md-surface-dim: #fdfbff;
+      --md-surface-container-lowest: #ffffff;
+      --md-surface-container-low: #f7f2fa;
+      --md-surface-container: #f3edf7;
+      --md-surface-container-high: #ece6f0;
+      --md-surface-container-highest: #e6e0e9;
+      --md-on-surface: #1d1b20;
+      --md-on-surface-variant: #49454f;
+      --md-outline: #79747e;
+      --md-outline-variant: #cac4d0;
+
+      /* Tonal accents (epochs / tags) */
+      --tone-blue: #0b57d0;      --tone-blue-c: #d3e3fd;   --tone-on-blue-c: #041e49;
+      --tone-green: #146c2e;     --tone-green-c: #c4eed0;  --tone-on-green-c: #072711;
+      --tone-amber: #8c5000;     --tone-amber-c: #ffdcbe;  --tone-on-amber-c: #2e1500;
+      --tone-red: #b3261e;       --tone-red-c: #f9dedc;    --tone-on-red-c: #410e0b;
+      --tone-purple: #6750a4;    --tone-purple-c: #eaddff; --tone-on-purple-c: #21005d;
+
+      /* Elevation */
+      --md-el-1: 0 1px 2px rgba(0,0,0,.30), 0 1px 3px 1px rgba(0,0,0,.15);
+      --md-el-2: 0 1px 2px rgba(0,0,0,.30), 0 2px 6px 2px rgba(0,0,0,.15);
+      --md-el-3: 0 1px 3px rgba(0,0,0,.30), 0 4px 8px 3px rgba(0,0,0,.15);
+
+      /* Shape */
+      --md-shape-xs: 4px;
+      --md-shape-s: 8px;
+      --md-shape-m: 12px;
+      --md-shape-l: 16px;
+      --md-shape-xl: 28px;
+      --md-shape-full: 999px;
+
+      --md-ease: cubic-bezier(.2, 0, 0, 1);
+      --nav-height: 64px;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; }
+
+    body.md3 {
+      margin: 0;
+      overflow: hidden;
+      background: var(--md-background);
+      color: var(--md-on-surface);
+      font-family: var(--font-sans);
+      font-size: 14px;
+      line-height: 20px;
+      letter-spacing: .0178em;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .msr {
+      font-family: "Material Symbols Rounded";
+      font-weight: normal;
+      font-style: normal;
+      font-size: 20px;
+      line-height: 1;
+      letter-spacing: normal;
+      text-transform: none;
+      display: inline-block;
+      white-space: nowrap;
+      direction: ltr;
+      -webkit-font-feature-settings: "liga";
+      font-feature-settings: "liga";
+      -webkit-font-smoothing: antialiased;
+      font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 24;
+      flex-shrink: 0;
+      user-select: none;
+    }
+    .msr.fill { font-variation-settings: "FILL" 1, "wght" 400, "GRAD" 0, "opsz" 24; }
+    .msr.sm { font-size: 18px; }
+    .msr.lg { font-size: 24px; }
+    .msr.xl { font-size: 32px; }
+
+    /* Typography scale */
+    .md-display-s  { font-size: 36px; line-height: 44px; font-weight: 400; letter-spacing: 0; margin: 0; }
+    .md-headline-m { font-size: 28px; line-height: 36px; font-weight: 400; letter-spacing: 0; margin: 0; }
+    .md-headline-s { font-size: 24px; line-height: 32px; font-weight: 400; letter-spacing: 0; margin: 0; }
+    .md-title-l    { font-size: 22px; line-height: 28px; font-weight: 400; margin: 0; }
+    .md-title-m    { font-size: 16px; line-height: 24px; font-weight: 500; letter-spacing: .009em; margin: 0; }
+    .md-title-s    { font-size: 14px; line-height: 20px; font-weight: 500; letter-spacing: .007em; margin: 0; }
+    .md-body-l     { font-size: 16px; line-height: 24px; letter-spacing: .031em; margin: 0; }
+    .md-body-m     { font-size: 14px; line-height: 20px; letter-spacing: .018em; margin: 0; }
+    .md-body-s     { font-size: 12px; line-height: 16px; letter-spacing: .033em; margin: 0; }
+    .md-label-l    { font-size: 14px; line-height: 20px; font-weight: 500; letter-spacing: .007em; }
+    .md-label-m    { font-size: 12px; line-height: 16px; font-weight: 500; letter-spacing: .042em; }
+    .md-label-s    { font-size: 11px; line-height: 16px; font-weight: 500; letter-spacing: .045em; }
+    .muted { color: var(--md-on-surface-variant); }
+    .mono  { font-family: var(--font-mono); }
+
+    /* ==========================================================================
+       TOP APP BAR — restyles the shared master nav as an M3 small top app bar
+       ========================================================================== */
+    .md3 .master-top-nav {
+      height: var(--nav-height);
+      background: var(--md-surface);
+      border-bottom: 1px solid var(--md-outline-variant);
+      box-shadow: none;
+    }
+    .md3 .master-brand-logo { height: 26px; filter: none; }
+    .md3 .master-brand-badge {
+      font-size: 12px; line-height: 16px; font-weight: 500; letter-spacing: .04em;
+      color: var(--md-on-secondary-container);
+      background: var(--md-secondary-container);
+      border: 0; border-radius: var(--md-shape-s);
+      padding: 6px 12px; box-shadow: none; backdrop-filter: none;
+    }
+    .md3 .master-brand-wrap:hover .master-brand-badge { background: #ddd0f0; }
+
+    .md3 .master-nav-btn,
+    .md3 .master-dropdown-toggle {
+      height: 40px; padding: 0 16px; gap: 8px;
+      border-radius: var(--md-shape-full);
+      font-size: 14px; font-weight: 500; letter-spacing: .007em;
+      color: var(--md-on-surface-variant);
+      background: transparent; border: 0; box-shadow: none;
+      transition: background-color .2s var(--md-ease), color .2s var(--md-ease);
+    }
+    .md3 .master-nav-btn:hover,
+    .md3 .master-dropdown-toggle:hover,
+    .md3 .master-dropdown.open .master-dropdown-toggle {
+      color: var(--md-on-surface);
+      background: rgba(29, 27, 32, .08);
+      border: 0; box-shadow: none;
+    }
+    .md3 .master-nav-btn.subject-home-btn {
+      color: var(--md-on-secondary-container);
+      background: var(--md-secondary-container);
+    }
+    .md3 .master-nav-btn.subject-home-btn:hover { background: #ddd0f0; color: var(--md-on-secondary-container); }
+    .md3 .master-dropdown-toggle { border: 1px solid var(--md-outline); color: var(--md-primary); }
+
+    .md3 .master-dropdown-menu.mega-menu {
+      background: var(--md-surface-container-lowest);
+      border: 0;
+      border-radius: var(--md-shape-l);
+      box-shadow: var(--md-el-3);
+      scrollbar-color: var(--md-outline-variant) transparent;
+    }
+    .md3 .mega-menu-header { background: var(--md-surface-container-low); border-bottom: 1px solid var(--md-outline-variant); }
+    .md3 .mega-menu-eyebrow { color: var(--md-primary); font-weight: 500; }
+    .md3 .mega-menu-title { color: var(--md-on-surface); font-weight: 400; }
+    .md3 .mega-menu-stats-pill { color: var(--md-on-secondary-container); background: var(--md-secondary-container); border: 0; }
+    .md3 .mega-category-col { background: var(--md-surface); border: 1px solid var(--md-outline-variant); border-radius: var(--md-shape-m); }
+    .md3 .mega-category-col:hover { background: var(--md-surface-container-low); border-color: var(--md-outline-variant); }
+    .md3 .mega-category-header { border-bottom: 1px solid var(--md-outline-variant); }
+    .md3 .mega-cat-badge { color: var(--md-on-surface) !important; font-weight: 500; }
+    .md3 .mega-cat-badge svg { color: var(--cat-accent); }
+    .md3 .mega-cat-count { background: var(--md-surface-container-high); color: var(--md-on-surface-variant); }
+    .md3 .mega-category-item { color: var(--md-on-surface); border-radius: var(--md-shape-full); }
+    .md3 .mega-item-arrow { color: var(--md-outline); }
+    .md3 .mega-item-icon { background: var(--md-surface-container-high); color: var(--md-on-surface-variant); }
+    .md3 .mega-category-item:hover { background: var(--md-secondary-container); border-color: transparent; color: var(--md-on-secondary-container); }
+    .md3 .mega-category-item:hover .mega-item-arrow { color: var(--md-primary); }
+    .md3 .mega-category-item:hover .mega-item-icon { background: var(--md-primary); color: var(--md-on-primary); }
+    .md3 .mega-menu-footer { background: var(--md-surface-container-low); border-top: 1px solid var(--md-outline-variant); color: var(--md-on-surface-variant); }
+    .md3 .mega-footer-left strong,
+    .md3 .mega-footer-right strong { color: var(--md-on-surface); }
+
+    /* Instructor tag → M3 assist chip (drop the animated beam) */
+    .md3 .master-instructor-beam {
+      height: 32px; padding: 0 12px; border-radius: var(--md-shape-s);
+      background: var(--md-surface); border: 1px solid var(--md-outline-variant);
+      color: var(--md-on-surface-variant); box-shadow: none; filter: none; animation: none;
+    }
+    .md3 .master-instructor-beam::before,
+    .md3 .master-instructor-beam::after { display: none; }
+    .md3 .master-instructor-beam .inst-label { color: var(--md-on-surface-variant); font-weight: 400; }
+    .md3 .master-instructor-beam .inst-name { color: var(--md-on-surface); font-weight: 500; }
+    .md3 .master-instructor-beam svg { color: var(--md-primary) !important; stroke: var(--md-primary) !important; }
+
+    .md3 .master-nav-social-btn {
+      height: 36px; border-radius: var(--md-shape-full);
+      color: var(--md-on-surface-variant); background: var(--md-surface-container-high); border: 0;
+    }
+    .md3 .master-nav-social-btn:hover { color: var(--md-on-surface); background: var(--md-surface-container-highest); box-shadow: none; }
+    .md3 .master-nav-social-btn.linkedin:hover { background: #0a66c2; color: #fff; box-shadow: var(--md-el-1); }
+    .md3 .master-nav-social-btn.github:hover { background: #24292f; color: #fff; box-shadow: var(--md-el-1); }
+
+    /* ==========================================================================
+       SHELL — nav drawer | scroller | on-this-page rail
+       ========================================================================== */
+    .md-shell {
+      display: grid;
+      grid-template-columns: 280px minmax(0, 1fr) 248px;
+      height: calc(100vh - var(--nav-height));
+      height: calc(100dvh - var(--nav-height));
+      background: var(--md-surface);
+    }
+
+    /* Navigation drawer (standard) */
+    .md-drawer {
+      background: var(--md-surface-container-low);
+      border-radius: 0 var(--md-shape-l) var(--md-shape-l) 0;
+      padding: 12px;
+      display: flex;
+      flex-direction: column;
+      overflow-y: auto;
+      margin: 8px 0;
+    }
+    .md-drawer-headline {
+      display: flex; align-items: center; gap: 12px;
+      padding: 16px 16px 12px;
+    }
+    .md-drawer-avatar {
+      width: 40px; height: 40px; border-radius: var(--md-shape-m);
+      background: var(--md-primary-container); color: var(--md-on-primary-container);
+      display: grid; place-items: center;
+    }
+    .md-drawer-section-label { padding: 18px 16px 8px; color: var(--md-on-surface-variant); }
+    .md-drawer-list { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 2px; }
+
+    .md-nav-item {
+      position: relative;
+      display: flex; align-items: center; gap: 12px;
+      height: 56px; padding: 0 24px 0 16px;
+      border-radius: var(--md-shape-full);
+      color: var(--md-on-surface-variant);
+      text-decoration: none;
+      font-size: 14px; font-weight: 500; letter-spacing: .007em;
+      overflow: hidden;
+      transition: background-color .2s var(--md-ease);
+    }
+    .md-nav-item:hover { background: rgba(29, 27, 32, .08); color: var(--md-on-surface); }
+    .md-nav-item .md-nav-text { flex: 1; min-width: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .md-nav-item .md-nav-badge { font-size: 12px; font-weight: 500; color: var(--md-on-surface-variant); }
+    .md-nav-item.active { background: var(--md-secondary-container); color: var(--md-on-secondary-container); }
+    .md-nav-item.active .msr { font-variation-settings: "FILL" 1, "wght" 400, "GRAD" 0, "opsz" 24; }
+    .md-nav-item.active .md-nav-badge { color: var(--md-on-secondary-container); }
+
+    .md-status-card {
+      margin: 16px 4px 4px;
+      padding: 16px;
+      border-radius: var(--md-shape-m);
+      background: var(--md-surface);
+      border: 1px solid var(--md-outline-variant);
+    }
+    .md-status-row { display: flex; justify-content: space-between; align-items: center; padding: 6px 0; color: var(--md-on-surface-variant); }
+    .md-status-row strong { color: var(--md-on-surface); font-weight: 500; }
+    .md-live-dot {
+      width: 8px; height: 8px; border-radius: 50%; background: var(--tone-green);
+      box-shadow: 0 0 0 0 rgba(20, 108, 46, .5); animation: md-pulse 2s infinite;
+      display: inline-block;
+    }
+    @keyframes md-pulse {
+      0%   { box-shadow: 0 0 0 0 rgba(20, 108, 46, .45); }
+      70%  { box-shadow: 0 0 0 8px rgba(20, 108, 46, 0); }
+      100% { box-shadow: 0 0 0 0 rgba(20, 108, 46, 0); }
+    }
+
+    /* Center scroller */
+    .md-scroller {
+      height: 100%;
+      overflow-y: auto;
+      scroll-snap-type: y proximity;
+      scroll-behavior: smooth;
+      scrollbar-width: thin;
+      scrollbar-color: var(--md-outline-variant) transparent;
+    }
+    .md-snap {
+      min-height: 100%;
+      scroll-snap-align: start;
+      padding: 32px 40px;
+      display: flex;
+      justify-content: center;
+    }
+    .md-snap + .md-snap { border-top: 1px solid var(--md-surface-container-high); }
+    .md-snap-inner {
+      min-width: 0;
+      width: 100%;
+      max-width: 1280px;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+    .md-snap-head { display: flex; flex-direction: column; gap: 10px; }
+    .md-snap-head .md-body-l { color: var(--md-on-surface-variant); max-width: 900px; }
+    .md-chip-row { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+
+    /* On-this-page rail */
+    .md-toc {
+      padding: 20px 16px 16px 8px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      overflow-y: auto;
+      border-left: 1px solid var(--md-surface-container-high);
+    }
+    .md-toc-title { display: flex; align-items: center; gap: 8px; padding: 0 12px 8px; color: var(--md-on-surface-variant); }
+    .md-toc-list { display: flex; flex-direction: column; gap: 2px; position: relative; }
+    .md-toc-item {
+      display: flex; gap: 12px; align-items: flex-start;
+      padding: 10px 12px;
+      border-radius: var(--md-shape-m);
+      cursor: pointer;
+      color: var(--md-on-surface-variant);
+      text-decoration: none;
+      transition: background-color .2s var(--md-ease);
+      border: 0; background: none; text-align: left; font: inherit; width: 100%;
+    }
+    .md-toc-item:hover { background: rgba(29, 27, 32, .06); }
+    .md-toc-num {
+      width: 28px; height: 28px; border-radius: 50%;
+      display: grid; place-items: center; flex-shrink: 0;
+      font-size: 12px; font-weight: 500;
+      border: 1px solid var(--md-outline-variant);
+      color: var(--md-on-surface-variant);
+      transition: all .2s var(--md-ease);
+    }
+    .md-toc-text { display: flex; flex-direction: column; min-width: 0; }
+    .md-toc-label { font-size: 14px; line-height: 20px; font-weight: 500; color: var(--md-on-surface); }
+    .md-toc-sub { font-size: 12px; line-height: 16px; }
+    .md-toc-item.active { background: var(--md-secondary-container); }
+    .md-toc-item.active .md-toc-num { background: var(--md-primary); border-color: var(--md-primary); color: var(--md-on-primary); }
+    .md-toc-item.active .md-toc-label { color: var(--md-on-secondary-container); }
+    .md-toc-pager {
+      margin-top: auto;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 8px;
+      border-radius: var(--md-shape-full);
+      background: var(--md-surface-container);
+    }
+
+    /* ==========================================================================
+       COMPONENTS
+       ========================================================================== */
+    /* Buttons */
+    .md-btn {
+      position: relative; overflow: hidden;
+      display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+      height: 40px; padding: 0 24px;
+      border-radius: var(--md-shape-full);
+      border: 0; cursor: pointer;
+      font-family: var(--font-sans); font-size: 14px; font-weight: 500; letter-spacing: .007em;
+      white-space: nowrap;
+      transition: box-shadow .2s var(--md-ease), background-color .2s var(--md-ease);
+      -webkit-tap-highlight-color: transparent;
+    }
+    .md-btn .msr { font-size: 18px; margin-left: -8px; }
+    .md-btn::before {
+      content: ""; position: absolute; inset: 0; background: currentColor; opacity: 0;
+      transition: opacity .2s var(--md-ease); pointer-events: none;
+    }
+    .md-btn:hover::before { opacity: .08; }
+    .md-btn:active::before { opacity: .12; }
+    .md-btn:focus-visible { outline: 2px solid var(--md-primary); outline-offset: 2px; }
+    .md-btn:disabled { cursor: not-allowed; background: rgba(29, 27, 32, .12) !important; color: rgba(29, 27, 32, .38) !important; box-shadow: none !important; border-color: transparent !important; }
+    .md-btn:disabled::before { display: none; }
+
+    .md-btn-filled   { background: var(--md-primary); color: var(--md-on-primary); }
+    .md-btn-filled:hover { box-shadow: var(--md-el-1); }
+    .md-btn-tonal    { background: var(--md-secondary-container); color: var(--md-on-secondary-container); }
+    .md-btn-tonal:hover { box-shadow: var(--md-el-1); }
+    .md-btn-outlined { background: transparent; color: var(--md-primary); border: 1px solid var(--md-outline); }
+    .md-btn-text     { background: transparent; color: var(--md-primary); padding: 0 12px; }
+    .md-btn-elevated { background: var(--md-surface-container-low); color: var(--md-primary); box-shadow: var(--md-el-1); }
+    .md-btn-elevated:hover { box-shadow: var(--md-el-2); }
+
+    .md-icon-btn {
+      position: relative; overflow: hidden;
+      width: 40px; height: 40px; border-radius: 50%;
+      display: inline-grid; place-items: center;
+      border: 0; background: transparent; color: var(--md-on-surface-variant); cursor: pointer;
+      font-family: var(--font-sans); font-size: 13px; font-weight: 500;
+      -webkit-tap-highlight-color: transparent;
+    }
+    .md-icon-btn::before { content: ""; position: absolute; inset: 0; background: currentColor; opacity: 0; transition: opacity .2s var(--md-ease); }
+    .md-icon-btn:hover::before { opacity: .08; }
+    .md-icon-btn:active::before { opacity: .12; }
+    .md-icon-btn:focus-visible { outline: 2px solid var(--md-primary); outline-offset: 2px; }
+    .md-icon-btn.filled { background: var(--md-primary); color: var(--md-on-primary); }
+    .md-icon-btn.tonal { background: var(--md-secondary-container); color: var(--md-on-secondary-container); }
+    .md-icon-btn.outlined { border: 1px solid var(--md-outline-variant); }
+    .md-icon-btn.lg { width: 56px; height: 56px; border-radius: var(--md-shape-l); }
+    .md-icon-btn.lg .msr { font-size: 28px; }
+
+    /* Ripple */
+    .md-ripple {
+      position: absolute; border-radius: 50%; pointer-events: none;
+      background: currentColor; opacity: .16; transform: scale(0);
+      animation: md-ripple .55s var(--md-ease) forwards;
+    }
+    @keyframes md-ripple { to { transform: scale(1); opacity: 0; } }
+
+    /* Chips */
+    .md-chip {
+      display: inline-flex; align-items: center; gap: 8px;
+      height: 32px; padding: 0 16px;
+      border-radius: var(--md-shape-s);
+      border: 1px solid var(--md-outline-variant);
+      background: var(--md-surface);
+      color: var(--md-on-surface-variant);
+      font-size: 14px; font-weight: 500; letter-spacing: .007em;
+      white-space: nowrap;
+    }
+    .md-chip .msr { font-size: 18px; margin-left: -6px; color: var(--md-primary); }
+    .md-chip.primary { background: var(--md-primary-container); border-color: transparent; color: var(--md-on-primary-container); }
+    .md-chip.primary .msr { color: var(--md-on-primary-container); }
+    .md-chip.sm { height: 24px; padding: 0 10px; font-size: 12px; border-radius: 6px; }
+
+    /* Badges / tags with tonal palette */
+    .md-tag {
+      display: inline-flex; align-items: center; gap: 4px;
+      height: 24px; padding: 0 8px;
+      border-radius: 6px;
+      font-size: 12px; font-weight: 500; letter-spacing: .03em;
+      white-space: nowrap;
+    }
+    .t-blue   { background: var(--tone-blue-c);   color: var(--tone-on-blue-c); }
+    .t-green  { background: var(--tone-green-c);  color: var(--tone-on-green-c); }
+    .t-amber  { background: var(--tone-amber-c);  color: var(--tone-on-amber-c); }
+    .t-red    { background: var(--tone-red-c);    color: var(--tone-on-red-c); }
+    .t-purple { background: var(--tone-purple-c); color: var(--tone-on-purple-c); }
+    .t-neutral{ background: var(--md-surface-container-high); color: var(--md-on-surface-variant); }
+    .c-blue { color: var(--tone-blue); } .c-green { color: var(--tone-green); } .c-amber { color: var(--tone-amber); }
+    .c-red { color: var(--tone-red); } .c-purple { color: var(--tone-purple); } .c-muted { color: var(--md-on-surface-variant); }
+
+    /* Cards */
+    .md-card {
+      border-radius: var(--md-shape-m);
+      background: var(--md-surface);
+      border: 1px solid var(--md-outline-variant);
+      overflow: hidden;
+    }
+    .md-card.elevated { border: 0; background: var(--md-surface-container-low); box-shadow: var(--md-el-1); }
+    .md-card.filled { border: 0; background: var(--md-surface-container-low); }
+    .md-card-pad { padding: 20px 24px; }
+    .md-card-head {
+      display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap;
+      padding: 16px 20px;
+    }
+    .md-card-head-title { display: flex; align-items: center; gap: 10px; }
+    .md-divider { height: 1px; background: var(--md-outline-variant); border: 0; margin: 0; }
+
+    /* Linear progress */
+    .md-progress { height: 4px; border-radius: 2px; background: var(--md-secondary-container); overflow: hidden; }
+    .md-progress > div { height: 100%; width: 0; background: var(--md-primary); border-radius: 2px; transition: width .4s var(--md-ease); }
+
+    /* ==========================================================================
+       SNAP 1 — Introduction & evolution
+       ========================================================================== */
+    .ai-def-card { display: grid; grid-template-columns: auto minmax(0, 1fr); gap: 16px 20px; align-items: start; }
+    .ai-def-icon {
+      width: 48px; height: 48px; border-radius: var(--md-shape-m);
+      background: var(--md-primary-container); color: var(--md-on-primary-container);
+      display: grid; place-items: center;
+    }
+    .ai-def-card p { color: var(--md-on-surface-variant); }
+    .ai-def-card p + p { margin-top: 8px; }
+
+    .evo-grid { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: 20px; }
+
+    .evo-figure { display: flex; flex-direction: column; }
+    .evo-figure-media {
+      position: relative; flex: 1; min-height: 240px;
+      background: var(--md-surface-container-low);
+      display: grid; place-items: center; padding: 12px;
+    }
+    .evo-figure-media img { max-width: 100%; max-height: 340px; object-fit: contain; border-radius: var(--md-shape-s); display: block; }
+    .evo-figure-media .md-btn { position: absolute; right: 12px; bottom: 12px; }
+    .evo-figure-caption { padding: 12px 16px; display: flex; flex-direction: column; gap: 2px; border-top: 1px solid var(--md-outline-variant); }
+
+    /* Tabs (primary) */
+    .md-tabs {
+      display: grid; grid-template-columns: repeat(4, minmax(0, 1fr));
+      border-bottom: 1px solid var(--md-surface-container-highest);
+    }
+    .md-tab {
+      position: relative; overflow: hidden;
+      display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2px;
+      height: 64px; padding: 0 8px;
+      background: none; border: 0; cursor: pointer;
+      color: var(--md-on-surface-variant);
+      font-family: var(--font-sans); font-size: 14px; font-weight: 500;
+      -webkit-tap-highlight-color: transparent;
+    }
+    .md-tab::before { content: ""; position: absolute; inset: 0; background: var(--md-on-surface); opacity: 0; transition: opacity .2s; }
+    .md-tab:hover::before { opacity: .06; }
+    .md-tab .md-tab-label { display: flex; align-items: center; gap: 6px; white-space: nowrap; font-size: 13px; }
+    .md-tab .md-tab-eyebrow { font-size: 11px; letter-spacing: .06em; color: var(--md-outline); }
+    .md-tab::after {
+      content: ""; position: absolute; left: 50%; bottom: 0; height: 3px; width: 0;
+      border-radius: 3px 3px 0 0; background: var(--md-primary);
+      transform: translateX(-50%); transition: width .25s var(--md-ease);
+    }
+    .md-tab.active { color: var(--md-primary); }
+    .md-tab.active .md-tab-eyebrow { color: var(--md-primary); }
+    .md-tab.active::after { width: 70%; }
+    .md-tab.active .msr { font-variation-settings: "FILL" 1, "wght" 400, "GRAD" 0, "opsz" 24; }
+
+    .epoch-panel { display: none; padding: 20px 20px 16px; flex-direction: column; gap: 16px; animation: md-fade .3s var(--md-ease); }
+    .epoch-panel.active { display: flex; }
+    @keyframes md-fade { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: none; } }
+    .epoch-title-row { display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
+
+    .flow-row {
+      display: flex; align-items: stretch; gap: 8px; flex-wrap: wrap;
+      padding: 16px; border-radius: var(--md-shape-m);
+      background: var(--md-surface-container-low);
+    }
+    .flow-node {
+      flex: 1 1 140px; min-width: 0;
+      display: flex; align-items: center; gap: 12px;
+      padding: 12px 14px; border-radius: var(--md-shape-m);
+      background: var(--md-surface); border: 1px solid var(--md-outline-variant);
+    }
+    .flow-node .flow-node-icon { width: 40px; height: 40px; border-radius: 50%; display: grid; place-items: center; flex-shrink: 0; }
+    .flow-node .md-title-s { color: var(--md-on-surface); }
+    .flow-node .md-body-s  { color: var(--md-on-surface-variant); }
+    .flow-node.tone-red   { background: var(--tone-red-c);   border-color: transparent; }
+    .flow-node.tone-green { background: var(--tone-green-c); border-color: transparent; }
+    .flow-arrow { display: grid; place-items: center; color: var(--md-outline); }
+    .flow-metric { font-size: 22px; line-height: 28px; font-weight: 500; }
+
+    .epoch-footer {
+      display: flex; justify-content: space-between; align-items: center; gap: 12px; flex-wrap: wrap;
+      padding: 12px 20px; background: var(--md-surface-container-low);
+      border-top: 1px solid var(--md-outline-variant);
+    }
+
+    .time-pill { font-family: var(--font-mono); font-size: 12px; color: var(--md-on-surface-variant); padding: 0 8px; }
+
+    /* Instructor card */
+    .instructor-card { display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap; padding: 16px 20px; }
+    .instructor-id { display: flex; align-items: center; gap: 16px; }
+    .instructor-avatar {
+      position: relative;
+      width: 56px; height: 56px; border-radius: 50%;
+      background: var(--md-primary); color: var(--md-on-primary);
+      display: grid; place-items: center;
+      font-size: 20px; font-weight: 500;
+    }
+    .instructor-avatar .verified {
+      position: absolute; right: -2px; bottom: -2px;
+      width: 22px; height: 22px; border-radius: 50%;
+      background: var(--md-surface); color: var(--tone-blue);
+      display: grid; place-items: center; box-shadow: var(--md-el-1);
+    }
+    .instructor-avatar .verified .msr { font-size: 18px; }
+
+    /* Dialog (lightbox) */
+    .md-scrim {
+      position: fixed; inset: 0; z-index: 3000;
+      background: rgba(0, 0, 0, .32);
+      display: none; align-items: center; justify-content: center; padding: 24px;
+    }
+    .md-scrim.active { display: flex; animation: md-fade .2s var(--md-ease); }
+    .md-dialog {
+      background: var(--md-surface-container-high);
+      border-radius: var(--md-shape-xl);
+      box-shadow: var(--md-el-3);
+      max-width: min(1400px, 96vw); max-height: 92vh;
+      display: flex; flex-direction: column; overflow: hidden;
+    }
+    .md-dialog-head { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 16px 16px 8px 24px; }
+    .md-dialog-body { padding: 0 24px; overflow: auto; }
+    .md-dialog-body img { width: 100%; height: auto; max-height: 74vh; object-fit: contain; display: block; border-radius: var(--md-shape-m); background: #fff; }
+    .md-dialog-actions { display: flex; justify-content: flex-end; gap: 8px; padding: 16px 24px 20px; }
+
+    /* ==========================================================================
+       SNAP 2 — Carousel
+       ========================================================================== */
+    .ticker {
+      overflow: hidden; border-radius: var(--md-shape-full);
+      background: var(--md-surface-container-low);
+      border: 1px solid var(--md-outline-variant);
+      -webkit-mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent);
+              mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent);
+    }
+    .ticker-track { display: flex; width: max-content; animation: ticker-ltr 48s linear infinite; }
+    .ticker:hover .ticker-track { animation-play-state: paused; }
+    .ticker-group { display: flex; gap: 32px; padding: 8px 16px; }
+    .ticker-item { display: inline-flex; align-items: center; gap: 10px; white-space: nowrap; color: var(--md-on-surface-variant); font-size: 14px; }
+    @keyframes ticker-ltr { from { transform: translateX(-50%); } to { transform: translateX(0); } }
+
+    .carousel-top { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 12px 20px; border-bottom: 1px solid var(--md-outline-variant); flex-wrap: wrap; }
+    .carousel-stage { padding: 24px; min-height: 380px; }
+    .slide-item { display: none; animation: md-fade .35s var(--md-ease); }
+    .slide-item.active { display: block; }
+    .slide-grid { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: 28px; align-items: start; }
+    .slide-copy { display: flex; flex-direction: column; gap: 14px; }
+    .slide-copy .md-body-l { color: var(--md-on-surface-variant); }
+    .md-list { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; }
+    .md-list li { display: flex; gap: 14px; align-items: flex-start; padding: 10px 0; border-bottom: 1px solid var(--md-surface-container-high); color: var(--md-on-surface-variant); }
+    .md-list li:last-child { border-bottom: 0; }
+    .md-list li strong { color: var(--md-on-surface); font-weight: 500; }
+    .md-list li .msr { margin-top: 1px; }
+
+    .viz-card { border-radius: var(--md-shape-l); background: var(--md-surface-container-low); padding: 16px; display: flex; flex-direction: column; gap: 14px; }
+    .viz-top { display: flex; justify-content: space-between; align-items: center; gap: 8px; flex-wrap: wrap; }
+    .viz-top-label { display: inline-flex; align-items: center; gap: 6px; font-size: 12px; font-weight: 500; letter-spacing: .06em; color: var(--md-on-surface-variant); }
+    .viz-foot { display: flex; justify-content: space-between; gap: 8px; flex-wrap: wrap; padding-top: 10px; border-top: 1px solid var(--md-outline-variant); font-size: 12px; color: var(--md-on-surface-variant); }
+
+    .pipeline { display: grid; grid-template-columns: 1fr auto 1fr auto 1fr; gap: 8px; align-items: center; }
+    .pipe-node {
+      background: var(--md-surface); border-radius: var(--md-shape-m);
+      padding: 16px 12px; text-align: center;
+      border: 1px solid var(--md-outline-variant);
+      display: flex; flex-direction: column; align-items: center; gap: 6px;
+    }
+    .pipe-node .md-title-s { color: var(--md-on-surface); }
+    .pipe-node.fail { background: var(--tone-red-c); border-color: transparent; }
+    .pipe-node.fail .md-title-s, .pipe-node.fail .md-body-s { color: var(--tone-on-red-c); }
+    .pipe-node.hl { border: 2px solid var(--md-primary); }
+
+    .spin { animation: md-spin 4s linear infinite; }
+    .spin-rev { animation: md-spin 3s linear infinite reverse; }
+    @keyframes md-spin { to { transform: rotate(360deg); } }
+
+    .md-banner {
+      display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap;
+      padding: 12px 16px; border-radius: var(--md-shape-m);
+      background: var(--tone-red-c); color: var(--tone-on-red-c);
+    }
+    .md-banner .md-banner-msg { display: flex; align-items: center; gap: 10px; }
+    .md-banner.flash { animation: md-flash 2.4s ease-in-out infinite; }
+    @keyframes md-flash { 0%, 100% { opacity: 1; } 50% { opacity: .72; } }
+
+    .ml-board { display: grid; grid-template-columns: 1fr 1.1fr 1fr; gap: 12px; align-items: center; }
+    .ml-features { display: flex; flex-direction: column; gap: 8px; }
+    .ml-feature {
+      display: flex; justify-content: space-between; align-items: center; gap: 8px;
+      padding: 8px 12px; border-radius: var(--md-shape-s);
+      background: var(--md-surface); border: 1px solid var(--md-outline-variant);
+      font-size: 13px; color: var(--md-on-surface);
+    }
+    .ml-feature span:last-child { font-family: var(--font-mono); color: var(--tone-blue); font-weight: 500; }
+    .ml-core { background: var(--md-surface); border-radius: var(--md-shape-l); padding: 16px 12px; text-align: center; border: 1px solid var(--md-outline-variant); display: flex; flex-direction: column; gap: 10px; align-items: center; }
+    .ml-weights { display: flex; gap: 10px; justify-content: center; }
+    .ml-weight {
+      width: 40px; height: 40px; border-radius: 50%;
+      display: grid; place-items: center;
+      background: var(--tone-blue-c); color: var(--tone-on-blue-c);
+      font-weight: 500; font-size: 14px;
+      animation: md-bob 2.4s ease-in-out infinite;
+    }
+    @keyframes md-bob { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.12); box-shadow: 0 0 0 6px rgba(11, 87, 208, .1); } }
+    .ml-output { background: var(--tone-green-c); color: var(--tone-on-green-c); border-radius: var(--md-shape-l); padding: 16px 12px; text-align: center; display: flex; flex-direction: column; align-items: center; gap: 4px; }
+    .ml-output .big { font-size: 32px; line-height: 40px; font-weight: 400; }
+
+    .gen-board { display: grid; grid-template-columns: 1fr 1.1fr 1fr; gap: 12px; align-items: stretch; }
+    .gen-col { display: flex; flex-direction: column; gap: 8px; }
+    .gen-col-label { font-size: 11px; font-weight: 500; letter-spacing: .08em; text-transform: uppercase; color: var(--md-on-surface-variant); }
+    .token-chip {
+      display: flex; justify-content: space-between; align-items: center; gap: 6px;
+      height: 32px; padding: 0 12px; border-radius: var(--md-shape-s);
+      background: var(--tone-purple-c); color: var(--tone-on-purple-c);
+      font-size: 13px; font-weight: 500;
+      animation: md-token 2.6s ease-in-out infinite;
+    }
+    .token-chip small { font-family: var(--font-mono); font-size: 11px; opacity: .7; }
+    .token-chip.out { background: var(--tone-blue-c); color: var(--tone-on-blue-c); }
+    .token-chip.ok { background: var(--tone-green-c); color: var(--tone-on-green-c); }
+    @keyframes md-token { 0%, 100% { transform: translateX(0); opacity: 1; } 50% { transform: translateX(4px); opacity: .8; } }
+    .gen-core {
+      border-radius: var(--md-shape-l); padding: 16px 12px; text-align: center;
+      background: var(--md-primary); color: var(--md-on-primary);
+      display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 6px;
+    }
+    .gen-core .md-chip.sm { background: rgba(255,255,255,.18); border-color: transparent; color: #fff; }
+
+    .syllabus-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; padding: 12px; }
+    .syllabus-item {
+      display: flex; gap: 12px; align-items: flex-start;
+      padding: 12px; border-radius: var(--md-shape-m);
+      background: var(--md-surface); border: 1px solid var(--md-outline-variant);
+      transition: border-color .2s, box-shadow .2s;
+    }
+    .syllabus-item:hover { border-color: var(--md-primary); box-shadow: var(--md-el-1); }
+    .syllabus-num {
+      width: 36px; height: 36px; border-radius: 50%; flex-shrink: 0;
+      display: grid; place-items: center;
+      background: var(--md-primary-container); color: var(--md-on-primary-container);
+      font-size: 13px; font-weight: 500;
+    }
+
+    .tech-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+    .tech-card { padding: 20px; display: flex; flex-direction: column; gap: 10px; transition: box-shadow .2s var(--md-ease); }
+    .tech-card:hover { box-shadow: var(--md-el-2); }
+    .tech-card-icon { width: 48px; height: 48px; border-radius: var(--md-shape-l); display: grid; place-items: center; }
+
+    .carousel-controls { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 8px 12px 8px 20px; border-top: 1px solid var(--md-outline-variant); }
+    .carousel-dots { display: flex; gap: 8px; align-items: center; }
+    .carousel-dot {
+      width: 8px; height: 8px; border-radius: 4px; border: 0; padding: 0; cursor: pointer;
+      background: var(--md-outline-variant); transition: width .25s var(--md-ease), background-color .25s;
+    }
+    .carousel-dot.active { width: 28px; background: var(--md-primary); }
+    .carousel-actions { display: flex; gap: 4px; }
+
+    /* ==========================================================================
+       SNAP 3 — Motion reel
+       ========================================================================== */
+    .reel-screen {
+      position: relative; height: 340px; overflow: hidden;
+      background-color: var(--md-surface-container-low);
+      background-image: radial-gradient(var(--md-outline-variant) 1px, transparent 1px);
+      background-size: 20px 20px;
+      display: grid; place-items: center;
+    }
+    .reel-screen:fullscreen { height: 100vh; }
+    .reel-node {
+      position: absolute; z-index: 2;
+      display: flex; align-items: center; gap: 10px;
+      padding: 10px 16px 10px 10px; border-radius: var(--md-shape-full);
+      background: var(--md-surface); box-shadow: var(--md-el-1);
+      font-size: 14px; font-weight: 500; color: var(--md-on-surface);
+      transition: box-shadow .3s var(--md-ease), transform .3s var(--md-ease);
+    }
+    .reel-node .reel-node-icon { width: 32px; height: 32px; border-radius: 50%; display: grid; place-items: center; }
+    .reel-node.live { box-shadow: var(--md-el-3), 0 0 0 3px var(--md-primary-container); transform: translateY(-2px); }
+    .n-user { top: 28px; left: 32px; }
+    .n-agent { top: 28px; right: 32px; }
+    .n-mcp { bottom: 28px; left: 32px; }
+    .n-db { bottom: 28px; right: 32px; }
+    .reel-beams { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; z-index: 1; }
+    .reel-beams line { stroke-width: 2.5; stroke-dasharray: 6 6; stroke-linecap: round; opacity: .25; transition: opacity .3s; }
+    .reel-beams line.on { opacity: 1; animation: md-dash 1s linear infinite; }
+    @keyframes md-dash { to { stroke-dashoffset: -24; } }
+    .reel-monitor {
+      position: relative; z-index: 3;
+      width: min(360px, 80%);
+      background: var(--md-surface); border-radius: var(--md-shape-l);
+      box-shadow: var(--md-el-2); padding: 14px 16px;
+    }
+    .reel-monitor-head { display: flex; justify-content: space-between; align-items: center; gap: 8px; padding-bottom: 8px; margin-bottom: 8px; border-bottom: 1px solid var(--md-outline-variant); }
+    .reel-monitor-text { font-family: var(--font-mono); font-size: 13px; line-height: 20px; color: var(--md-on-surface); min-height: 60px; }
+
+    .reel-controls { padding: 8px 16px 12px; display: flex; flex-direction: column; gap: 4px; }
+    .md-slider { position: relative; height: 24px; cursor: pointer; display: flex; align-items: center; }
+    .md-slider-track { position: absolute; left: 0; right: 0; height: 4px; border-radius: 2px; background: var(--md-secondary-container); }
+    .md-slider-fill { position: absolute; left: 0; height: 4px; border-radius: 2px; background: var(--md-primary); width: 0; }
+    .md-slider-thumb {
+      position: absolute; top: 50%; width: 4px; height: 20px; border-radius: 2px; background: var(--md-primary);
+      transform: translate(-50%, -50%); left: 0;
+    }
+    .reel-bar { display: flex; justify-content: space-between; align-items: center; gap: 8px; }
+    .reel-bar-group { display: flex; align-items: center; gap: 4px; }
+    .reel-time { font-family: var(--font-mono); font-size: 13px; color: var(--md-on-surface-variant); padding: 0 8px; }
+
+    /* ==========================================================================
+       SNAP 4 — Architecture inspector
+       ========================================================================== */
+    .arch-grid { display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); gap: 20px; align-items: stretch; }
+    .layer-list { display: flex; flex-direction: column; padding: 8px 0; }
+    .layer-item {
+      position: relative; overflow: hidden;
+      display: flex; align-items: center; gap: 16px;
+      padding: 12px 20px 12px 16px; min-height: 72px;
+      cursor: pointer; border: 0; background: none; text-align: left; width: 100%;
+      font: inherit; color: inherit;
+      transition: background-color .2s var(--md-ease);
+    }
+    .layer-item:hover { background: rgba(29, 27, 32, .06); }
+    .layer-item.active { background: var(--md-secondary-container); }
+    .layer-item .layer-avatar {
+      width: 40px; height: 40px; border-radius: 50%; flex-shrink: 0;
+      display: grid; place-items: center; font-weight: 500; font-size: 14px;
+    }
+    .layer-item .layer-text { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 2px; }
+    .layer-item .md-title-m { color: var(--md-on-surface); }
+    .layer-item .md-body-m { color: var(--md-on-surface-variant); }
+    .layer-item .layer-trail { color: var(--md-on-surface-variant); transition: transform .2s var(--md-ease); }
+    .layer-item.active .layer-trail { transform: translateX(4px); color: var(--md-primary); }
+    .layer-stack-line { position: absolute; left: 35px; top: 0; bottom: 0; width: 2px; background: var(--md-outline-variant); z-index: -1; }
+
+    .inspector { display: flex; flex-direction: column; }
+    .inspector-body { padding: 20px 24px 24px; display: flex; flex-direction: column; gap: 12px; flex: 1; }
+    .inspector-body .md-body-l { color: var(--md-on-surface-variant); }
+    .spec-block {
+      white-space: pre-wrap; font-family: var(--font-mono); font-size: 13px; line-height: 22px;
+      background: var(--md-surface); border: 1px solid var(--md-outline-variant);
+      border-radius: var(--md-shape-m); padding: 14px 16px; color: var(--md-on-surface);
+      margin: 0;
+    }
+
+    /* ==========================================================================
+       SNAP 5 — Agent sandbox
+       ========================================================================== */
+    .sim-toolbar { display: flex; flex-wrap: wrap; gap: 16px; align-items: flex-end; justify-content: space-between; padding: 20px 20px 16px; }
+    .sim-fields { display: flex; flex-wrap: wrap; gap: 16px; flex: 1; }
+    .md-field { position: relative; min-width: 220px; flex: 1 1 220px; }
+    .md-field select {
+      width: 100%; height: 56px; padding: 0 44px 0 16px;
+      appearance: none; -webkit-appearance: none;
+      border: 1px solid var(--md-outline); border-radius: var(--md-shape-xs);
+      background: var(--md-surface); color: var(--md-on-surface);
+      font-family: var(--font-sans); font-size: 16px; letter-spacing: .031em;
+      cursor: pointer; outline: none;
+    }
+    .md-field select:hover { border-color: var(--md-on-surface); }
+    .md-field select:focus { border: 2px solid var(--md-primary); padding-left: 15px; }
+    .md-field label {
+      position: absolute; left: 12px; top: -8px; padding: 0 4px;
+      background: var(--md-surface); color: var(--md-on-surface-variant);
+      font-size: 12px; line-height: 16px; pointer-events: none;
+    }
+    .md-field select:focus + label { color: var(--md-primary); }
+    .md-field .md-field-icon { position: absolute; right: 12px; top: 50%; transform: translateY(-50%); pointer-events: none; color: var(--md-on-surface-variant); }
+    .sim-actions { display: flex; gap: 8px; }
+
+    .sim-split { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; padding: 0 20px 20px; }
+    .sim-pane { border-radius: var(--md-shape-m); border: 1px solid var(--md-outline-variant); display: flex; flex-direction: column; overflow: hidden; background: var(--md-surface); }
+    .sim-pane-head { display: flex; justify-content: space-between; align-items: center; gap: 8px; padding: 10px 16px; background: var(--md-surface-container-low); border-bottom: 1px solid var(--md-outline-variant); }
+    .sim-pane-head .md-label-m { letter-spacing: .08em; color: var(--md-on-surface-variant); }
+    .sim-terminal {
+      height: 320px; overflow-y: auto; padding: 14px 16px;
+      font-family: var(--font-mono); font-size: 13px; line-height: 22px;
+      color: var(--md-on-surface); white-space: pre-wrap; word-break: break-word;
+      background: var(--md-surface);
+    }
+    .sim-terminal .ln { display: block; animation: md-fade .25s var(--md-ease); }
+    .sim-terminal .px { font-weight: 500; }
+    .px-agent { color: var(--tone-purple); } .px-tool { color: var(--tone-blue); } .px-ok { color: var(--tone-green); }
+    .px-tele { color: var(--tone-amber); } .px-misc { color: var(--md-on-surface-variant); }
+
+    .sim-traj { height: 320px; overflow-y: auto; padding: 8px; display: flex; flex-direction: column; gap: 6px; }
+    .traj-step {
+      display: grid; grid-template-columns: 112px minmax(0, 1fr); gap: 12px; align-items: start; overflow-wrap: anywhere;
+      padding: 10px 12px; border-radius: var(--md-shape-s);
+      background: var(--md-surface-container-low);
+      color: var(--md-on-surface); font-size: 14px; line-height: 20px;
+      animation: md-fade .3s var(--md-ease);
+    }
+    .traj-step strong { font-weight: 500; }
+    .traj-step .md-tag { justify-content: center; }
+    .tag-thought { background: var(--tone-purple-c); color: var(--tone-on-purple-c); }
+    .tag-action { background: var(--tone-blue-c); color: var(--tone-on-blue-c); }
+    .tag-observation { background: var(--tone-amber-c); color: var(--tone-on-amber-c); }
+    .tag-result { background: var(--tone-green-c); color: var(--tone-on-green-c); }
+
+    .status-chip { display: inline-flex; align-items: center; gap: 6px; font-size: 12px; font-weight: 500; letter-spacing: .04em; }
+    .status-chip .dot { width: 8px; height: 8px; border-radius: 50%; background: currentColor; }
+
+    /* ==========================================================================
+       FOOTER
+       ========================================================================== */
+    .md-footer { background: var(--md-surface-container-low); border-top: 1px solid var(--md-outline-variant); padding: 40px 40px 24px; }
+    .md-footer-inner { max-width: 1280px; margin: 0 auto; display: flex; flex-direction: column; gap: 24px; }
+    .md-footer-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 32px; }
+    .md-footer-col { display: flex; flex-direction: column; gap: 12px; }
+    .md-footer-col-title { display: flex; align-items: center; gap: 10px; color: var(--md-on-surface); }
+    .md-footer-col p { color: var(--md-on-surface-variant); }
+    .md-footer-links { display: flex; flex-wrap: wrap; gap: 8px; }
+    .md-footer a.md-chip { text-decoration: none; color: var(--md-on-surface-variant); transition: background-color .2s; }
+    .md-footer a.md-chip:hover { background: var(--md-surface-container-high); color: var(--md-on-surface); }
+    .md-footer a.md-chip svg { margin-left: -4px; }
+    .md-contact { display: flex; align-items: center; gap: 12px; }
+    .md-contact-icon { width: 40px; height: 40px; border-radius: 50%; background: var(--md-secondary-container); color: var(--md-on-secondary-container); display: grid; place-items: center; }
+    .md-contact a { color: var(--md-primary); text-decoration: none; font-weight: 500; }
+    .md-contact a:hover { text-decoration: underline; }
+    .md-footer-bottom { display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; padding-top: 16px; border-top: 1px solid var(--md-outline-variant); color: var(--md-on-surface-variant); }
+    .md-footer-bottom a { color: var(--md-primary); text-decoration: none; font-weight: 500; }
+    .md-footer-bottom strong { color: var(--md-on-surface); font-weight: 500; }
+
+    /* ==========================================================================
+       RESPONSIVE
+       ========================================================================== */
+    @media (max-width: 1320px) {
+      .md-shell { grid-template-columns: 248px minmax(0, 1fr); }
+      .md-toc { display: none; }
+    }
+    @media (max-width: 1100px) {
+      .evo-grid, .slide-grid, .arch-grid { grid-template-columns: minmax(0, 1fr); }
+      .md-snap { padding: 24px; }
+    }
+    @media (max-width: 900px) {
+      body.md3 { overflow-x: hidden; overflow-y: auto; }
+      .md-shell { display: block; height: auto; }
+      .md-drawer { display: none; }
+      .md-scroller { height: auto; overflow: visible; scroll-snap-type: none; }
+      .md-snap { min-height: 0; }
+      .sim-split, .md-footer-grid { grid-template-columns: minmax(0, 1fr); }
+      .md3 .master-instructor-beam { display: none; }
+    }
+    @media (max-width: 640px) {
+      .md-snap { padding: 20px 16px; }
+      .md-footer { padding: 32px 16px 20px; }
+      .md-display-s { font-size: 28px; line-height: 36px; }
+      .md-tabs { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .pipeline { grid-template-columns: minmax(0, 1fr); }
+      .pipeline .flow-arrow { transform: rotate(90deg); }
+      .ml-board, .gen-board, .syllabus-grid, .tech-grid { grid-template-columns: minmax(0, 1fr); }
+      .md3 .master-nav-actions { display: none; }
+      .ai-def-card { grid-template-columns: minmax(0, 1fr); }
+      .reel-screen { height: 420px; }
+      .reel-node { font-size: 12px; padding: 6px 12px 6px 6px; }
+      .n-user, .n-agent { top: 16px; } .n-mcp, .n-db { bottom: 16px; }
+      .n-user, .n-mcp { left: 12px; } .n-agent, .n-db { right: 12px; }
+      .traj-step { grid-template-columns: minmax(0, 1fr); gap: 6px; }
+      .traj-step .md-tag { justify-self: start; }
+      .carousel-stage { padding: 16px; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { animation-duration: .001ms !important; animation-iteration-count: 1 !important; transition-duration: .001ms !important; scroll-behavior: auto !important; }
+    }
+  </style>
+</head>
+<body class="md3">
+
+  <!-- 1. MASTER TOP NAVIGATION BAR -->
+  <header class="master-top-nav">
+    <div class="master-top-nav-inner">
+      <a href="../index.html" class="master-brand-wrap" aria-label="Tinitiate MasterClass Academy">
+        <img src="../tinitiate_header-banner-dark.png" alt="Tinitiate Logo" class="master-brand-logo">
+        <span class="master-brand-badge">AI & Agentic Systems</span>
+      </a>
+
+      <!-- Primary Navigation Links (NO LOCAL NAVIGATION IN HEADER) -->
+      <nav class="master-menu-links">
+        <a href="../index.html" class="master-nav-btn" title="Main Academy Portal">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+          <span>Home</span>
+        </a>
+        <a href="index.html" class="master-nav-btn" title="AI Systems Home">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 8V4H8"/><rect width="16" height="12" x="4" y="8" rx="2"/><path d="M2 14h2"/><path d="M20 14h2"/><path d="M15 13v2"/><path d="M9 13v2"/></svg>
+          <span>AI Systems Home</span>
+        </a>
+        <a href="demo.html" class="master-nav-btn subject-home-btn" title="Interactive Demo">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+          <span>Demo</span>
+        </a>
+
+        <!-- Subjects DropDown with Bulletproof Bridge & SVGs -->
+        <div class="master-dropdown" id="subjectsDropdown">
+          <button type="button" class="master-dropdown-toggle" onclick="toggleSubjectsDropdown(event)" aria-haspopup="true" aria-expanded="false" title="Explore All Subjects">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="7" height="7" x="3" y="3" rx="1"/><rect width="7" height="7" x="14" y="3" rx="1"/><rect width="7" height="7" x="14" y="14" rx="1"/><rect width="7" height="7" x="3" y="14" rx="1"/></svg>
+            <span>Subjects</span>
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+          </button>
+          <div class="master-dropdown-menu mega-menu" id="subjectsMegaMenu">
+            <div class="mega-menu-header">
+              <div class="mega-menu-title-wrap">
+                <span class="mega-menu-eyebrow">TINITIATE AI ACADEMY • ARCHITECTURE CURRICULUM</span>
+                <h4 class="mega-menu-title">Explore Engineering Curricula by Domain</h4>
+              </div>
+              <div class="mega-menu-stats-pill">
+                <span>5 Core Domains</span> • <span>26 Specialized Tracks</span>
+              </div>
+            </div>
+
+            <div class="mega-menu-grid">
+        <!-- Category: Foundational -->
+        <div class="mega-category-col" style="--cat-accent:#38bdf8;">
+          <div class="mega-category-header">
+            <span class="mega-cat-badge" style="color:#38bdf8;">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="8" height="8" x="3" y="3" rx="2"/><path d="M7 11v4a2 2 0 0 0 2 2h4"/><rect width="8" height="8" x="13" y="13" rx="2"/></svg>
+              <span>Foundational</span>
+            </span>
+            <span class="mega-cat-count">6 Tracks</span>
+          </div>
+          <div class="mega-category-list">
+          <a href="../foundational/data-structures/index.html" class="mega-category-item" title="Data Structures: Trees, Graphs, HashTables & Heaps">
+            <span class="mega-item-arrow">&gt;</span>
+            <span class="mega-item-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="8" height="8" x="3" y="3" rx="2"/><rect width="8" height="8" x="13" y="13" rx="2"/></svg></span>
+            <span class="mega-item-text">
+              <span class="mega-item-name">Data Structures</span>
+            </span>
+          </a>
+          <a href="../foundational/authentication/index.html" class="mega-category-item" title="Authentication: OAuth2, OIDC, JWT, SAML & PKCE">
+            <span class="mega-item-arrow">&gt;</span>
+            <span class="mega-item-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m21 2-2 2m-1.5 1.5L13 10m0 0a5 5 0 1 1-7-7 5 5 0 0 1 7 7Z"/></svg></span>
+            <span class="mega-item-text">
+              <span class="mega-item-name">Authentication</span>
+            </span>
+          </a>
+          <a href="../foundational/apis/index.html" class="mega-category-item" title="APIs: REST, GraphQL, gRPC & WebSockets">
+            <span class="mega-item-arrow">&gt;</span>
+            <span class="mega-item-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 16.326A7 7 0 1 1 15.71 8h1.79a4.5 4.5 0 0 1 .5 8.973"/><path d="m13 12-3 5h4l-3 5"/></svg></span>
+            <span class="mega-item-text">
+              <span class="mega-item-name">APIs</span>
+            </span>
+          </a>
+          <a href="../foundational/microservices/index.html" class="mega-category-item" title="MicroServices: Sagas, Service Mesh & Event-Driven">
+            <span class="mega-item-arrow">&gt;</span>
+            <span class="mega-item-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2.97 12.92A2 2 0 0 0 2 14.63v3.24a2 2 0 0 0 .97 1.71l6 3.43a2 2 0 0 0 1.97 0l6-3.43a2 2 0 0 0 .97-1.71v-3.24a2 2 0 0 0-.97-1.71L11 9.49a2 2 0 0 0-2.06 0l-5.97 3.43Z"/></svg></span>
+            <span class="mega-item-text">
+              <span class="mega-item-name">MicroServices</span>
+            </span>
+          </a>
+          <a href="../foundational/oop/index.html" class="mega-category-item" title="OOP: SOLID, Polymorphism & Abstraction">
+            <span class="mega-item-arrow">&gt;</span>
+            <span class="mega-item-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m18 16 4-4-4-4"/><path d="m6 8-4 4 4 4"/><path d="m14.5 4-5 16"/></svg></span>
+            <span class="mega-item-text">
+              <span class="mega-item-name">OOP</span>
+            </span>
+          </a>
+          <a href="../foundational/design-patterns/index.html" class="mega-category-item" title="Design Patterns: GoF Creational, Structural & Behavioral">
+            <span class="mega-item-arrow">&gt;</span>
+            <span class="mega-item-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="7" height="7" x="3" y="3" rx="1"/><rect width="7" height="7" x="14" y="3" rx="1"/><rect width="7" height="7" x="14" y="14" rx="1"/><rect width="7" height="7" x="3" y="14" rx="1"/></svg></span>
+            <span class="mega-item-text">
+              <span class="mega-item-name">Design Patterns</span>
+            </span>
+          </a>
+          </div>
+        </div>
+        <!-- Category: AI -->
+        <div class="mega-category-col" style="--cat-accent:#a855f7;">
+          <div class="mega-category-header">
+            <span class="mega-cat-badge" style="color:#a855f7;">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 8V4H8"/><rect width="16" height="12" x="4" y="8" rx="2"/><path d="M2 14h2"/><path d="M20 14h2"/><path d="M15 13v2"/><path d="M9 13v2"/></svg>
+              <span>AI</span>
+            </span>
+            <span class="mega-cat-count">6 Tracks</span>
+          </div>
+          <div class="mega-category-list">
+          <a href="../automation-ml-ai-agentic/index.html" class="mega-category-item" title="Automation GenAI Agentic: Swarm Agents, MCP & LangChain">
+            <span class="mega-item-arrow">&gt;</span>
+            <span class="mega-item-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 8V4H8"/><rect width="16" height="12" x="4" y="8" rx="2"/><path d="M2 14h2"/><path d="M20 14h2"/><path d="M15 13v2"/><path d="M9 13v2"/></svg></span>
+            <span class="mega-item-text">
+              <span class="mega-item-name">Automation GenAI Agentic</span>
+            </span>
+          </a>
+          <a href="../ai/langgraph/index.html" class="mega-category-item" title="Langgraph: Cyclic State Graphs & Multi-Agent DAGs">
+            <span class="mega-item-arrow">&gt;</span>
+            <span class="mega-item-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="18" r="3"/><circle cx="6" cy="6" r="3"/><circle cx="18" cy="6" r="3"/><path d="M18 9v1a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2V9"/><path d="M12 12v3"/></svg></span>
+            <span class="mega-item-text">
+              <span class="mega-item-name">Langgraph</span>
+            </span>
+          </a>
+          <a href="../ai/aws-bedrock/index.html" class="mega-category-item" title="AWS Bedrock: Managed Foundation Models & Guardrails">
+            <span class="mega-item-arrow">&gt;</span>
+            <span class="mega-item-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="16" height="16" x="4" y="4" rx="2"/><rect width="6" height="6" x="9" y="9" rx="1"/><path d="M15 2v2"/><path d="M15 20v2"/><path d="M2 15h2"/><path d="M2 9h2"/><path d="M20 15h2"/><path d="M20 9h2"/><path d="M9 2v2"/><path d="M9 20v2"/></svg></span>
+            <span class="mega-item-text">
+              <span class="mega-item-name">AWS Bedrock</span>
+            </span>
+          </a>
+          <a href="../ai/azure-foundry/index.html" class="mega-category-item" title="Azure Foundry: Azure AI Studio, Prompt Flow & Evaluators">
+            <span class="mega-item-arrow">&gt;</span>
+            <span class="mega-item-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="20" height="8" x="2" y="2" rx="2" ry="2"/><rect width="20" height="8" x="2" y="14" rx="2" ry="2"/><line x1="6" x2="6.01" y1="6" y2="6"/><line x1="6" x2="6.01" y1="18" y2="18"/></svg></span>
+            <span class="mega-item-text">
+              <span class="mega-item-name">Azure Foundry</span>
+            </span>
+          </a>
+          <a href="../ai/claude-sdk/index.html" class="mega-category-item" title="Claude SDK: Anthropic SDK, Tools & Prompt Caching">
+            <span class="mega-item-arrow">&gt;</span>
+            <span class="mega-item-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"/></svg></span>
+            <span class="mega-item-text">
+              <span class="mega-item-name">Claude SDK</span>
+            </span>
+          </a>
+          <a href="../ai/google-gemini-sdk/index.html" class="mega-category-item" title="Google Gemini SDK: Gemini 1.5 Pro, Multimodal & Context Cache">
+            <span class="mega-item-arrow">&gt;</span>
+            <span class="mega-item-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></span>
+            <span class="mega-item-text">
+              <span class="mega-item-name">Google Gemini SDK</span>
+            </span>
+          </a>
+          </div>
+        </div>
+        <!-- Category: Data Engineering -->
+        <div class="mega-category-col" style="--cat-accent:#0284c7;">
+          <div class="mega-category-header">
+            <span class="mega-cat-badge" style="color:#0284c7;">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/><path d="M3 12c0 1.66 4 3 9 3s9-1.34 9-3"/></svg>
+              <span>Data Engineering</span>
+            </span>
+            <span class="mega-cat-count">7 Tracks</span>
+          </div>
+          <div class="mega-category-list">
+          <a href="../data-engineering/index.html" class="mega-category-item" title="Data Engineering Master Class: Modern Lakehouse, Fabric & Kafka Streams">
+            <span class="mega-item-arrow">&gt;</span>
+            <span class="mega-item-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/><path d="M3 12c0 1.66 4 3 9 3s9-1.34 9-3"/></svg></span>
+            <span class="mega-item-text">
+              <span class="mega-item-name">Data Engineering Master Class</span>
+            </span>
+          </a>
+          <a href="../databricks-dataengineering/index.html" class="mega-category-item" title="Databricks: Unity Catalog, Delta Live & Photon">
+            <span class="mega-item-arrow">&gt;</span>
+            <span class="mega-item-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg></span>
+            <span class="mega-item-text">
+              <span class="mega-item-name">Databricks</span>
+            </span>
+          </a>
+          <a href="../aws-dataengineering/index.html" class="mega-category-item" title="AWS Data Engineering: EMR, Glue, Redshift, Kinesis & S3">
+            <span class="mega-item-arrow">&gt;</span>
+            <span class="mega-item-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17.5 19H9a7 7 0 1 1 6.71-9h1.79a4.5 4.5 0 1 1 0 9Z"/></svg></span>
+            <span class="mega-item-text">
+              <span class="mega-item-name">AWS Data Engineering</span>
+            </span>
+          </a>
+          <a href="../snowflake-dataengineering/index.html" class="mega-category-item" title="SnowFlake: Snowpark, Dynamic Tables & Warehouses">
+            <span class="mega-item-arrow">&gt;</span>
+            <span class="mega-item-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" x2="12" y1="2" y2="22"/><line x1="12" x2="12" y1="10" y2="14"/><line x1="2" x2="22" y1="12" y2="12"/><line x1="20" x2="4" y1="4" y2="20"/><line x1="4" x2="20" y1="4" y2="20"/></svg></span>
+            <span class="mega-item-text">
+              <span class="mega-item-name">SnowFlake</span>
+            </span>
+          </a>
+          <a href="../azure-dataengineering/index.html" class="mega-category-item" title="Azure Data Engineering: Fabric, Synapse Analytics & ADLS Gen2">
+            <span class="mega-item-arrow">&gt;</span>
+            <span class="mega-item-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="20" height="8" x="2" y="2" rx="2" ry="2"/><rect width="20" height="8" x="2" y="14" rx="2" ry="2"/><line x1="6" x2="6.01" y1="6" y2="6"/><line x1="6" x2="6.01" y1="18" y2="18"/></svg></span>
+            <span class="mega-item-text">
+              <span class="mega-item-name">Azure Data Engineering</span>
+            </span>
+          </a>
+          <a href="../data-engineering/onprem-pandas-polars-sql/index.html" class="mega-category-item" title="On Prem Pandas, Polars, SQL: Vectorized LazyFrames & Local Engines">
+            <span class="mega-item-arrow">&gt;</span>
+            <span class="mega-item-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="4 17 10 11 4 5"/><line x1="12" x2="20" y1="19" y2="19"/></svg></span>
+            <span class="mega-item-text">
+              <span class="mega-item-name">On Prem Pandas, Polars, SQL</span>
+            </span>
+          </a>
+          <a href="../data-engineering/duckdb/index.html" class="mega-category-item" title="DuckDB: In-Process Columnar Analytical OLAP">
+            <span class="mega-item-arrow">&gt;</span>
+            <span class="mega-item-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.24 12.24a6 6 0 0 0-8.49-8.49L5 10.5V19h8.5z"/><line x1="16" x2="2" y1="8" y2="22"/><line x1="17.5" x2="9" y1="15" y2="15"/></svg></span>
+            <span class="mega-item-text">
+              <span class="mega-item-name">DuckDB</span>
+            </span>
+          </a>
+          </div>
+        </div>
+        <!-- Category: Data Governance -->
+        <div class="mega-category-col" style="--cat-accent:#10b981;">
+          <div class="mega-category-header">
+            <span class="mega-cat-badge" style="color:#10b981;">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/></svg>
+              <span>Data Governance</span>
+            </span>
+            <span class="mega-cat-count">3 Tracks</span>
+          </div>
+          <div class="mega-category-list">
+          <a href="../data-governence/atlas/index.html" class="mega-category-item" title="Atlas: Apache Atlas Metadata & Lineage Graph">
+            <span class="mega-item-arrow">&gt;</span>
+            <span class="mega-item-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="3 6 9 3 15 6 21 3 21 18 15 21 9 18 3 21"/></svg></span>
+            <span class="mega-item-text">
+              <span class="mega-item-name">Atlas</span>
+            </span>
+          </a>
+          <a href="../data-governence/unity/index.html" class="mega-category-item" title="Unity: Unity Catalog Fine-Grained ABAC & Grants">
+            <span class="mega-item-arrow">&gt;</span>
+            <span class="mega-item-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><line x1="12" x2="12" y1="8" y2="12"/><line x1="12" x2="12.01" y1="16" y2="16"/></svg></span>
+            <span class="mega-item-text">
+              <span class="mega-item-name">Unity</span>
+            </span>
+          </a>
+          <a href="../data-governence/purview-sandbox/index.html" class="mega-category-item" title="Purview: Purview Data Map, Stewardship & Scanning">
+            <span class="mega-item-arrow">&gt;</span>
+            <span class="mega-item-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="m9 12 2 2 4-4"/></svg></span>
+            <span class="mega-item-text">
+              <span class="mega-item-name">Purview</span>
+            </span>
+          </a>
+          </div>
+        </div>
+        <!-- Category: Full Stack -->
+        <div class="mega-category-col" style="--cat-accent:#f43f5e;">
+          <div class="mega-category-header">
+            <span class="mega-cat-badge" style="color:#f43f5e;">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+              <span>Full Stack</span>
+            </span>
+            <span class="mega-cat-count">4 Tracks</span>
+          </div>
+          <div class="mega-category-list">
+          <a href="../full-stack/python-fastapi/index.html" class="mega-category-item" title="Python fastAPI: Pydantic v2, Async ASGI & OpenTelemetry">
+            <span class="mega-item-arrow">&gt;</span>
+            <span class="mega-item-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg></span>
+            <span class="mega-item-text">
+              <span class="mega-item-name">Python fastAPI</span>
+            </span>
+          </a>
+          <a href="../full-stack/nodejs-react-nextjs/index.html" class="mega-category-item" title="NodeJS React NextJS: React 19, Server Components & App Router">
+            <span class="mega-item-arrow">&gt;</span>
+            <span class="mega-item-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" x2="22" y1="12" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></span>
+            <span class="mega-item-text">
+              <span class="mega-item-name">NodeJS React NextJS</span>
+            </span>
+          </a>
+          <a href="../full-stack/dotnet-csharp/index.html" class="mega-category-item" title="C#/.Net Full Stack: ASP.NET Core Web API & Entity Framework">
+            <span class="mega-item-arrow">&gt;</span>
+            <span class="mega-item-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="4" x2="20" y1="9" y2="9"/><line x1="4" x2="20" y1="15" y2="15"/><line x1="10" x2="8" y1="3" y2="21"/><line x1="16" x2="14" y1="3" y2="21"/></svg></span>
+            <span class="mega-item-text">
+              <span class="mega-item-name">C#/.Net Full Stack</span>
+            </span>
+          </a>
+          <a href="../full-stack/java-fullstack/index.html" class="mega-category-item" title="Java Full Stack: Spring Boot 3, Hibernate JPA & Microservices">
+            <span class="mega-item-arrow">&gt;</span>
+            <span class="mega-item-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 8h1a4 4 0 1 1 0 8h-1"/><path d="M3 8h14v9a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4Z"/><line x1="6" x2="6" y1="2" y2="4"/><line x1="10" x2="10" y1="2" y2="4"/><line x1="14" x2="14" y1="2" y2="4"/></svg></span>
+            <span class="mega-item-text">
+              <span class="mega-item-name">Java Full Stack</span>
+            </span>
+          </a>
+          </div>
+        </div>
+            </div>
+
+            <div class="mega-menu-footer">
+              <div class="mega-footer-left">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#a855f7" stroke-width="2"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"/></svg>
+                <span>Each module includes <strong>zero-code visual architectures</strong>, <strong>interactive sandboxes</strong>, and <strong>production blueprints</strong>.</span>
+              </div>
+              <div class="mega-footer-right">
+                <span>Lead Architect: <strong>Venkata Bhattaram</strong></span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </nav>
+
+      <!-- Right Actions: Instructor Rotating Border Beam + LinkedIn + GitHub -->
+      <div class="master-nav-actions">
+        <div class="master-instructor-beam" title="Lead Course Instructor &amp; Enterprise Architect">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"/></svg>
+          <span class="inst-label">Instructor:</span>
+          <span class="inst-name">Venkata Bhattaram</span>
+        </div>
+
+        <a href="https://www.linkedin.com/in/venkata-bhattaram/" target="_blank" rel="noopener noreferrer" class="master-nav-social-btn linkedin" title="Venkata Bhattaram on LinkedIn">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 10.9v8.37H9.2V10.9H6.46M7.83 6.45a1.6 1.6 0 1 0 0 3.2 1.6 1.6 0 0 0 0-3.2Z"/></svg>
+          <span>LinkedIn</span>
+        </a>
+
+        <a href="https://github.com/venkata-bcs" target="_blank" rel="noopener noreferrer" class="master-nav-social-btn github" title="Venkata Bhattaram on GitHub">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0 1 12 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0 0 22 12.017C22 6.484 17.522 2 12 2z"/></svg>
+          <span>GitHub</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- 2. MAIN LAYOUT: NAV DRAWER | SNAP SCROLLER | ON-THIS-PAGE -->
+  <div class="md-shell">
+
+    <!-- LEFT: Navigation drawer -->
+    <aside class="md-drawer" aria-label="Course modules">
+      <div class="md-drawer-headline">
+        <div class="md-drawer-avatar"><span class="msr fill">smart_toy</span></div>
+        <div>
+          <div class="md-label-m muted">COURSE MODULES</div>
+          <div class="md-title-m">AI &amp; Automation</div>
+        </div>
+      </div>
+
+      <ul class="md-drawer-list">
+        <li><a href="index.html" class="md-nav-item"><span class="msr">home</span><span class="md-nav-text">Course Home</span><span class="md-nav-badge">Hub</span></a></li>
+        <li><a href="demo.html" class="md-nav-item active" aria-current="page"><span class="msr">play_circle</span><span class="md-nav-text">Interactive Demo Lab</span><span class="md-nav-badge">Active</span></a></li>
+      </ul>
+
+      <div class="md-drawer-section-label md-title-s">Tracks</div>
+      <ul class="md-drawer-list">
+        <li><a href="ai.html" class="md-nav-item"><span class="msr">auto_awesome</span><span class="md-nav-text">AI Foundation</span><span class="md-nav-badge">01</span></a></li>
+        <li><a href="ml.html" class="md-nav-item"><span class="msr">memory</span><span class="md-nav-text">Machine Learning</span><span class="md-nav-badge">02</span></a></li>
+        <li><a href="genai.html" class="md-nav-item"><span class="msr">layers</span><span class="md-nav-text">GenAI &amp; LLMs</span><span class="md-nav-badge">03</span></a></li>
+        <li><a href="agents.html" class="md-nav-item"><span class="msr">hub</span><span class="md-nav-text">Autonomous Agents</span><span class="md-nav-badge">04</span></a></li>
+        <li><a href="agentic-loops.html" class="md-nav-item"><span class="msr">autorenew</span><span class="md-nav-text">Agentic Loops</span><span class="md-nav-badge">05</span></a></li>
+      </ul>
+
+      <div class="md-status-card">
+        <div class="md-title-s" style="display:flex;align-items:center;gap:10px;margin-bottom:6px;"><span class="md-live-dot"></span> Live Telemetry</div>
+        <div class="md-status-row md-body-m"><span>Status</span><strong>Online</strong></div>
+        <div class="md-status-row md-body-m"><span>MCP Protocol</span><strong>Active</strong></div>
+        <div class="md-status-row md-body-m"><span>Swarm Nodes</span><strong>4 Active</strong></div>
+      </div>
+    </aside>
+
+    <!-- CENTER: Snap scroller -->
+    <main class="md-scroller" id="snapContainer">
+
+      <!-- ================================================================= -->
+      <!-- SNAP 1: INTRODUCTION & EVOLUTION                                  -->
+      <!-- ================================================================= -->
+      <section class="md-snap" id="snap-1" data-snap-index="1">
+        <div class="md-snap-inner">
+          <div class="md-snap-head">
+            <div class="md-chip-row">
+              <span class="md-chip primary"><span class="msr">smart_toy</span>Snap 01 · Introduction &amp; Evolution</span>
+              <span class="md-chip">AI Automation MasterClass</span>
+            </div>
+            <h1 class="md-display-s">Autonomous AI Automation &amp; Agentic Swarm Engineering</h1>
+          </div>
+
+          <div class="md-card filled md-card-pad ai-def-card">
+            <div class="ai-def-icon"><span class="msr lg">auto_awesome</span></div>
+            <div>
+              <h2 class="md-title-l" style="margin-bottom:8px;">What is Artificial Intelligence?</h2>
+              <p class="md-body-l">Artificial Intelligence (AI) is the science and engineering of computational architectures capable of perceiving environmental inputs, contextual reasoning, autonomous problem-solving, and continuous learning from experience.</p>
+              <p class="md-body-l">In modern enterprise engineering, AI shifts systems from fragile, deterministic rule scripts into self-governing cognitive entities that understand strategic intent, orchestrate tool APIs, and achieve verifiable outcomes.</p>
+            </div>
+          </div>
+
+          <div class="evo-grid">
+            <!-- Infographic -->
+            <figure class="md-card evo-figure" style="margin:0;">
+              <div class="evo-figure-media">
+                <img src="ai_evolution_stages.jpg" alt="Evolution of AI: Automation, Machine Learning, Generative AI, and Agentic AI" id="snap1InfographicImg">
+                <button class="md-btn md-btn-elevated" onclick="openImageLightbox()" title="View full-screen diagram">
+                  <span class="msr">zoom_out_map</span>Zoom
+                </button>
+              </div>
+              <figcaption class="evo-figure-caption">
+                <span class="md-label-m c-purple">FIG 1.0 · ARCHITECTURAL EPOCHS</span>
+                <span class="md-body-m muted">Automation → Traditional ML → GenAI → Agentic Swarms</span>
+              </figcaption>
+            </figure>
+
+            <!-- Evolution tour -->
+            <div class="md-card" style="display:flex;flex-direction:column;">
+              <div class="md-card-head">
+                <div class="md-card-head-title">
+                  <span class="md-live-dot"></span>
+                  <span class="md-title-m">AI evolution in 30 seconds · Rules to AI agents</span>
+                </div>
+                <div style="display:flex;align-items:center;gap:4px;">
+                  <span class="time-pill" id="tourTimeText">00:00 / 00:30</span>
+                  <button class="md-btn md-btn-tonal" id="tourPlayBtn" onclick="toggleTourPlay()">
+                    <span class="msr" id="tourPlayIcon">play_arrow</span><span id="tourPlayText">Play 30s Tour</span>
+                  </button>
+                </div>
+              </div>
+
+              <div class="md-tabs" role="tablist">
+                <button class="md-tab active" role="tab" onclick="selectEpochStage(1)" id="epochTab1">
+                  <span class="md-tab-eyebrow">EPOCH 1</span>
+                  <span class="md-tab-label"><span class="msr sm">settings</span>Rules Era</span>
+                </button>
+                <button class="md-tab" role="tab" onclick="selectEpochStage(2)" id="epochTab2">
+                  <span class="md-tab-eyebrow">EPOCH 2</span>
+                  <span class="md-tab-label"><span class="msr sm">hub</span>Machine Learning</span>
+                </button>
+                <button class="md-tab" role="tab" onclick="selectEpochStage(3)" id="epochTab3">
+                  <span class="md-tab-eyebrow">EPOCH 3</span>
+                  <span class="md-tab-label"><span class="msr sm">auto_awesome</span>Generative AI</span>
+                </button>
+                <button class="md-tab" role="tab" onclick="selectEpochStage(4)" id="epochTab4">
+                  <span class="md-tab-eyebrow">EPOCH 4</span>
+                  <span class="md-tab-label"><span class="msr sm">autorenew</span>Agentic AI</span>
+                </button>
+              </div>
+              <div class="md-progress" style="border-radius:0;"><div id="epochScrubberFill" style="width:25%;"></div></div>
+
+              <div style="flex:1;">
+                <!-- Epoch 1 -->
+                <div class="epoch-panel active" id="epochPanel1" role="tabpanel">
+                  <div>
+                    <div class="epoch-title-row">
+                      <h3 class="md-title-l">1. The Rulebook Era (Rules &amp; Expert Systems)</h3>
+                      <span class="md-tag t-neutral">1990s – 2000s</span>
+                    </div>
+                    <p class="md-body-m muted" style="margin-top:6px;">A rigid cage of deterministic If/Then flowcharts. No learning, zero adaptability; crashes instantly upon unexpected schema drift.</p>
+                  </div>
+                  <div class="flow-row">
+                    <div class="flow-node">
+                      <div class="flow-node-icon t-blue"><span class="msr">schedule</span></div>
+                      <div><div class="md-title-s">Cron · RPA Scripts</div><div class="md-body-s">Hardcoded conditions</div></div>
+                    </div>
+                    <div class="flow-arrow"><span class="msr">arrow_forward</span></div>
+                    <div class="flow-node tone-red">
+                      <div class="flow-node-icon" style="background:var(--md-surface);color:var(--tone-red);"><span class="msr">warning</span></div>
+                      <div><div class="md-title-s">Schema Drift Exception</div><div class="md-body-s">Fatal process crash (exit 1)</div></div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Epoch 2 -->
+                <div class="epoch-panel" id="epochPanel2" role="tabpanel">
+                  <div>
+                    <div class="epoch-title-row">
+                      <h3 class="md-title-l">2. Statistical Machine Learning (Pattern Recognition)</h3>
+                      <span class="md-tag t-blue">2010s</span>
+                    </div>
+                    <p class="md-body-m muted" style="margin-top:6px;">Replaces human rules with mathematical models trained on historic datasets to learn weights, minimize loss, and predict probabilities.</p>
+                  </div>
+                  <div class="flow-row">
+                    <div class="flow-node">
+                      <div class="flow-node-icon t-blue"><span class="msr">table_chart</span></div>
+                      <div><div class="md-title-s">Features [x₁, x₂, x₃]</div><div class="md-body-s">Tabular preprocessing</div></div>
+                    </div>
+                    <div class="flow-arrow"><span class="msr">arrow_forward</span></div>
+                    <div class="flow-node">
+                      <div class="flow-node-icon t-blue" style="font-weight:500;">W*</div>
+                      <div><div class="md-title-s">Gradient Weights</div><div class="md-body-s">Loss minimization</div></div>
+                    </div>
+                    <div class="flow-arrow"><span class="msr">arrow_forward</span></div>
+                    <div class="flow-node tone-green">
+                      <div><div class="flow-metric" style="color:var(--tone-on-green-c);">94.2%</div><div class="md-body-s" style="color:var(--tone-on-green-c);">Class prediction</div></div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Epoch 3 -->
+                <div class="epoch-panel" id="epochPanel3" role="tabpanel">
+                  <div>
+                    <div class="epoch-title-row">
+                      <h3 class="md-title-l">3. Generative AI &amp; Foundation Models (Transformers)</h3>
+                      <span class="md-tag t-purple">2022 – Present</span>
+                    </div>
+                    <p class="md-body-m muted" style="margin-top:6px;">Multi-billion parameter transformers reasoning across multimodal context with multi-head self-attention mechanisms and code synthesis.</p>
+                  </div>
+                  <div class="flow-row">
+                    <div class="flow-node">
+                      <div class="flow-node-icon t-purple"><span class="msr">text_fields</span></div>
+                      <div><div class="md-title-s">Prompt Tokens</div><div class="md-body-s">"Triage K8s Pod..."</div></div>
+                    </div>
+                    <div class="flow-arrow"><span class="msr">arrow_forward</span></div>
+                    <div class="flow-node" style="background:var(--md-primary);border-color:transparent;">
+                      <div class="flow-node-icon" style="background:rgba(255,255,255,.18);color:#fff;"><span class="msr">memory</span></div>
+                      <div><div class="md-title-s" style="color:#fff;">Self-Attention Core</div><div class="md-body-s" style="color:#eaddff;">Q · K · V matrix softmax</div></div>
+                    </div>
+                    <div class="flow-arrow"><span class="msr">arrow_forward</span></div>
+                    <div class="flow-node">
+                      <div class="flow-node-icon t-blue"><span class="msr">stream</span></div>
+                      <div><div class="md-title-s">Token Stream</div><div class="md-body-s">"Invoking MCP Tool..."</div></div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Epoch 4 -->
+                <div class="epoch-panel" id="epochPanel4" role="tabpanel">
+                  <div>
+                    <div class="epoch-title-row">
+                      <h3 class="md-title-l">4. Autonomous AI Agents (Self-Governing Swarms)</h3>
+                      <span class="md-tag t-green">Next Gen</span>
+                    </div>
+                    <p class="md-body-m muted" style="margin-top:6px;">From following rules to writing their own rules! Autonomous goal-directed reasoning, Model Context Protocol (MCP) tool execution &amp; self-healing.</p>
+                  </div>
+                  <div class="flow-row">
+                    <div class="flow-node">
+                      <div class="flow-node-icon" style="background:var(--tone-green);color:#fff;"><span class="msr spin">autorenew</span></div>
+                      <div><div class="md-title-s">ReAct Reasoning Loop</div><div class="md-body-s">Plan → Act → Observe → Reflect</div></div>
+                    </div>
+                    <div class="flow-arrow"><span class="msr">arrow_forward</span></div>
+                    <div class="flow-node tone-green">
+                      <div class="flow-node-icon" style="background:var(--md-surface);color:var(--tone-green);"><span class="msr fill">check_circle</span></div>
+                      <div><div class="md-title-s" style="color:var(--tone-on-green-c);">MCP Tool Bus</div><div class="md-body-s" style="color:var(--tone-on-green-c);">K8s · SQL · APIs · Self-healing</div></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="epoch-footer">
+                <span class="md-body-m">Paradigm shift: <strong style="font-weight:500;">from following rules to writing their own rules.</strong></span>
+                <span class="md-label-l c-purple">Autonomous closed-loop execution</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Instructor card -->
+          <div class="md-card elevated instructor-card">
+            <div class="instructor-id">
+              <div class="instructor-avatar">VB<span class="verified"><span class="msr fill">verified</span></span></div>
+              <div>
+                <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap;">
+                  <span class="md-title-l">I am Venkata Bhattaram</span>
+                  <span class="md-tag t-purple">LEAD INSTRUCTOR</span>
+                </div>
+                <div class="md-body-m muted"><strong style="color:var(--md-on-surface);font-weight:500;">18+ years of USA experience</strong> in Enterprise Systems, Data Engineering and AI</div>
+              </div>
+            </div>
+            <div class="md-chip-row">
+              <span class="md-chip"><span class="msr">workspace_premium</span>Enterprise Architect</span>
+              <span class="md-chip"><span class="msr">database</span>Large-Scale Data Systems</span>
+              <span class="md-chip"><span class="msr">smart_toy</span>Agentic AI &amp; MCP Frameworks</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Lightbox dialog -->
+      <div id="imageLightboxModal" class="md-scrim" onclick="closeImageLightbox()" role="dialog" aria-modal="true" aria-labelledby="lightboxTitle">
+        <div class="md-dialog" onclick="event.stopPropagation()">
+          <div class="md-dialog-head">
+            <h2 class="md-headline-s" id="lightboxTitle">Architectural Epochs</h2>
+            <button class="md-icon-btn" onclick="closeImageLightbox()" title="Close"><span class="msr">close</span></button>
+          </div>
+          <div class="md-dialog-body">
+            <img src="ai_evolution_stages.jpg" alt="Evolution of AI architecture, full screen">
+          </div>
+          <div class="md-dialog-actions">
+            <span class="md-body-m muted" style="margin-right:auto;align-self:center;">FIG 1.0 · Automation → Traditional ML → Generative AI → Agentic Swarms</span>
+            <button class="md-btn md-btn-text" onclick="closeImageLightbox()">Close</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- ================================================================= -->
+      <!-- SNAP 2: CORE CURRICULUM CAROUSEL                                  -->
+      <!-- ================================================================= -->
+      <section class="md-snap" id="snap-2" data-snap-index="2">
+        <div class="md-snap-inner">
+          <div class="md-snap-head">
+            <div class="md-chip-row">
+              <span class="md-chip primary"><span class="msr">co_present</span>Snap 02 · Core Curriculum Slideshow</span>
+              <span class="md-chip">Interactive Carousel</span>
+            </div>
+            <h2 class="md-headline-m">Understanding Automation, Traditional ML, and GenAI</h2>
+            <p class="md-body-l">Explore the fundamental technologies, paradigm transitions, and skills covered in this MasterClass.</p>
+          </div>
+
+          <div class="ticker" aria-hidden="true">
+            <div class="ticker-track">
+              <div class="ticker-group">
+                <span class="ticker-item"><span class="md-tag t-amber">AUTOMATION</span>Shell Scripts · Cron Scheduling · RPA Bots · Fixed APIs</span>
+                <span class="ticker-item"><span class="md-tag t-blue">TRADITIONAL ML</span>Feature Engineering · Scikit-Learn · XGBoost · Regression</span>
+                <span class="ticker-item"><span class="md-tag t-purple">GENAI</span>Transformer Attention · 128k Context · Multi-Modal Tokens · Prompting</span>
+                <span class="ticker-item"><span class="md-tag t-green">WHAT WE LEARN</span>Autonomous ReAct Loops · MCP Tool Bus · Swarm Agents · Self-Healing</span>
+                <span class="ticker-item"><span class="md-tag t-neutral">TECH STACK</span>Python 3.12 · SQL &amp; VectorDB · System Design · LangGraph · MCP</span>
+              </div>
+              <div class="ticker-group">
+                <span class="ticker-item"><span class="md-tag t-amber">AUTOMATION</span>Shell Scripts · Cron Scheduling · RPA Bots · Fixed APIs</span>
+                <span class="ticker-item"><span class="md-tag t-blue">TRADITIONAL ML</span>Feature Engineering · Scikit-Learn · XGBoost · Regression</span>
+                <span class="ticker-item"><span class="md-tag t-purple">GENAI</span>Transformer Attention · 128k Context · Multi-Modal Tokens · Prompting</span>
+                <span class="ticker-item"><span class="md-tag t-green">WHAT WE LEARN</span>Autonomous ReAct Loops · MCP Tool Bus · Swarm Agents · Self-Healing</span>
+                <span class="ticker-item"><span class="md-tag t-neutral">TECH STACK</span>Python 3.12 · SQL &amp; VectorDB · System Design · LangGraph · MCP</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="md-card">
+            <div class="carousel-top">
+              <span class="md-chip primary" id="slideBadgeText"><span class="msr">layers</span>Pillar 01 · Understanding Automation</span>
+              <span class="md-label-l muted" id="slideCounterText">Slide 1 of 5</span>
+            </div>
+
+            <div class="carousel-stage">
+              <!-- Slide 1 -->
+              <div class="slide-item active" data-slide="1">
+                <div class="slide-grid">
+                  <div class="slide-copy">
+                    <h3 class="md-headline-s">1. Understanding Automation</h3>
+                    <p class="md-body-l">Traditional automation executes predefined, rigid instructions: cron schedules, shell scripts, and deterministic RPA. They thrive in closed, static environments but fail abruptly upon runtime schema drift or API changes.</p>
+                    <ul class="md-list">
+                      <li><span class="msr c-green">check_circle</span><span><strong>Execution model:</strong> Rigid if-then-else deterministic logic paths</span></li>
+                      <li><span class="msr c-amber">warning</span><span><strong>Failure mode:</strong> Immediate abort upon unhandled exceptions or altered UI IDs</span></li>
+                      <li><span class="msr c-blue">database</span><span><strong>Data capability:</strong> Restricted to fixed schemas with zero semantic awareness</span></li>
+                    </ul>
+                  </div>
+                  <div class="viz-card">
+                    <div class="viz-top">
+                      <span class="viz-top-label"><span class="msr sm spin">settings</span>DETERMINISTIC PIPELINE EXECUTION</span>
+                      <span class="md-tag t-amber"><span class="md-live-dot" style="background:var(--tone-amber);animation:none;"></span>RUNTIME SIMULATOR</span>
+                    </div>
+                    <div class="pipeline">
+                      <div class="pipe-node"><span class="msr lg c-blue">schedule</span><div class="md-title-s">Cron Trigger</div><div class="md-body-s muted">Fixed 00:00 UTC</div></div>
+                      <div class="flow-arrow"><span class="msr">arrow_forward</span></div>
+                      <div class="pipe-node hl"><span class="msr lg c-purple spin-rev">settings</span><div class="md-title-s">Script Runner</div><div class="md-body-s muted">Hardcoded logic</div></div>
+                      <div class="flow-arrow"><span class="msr c-red">arrow_forward</span></div>
+                      <div class="pipe-node fail"><span class="msr lg c-red">report</span><div class="md-title-s">Target Store</div><div class="md-body-s">Crash on drift</div></div>
+                    </div>
+                    <div class="md-banner flash">
+                      <span class="md-banner-msg"><span class="msr">error</span><span><strong style="font-weight:500;">Brittle exception:</strong> column <em>'customer_loyalty'</em> not in schema → process killed</span></span>
+                      <span class="md-tag" style="background:var(--md-surface);color:var(--tone-red);font-family:var(--font-mono);">EXIT CODE 1</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Slide 2 -->
+              <div class="slide-item" data-slide="2">
+                <div class="slide-grid">
+                  <div class="slide-copy">
+                    <h3 class="md-headline-s">2. Traditional Machine Learning</h3>
+                    <p class="md-body-l">Machine Learning replaces hardcoded rules with mathematical models trained on historic datasets. Statistical algorithms classify instances or predict continuous numeric values based on feature vectors.</p>
+                    <ul class="md-list">
+                      <li><span class="msr c-green">check_circle</span><span><strong>Supervised learning:</strong> Random Forests, XGBoost, Support Vector Machines</span></li>
+                      <li><span class="msr c-blue">tune</span><span><strong>Feature engineering:</strong> Requires extensive human preprocessing and tabular feature matrices</span></li>
+                      <li><span class="msr c-purple">target</span><span><strong>Limitation:</strong> Outputs static numerical probabilities; cannot self-plan or execute external actions</span></li>
+                    </ul>
+                  </div>
+                  <div class="viz-card">
+                    <div class="viz-top">
+                      <span class="viz-top-label"><span class="msr sm c-blue">hub</span>STATISTICAL INFERENCE &amp; WEIGHT ENGINE</span>
+                      <span class="md-tag t-green">GRADIENT BOOSTING</span>
+                    </div>
+                    <div class="ml-board">
+                      <div class="ml-features">
+                        <div class="ml-feature"><span>x₁ Age / Tenure</span><span>0.84</span></div>
+                        <div class="ml-feature"><span>x₂ Spend Ratio</span><span>0.61</span></div>
+                        <div class="ml-feature"><span>x₃ Frequency</span><span>0.95</span></div>
+                      </div>
+                      <div class="ml-core">
+                        <div class="md-title-s">Decision Trees · Weights</div>
+                        <div class="ml-weights">
+                          <div class="ml-weight">W₁</div>
+                          <div class="ml-weight" style="animation-delay:.5s;">W₂</div>
+                          <div class="ml-weight" style="animation-delay:1s;">W₃</div>
+                        </div>
+                        <div class="md-body-s muted">Loss minimization (log-loss)</div>
+                      </div>
+                      <div class="ml-output">
+                        <span class="msr fill">check_circle</span>
+                        <div class="big">94.2%</div>
+                        <div class="md-label-m">Class: Churn Risk</div>
+                      </div>
+                    </div>
+                    <div class="viz-foot"><span>INPUT: Tabular feature vector (CSV / Parquet)</span><span class="c-blue" style="font-weight:500;">OUTPUT: Numerical probability score</span></div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Slide 3 -->
+              <div class="slide-item" data-slide="3">
+                <div class="slide-grid">
+                  <div class="slide-copy">
+                    <h3 class="md-headline-s">3. Generative AI &amp; Foundation Models</h3>
+                    <p class="md-body-l">Generative AI harnesses multi-billion parameter Transformer models trained on vast multimodal corpora. Foundation models understand natural language nuances, write complex code, and synthesize unstructured documents.</p>
+                    <ul class="md-list">
+                      <li><span class="msr c-purple">auto_awesome</span><span><strong>Self-attention:</strong> Weighs relationships between tokens across long context windows (128k to 2M tokens)</span></li>
+                      <li><span class="msr c-blue">layers</span><span><strong>Multi-modal perception:</strong> Simultaneously ingests unstructured text, architecture diagrams, and system logs</span></li>
+                      <li><span class="msr c-amber">help</span><span><strong>Limitation:</strong> Passive generation only—requires execution harnesses and tool protocols to execute actions</span></li>
+                    </ul>
+                  </div>
+                  <div class="viz-card">
+                    <div class="viz-top">
+                      <span class="viz-top-label"><span class="msr sm c-purple">auto_awesome</span>MULTI-HEAD TRANSFORMER ATTENTION</span>
+                      <span class="md-tag t-purple">128K LATENT SPACE</span>
+                    </div>
+                    <div class="gen-board">
+                      <div class="gen-col">
+                        <div class="gen-col-label">Ingress tokens</div>
+                        <div class="token-chip">"Triage" <small>ID 418</small></div>
+                        <div class="token-chip" style="animation-delay:.3s;">"Kubernetes" <small>ID 902</small></div>
+                        <div class="token-chip" style="animation-delay:.6s;">"Crash" <small>ID 711</small></div>
+                      </div>
+                      <div class="gen-core">
+                        <span class="msr xl">memory</span>
+                        <div class="md-title-m">Self-Attention Heads</div>
+                        <div class="md-body-s" style="color:#eaddff;">Q · K · V matrix dot products</div>
+                        <span class="md-chip sm">Softmax attention weights</span>
+                      </div>
+                      <div class="gen-col">
+                        <div class="gen-col-label">Stream emitter</div>
+                        <div class="token-chip out">"Investigate"</div>
+                        <div class="token-chip out" style="animation-delay:.4s;">"Pod logs..."</div>
+                        <div class="token-chip ok" style="animation-delay:.8s;">→ Ready for tool</div>
+                      </div>
+                    </div>
+                    <div class="viz-foot"><span>INPUT: Natural language &amp; multimodal context</span><span class="c-purple" style="font-weight:500;">OUTPUT: Synthesized reasoning stream</span></div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Slide 4 -->
+              <div class="slide-item" data-slide="4">
+                <div class="slide-grid">
+                  <div class="slide-copy">
+                    <h3 class="md-headline-s">4. What Will We Learn?</h3>
+                    <p class="md-body-l">This MasterClass transforms foundation models into production-ready Enterprise Autonomous Agents. You will build self-healing workflows, Model Context Protocol (MCP) tool buses, and resilient multi-agent swarms from scratch.</p>
+                    <ul class="md-list">
+                      <li><span class="msr c-green">check_circle</span><span><strong>Cognitive reasoning:</strong> Master ReAct, Plan-and-Solve, and Reflection loops</span></li>
+                      <li><span class="msr c-blue">memory</span><span><strong>Anthropic MCP bus:</strong> Build secure tool servers with JSON-RPC schemas</span></li>
+                      <li><span class="msr c-purple">hub</span><span><strong>Swarm architecture:</strong> Coordinate Supervisor, Coder, and Critic agents</span></li>
+                      <li><span class="msr c-green">verified_user</span><span><strong>Production safety:</strong> Deploy OpenTelemetry, LangSmith, and Slack human gates</span></li>
+                    </ul>
+                  </div>
+                  <div class="viz-card" style="padding:0;gap:0;">
+                    <div class="viz-top" style="padding:14px 16px;">
+                      <span class="viz-top-label"><span class="msr sm c-green">school</span>ENTERPRISE CURRICULUM SYLLABUS</span>
+                      <span class="md-tag t-green">6 CORE MODULES</span>
+                    </div>
+                    <div class="syllabus-grid">
+                      <div class="syllabus-item"><span class="syllabus-num">01</span><div><div class="md-title-s">Foundation Models &amp; Prompting</div><div class="md-body-s muted">Token mechanics, prompt engineering &amp; structured schema outputs.</div></div></div>
+                      <div class="syllabus-item"><span class="syllabus-num">02</span><div><div class="md-title-s">ReAct Agentic Loops &amp; Tools</div><div class="md-body-s muted">Autonomous reasoning, observation cycles &amp; external function calling.</div></div></div>
+                      <div class="syllabus-item"><span class="syllabus-num">03</span><div><div class="md-title-s">Model Context Protocol (MCP)</div><div class="md-body-s muted">Anthropic MCP tool buses, Docker, Kubernetes &amp; database executors.</div></div></div>
+                      <div class="syllabus-item"><span class="syllabus-num">04</span><div><div class="md-title-s">LangGraph Cyclic State Graphs</div><div class="md-body-s muted">State persistence, checkpointing &amp; multi-turn cognitive execution.</div></div></div>
+                      <div class="syllabus-item"><span class="syllabus-num">05</span><div><div class="md-title-s">Multi-Agent Swarm Networks</div><div class="md-body-s muted">Supervisor topologies, worker delegation &amp; self-healing triage.</div></div></div>
+                      <div class="syllabus-item"><span class="syllabus-num">06</span><div><div class="md-title-s">Telemetry, Guardrails &amp; Safety</div><div class="md-body-s muted">OpenTelemetry tracing, LangSmith eval &amp; automated rollback hooks.</div></div></div>
+                    </div>
+                    <div class="viz-foot" style="padding:12px 16px;margin:0;">
+                      <span style="display:inline-flex;align-items:center;gap:6px;"><span class="msr sm c-green">check_circle</span>Full hands-on labs with real production cloud sandboxes</span>
+                      <span class="c-purple" style="font-weight:500;">Capstone: Self-Healing Agent</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Slide 5 -->
+              <div class="slide-item" data-slide="5">
+                <div class="slide-grid">
+                  <div class="slide-copy">
+                    <h3 class="md-headline-s">5. Fundamental Technologies</h3>
+                    <p class="md-body-l">Production agent engineering requires mastering the confluence of high-performance backend systems, distributed data engines, and modern agent frameworks.</p>
+                    <ul class="md-list">
+                      <li><span class="msr c-purple">check</span><span><strong>Python 3.12+:</strong> Asyncio, Pydantic v2, FastAPI, Typing</span></li>
+                      <li><span class="msr c-purple">check</span><span><strong>SQL &amp; Vector:</strong> DuckDB, Snowflake, PostgreSQL, pgvector, Pinecone</span></li>
+                      <li><span class="msr c-purple">check</span><span><strong>System design:</strong> MicroServices, event-driven Kafka streams, state machines</span></li>
+                      <li><span class="msr c-purple">check</span><span><strong>Agent harness:</strong> LangGraph, CrewAI, Anthropic MCP, LiteLLM</span></li>
+                    </ul>
+                  </div>
+                  <div class="tech-grid">
+                    <div class="md-card tech-card"><div class="tech-card-icon t-blue"><span class="msr lg">terminal</span></div><div class="md-title-m">Python 3.12 Core</div><p class="md-body-m muted">Type-safe schemas, async event loops, high-throughput tool runners.</p></div>
+                    <div class="md-card tech-card"><div class="tech-card-icon t-amber"><span class="msr lg">database</span></div><div class="md-title-m">SQL &amp; Vector Stores</div><p class="md-body-m muted">Relational joins, pgvector embeddings, and low-latency hybrid RAG.</p></div>
+                    <div class="md-card tech-card"><div class="tech-card-icon t-green"><span class="msr lg">layers</span></div><div class="md-title-m">System Design</div><p class="md-body-m muted">Fault-tolerant distributed microservices, message buses &amp; retry queues.</p></div>
+                    <div class="md-card tech-card"><div class="tech-card-icon t-purple"><span class="msr lg">hub</span></div><div class="md-title-m">Frameworks &amp; MCP</div><p class="md-body-m muted">LangGraph state graphs, Anthropic MCP client/server &amp; LLM harnesses.</p></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="carousel-controls">
+              <div class="carousel-dots">
+                <button class="carousel-dot active" onclick="jumpToSlide(1)" aria-label="Slide 1"></button>
+                <button class="carousel-dot" onclick="jumpToSlide(2)" aria-label="Slide 2"></button>
+                <button class="carousel-dot" onclick="jumpToSlide(3)" aria-label="Slide 3"></button>
+                <button class="carousel-dot" onclick="jumpToSlide(4)" aria-label="Slide 4"></button>
+                <button class="carousel-dot" onclick="jumpToSlide(5)" aria-label="Slide 5"></button>
+              </div>
+              <div class="carousel-actions">
+                <button class="md-icon-btn" onclick="prevSlide()" title="Previous slide"><span class="msr">chevron_left</span></button>
+                <button class="md-icon-btn tonal" onclick="toggleSlideAutoplay()" id="slidePlayBtn" title="Play / pause carousel"><span class="msr">play_arrow</span></button>
+                <button class="md-icon-btn" onclick="nextSlide()" title="Next slide"><span class="msr">chevron_right</span></button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================================================================= -->
+      <!-- SNAP 3: REMOTION MOTION REEL                                      -->
+      <!-- ================================================================= -->
+      <section class="md-snap" id="snap-3" data-snap-index="3">
+        <div class="md-snap-inner">
+          <div class="md-snap-head">
+            <div class="md-chip-row">
+              <span class="md-chip primary"><span class="msr">movie</span>Snap 03 · Remotion Animation Reel</span>
+              <span class="md-chip">Programmatic Video Engine</span>
+            </div>
+            <h2 class="md-headline-m">Remotion Motion Graphics: The Agentic Reasoning Loop</h2>
+            <p class="md-body-l">A React-driven Remotion motion graphic demonstrating continuous multi-agent token stream execution, tool dispatch, and verification in a 30-second loop.</p>
+          </div>
+
+          <div class="md-card">
+            <div class="md-card-head">
+              <div class="md-card-head-title">
+                <span class="md-chip primary sm"><span class="msr sm">videocam</span>Remotion v4.0</span>
+                <span class="md-title-s">Autonomous SRE Agent Workflow · 60 FPS Canvas</span>
+              </div>
+              <span class="md-body-s muted mono">1920×1080 · ProRes render sim</span>
+            </div>
+
+            <div class="reel-screen" id="remotionScreen">
+              <svg class="reel-beams" aria-hidden="true">
+                <line x1="14%" y1="16%" x2="86%" y2="16%" stroke="#0b57d0" id="beam1"/>
+                <line x1="86%" y1="16%" x2="14%" y2="84%" stroke="#6750a4" id="beam2"/>
+                <line x1="14%" y1="84%" x2="86%" y2="84%" stroke="#146c2e" id="beam3"/>
+              </svg>
+
+              <div class="reel-node n-user" id="rNodeUser"><span class="reel-node-icon t-blue"><span class="msr sm">person</span></span>User / SRE Trigger</div>
+              <div class="reel-node n-agent" id="rNodeAgent"><span class="reel-node-icon t-purple"><span class="msr sm">memory</span></span>Claude 3.5 Sonnet (Agent)</div>
+              <div class="reel-node n-mcp" id="rNodeMCP"><span class="reel-node-icon t-green"><span class="msr sm">bolt</span></span>MCP Protocol Tool Bus</div>
+              <div class="reel-node n-db" id="rNodeDB"><span class="reel-node-icon t-amber"><span class="msr sm">database</span></span>Kubernetes &amp; RDS Cluster</div>
+
+              <div class="reel-monitor" id="remotionMonitor">
+                <div class="reel-monitor-head">
+                  <span class="md-label-m c-blue mono">Frame <span id="rFrameCount">0</span></span>
+                  <span class="md-tag t-purple" id="rStatusPill">PROMPT INGESTION</span>
+                </div>
+                <div class="reel-monitor-text" id="rTelemetryText">[THINKING] Investigating container crash loop in production namespace. Dispatching 'kubectl_get_events()'...</div>
+              </div>
+            </div>
+
+            <div class="reel-controls">
+              <div class="md-slider" id="videoScrubberTrack" onclick="seekRemotion(event)" role="slider" aria-label="Seek" aria-valuemin="0" aria-valuemax="900" aria-valuenow="0">
+                <div class="md-slider-track"></div>
+                <div class="md-slider-fill" id="videoScrubberFill"></div>
+                <div class="md-slider-thumb" id="videoScrubberThumb"></div>
+              </div>
+              <div class="reel-bar">
+                <div class="reel-bar-group">
+                  <button class="md-icon-btn filled" onclick="toggleRemotionPlay()" id="remotionPlayBtn" title="Play / pause"><span class="msr fill" id="remotionPlayIcon">play_arrow</span></button>
+                  <button class="md-icon-btn" onclick="restartRemotion()" title="Restart"><span class="msr">replay</span></button>
+                  <span class="reel-time"><span id="remotionTimeCurrent">00:00</span> / 00:30</span>
+                </div>
+                <div class="reel-bar-group">
+                  <button class="md-btn md-btn-text" onclick="changeRemotionSpeed()" id="remotionSpeedBtn" title="Playback speed">1.0x</button>
+                  <button class="md-icon-btn" onclick="toggleFullscreenRemotion()" title="Fullscreen"><span class="msr">fullscreen</span></button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================================================================= -->
+      <!-- SNAP 4: ARCHITECTURE INFOGRAPHIC                                  -->
+      <!-- ================================================================= -->
+      <section class="md-snap" id="snap-4" data-snap-index="4">
+        <div class="md-snap-inner">
+          <div class="md-snap-head">
+            <div class="md-chip-row">
+              <span class="md-chip primary"><span class="msr">hub</span>Snap 04 · Architectural Infographic</span>
+              <span class="md-chip">Interactive Blueprint</span>
+            </div>
+            <h2 class="md-headline-m">Full-Stack Enterprise Autonomous Agent Architecture</h2>
+            <p class="md-body-l">An enterprise agentic stack is composed of 5 decoupled layers: Ingress Moderation, Cognitive Planning, MCP Tool Protocols, Memory Vector Store, and Human Verification. Select each layer to inspect its protocol details and operational SLAs.</p>
+          </div>
+
+          <div class="arch-grid">
+            <div class="md-card">
+              <div class="layer-list" role="listbox" aria-label="Architecture layers">
+                <button class="layer-item active" onclick="selectInfographicLayer(1)" id="layer-1" role="option">
+                  <span class="layer-avatar t-blue">L1</span>
+                  <span class="layer-text"><span class="md-title-m">Semantic Ingress &amp; Moderation Gateway</span><span class="md-body-m">Llama Guard · PII Masking · Tokenizer Throttling</span></span>
+                  <span class="msr layer-trail">chevron_right</span>
+                </button>
+                <button class="layer-item" onclick="selectInfographicLayer(2)" id="layer-2" role="option">
+                  <span class="layer-avatar t-purple">L2</span>
+                  <span class="layer-text"><span class="md-title-m">Cognitive Planner &amp; Reasoning Core</span><span class="md-body-m">ReAct State Machine · Claude 3.5 / DeepSeek R1 · Reflection</span></span>
+                  <span class="msr layer-trail">chevron_right</span>
+                </button>
+                <button class="layer-item" onclick="selectInfographicLayer(3)" id="layer-3" role="option">
+                  <span class="layer-avatar t-green">L3</span>
+                  <span class="layer-text"><span class="md-title-m">Model Context Protocol (MCP) Tool Bus</span><span class="md-body-m">JSON-RPC · MicroServices · Kubernetes CLI · Postgres Runner</span></span>
+                  <span class="msr layer-trail">chevron_right</span>
+                </button>
+                <button class="layer-item" onclick="selectInfographicLayer(4)" id="layer-4" role="option">
+                  <span class="layer-avatar t-amber">L4</span>
+                  <span class="layer-text"><span class="md-title-m">Dual Memory &amp; Semantic Context Store</span><span class="md-body-m">Vector DB (Pinecone/Milvus) · Redis Short-Term Scratchpad</span></span>
+                  <span class="msr layer-trail">chevron_right</span>
+                </button>
+                <button class="layer-item" onclick="selectInfographicLayer(5)" id="layer-5" role="option">
+                  <span class="layer-avatar t-red">L5</span>
+                  <span class="layer-text"><span class="md-title-m">Evaluation, Telemetry &amp; Rollback Hooks</span><span class="md-body-m">OpenTelemetry · Human-in-the-Loop Approval · LangSmith</span></span>
+                  <span class="msr layer-trail">chevron_right</span>
+                </button>
+              </div>
+            </div>
+
+            <div class="md-card filled inspector">
+              <div class="md-card-head" style="padding-bottom:0;">
+                <span class="md-tag t-blue" id="drawerLayerTag"><span class="msr sm">code</span>LAYER 01 SPECIFICATIONS</span>
+              </div>
+              <div class="inspector-body">
+                <h3 class="md-headline-s" id="drawerHeading">Semantic Ingress &amp; Moderation Gateway</h3>
+                <p class="md-body-l" id="drawerDesc">Intercepts incoming requests before LLM inference to validate prompt safety, detect injection attempts, enforce rate limits, and sanitize PII.</p>
+                <pre class="spec-block" id="drawerSpecs"></pre>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================================================================= -->
+      <!-- SNAP 5: LIVE AGENT SANDBOX                                        -->
+      <!-- ================================================================= -->
+      <section class="md-snap" id="snap-5" data-snap-index="5">
+        <div class="md-snap-inner">
+          <div class="md-snap-head">
+            <div class="md-chip-row">
+              <span class="md-chip primary"><span class="msr">terminal</span>Snap 05 · Live Interactive Lab</span>
+              <span class="md-chip">Agent Sandbox</span>
+            </div>
+            <h2 class="md-headline-m">Autonomous Multi-Tool Agent Execution Studio</h2>
+            <p class="md-body-l">Choose an enterprise incident scenario, select your inference engine, and run the real-time agentic loop. Watch the model reason, call MCP tools, observe results, and formulate a resolution.</p>
+          </div>
+
+          <div class="md-card">
+            <div class="sim-toolbar">
+              <div class="sim-fields">
+                <div class="md-field">
+                  <select id="simScenarioSelect" onchange="changeSimScenario()">
+                    <option value="k8s">Incident A: Kubernetes OOMKilled Pod Loop</option>
+                    <option value="pii">Incident B: Customer DB PII Masking Leak</option>
+                    <option value="drift">Incident C: Snowflake Schema Drift Reconciliation</option>
+                  </select>
+                  <label for="simScenarioSelect">Incident scenario</label>
+                  <span class="msr md-field-icon">arrow_drop_down</span>
+                </div>
+                <div class="md-field">
+                  <select id="simModelSelect">
+                    <option value="claude">Anthropic Claude 3.5 Sonnet</option>
+                    <option value="gpt4o">OpenAI GPT-4o (Omni)</option>
+                    <option value="deepseek">DeepSeek R1 (Chain of Thought)</option>
+                  </select>
+                  <label for="simModelSelect">Reasoning engine</label>
+                  <span class="msr md-field-icon">arrow_drop_down</span>
+                </div>
+                <div class="md-field">
+                  <select id="simAutonomySelect">
+                    <option value="full">Full Autonomy (Auto-Execute)</option>
+                    <option value="hitl">Human-in-the-Loop (Approval Gate)</option>
+                  </select>
+                  <label for="simAutonomySelect">Autonomy level</label>
+                  <span class="msr md-field-icon">arrow_drop_down</span>
+                </div>
+              </div>
+              <div class="sim-actions">
+                <button class="md-btn md-btn-filled" onclick="runSimWorkflow()" id="simRunBtn" style="height:56px;border-radius:var(--md-shape-l);"><span class="msr">play_arrow</span>Run Agent Loop</button>
+                <button class="md-btn md-btn-outlined" onclick="resetSimWorkflow()" style="height:56px;border-radius:var(--md-shape-l);"><span class="msr">replay</span>Reset</button>
+              </div>
+            </div>
+
+            <div class="sim-split">
+              <div class="sim-pane">
+                <div class="sim-pane-head">
+                  <span class="md-label-m">LIVE MCP JSON-RPC TERMINAL</span>
+                  <span class="status-chip c-green"><span class="dot"></span>CONNECTED</span>
+                </div>
+                <div class="sim-terminal" id="simTerminal" aria-live="polite"></div>
+              </div>
+              <div class="sim-pane">
+                <div class="sim-pane-head">
+                  <span class="md-label-m">AGENTIC REASONING TRAJECTORY</span>
+                  <span class="status-chip c-purple" id="trajStatusText"><span class="dot"></span><span>IDLE</span></span>
+                </div>
+                <div class="sim-traj" id="simTrajectoryList"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================================================================= -->
+      <!-- FOOTER                                                            -->
+      <!-- ================================================================= -->
+      <footer class="md-footer">
+        <div class="md-footer-inner">
+          <div class="md-footer-grid">
+            <div class="md-footer-col">
+              <div class="md-footer-col-title"><span class="msr c-purple">apartment</span><span class="md-title-m">Tinitiate AI Academy</span></div>
+              <p class="md-body-m">Industry-aligned IT training curriculum designed to transition software engineers, cloud architects, and data professionals into high-impact AI, GenAI, and Distributed Lakehouse Engineering roles.</p>
+              <div class="md-label-m muted">COMPANY SOCIAL CHANNELS</div>
+              <div class="md-footer-links">
+                <a href="https://linkedin.com/company/tinitiate" target="_blank" rel="noopener noreferrer" class="md-chip"><svg width="18" height="18" viewBox="0 0 24 24" fill="#0a66c2"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 10.9v8.37H9.2V10.9H6.46M7.83 6.45a1.6 1.6 0 1 0 0 3.2 1.6 1.6 0 0 0 0-3.2Z"/></svg>LinkedIn</a>
+                <a href="https://youtube.com/@tinitiate" target="_blank" rel="noopener noreferrer" class="md-chip"><svg width="18" height="18" viewBox="0 0 24 24" fill="#ff0000"><path d="M21.58 7.19a2.76 2.76 0 0 0-1.95-1.95C17.9 4.75 12 4.75 12 4.75s-5.9 0-7.63.49a2.76 2.76 0 0 0-1.95 1.95A28.84 28.84 0 0 0 2 12a28.84 28.84 0 0 0 .42 4.81 2.76 2.76 0 0 0 1.95 1.95c1.73.49 7.63.49 7.63.49s5.9 0 7.63-.49a2.76 2.76 0 0 0 1.95-1.95A28.84 28.84 0 0 0 22 12a28.84 28.84 0 0 0-.42-4.81ZM10 15V9l5.2 3L10 15Z"/></svg>YouTube</a>
+                <a href="https://github.com/venkata-bcs" target="_blank" rel="noopener noreferrer" class="md-chip"><svg width="18" height="18" viewBox="0 0 24 24" fill="#1d1b20"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0 1 12 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0 0 22 12.017C22 6.484 17.522 2 12 2z"/></svg>GitHub</a>
+              </div>
+            </div>
+
+            <div class="md-footer-col">
+              <div class="md-footer-col-title"><span class="msr c-purple">how_to_reg</span><span class="md-title-m">Venkata Bhattaram</span></div>
+              <p class="md-body-m">Lead AI Instructor &amp; Enterprise Architect. Connect directly for course consultations, curriculum design, and technical advisory.</p>
+              <div class="md-label-m muted">VENKATA BHATTARAM'S PROFILES</div>
+              <div class="md-footer-links">
+                <a href="https://www.linkedin.com/in/venkata-bhattaram/" target="_blank" rel="noopener noreferrer" class="md-chip"><svg width="18" height="18" viewBox="0 0 24 24" fill="#0a66c2"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 10.9v8.37H9.2V10.9H6.46M7.83 6.45a1.6 1.6 0 1 0 0 3.2 1.6 1.6 0 0 0 0-3.2Z"/></svg>LinkedIn</a>
+                <a href="https://github.com/venkata-bcs" target="_blank" rel="noopener noreferrer" class="md-chip"><svg width="18" height="18" viewBox="0 0 24 24" fill="#1d1b20"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0 1 12 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0 0 22 12.017C22 6.484 17.522 2 12 2z"/></svg>GitHub</a>
+              </div>
+            </div>
+
+            <div class="md-footer-col">
+              <div class="md-footer-col-title"><span class="msr c-purple">call</span><span class="md-title-m">Contact &amp; Call Us</span></div>
+              <div class="md-contact">
+                <span class="md-contact-icon"><span class="msr">mail</span></span>
+                <div><div class="md-label-m muted">EMAIL SUPPORT</div><a href="mailto:contact@tinitiateai.com">contact@tinitiateai.com</a></div>
+              </div>
+              <div class="md-contact">
+                <span class="md-contact-icon"><span class="msr">language</span></span>
+                <div><div class="md-label-m muted">OFFICIAL PORTAL</div><a href="https://tinitiateai.com" target="_blank" rel="noopener noreferrer">tinitiateai.com</a></div>
+              </div>
+            </div>
+          </div>
+
+          <div style="display:flex;align-items:center;gap:12px;flex-wrap:wrap;">
+            <span class="md-label-m muted">MASTERCLASS PORTALS</span>
+            <div class="md-footer-links">
+              <a href="../index.html" class="md-chip"><span class="msr">home</span>Academy Home</a>
+              <a href="../automation-ml-ai-agentic/index.html" class="md-chip"><span class="msr">smart_toy</span>AI Systems Hub</a>
+              <a href="../data-engineering/index.html" class="md-chip"><span class="msr">database</span>Data Engineering Hub</a>
+              <a href="../data-governence/purview-sandbox/index.html" class="md-chip"><span class="msr">shield</span>Data Governance</a>
+              <a href="../pyspark/index.html" class="md-chip"><span class="msr">bolt</span>PySpark Architecture</a>
+            </div>
+          </div>
+
+          <div class="md-footer-bottom md-body-m">
+            <div>© 2026 <strong>Venkata Bhattaram</strong> · <a href="https://tinitiateai.com" target="_blank" rel="noopener noreferrer">TinitiateAI.com</a> · All Rights Reserved.</div>
+            <div>Lead Instructor: <strong>Venkata Bhattaram</strong> · <a href="https://github.com/venkata-bcs" target="_blank" rel="noopener noreferrer">github.com/venkata-bcs</a></div>
+          </div>
+        </div>
+      </footer>
+    </main>
+
+    <!-- RIGHT: On this page -->
+    <aside class="md-toc" aria-label="On this page">
+      <div class="md-toc-title"><span class="msr sm">explore</span><span class="md-title-s">On this page</span></div>
+      <nav class="md-toc-list">
+        <button class="md-toc-item active" onclick="scrollToSnap(1)" data-snap="1">
+          <span class="md-toc-num">01</span>
+          <span class="md-toc-text"><span class="md-toc-label">Introduction &amp; AI</span><span class="md-toc-sub">What is AI &amp; evolution</span></span>
+        </button>
+        <button class="md-toc-item" onclick="scrollToSnap(2)" data-snap="2">
+          <span class="md-toc-num">02</span>
+          <span class="md-toc-text"><span class="md-toc-label">Concepts Slideshow</span><span class="md-toc-sub">Automation, ML &amp; GenAI</span></span>
+        </button>
+        <button class="md-toc-item" onclick="scrollToSnap(3)" data-snap="3">
+          <span class="md-toc-num">03</span>
+          <span class="md-toc-text"><span class="md-toc-label">Remotion Video Reel</span><span class="md-toc-sub">Animated loop simulation</span></span>
+        </button>
+        <button class="md-toc-item" onclick="scrollToSnap(4)" data-snap="4">
+          <span class="md-toc-num">04</span>
+          <span class="md-toc-text"><span class="md-toc-label">Agent Infographic</span><span class="md-toc-sub">System topology &amp; specs</span></span>
+        </button>
+        <button class="md-toc-item" onclick="scrollToSnap(5)" data-snap="5">
+          <span class="md-toc-num">05</span>
+          <span class="md-toc-text"><span class="md-toc-label">Interactive Sandbox</span><span class="md-toc-sub">Live multi-tool runner</span></span>
+        </button>
+      </nav>
+
+      <div class="md-toc-pager">
+        <button class="md-icon-btn" onclick="goToPrevSnap()" title="Previous section"><span class="msr">keyboard_arrow_up</span></button>
+        <span class="md-label-l muted" id="snapCounterText">Snap 1 / 5</span>
+        <button class="md-icon-btn" onclick="goToNextSnap()" title="Next section"><span class="msr">keyboard_arrow_down</span></button>
+      </div>
+    </aside>
+  </div>
+
+  <!-- SCRIPT: TOUR, SNAP SCROLLSPY, CAROUSEL, REEL, INSPECTOR, SANDBOX -->
+  <script>
+    function setIcon(el, name) { if (el) el.textContent = name; }
+
+    // ------------------------------------------------------------------------
+    // 0. Ripple feedback for Material buttons
+    // ------------------------------------------------------------------------
+    document.addEventListener('pointerdown', (e) => {
+      const host = e.target.closest('.md-btn, .md-icon-btn, .md-tab, .layer-item');
+      if (!host || host.disabled) return;
+      const rect = host.getBoundingClientRect();
+      const size = Math.max(rect.width, rect.height) * 2;
+      const r = document.createElement('span');
+      r.className = 'md-ripple';
+      r.style.width = r.style.height = size + 'px';
+      r.style.left = (e.clientX - rect.left - size / 2) + 'px';
+      r.style.top = (e.clientY - rect.top - size / 2) + 'px';
+      host.appendChild(r);
+      r.addEventListener('animationend', () => r.remove());
+    });
+
+    // ------------------------------------------------------------------------
+    // 1. SNAP 1: 30s evolution tour & lightbox
+    // ------------------------------------------------------------------------
+    let currentEpoch = 1;
+    const totalEpochs = 4;
+    let tourPlaying = false;
+    let tourSeconds = 0;
+    const tourTotalSeconds = 30;
+    let tourInterval = null;
+
+    function openImageLightbox() {
+      document.getElementById('imageLightboxModal').classList.add('active');
+    }
+
+    function closeImageLightbox() {
+      document.getElementById('imageLightboxModal').classList.remove('active');
+    }
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') closeImageLightbox();
+    });
+
+    function selectEpochStage(idx, fromTour) {
+      currentEpoch = idx;
+      for (let i = 1; i <= totalEpochs; i++) {
+        document.getElementById('epochTab' + i).classList.toggle('active', i === idx);
+        document.getElementById('epochTab' + i).setAttribute('aria-selected', i === idx);
+        document.getElementById('epochPanel' + i).classList.toggle('active', i === idx);
+      }
+      if (!fromTour) {
+        document.getElementById('epochScrubberFill').style.width = (idx / totalEpochs) * 100 + '%';
+      }
+    }
+
+    function toggleTourPlay() {
+      tourPlaying = !tourPlaying;
+      setIcon(document.getElementById('tourPlayIcon'), tourPlaying ? 'pause' : 'play_arrow');
+      document.getElementById('tourPlayText').textContent = tourPlaying ? 'Pause Tour' : 'Play 30s Tour';
+      if (tourPlaying) {
+        tourInterval = setInterval(tickTour, 1000);
+      } else {
+        clearInterval(tourInterval);
+        tourInterval = null;
+      }
+    }
+
+    function tickTour() {
+      tourSeconds = tourSeconds >= tourTotalSeconds ? 0 : tourSeconds + 1;
+      document.getElementById('tourTimeText').textContent =
+        '00:' + String(tourSeconds).padStart(2, '0') + ' / 00:30';
+
+      const epochIdx = Math.min(totalEpochs, Math.floor(tourSeconds / 7.5) + 1);
+      if (epochIdx !== currentEpoch) selectEpochStage(epochIdx, true);
+      document.getElementById('epochScrubberFill').style.width = (tourSeconds / tourTotalSeconds) * 100 + '%';
+    }
+
+    // ------------------------------------------------------------------------
+    // 2. Snap scroller & scrollspy
+    // ------------------------------------------------------------------------
+    let currentSnapIndex = 1;
+    const totalSnaps = 5;
+    const snapContainer = document.getElementById('snapContainer');
+
+    function scrollTarget() {
+      // On narrow screens the page itself scrolls instead of the center column
+      return snapContainer.scrollHeight > snapContainer.clientHeight + 1 ? snapContainer : null;
+    }
+
+    function checkHashSnap() {
+      const hash = window.location.hash;
+      if (hash && hash.startsWith('#snap-')) {
+        const idx = parseInt(hash.replace('#snap-', ''), 10);
+        if (idx >= 1 && idx <= totalSnaps) {
+          const target = document.getElementById('snap-' + idx);
+          const sc = scrollTarget();
+          if (sc) sc.scrollTo({ top: target.offsetTop, behavior: 'instant' });
+          else target.scrollIntoView({ behavior: 'instant' });
+          updateSnapNavigation(idx);
+        }
+      }
+    }
+    window.addEventListener('load', checkHashSnap);
+    window.addEventListener('hashchange', checkHashSnap);
+
+    function scrollToSnap(index) {
+      const target = document.getElementById('snap-' + index);
+      if (!target) return;
+      const sc = scrollTarget();
+      if (sc) sc.scrollTo({ top: target.offsetTop, behavior: 'smooth' });
+      else target.scrollIntoView({ behavior: 'smooth' });
+      updateSnapNavigation(index);
+    }
+
+    function goToPrevSnap() { if (currentSnapIndex > 1) scrollToSnap(currentSnapIndex - 1); }
+    function goToNextSnap() { if (currentSnapIndex < totalSnaps) scrollToSnap(currentSnapIndex + 1); }
+
+    function updateSnapNavigation(index) {
+      currentSnapIndex = index;
+      document.getElementById('snapCounterText').textContent = 'Snap ' + index + ' / ' + totalSnaps;
+      document.querySelectorAll('.md-toc-item').forEach(item => {
+        item.classList.toggle('active', parseInt(item.dataset.snap, 10) === index);
+      });
+    }
+
+    snapContainer.addEventListener('scroll', () => {
+      const probe = snapContainer.scrollTop + snapContainer.clientHeight * 0.4;
+      for (let i = totalSnaps; i >= 1; i--) {
+        if (document.getElementById('snap-' + i).offsetTop <= probe) {
+          if (i !== currentSnapIndex) updateSnapNavigation(i);
+          break;
+        }
+      }
+    }, { passive: true });
+
+    // ------------------------------------------------------------------------
+    // 3. SNAP 2: carousel
+    // ------------------------------------------------------------------------
+    let currentSlide = 1;
+    const totalSlides = 5;
+    let slideInterval = null;
+
+    const slideBadges = [
+      'Pillar 01 · Understanding Automation',
+      'Pillar 02 · Traditional Machine Learning',
+      'Pillar 03 · Generative AI & Foundation Models',
+      'Pillar 04 · What Will We Learn',
+      'Pillar 05 · Fundamental Technologies'
+    ];
+
+    function showSlide(index) {
+      currentSlide = index;
+      document.querySelectorAll('.slide-item').forEach(el => {
+        el.classList.toggle('active', parseInt(el.dataset.slide, 10) === index);
+      });
+      document.querySelectorAll('.carousel-dot').forEach((dot, idx) => {
+        dot.classList.toggle('active', idx + 1 === index);
+      });
+      document.getElementById('slideCounterText').textContent = 'Slide ' + index + ' of ' + totalSlides;
+      const badge = document.getElementById('slideBadgeText');
+      badge.innerHTML = '<span class="msr">layers</span>';
+      badge.appendChild(document.createTextNode(slideBadges[index - 1]));
+    }
+
+    function nextSlide() { showSlide(currentSlide >= totalSlides ? 1 : currentSlide + 1); }
+    function prevSlide() { showSlide(currentSlide <= 1 ? totalSlides : currentSlide - 1); }
+    function jumpToSlide(idx) { showSlide(idx); }
+
+    function toggleSlideAutoplay() {
+      const icon = document.querySelector('#slidePlayBtn .msr');
+      if (slideInterval) {
+        clearInterval(slideInterval);
+        slideInterval = null;
+        setIcon(icon, 'play_arrow');
+      } else {
+        slideInterval = setInterval(nextSlide, 4500);
+        setIcon(icon, 'pause');
+      }
+    }
+
+    // ------------------------------------------------------------------------
+    // 4. SNAP 3: Remotion reel simulator
+    // ------------------------------------------------------------------------
+    let remotionPlaying = false;
+    let remotionFrame = 0;
+    const remotionMaxFrames = 900; // 30s at 30fps
+    let remotionTimer = null;
+    let remotionSpeed = 1.0;
+
+    const remotionScript = [
+      { frame: 0,   status: 'PROMPT INGESTION', tag: 't-blue',   node: 'rNodeUser',  text: "[TOKEN_STREAM] User query received: 'Investigate 502 Bad Gateway in Payment Pod'. Tokenizing..." },
+      { frame: 120, status: 'THOUGHT & PLAN',   tag: 't-purple', node: 'rNodeAgent', text: "[REASONING] Agent checking cluster state. Step 1: Call 'kubectl_get_pods()' via MCP bus." },
+      { frame: 270, status: 'TOOL DISPATCH',    tag: 't-purple', node: 'rNodeMCP',   text: "[MCP_CALL] POST mcp://k8s-cluster -> kubectl_describe_pod(namespace='prod', pod='pay-7a')" },
+      { frame: 450, status: 'OBSERVATION',      tag: 't-amber',  node: 'rNodeDB',    text: '[TOOL_RETURN] Exit Code 137: OOMKilled. Pod memory limit 512Mi exceeded during checkout peak.' },
+      { frame: 630, status: 'SECURITY GATE',    tag: 't-red',    node: 'rNodeAgent', text: '[GUARDRAIL] Policy check passed: Vertical scaling to 1024Mi allowed under SRE tier-1.' },
+      { frame: 780, status: 'REMEDIATION',      tag: 't-green',  node: 'rNodeDB',    text: '[PATCH] kubectl_patch_deployment() deployed. New replica live. Latency normalized to 14ms.' }
+    ];
+
+    function startRemotionTimer() {
+      clearInterval(remotionTimer);
+      remotionTimer = setInterval(tickRemotion, 33 / remotionSpeed);
+    }
+
+    function toggleRemotionPlay() {
+      remotionPlaying = !remotionPlaying;
+      setIcon(document.getElementById('remotionPlayIcon'), remotionPlaying ? 'pause' : 'play_arrow');
+      if (remotionPlaying) startRemotionTimer(); else clearInterval(remotionTimer);
+    }
+
+    function tickRemotion() {
+      remotionFrame = remotionFrame >= remotionMaxFrames ? 0 : remotionFrame + 1;
+      renderRemotionState();
+    }
+
+    function renderRemotionState() {
+      const pct = (remotionFrame / remotionMaxFrames) * 100;
+      document.getElementById('videoScrubberFill').style.width = pct + '%';
+      document.getElementById('videoScrubberThumb').style.left = pct + '%';
+      document.getElementById('videoScrubberTrack').setAttribute('aria-valuenow', remotionFrame);
+      document.getElementById('rFrameCount').textContent = remotionFrame;
+      document.getElementById('remotionTimeCurrent').textContent =
+        '00:' + String(Math.floor(remotionFrame / 30)).padStart(2, '0');
+
+      let ev = remotionScript[0];
+      for (const s of remotionScript) if (remotionFrame >= s.frame) ev = s;
+
+      const pill = document.getElementById('rStatusPill');
+      pill.textContent = ev.status;
+      pill.className = 'md-tag ' + ev.tag;
+      document.getElementById('rTelemetryText').textContent = ev.text;
+
+      document.querySelectorAll('.reel-node').forEach(n => n.classList.toggle('live', n.id === ev.node));
+      document.getElementById('beam1').classList.toggle('on', remotionFrame >= 30 && remotionFrame < 300);
+      document.getElementById('beam2').classList.toggle('on', remotionFrame >= 270 && remotionFrame < 500);
+      document.getElementById('beam3').classList.toggle('on', remotionFrame >= 480 && remotionFrame < 750);
+    }
+
+    function restartRemotion() {
+      remotionFrame = 0;
+      renderRemotionState();
+      if (!remotionPlaying) toggleRemotionPlay();
+    }
+
+    function seekRemotion(event) {
+      const rect = document.getElementById('videoScrubberTrack').getBoundingClientRect();
+      const pct = Math.max(0, Math.min(1, (event.clientX - rect.left) / rect.width));
+      remotionFrame = Math.floor(pct * remotionMaxFrames);
+      renderRemotionState();
+    }
+
+    function changeRemotionSpeed() {
+      const speeds = [1.0, 1.5, 2.0];
+      remotionSpeed = speeds[(speeds.indexOf(remotionSpeed) + 1) % speeds.length];
+      document.getElementById('remotionSpeedBtn').textContent = remotionSpeed.toFixed(1) + 'x';
+      if (remotionPlaying) startRemotionTimer();
+    }
+
+    function toggleFullscreenRemotion() {
+      const el = document.getElementById('remotionScreen');
+      if (!document.fullscreenElement) {
+        el.requestFullscreen && el.requestFullscreen().catch(() => {});
+      } else {
+        document.exitFullscreen();
+      }
+    }
+
+    // ------------------------------------------------------------------------
+    // 5. SNAP 4: architecture layer inspector
+    // ------------------------------------------------------------------------
+    const layerData = {
+      1: {
+        tag: 'LAYER 01 SPECIFICATIONS', tone: 't-blue',
+        heading: 'Semantic Ingress & Moderation Gateway',
+        desc: 'Intercepts incoming requests before LLM inference to validate prompt safety, detect injection attempts, enforce rate limits, and sanitize PII.',
+        specs: '• Ingress Protocol: gRPC / High-Performance ASGI\n• Average Latency: < 18ms\n• Defense Filters:\n  - Regex PII & SSN scrubbers\n  - Vector cosine check against injection vector database\n  - Token quota checks backed by Redis cluster\n• Failure Mode: Fail-closed with audit alert'
+      },
+      2: {
+        tag: 'LAYER 02 SPECIFICATIONS', tone: 't-purple',
+        heading: 'Cognitive Planner & Reasoning Core',
+        desc: 'The central cognitive state machine that generates multi-step plans, parses intermediate observations, and performs self-reflection loops.',
+        specs: '• Architecture: ReAct / Plan-and-Solve State Machine\n• Supported Models: Claude 3.5 Sonnet, DeepSeek R1, GPT-4o\n• Max Plan Depth: 12 sequential recursive loops\n• Reflection Mechanism: Critic sub-agent scores action accuracy\n• Checkpointing: Snapshot state persisted to Postgres JSONB'
+      },
+      3: {
+        tag: 'LAYER 03 SPECIFICATIONS', tone: 't-green',
+        heading: 'Model Context Protocol (MCP) Tool Bus',
+        desc: 'Open standard client-server protocol enabling models to dynamically authenticate, discover, and invoke external software tools.',
+        specs: '• Protocol Standard: Anthropic MCP JSON-RPC 2.0\n• Registered Integrations:\n  - Kubernetes / Docker CLI Runner\n  - PostgreSQL / Snowflake Read-Write Executors\n  - GitHub & GitLab API PR Automators\n  - Vector RAG Knowledge Retrieval Endpoints\n• Security: Single-use scoped JWT authentication per tool invocation'
+      },
+      4: {
+        tag: 'LAYER 04 SPECIFICATIONS', tone: 't-amber',
+        heading: 'Dual Memory & Semantic Context Store',
+        desc: 'Maintains ephemeral short-term scratchpad context during multi-turn reasoning alongside persistent vector embeddings of past resolutions.',
+        specs: '• Short-Term Store: Redis 7.2 in-memory conversation buffer\n• Long-Term Store: Pinecone & Milvus Vector Database\n• Embedding Dimension: 1536 (text-embedding-3-small)\n• Retrieval Algorithm: Hybrid BM25 keyword + HNSW dense vector\n• Cache Hit Latency: < 22ms'
+      },
+      5: {
+        tag: 'LAYER 05 SPECIFICATIONS', tone: 't-red',
+        heading: 'Evaluation, Telemetry & Rollback Hooks',
+        desc: 'Ensures comprehensive auditability with distributed tracing, automated rollback actions for broken migrations, and Slack human approval triggers.',
+        specs: "• Telemetry Standard: OpenTelemetry (OTel) traces & spans\n• Monitoring Platform: LangSmith & Prometheus dashboard exporter\n• Human Gate Trigger: Tool operations marked 'destructive' (DROP, DELETE, RESTART)\n• Rollback Engine: Automated git revert & compensating database transactions"
+      }
+    };
+
+    function selectInfographicLayer(num) {
+      document.querySelectorAll('.layer-item').forEach((el, idx) => {
+        el.classList.toggle('active', idx + 1 === num);
+        el.setAttribute('aria-selected', idx + 1 === num);
+      });
+      const data = layerData[num];
+      const tag = document.getElementById('drawerLayerTag');
+      tag.className = 'md-tag ' + data.tone;
+      tag.innerHTML = '<span class="msr sm">code</span>';
+      tag.appendChild(document.createTextNode(data.tag));
+      document.getElementById('drawerHeading').textContent = data.heading;
+      document.getElementById('drawerDesc').textContent = data.desc;
+      document.getElementById('drawerSpecs').textContent = data.specs;
+    }
+
+    // ------------------------------------------------------------------------
+    // 6. SNAP 5: multi-tool agent sandbox
+    // ------------------------------------------------------------------------
+    const scenarioWorkflows = {
+      k8s: {
+        name: 'Kubernetes OOMKilled Pod Loop',
+        steps: [
+          { tag: 'THOUGHT', class: 'tag-thought', text: "Alert received: Pod 'checkout-api-48b' status CrashLoopBackOff in production. I need to inspect pod logs and describe container status." },
+          { tag: 'ACTION', class: 'tag-action', text: "Invoking MCP tool: kubectl_describe_pod(namespace='prod', pod='checkout-api-48b')" },
+          { tag: 'OBSERVATION', class: 'tag-observation', text: 'Terminated with exit code 137 (OOMKilled). Container limit 512Mi reached at 14:22 UTC.' },
+          { tag: 'THOUGHT', class: 'tag-thought', text: 'Memory spike matches Black Friday traffic burst. Safe remediation is to patch deployment limit to 1024Mi and observe restart.' },
+          { tag: 'ACTION', class: 'tag-action', text: "Invoking MCP tool: kubectl_patch_deployment(deployment='checkout-api', memory='1024Mi')" },
+          { tag: 'RESULT', class: 'tag-result', text: 'Success: Pod restarted cleanly with 1024Mi. Readiness probe HTTP 200 OK. Resolved in 2.4s.' }
+        ],
+        logs: [
+          '[AGENT] Scenario initialized: Kubernetes CrashLoopBackOff Triage.',
+          '[MODEL] Dispatched prompt to {model} (Temp=0.0).',
+          '[TOOL_CALL] POST mcp://k8s-agent -> kubectl_describe_pod()',
+          '[TELEMETRY] OOMKilled error code 137 parsed.',
+          '[TOOL_CALL] POST mcp://k8s-agent -> kubectl_patch_deployment()',
+          '[VERIFIED] Container state Healthy. Emitted incident closure note to #sre-alerts.'
+        ]
+      },
+      pii: {
+        name: 'Customer DB PII Masking Leak',
+        steps: [
+          { tag: 'THOUGHT', class: 'tag-thought', text: "Security anomaly: Customer address table in Postgres contains unmasked Social Security Numbers in 'notes' column." },
+          { tag: 'ACTION', class: 'tag-action', text: "Invoking MCP tool: postgres_run_scan(table='customers', pii_pattern='SSN')" },
+          { tag: 'OBSERVATION', class: 'tag-observation', text: 'Found 1,420 unmasked records matching regex ^\\d{3}-\\d{2}-\\d{4}$ in staging database.' },
+          { tag: 'THOUGHT', class: 'tag-thought', text: 'Applying deterministic hashing mask SHA-256 with enterprise salt to redact sensitive digits.' },
+          { tag: 'ACTION', class: 'tag-action', text: "Invoking MCP tool: postgres_execute_mask(column='notes', rule='SSN_REDACT')" },
+          { tag: 'RESULT', class: 'tag-result', text: 'Success: 1,420 records redacted. Zero plaintext SSN remaining. Compliance report submitted.' }
+        ],
+        logs: [
+          '[AGENT] Scenario initialized: PII Data Leak Mitigation.',
+          '[MODEL] Dispatched prompt to {model} Security Auditor.',
+          '[TOOL_CALL] POST mcp://postgres -> run_pii_scanner()',
+          '[TELEMETRY] 1,420 unredacted SSN tokens identified.',
+          '[TOOL_CALL] POST mcp://postgres -> execute_masking_dml()',
+          '[AUDIT] GDPR / HIPAA compliance verified. Alert marked Resolved.'
+        ]
+      },
+      drift: {
+        name: 'Snowflake Schema Drift Reconciliation',
+        steps: [
+          { tag: 'THOUGHT', class: 'tag-thought', text: "Pipeline alert: Ingestion JSON payload contains 2 new fields 'customer_tier' and 'device_fingerprint' absent in Snowflake target table." },
+          { tag: 'ACTION', class: 'tag-action', text: "Invoking MCP tool: snowflake_get_ddl(table='raw_orders_stream')" },
+          { tag: 'OBSERVATION', class: 'tag-observation', text: "Target schema has 14 columns. Missing VARCHAR 'customer_tier' and VARCHAR 'device_fingerprint'." },
+          { tag: 'THOUGHT', class: 'tag-thought', text: 'Generating non-destructive ALTER TABLE ADD COLUMN statements with null defaults.' },
+          { tag: 'ACTION', class: 'tag-action', text: "Invoking MCP tool: snowflake_exec_ddl(sql='ALTER TABLE raw_orders_stream ADD COLUMN customer_tier VARCHAR, device_fingerprint VARCHAR;')" },
+          { tag: 'RESULT', class: 'tag-result', text: 'Success: Table schema migrated safely. Streaming pipeline resumed with zero record drop.' }
+        ],
+        logs: [
+          '[AGENT] Scenario initialized: Automated Schema Drift.',
+          '[MODEL] Dispatched prompt to {model} Data Engineer.',
+          '[TOOL_CALL] POST mcp://snowflake -> get_ddl_and_compare()',
+          '[TELEMETRY] 2 schema additions detected.',
+          '[TOOL_CALL] POST mcp://snowflake -> exec_ddl_migration()',
+          '[PIPELINE] Ingestion resumed. Latency backlog cleared.'
+        ]
+      }
+    };
+
+    let simTimer = null;
+
+    function selectedText(id) {
+      const sel = document.getElementById(id);
+      return sel.options[sel.selectedIndex].text;
+    }
+
+    function prefixClass(prefix) {
+      if (/AGENT|SESSION/.test(prefix)) return 'px-agent';
+      if (/TOOL|MCP|MODEL/.test(prefix)) return 'px-tool';
+      if (/VERIFIED|AUDIT|PIPELINE|DONE/.test(prefix)) return 'px-ok';
+      if (/TELEMETRY|GATE/.test(prefix)) return 'px-tele';
+      return 'px-misc';
+    }
+
+    function termLine(text) {
+      const term = document.getElementById('simTerminal');
+      const line = document.createElement('span');
+      line.className = 'ln';
+      const m = text.match(/^(\[[A-Z_]+\])(.*)$/);
+      if (m) {
+        const px = document.createElement('span');
+        px.className = 'px ' + prefixClass(m[1]);
+        px.textContent = m[1];
+        line.appendChild(px);
+        line.appendChild(document.createTextNode(m[2]));
+      } else {
+        line.textContent = text;
+      }
+      term.appendChild(line);
+      term.scrollTop = term.scrollHeight;
+    }
+
+    function trajStep(tag, cls, html) {
+      const list = document.getElementById('simTrajectoryList');
+      const item = document.createElement('div');
+      item.className = 'traj-step';
+      item.innerHTML = '<span class="md-tag ' + cls + '"></span><div></div>';
+      item.firstChild.textContent = tag;
+      if (html) item.lastChild.innerHTML = html; else item.lastChild.textContent = '';
+      list.appendChild(item);
+      list.scrollTop = list.scrollHeight;
+      return item;
+    }
+
+    function setTrajStatus(text, colorClass) {
+      const el = document.getElementById('trajStatusText');
+      el.className = 'status-chip ' + colorClass;
+      el.lastElementChild.textContent = text;
+    }
+
+    function changeSimScenario() { resetSimWorkflow(); }
+
+    function resetSimWorkflow() {
+      clearInterval(simTimer);
+      simTimer = null;
+      document.getElementById('simRunBtn').disabled = false;
+      setTrajStatus('IDLE', 'c-purple');
+
+      const scenario = scenarioWorkflows[document.getElementById('simScenarioSelect').value];
+      document.getElementById('simTerminal').innerHTML = '';
+      termLine('[AGENT_CORE] Initialized agent runtime session #agent-8921.');
+      termLine('[MCP_BUS] Discovered 18 registered tools via mcp://localhost:8080. Loaded ' + scenario.name + '.');
+      termLine("[STATUS] Ready. Click 'Run Agent Loop' to execute.");
+
+      document.getElementById('simTrajectoryList').innerHTML = '';
+      const init = trajStep('INIT', 'tag-thought');
+      init.lastChild.innerHTML = '<strong>Scenario ready:</strong> ';
+      init.lastChild.appendChild(document.createTextNode(scenario.name));
+    }
+
+    function runSimWorkflow() {
+      if (simTimer) return;
+      document.getElementById('simRunBtn').disabled = true;
+      setTrajStatus('EXECUTING LOOP…', 'c-blue');
+
+      const scenario = scenarioWorkflows[document.getElementById('simScenarioSelect').value];
+      const model = selectedText('simModelSelect');
+      const hitl = document.getElementById('simAutonomySelect').value === 'hitl';
+
+      document.getElementById('simTerminal').innerHTML = '';
+      termLine('[SESSION_START] Running autonomous loop with ' + model + (hitl ? ' (human approval gate on).' : ' (full autonomy).'));
+
+      let step = 0;
+      simTimer = setInterval(() => {
+        if (step < scenario.steps.length) {
+          const s = scenario.steps[step];
+          if (hitl && s.tag === 'ACTION' && step === scenario.steps.length - 2) {
+            termLine('[GATE] Destructive change requires approval → approved by on-call SRE.');
+          }
+          termLine(scenario.logs[step].replace('{model}', model));
+          trajStep(s.tag, s.class).lastChild.textContent = s.text;
+          step++;
+        } else {
+          clearInterval(simTimer);
+          simTimer = null;
+          document.getElementById('simRunBtn').disabled = false;
+          setTrajStatus('COMPLETED (SUCCESS)', 'c-green');
+          termLine('[AGENT_CORE] Objective achieved. Session finalized successfully.');
+        }
+      }, 700);
+    }
+
+    // Initial state
+    selectInfographicLayer(1);
+    resetSimWorkflow();
+    renderRemotionState();
+  </script>
+</body>
+</html>
