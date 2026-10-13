@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>AI & Automation Interactive Demo Lab | Tinitiate MasterClass Academy</title>
-  <meta name="description" content="Explore live interactive AI Automation, Agentic loops, Remotion animated video simulations, and multi-tool swarm architectures.">
+  <meta name="description" content="Explore live interactive AI Automation, Agentic loops, animated concept walkthroughs, and multi-tool swarm architectures.">
   <meta name="theme-color" content="#ffffff">
   <link rel="icon" type="image/png" href="favicon.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -13,6 +13,7 @@
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,400,0..1,0&display=block">
   <link rel="stylesheet" href="../assets/css/master-global-layout.css">
   <script src="../assets/js/master-global-nav.js" defer></script>
+  <link rel="stylesheet" href="assets/css/agent-labs.css">
   <style>
     /* ==========================================================================
        AI AUTOMATION DEMO LAB — MATERIAL DESIGN 3 (LIGHT)
@@ -194,17 +195,6 @@
     .md3 .mega-footer-left strong,
     .md3 .mega-footer-right strong { color: var(--md-on-surface); }
 
-    /* Instructor tag → M3 assist chip (drop the animated beam) */
-    .md3 .master-instructor-beam {
-      height: 32px; padding: 0 12px; border-radius: var(--md-shape-s);
-      background: var(--md-surface); border: 1px solid var(--md-outline-variant);
-      color: var(--md-on-surface-variant); box-shadow: none; filter: none; animation: none;
-    }
-    .md3 .master-instructor-beam::before,
-    .md3 .master-instructor-beam::after { display: none; }
-    .md3 .master-instructor-beam .inst-label { color: var(--md-on-surface-variant); font-weight: 400; }
-    .md3 .master-instructor-beam .inst-name { color: var(--md-on-surface); font-weight: 500; }
-    .md3 .master-instructor-beam svg { color: var(--md-primary) !important; stroke: var(--md-primary) !important; }
 
     .md3 .master-nav-social-btn {
       height: 36px; border-radius: var(--md-shape-full);
@@ -549,6 +539,132 @@
     .flow-arrow { display: grid; place-items: center; color: var(--md-outline); }
     .flow-metric { font-size: 22px; line-height: 28px; font-weight: 500; }
 
+    /* Evolution tour: one ticket, four kinds of AI */
+    .evo-ticket {
+      display: flex; align-items: center; gap: 10px; padding: 10px 20px;
+      background: var(--md-surface-container-low); color: var(--md-on-surface-variant);
+      border-bottom: 1px solid var(--md-surface-container-highest);
+    }
+    .evo-ticket strong { color: var(--md-on-surface); font-weight: 500; }
+    .evo-stage {
+      display: flex; flex-direction: column; gap: 12px; min-height: 236px;
+      padding: 16px; border-radius: var(--md-shape-m); background: var(--md-surface-container-low);
+    }
+    .evo-stage mark { background: var(--tone-amber-c); color: var(--tone-on-amber-c); border-radius: 4px; padding: 0 3px; }
+    .evo-rule {
+      display: flex; align-items: center; gap: 8px; padding: 10px 12px; border-radius: var(--md-shape-s);
+      background: var(--md-surface-container-highest); color: var(--md-on-surface);
+    }
+    .evo-rule code { font-family: var(--font-mono); font-size: 12px; }
+    .evo-lane { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+    .evo-msg {
+      display: inline-flex; align-items: center; gap: 8px; max-width: 100%;
+      padding: 8px 12px; border-radius: 16px 16px 16px 4px;
+      background: var(--md-surface); border: 1px solid var(--md-outline-variant); color: var(--md-on-surface);
+    }
+    .evo-msg > .msr { color: var(--md-on-surface-variant); }
+    .evo-arrow { color: var(--md-outline); }
+    .evo-result {
+      display: inline-flex; align-items: center; gap: 6px; align-self: flex-start;
+      padding: 6px 12px; border-radius: var(--md-shape-full); font-weight: 500; font-size: 13px;
+    }
+    .evo-result.ok   { background: var(--tone-green-c); color: var(--tone-on-green-c); }
+    .evo-result.bad  { background: var(--tone-red-c);   color: var(--tone-on-red-c); }
+    .evo-result.warn { background: var(--tone-amber-c); color: var(--tone-on-amber-c); }
+    .evo-lane .evo-result { align-self: center; }
+
+    .evo-ml { gap: 16px; }
+    .evo-ml-train, .evo-ml-predict { display: flex; flex-direction: column; gap: 10px; min-width: 0; }
+    .evo-dots { display: grid; grid-template-columns: repeat(12, 14px); gap: 6px; }
+    .evo-dot { display: inline-block; width: 14px; height: 14px; border-radius: 50%; }
+    .evo-dot.r, .evo-fill.r { background: var(--tone-blue); }
+    .evo-dot.s, .evo-fill.s { background: var(--tone-amber); }
+    .evo-dot.o, .evo-fill.o { background: var(--md-outline); }
+    .evo-legend { display: flex; gap: 14px; flex-wrap: wrap; font-size: 12px; color: var(--md-on-surface-variant); }
+    .evo-legend span { display: inline-flex; align-items: center; gap: 6px; }
+    .evo-legend .evo-dot { width: 10px; height: 10px; }
+    .evo-bars { display: flex; flex-direction: column; gap: 8px; }
+    .evo-bar { display: grid; grid-template-columns: 64px minmax(0, 1fr) 36px; align-items: center; gap: 8px; font-size: 12px; color: var(--md-on-surface-variant); }
+    .evo-bar b { font-family: var(--font-mono); font-weight: 500; color: var(--md-on-surface); text-align: right; }
+    .evo-track { height: 10px; border-radius: 5px; background: var(--md-surface-container-highest); overflow: hidden; }
+    .evo-fill { height: 100%; border-radius: 5px; min-width: 3px; }
+
+    .evo-chat { display: flex; gap: 10px; padding: 10px 14px; max-width: 92%; line-height: 20px; }
+    .evo-chat.user {
+      align-self: flex-end; border-radius: 16px 16px 4px 16px;
+      background: var(--md-primary); color: var(--md-on-primary);
+    }
+    .evo-chat.ai {
+      align-self: flex-start; border-radius: 16px 16px 16px 4px;
+      background: var(--md-surface); border: 1px solid var(--md-outline-variant); color: var(--md-on-surface); min-height: 64px;
+    }
+    .evo-chat.ai > .msr { color: var(--tone-purple); }
+    .evo-caret { display: inline-block; width: 2px; height: 1em; margin-left: 2px; vertical-align: -2px; background: var(--tone-purple); animation: evo-blink 1s steps(1) infinite; }
+
+    .evo-goal {
+      display: inline-flex; align-items: center; gap: 8px; align-self: flex-start;
+      padding: 6px 12px; border-radius: var(--md-shape-full);
+      background: var(--tone-green-c); color: var(--tone-on-green-c); font-weight: 500;
+    }
+    .evo-agent { display: grid; grid-template-columns: minmax(0, 1fr) 112px; gap: 12px 16px; align-items: center; }
+    .evo-agent-head { display: flex; flex-direction: column; gap: 8px; align-items: flex-start; }
+    .evo-agent .evo-steps { grid-column: 1 / -1; }
+    .evo-loop { position: relative; width: 112px; height: 112px; }
+    .evo-loop-ring { position: absolute; inset: 16px; border-radius: 50%; border: 2px dashed var(--tone-green); }
+    .evo-orbit { position: absolute; inset: -2px; border-radius: 50%; animation: md-spin 2.4s linear infinite; }
+    .evo-orbit::after {
+      content: ""; position: absolute; top: -6px; left: 50%; width: 10px; height: 10px; margin-left: -5px;
+      border-radius: 50%; background: var(--tone-green); box-shadow: 0 0 0 4px var(--tone-green-c);
+    }
+    .evo-loop-core {
+      position: absolute; inset: 36px; border-radius: 50%; display: grid; place-items: center;
+      background: var(--tone-green); color: #fff;
+    }
+    .evo-loop-lbl {
+      position: absolute; font-size: 11px; font-weight: 500; letter-spacing: .04em; color: var(--tone-on-green-c);
+      background: var(--md-surface); padding: 0 6px; border-radius: var(--md-shape-full);
+    }
+    .evo-loop-lbl.l1 { top: 4px; left: 50%; transform: translateX(-50%); }
+    .evo-loop-lbl.l2 { bottom: 10px; right: 0; }
+    .evo-loop-lbl.l3 { bottom: 10px; left: 0; }
+    .evo-steps { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 8px; min-width: 0; }
+    .evo-steps li {
+      display: grid; grid-template-columns: 24px minmax(0, 1fr) auto; align-items: center; gap: 10px;
+      padding: 8px 12px; border-radius: var(--md-shape-s); background: var(--md-surface); border: 1px solid var(--md-outline-variant);
+    }
+    .evo-steps .md-title-s { color: var(--md-on-surface); }
+    .evo-steps .md-body-s { color: var(--md-on-surface-variant); }
+    .evo-step-ic { position: relative; width: 24px; height: 24px; }
+    .evo-step-ic > * { position: absolute; inset: 0; display: grid; place-items: center; }
+    .evo-step-ic .evo-spin { color: var(--tone-blue); animation: md-spin 1s linear infinite; }
+    .evo-tool {
+      font-family: var(--font-mono); font-size: 11px; padding: 2px 8px; border-radius: var(--md-shape-full);
+      background: var(--tone-blue-c); color: var(--tone-on-blue-c); white-space: nowrap;
+    }
+
+    .evo-take { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px 16px; }
+    .evo-take > div { display: flex; align-items: flex-start; gap: 8px; color: var(--md-on-surface-variant); }
+    .evo-take strong { color: var(--md-on-surface); font-weight: 500; }
+
+    /* Animations replay whenever playEpoch() adds .run to a panel */
+    .epoch-panel.run .a-in   { animation: evo-in   .5s var(--md-ease) var(--t, 0s) both; }
+    .epoch-panel.run .a-pop  { animation: evo-pop  .4s cubic-bezier(.3, 1.6, .5, 1) var(--t, 0s) both; }
+    .epoch-panel.run .a-bad  { animation: evo-bad  .6s var(--md-ease) var(--t, 0s) both; }
+    .epoch-panel.run .a-grow { animation: evo-grow .9s var(--md-ease) var(--t, 0s) both; }
+    .epoch-panel.run .a-out  { animation: evo-out  .2s linear var(--t, 0s) both; }
+    @keyframes evo-in   { from { opacity: 0; transform: translateX(-24px); } to { opacity: 1; transform: none; } }
+    @keyframes evo-pop  { from { opacity: 0; transform: scale(.6); } to { opacity: 1; transform: none; } }
+    @keyframes evo-bad  {
+      0% { opacity: 0; transform: scale(.6); }
+      30% { opacity: 1; transform: scale(1); }
+      45%, 75% { transform: translateX(-6px); }
+      60%, 90% { transform: translateX(6px); }
+      100% { opacity: 1; transform: none; }
+    }
+    @keyframes evo-grow  { from { width: 0; } }
+    @keyframes evo-out   { to { opacity: 0; } }
+    @keyframes evo-blink { 50% { opacity: 0; } }
+
     .epoch-footer {
       display: flex; justify-content: space-between; align-items: center; gap: 12px; flex-wrap: wrap;
       padding: 12px 20px; background: var(--md-surface-container-low);
@@ -575,24 +691,29 @@
     }
     .instructor-avatar .verified .msr { font-size: 18px; }
 
-    /* Dialog (lightbox) */
-    .md-scrim {
-      position: fixed; inset: 0; z-index: 3000;
-      background: rgba(0, 0, 0, .32);
-      display: none; align-items: center; justify-content: center; padding: 24px;
+    /* Zoom overlay (images + interactive components) */
+    .zoom-overlay {
+      position: fixed; inset: 0; z-index: 3000; display: none; flex-direction: column;
+      background: rgba(20, 18, 24, .72); backdrop-filter: blur(4px);
     }
-    .md-scrim.active { display: flex; animation: md-fade .2s var(--md-ease); }
-    .md-dialog {
-      background: var(--md-surface-container-high);
-      border-radius: var(--md-shape-xl);
-      box-shadow: var(--md-el-3);
-      max-width: min(1400px, 96vw); max-height: 92vh;
-      display: flex; flex-direction: column; overflow: hidden;
+    .zoom-overlay.active { display: flex; animation: md-fade .2s var(--md-ease); }
+    .zoom-bar {
+      display: flex; align-items: center; justify-content: space-between; gap: 12px;
+      padding: 8px 12px 8px 20px; background: var(--md-surface-container-high); box-shadow: var(--md-el-2);
     }
-    .md-dialog-head { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 16px 16px 8px 24px; }
-    .md-dialog-body { padding: 0 24px; overflow: auto; }
-    .md-dialog-body img { width: 100%; height: auto; max-height: 74vh; object-fit: contain; display: block; border-radius: var(--md-shape-m); background: #fff; }
-    .md-dialog-actions { display: flex; justify-content: flex-end; gap: 8px; padding: 16px 24px 20px; }
+    .zoom-title { min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+    .zoom-tools { display: flex; align-items: center; gap: 2px; flex-shrink: 0; }
+    .zoom-pct { min-width: 72px; font-family: var(--font-mono); }
+    .zoom-viewport { flex: 1; overflow: auto; display: flex; padding: 24px; }
+    .zoom-viewport.pannable { cursor: grab; }
+    .zoom-viewport.panning { cursor: grabbing; user-select: none; }
+    .zoom-content { margin: auto; zoom: var(--zoom, 1); }
+    .zoom-content > img { display: block; border-radius: var(--md-shape-m); background: #fff; box-shadow: var(--md-el-3); }
+    .zoom-content > [data-zoom] { box-shadow: var(--md-el-3); background: var(--md-surface); }
+    .zoom-trigger.md-icon-btn { flex-shrink: 0; }
+    .zoom-float { position: absolute; top: 8px; right: 8px; z-index: 5; background: var(--md-surface); box-shadow: var(--md-el-1); }
+    [data-zoom]:not(.md-card) { position: relative; }
+    main img:not(.master-brand-logo) { cursor: zoom-in; }
 
     /* ==========================================================================
        SNAP 2 — Carousel
@@ -726,148 +847,124 @@
     .carousel-actions { display: flex; gap: 4px; }
 
     /* ==========================================================================
-       SNAP 3 — Motion reel
+       SNAP 3 — AI engineering stack explorer
        ========================================================================== */
-    .reel-screen {
-      position: relative; height: 340px; overflow: hidden;
-      background-color: var(--md-surface-container-low);
-      background-image: radial-gradient(var(--md-outline-variant) 1px, transparent 1px);
-      background-size: 20px 20px;
-      display: grid; place-items: center;
+    .stack-card { overflow: clip; } /* clip (not hidden) keeps the sticky detail panel working */
+    .stack-top {
+      display: flex; align-items: center; gap: 8px; padding: 8px 12px 0;
+      border-bottom: 1px solid var(--md-outline-variant);
     }
-    .reel-screen:fullscreen { height: 100vh; }
-    .reel-node {
-      position: absolute; z-index: 2;
-      display: flex; align-items: center; gap: 10px;
-      padding: 10px 16px 10px 10px; border-radius: var(--md-shape-full);
-      background: var(--md-surface); box-shadow: var(--md-el-1);
-      font-size: 14px; font-weight: 500; color: var(--md-on-surface);
-      transition: box-shadow .3s var(--md-ease), transform .3s var(--md-ease);
+    .stack-tabs { flex: 1; min-width: 0; display: flex; gap: 4px; overflow-x: auto; scrollbar-width: none; }
+    .stack-tabs::-webkit-scrollbar { display: none; }
+    .stack-top-actions { display: flex; align-items: center; padding-bottom: 8px; }
+    .stack-tab {
+      position: relative; overflow: hidden; flex-shrink: 0;
+      display: inline-flex; align-items: center; gap: 8px;
+      height: 48px; padding: 0 14px; border: 0; background: none; cursor: pointer;
+      font: 500 14px var(--font-sans); color: var(--md-on-surface-variant); white-space: nowrap;
     }
-    .reel-node .reel-node-icon { width: 32px; height: 32px; border-radius: 50%; display: grid; place-items: center; }
-    .reel-node.live { box-shadow: var(--md-el-3), 0 0 0 3px var(--md-primary-container); transform: translateY(-2px); }
-    .n-user { top: 28px; left: 32px; }
-    .n-agent { top: 28px; right: 32px; }
-    .n-mcp { bottom: 28px; left: 32px; }
-    .n-db { bottom: 28px; right: 32px; }
-    .reel-beams { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; z-index: 1; }
-    .reel-beams line { stroke-width: 2.5; stroke-dasharray: 6 6; stroke-linecap: round; opacity: .25; transition: opacity .3s; }
-    .reel-beams line.on { opacity: 1; animation: md-dash 1s linear infinite; }
-    @keyframes md-dash { to { stroke-dashoffset: -24; } }
-    .reel-monitor {
-      position: relative; z-index: 3;
-      width: min(360px, 80%);
-      background: var(--md-surface); border-radius: var(--md-shape-l);
-      box-shadow: var(--md-el-2); padding: 14px 16px;
+    .stack-tab::before { content: ""; position: absolute; inset: 0; background: var(--md-on-surface); opacity: 0; transition: opacity .2s; }
+    .stack-tab:hover::before { opacity: .06; }
+    .stack-tab::after {
+      content: ""; position: absolute; left: 12px; right: 12px; bottom: 0; height: 3px;
+      border-radius: 3px 3px 0 0; background: var(--md-primary);
+      transform: scaleX(0); transition: transform .25s var(--md-ease);
     }
-    .reel-monitor-head { display: flex; justify-content: space-between; align-items: center; gap: 8px; padding-bottom: 8px; margin-bottom: 8px; border-bottom: 1px solid var(--md-outline-variant); }
-    .reel-monitor-text { font-family: var(--font-mono); font-size: 13px; line-height: 20px; color: var(--md-on-surface); min-height: 60px; }
+    .stack-tab.active { color: var(--md-primary); }
+    .stack-tab.active::after { transform: scaleX(1); }
+    .stack-tab.active .msr { font-variation-settings: "FILL" 1, "wght" 400, "GRAD" 0, "opsz" 24; }
+    .stack-tab-count {
+      min-width: 20px; height: 20px; padding: 0 6px; border-radius: 10px; display: inline-grid; place-items: center;
+      font-size: 11px; background: var(--md-surface-container-high); color: var(--md-on-surface-variant);
+    }
+    .stack-tab.active .stack-tab-count { background: var(--md-primary); color: var(--md-on-primary); }
 
-    .reel-controls { padding: 8px 16px 12px; display: flex; flex-direction: column; gap: 4px; }
-    .md-slider { position: relative; height: 24px; cursor: pointer; display: flex; align-items: center; }
-    .md-slider-track { position: absolute; left: 0; right: 0; height: 4px; border-radius: 2px; background: var(--md-secondary-container); }
-    .md-slider-fill { position: absolute; left: 0; height: 4px; border-radius: 2px; background: var(--md-primary); width: 0; }
-    .md-slider-thumb {
-      position: absolute; top: 50%; width: 4px; height: 20px; border-radius: 2px; background: var(--md-primary);
-      transform: translate(-50%, -50%); left: 0;
+    .stack-intro {
+      display: flex; align-items: center; gap: 10px; padding: 12px 20px;
+      background: var(--md-surface-container-low); color: var(--md-on-surface-variant);
     }
-    .reel-bar { display: flex; justify-content: space-between; align-items: center; gap: 8px; }
-    .reel-bar-group { display: flex; align-items: center; gap: 4px; }
-    .reel-time { font-family: var(--font-mono); font-size: 13px; color: var(--md-on-surface-variant); padding: 0 8px; }
-
-    /* ==========================================================================
-       SNAP 4 — Architecture inspector
-       ========================================================================== */
-    .arch-grid { display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); gap: 20px; align-items: stretch; }
-    .layer-list { display: flex; flex-direction: column; padding: 8px 0; }
-    .layer-item {
+    .stack-intro strong { color: var(--md-on-surface); font-weight: 500; }
+    .stack-body { display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); min-height: 460px; }
+    .stack-tiles {
+      display: grid; grid-template-columns: repeat(auto-fill, minmax(168px, 1fr)); gap: 10px;
+      align-content: start; padding: 16px 20px 20px;
+    }
+    .stack-tile {
       position: relative; overflow: hidden;
-      display: flex; align-items: center; gap: 16px;
-      padding: 12px 20px 12px 16px; min-height: 72px;
-      cursor: pointer; border: 0; background: none; text-align: left; width: 100%;
+      display: flex; flex-direction: column; align-items: flex-start; gap: 8px;
+      padding: 14px; text-align: left; cursor: pointer;
+      background: var(--md-surface); border: 1px solid var(--md-outline-variant); border-radius: var(--md-shape-l);
       font: inherit; color: inherit;
-      transition: background-color .2s var(--md-ease);
+      transition: transform .2s var(--md-ease), box-shadow .2s var(--md-ease), border-color .2s, background-color .2s;
+      animation: stack-in .4s var(--md-ease) calc(var(--i, 0) * 35ms) both;
     }
-    .layer-item:hover { background: rgba(29, 27, 32, .06); }
-    .layer-item.active { background: var(--md-secondary-container); }
-    .layer-item .layer-avatar {
-      width: 40px; height: 40px; border-radius: 50%; flex-shrink: 0;
-      display: grid; place-items: center; font-weight: 500; font-size: 14px;
+    .stack-tile:hover { transform: translateY(-3px); box-shadow: var(--md-el-2); }
+    .stack-tile:hover .stack-icon { transform: scale(1.1) rotate(-6deg); }
+    .stack-tile.active { border-color: var(--md-primary); background: var(--md-secondary-container); box-shadow: 0 0 0 1px var(--md-primary); }
+    .stack-tile .md-title-s { color: var(--md-on-surface); }
+    .stack-tile .md-body-s {
+      color: var(--md-on-surface-variant);
+      display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;
     }
-    .layer-item .layer-text { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 2px; }
-    .layer-item .md-title-m { color: var(--md-on-surface); }
-    .layer-item .md-body-m { color: var(--md-on-surface-variant); }
-    .layer-item .layer-trail { color: var(--md-on-surface-variant); transition: transform .2s var(--md-ease); }
-    .layer-item.active .layer-trail { transform: translateX(4px); color: var(--md-primary); }
-    .layer-stack-line { position: absolute; left: 35px; top: 0; bottom: 0; width: 2px; background: var(--md-outline-variant); z-index: -1; }
+    .stack-icon {
+      width: 44px; height: 44px; border-radius: 14px; display: grid; place-items: center; flex-shrink: 0;
+      transition: transform .25s cubic-bezier(.3, 1.6, .5, 1);
+    }
+    .stack-icon .msr { font-variation-settings: "FILL" 1, "wght" 400, "GRAD" 0, "opsz" 24; }
+    .stack-icon.xl { width: 64px; height: 64px; border-radius: 20px; }
+    .stack-icon.xl .msr { font-size: 34px; }
 
-    .inspector { display: flex; flex-direction: column; }
-    .inspector-body { padding: 20px 24px 24px; display: flex; flex-direction: column; gap: 12px; flex: 1; }
-    .inspector-body .md-body-l { color: var(--md-on-surface-variant); }
-    .spec-block {
-      white-space: pre-wrap; font-family: var(--font-mono); font-size: 13px; line-height: 22px;
-      background: var(--md-surface); border: 1px solid var(--md-outline-variant);
-      border-radius: var(--md-shape-m); padding: 14px 16px; color: var(--md-on-surface);
-      margin: 0;
+    .stack-detail { padding: 20px 24px 24px; border-left: 1px solid var(--md-outline-variant); background: var(--md-surface-container-low); }
+    .stack-detail-inner { position: sticky; top: 16px; display: flex; flex-direction: column; gap: 16px; }
+    .stack-detail-inner.swap > * { animation: stack-in .35s var(--md-ease) calc(var(--i, 0) * 50ms) both; }
+    .stack-detail-head { display: flex; align-items: center; gap: 16px; }
+    .stack-detail-head .stack-icon { position: relative; animation: stack-float 3.2s ease-in-out infinite; }
+    .stack-detail-head .stack-icon::after {
+      content: ""; position: absolute; inset: -4px; border-radius: 24px; border: 2px solid currentColor;
+      opacity: 0; animation: stack-ring 2.4s ease-out infinite;
     }
+    .stack-detail-head .md-label-m { color: var(--md-primary); letter-spacing: .08em; }
+    .stack-sec { display: flex; flex-direction: column; gap: 6px; }
+    .stack-sec-title { display: flex; align-items: center; gap: 6px; color: var(--md-on-surface); }
+    .stack-sec-title .msr { color: var(--md-primary); }
+    .stack-sec p { margin: 0; color: var(--md-on-surface-variant); line-height: 22px; }
+    .stack-steps { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 8px; counter-reset: step; }
+    .stack-steps li {
+      display: flex; align-items: flex-start; gap: 10px; color: var(--md-on-surface-variant); line-height: 20px;
+      counter-increment: step;
+    }
+    .stack-steps li::before {
+      content: counter(step); flex-shrink: 0; width: 22px; height: 22px; border-radius: 50%;
+      display: grid; place-items: center; font-size: 12px; font-weight: 500;
+      background: var(--md-primary); color: var(--md-on-primary);
+    }
+    .stack-chips { display: flex; flex-wrap: wrap; gap: 6px; }
+    .stack-chip {
+      display: inline-flex; align-items: center; gap: 4px; height: 28px; padding: 0 10px;
+      border-radius: var(--md-shape-s); font-size: 12px; font-weight: 500;
+      background: var(--md-surface); border: 1px solid var(--md-outline-variant); color: var(--md-on-surface);
+    }
+    .stack-chip .msr { font-size: 16px; color: var(--tone-green); }
+    .stack-impact {
+      display: flex; align-items: center; gap: 10px; padding: 12px 14px; border-radius: var(--md-shape-m);
+      background: var(--tone-green-c); color: var(--tone-on-green-c); font-weight: 500;
+    }
+    @keyframes stack-in { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: none; } }
+    @keyframes stack-float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-4px); } }
+    @keyframes stack-ring { 0% { opacity: .5; transform: scale(.9); } 100% { opacity: 0; transform: scale(1.25); } }
 
-    /* ==========================================================================
-       SNAP 5 — Agent sandbox
-       ========================================================================== */
-    .sim-toolbar { display: flex; flex-wrap: wrap; gap: 16px; align-items: flex-end; justify-content: space-between; padding: 20px 20px 16px; }
-    .sim-fields { display: flex; flex-wrap: wrap; gap: 16px; flex: 1; }
-    .md-field { position: relative; min-width: 220px; flex: 1 1 220px; }
-    .md-field select {
-      width: 100%; height: 56px; padding: 0 44px 0 16px;
-      appearance: none; -webkit-appearance: none;
-      border: 1px solid var(--md-outline); border-radius: var(--md-shape-xs);
-      background: var(--md-surface); color: var(--md-on-surface);
-      font-family: var(--font-sans); font-size: 16px; letter-spacing: .031em;
-      cursor: pointer; outline: none;
+    /* Compact per-section footer */
+    .snap-footer {
+      display: flex; align-items: center; justify-content: center; gap: 12px; flex-wrap: wrap;
+      margin-top: 4px; padding-top: 14px; border-top: 1px solid var(--md-outline-variant);
+      font-size: 12px; color: var(--md-on-surface-variant);
     }
-    .md-field select:hover { border-color: var(--md-on-surface); }
-    .md-field select:focus { border: 2px solid var(--md-primary); padding-left: 15px; }
-    .md-field label {
-      position: absolute; left: 12px; top: -8px; padding: 0 4px;
-      background: var(--md-surface); color: var(--md-on-surface-variant);
-      font-size: 12px; line-height: 16px; pointer-events: none;
+    .snap-footer-li {
+      display: inline-flex; align-items: center; gap: 6px; height: 26px; padding: 0 10px 0 8px;
+      border-radius: var(--md-shape-full); background: #0a66c2; color: #fff;
+      font-weight: 500; text-decoration: none; transition: background-color .2s, transform .2s;
     }
-    .md-field select:focus + label { color: var(--md-primary); }
-    .md-field .md-field-icon { position: absolute; right: 12px; top: 50%; transform: translateY(-50%); pointer-events: none; color: var(--md-on-surface-variant); }
-    .sim-actions { display: flex; gap: 8px; }
-
-    .sim-split { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; padding: 0 20px 20px; }
-    .sim-pane { border-radius: var(--md-shape-m); border: 1px solid var(--md-outline-variant); display: flex; flex-direction: column; overflow: hidden; background: var(--md-surface); }
-    .sim-pane-head { display: flex; justify-content: space-between; align-items: center; gap: 8px; padding: 10px 16px; background: var(--md-surface-container-low); border-bottom: 1px solid var(--md-outline-variant); }
-    .sim-pane-head .md-label-m { letter-spacing: .08em; color: var(--md-on-surface-variant); }
-    .sim-terminal {
-      height: 320px; overflow-y: auto; padding: 14px 16px;
-      font-family: var(--font-mono); font-size: 13px; line-height: 22px;
-      color: var(--md-on-surface); white-space: pre-wrap; word-break: break-word;
-      background: var(--md-surface);
-    }
-    .sim-terminal .ln { display: block; animation: md-fade .25s var(--md-ease); }
-    .sim-terminal .px { font-weight: 500; }
-    .px-agent { color: var(--tone-purple); } .px-tool { color: var(--tone-blue); } .px-ok { color: var(--tone-green); }
-    .px-tele { color: var(--tone-amber); } .px-misc { color: var(--md-on-surface-variant); }
-
-    .sim-traj { height: 320px; overflow-y: auto; padding: 8px; display: flex; flex-direction: column; gap: 6px; }
-    .traj-step {
-      display: grid; grid-template-columns: 112px minmax(0, 1fr); gap: 12px; align-items: start; overflow-wrap: anywhere;
-      padding: 10px 12px; border-radius: var(--md-shape-s);
-      background: var(--md-surface-container-low);
-      color: var(--md-on-surface); font-size: 14px; line-height: 20px;
-      animation: md-fade .3s var(--md-ease);
-    }
-    .traj-step strong { font-weight: 500; }
-    .traj-step .md-tag { justify-content: center; }
-    .tag-thought { background: var(--tone-purple-c); color: var(--tone-on-purple-c); }
-    .tag-action { background: var(--tone-blue-c); color: var(--tone-on-blue-c); }
-    .tag-observation { background: var(--tone-amber-c); color: var(--tone-on-amber-c); }
-    .tag-result { background: var(--tone-green-c); color: var(--tone-on-green-c); }
-
-    .status-chip { display: inline-flex; align-items: center; gap: 6px; font-size: 12px; font-weight: 500; letter-spacing: .04em; }
-    .status-chip .dot { width: 8px; height: 8px; border-radius: 50%; background: currentColor; }
+    .snap-footer-li:hover { background: #004182; transform: translateY(-1px); }
 
     /* ==========================================================================
        FOOTER
@@ -898,7 +995,8 @@
       .md-toc { display: none; }
     }
     @media (max-width: 1100px) {
-      .evo-grid, .slide-grid, .arch-grid { grid-template-columns: minmax(0, 1fr); }
+      .evo-grid, .slide-grid, .stack-body { grid-template-columns: minmax(0, 1fr); }
+      .stack-detail { border-left: 0; border-top: 1px solid var(--md-outline-variant); }
       .md-snap { padding: 24px; }
     }
     @media (max-width: 900px) {
@@ -907,25 +1005,21 @@
       .md-drawer { display: none; }
       .md-scroller { height: auto; overflow: visible; scroll-snap-type: none; }
       .md-snap { min-height: 0; }
-      .sim-split, .md-footer-grid { grid-template-columns: minmax(0, 1fr); }
-      .md3 .master-instructor-beam { display: none; }
+      .md-footer-grid { grid-template-columns: minmax(0, 1fr); }
     }
     @media (max-width: 640px) {
       .md-snap { padding: 20px 16px; }
       .md-footer { padding: 32px 16px 20px; }
       .md-display-s { font-size: 28px; line-height: 36px; }
       .md-tabs { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .evo-take { grid-template-columns: minmax(0, 1fr); }
+      .evo-steps li { grid-template-columns: 24px minmax(0, 1fr); }
+      .evo-tool { grid-column: 2; justify-self: start; }
       .pipeline { grid-template-columns: minmax(0, 1fr); }
       .pipeline .flow-arrow { transform: rotate(90deg); }
       .ml-board, .gen-board, .syllabus-grid, .tech-grid { grid-template-columns: minmax(0, 1fr); }
       .md3 .master-nav-actions { display: none; }
       .ai-def-card { grid-template-columns: minmax(0, 1fr); }
-      .reel-screen { height: 420px; }
-      .reel-node { font-size: 12px; padding: 6px 12px 6px 6px; }
-      .n-user, .n-agent { top: 16px; } .n-mcp, .n-db { bottom: 16px; }
-      .n-user, .n-mcp { left: 12px; } .n-agent, .n-db { right: 12px; }
-      .traj-step { grid-template-columns: minmax(0, 1fr); gap: 6px; }
-      .traj-step .md-tag { justify-self: start; }
       .carousel-stage { padding: 16px; }
     }
     @media (prefers-reduced-motion: reduce) {
@@ -1298,6 +1392,25 @@
       <!-- ================================================================= -->
       <section class="md-snap" id="snap-1" data-snap-index="1">
         <div class="md-snap-inner">
+          <!-- Presenter card -->
+          <div class="md-card elevated instructor-card">
+            <div class="instructor-id">
+              <div class="instructor-avatar">VB<span class="verified"><span class="msr fill">verified</span></span></div>
+              <div>
+                <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap;">
+                  <span class="md-title-l">Venkata Bhattaram</span>
+                  <span class="md-tag t-purple">PRESENTER</span>
+                </div>
+                <div class="md-body-m muted"><strong style="color:var(--md-on-surface);font-weight:500;">18+ years of USA experience</strong> in Enterprise Systems, Data Engineering and AI</div>
+              </div>
+            </div>
+            <div class="md-chip-row">
+              <span class="md-chip"><span class="msr">design_services</span>Design</span>
+              <span class="md-chip"><span class="msr">account_tree</span>Architect</span>
+              <span class="md-chip"><span class="msr">code</span>Development</span>
+            </div>
+          </div>
+
           <div class="md-snap-head">
             <div class="md-chip-row">
               <span class="md-chip primary"><span class="msr">smart_toy</span>Snap 01 · Introduction &amp; Evolution</span>
@@ -1319,8 +1432,8 @@
             <!-- Infographic -->
             <figure class="md-card evo-figure" style="margin:0;">
               <div class="evo-figure-media">
-                <img src="ai_evolution_stages.jpg" alt="Evolution of AI: Automation, Machine Learning, Generative AI, and Agentic AI" id="snap1InfographicImg">
-                <button class="md-btn md-btn-elevated" onclick="openImageLightbox()" title="View full-screen diagram">
+                <img src="ai_evolution_stages.jpg" alt="Evolution of AI: Automation, Machine Learning, Generative AI, and Agentic AI" id="snap1InfographicImg" data-zoom-title="FIG 1.0 · Automation → Traditional ML → Generative AI → Agentic AI">
+                <button class="md-btn md-btn-elevated" onclick="openZoom(document.getElementById('snap1InfographicImg'))" title="View full-screen diagram">
                   <span class="msr">zoom_out_map</span>Zoom
                 </button>
               </div>
@@ -1330,8 +1443,8 @@
               </figcaption>
             </figure>
 
-            <!-- Evolution tour -->
-            <div class="md-card" style="display:flex;flex-direction:column;">
+            <!-- Evolution tour: one ticket, four kinds of AI -->
+            <div class="md-card" style="display:flex;flex-direction:column;" data-zoom="AI evolution in 30 seconds" data-zoom-slot=".md-card-head > div:last-child">
               <div class="md-card-head">
                 <div class="md-card-head-title">
                   <span class="md-live-dot"></span>
@@ -1345,169 +1458,192 @@
                 </div>
               </div>
 
+              <div class="evo-ticket">
+                <span class="msr sm">confirmation_number</span>
+                <span class="md-body-m"><strong>One support ticket, four kinds of AI.</strong> Sam's order arrived broken and Sam wants their money back.</span>
+              </div>
+
               <div class="md-tabs" role="tablist">
                 <button class="md-tab active" role="tab" onclick="selectEpochStage(1)" id="epochTab1">
-                  <span class="md-tab-eyebrow">EPOCH 1</span>
-                  <span class="md-tab-label"><span class="msr sm">settings</span>Rules Era</span>
+                  <span class="md-tab-eyebrow">FOLLOWS</span>
+                  <span class="md-tab-label"><span class="msr sm">settings</span>Automation</span>
                 </button>
                 <button class="md-tab" role="tab" onclick="selectEpochStage(2)" id="epochTab2">
-                  <span class="md-tab-eyebrow">EPOCH 2</span>
-                  <span class="md-tab-label"><span class="msr sm">hub</span>Machine Learning</span>
+                  <span class="md-tab-eyebrow">LEARNS</span>
+                  <span class="md-tab-label"><span class="msr sm">hub</span>ML</span>
                 </button>
                 <button class="md-tab" role="tab" onclick="selectEpochStage(3)" id="epochTab3">
-                  <span class="md-tab-eyebrow">EPOCH 3</span>
-                  <span class="md-tab-label"><span class="msr sm">auto_awesome</span>Generative AI</span>
+                  <span class="md-tab-eyebrow">CREATES</span>
+                  <span class="md-tab-label"><span class="msr sm">auto_awesome</span>GenAI</span>
                 </button>
                 <button class="md-tab" role="tab" onclick="selectEpochStage(4)" id="epochTab4">
-                  <span class="md-tab-eyebrow">EPOCH 4</span>
-                  <span class="md-tab-label"><span class="msr sm">autorenew</span>Agentic AI</span>
+                  <span class="md-tab-eyebrow">ACTS</span>
+                  <span class="md-tab-label"><span class="msr sm">smart_toy</span>AI Agent</span>
                 </button>
               </div>
               <div class="md-progress" style="border-radius:0;"><div id="epochScrubberFill" style="width:25%;"></div></div>
 
               <div style="flex:1;">
-                <!-- Epoch 1 -->
+                <!-- 1. Automation -->
                 <div class="epoch-panel active" id="epochPanel1" role="tabpanel">
-                  <div>
-                    <div class="epoch-title-row">
-                      <h3 class="md-title-l">1. The Rulebook Era (Rules &amp; Expert Systems)</h3>
-                      <span class="md-tag t-neutral">1990s – 2000s</span>
+                  <div class="epoch-title-row">
+                    <div>
+                      <h3 class="md-title-l">Automation: follows the rules you write</h3>
+                      <p class="md-body-m muted" style="margin-top:4px;">A person writes the rule once. The computer repeats it exactly, every time.</p>
                     </div>
-                    <p class="md-body-m muted" style="margin-top:6px;">A rigid cage of deterministic If/Then flowcharts. No learning, zero adaptability; crashes instantly upon unexpected schema drift.</p>
+                    <div style="display:flex;align-items:center;gap:4px;">
+                      <span class="md-tag t-neutral">IF → THEN</span>
+                      <button class="md-icon-btn" onclick="playEpoch(1)" title="Replay animation"><span class="msr">replay</span></button>
+                    </div>
                   </div>
-                  <div class="flow-row">
-                    <div class="flow-node">
-                      <div class="flow-node-icon t-blue"><span class="msr">schedule</span></div>
-                      <div><div class="md-title-s">Cron · RPA Scripts</div><div class="md-body-s">Hardcoded conditions</div></div>
+                  <div class="evo-stage">
+                    <div class="evo-rule"><span class="msr sm">rule</span><code>IF message contains "refund" → send to Refund team</code></div>
+                    <div class="evo-lane">
+                      <div class="evo-msg a-in" style="--t:.3s"><span class="msr sm">mail</span><span>"My order arrived broken. I want a <mark>refund</mark>."</span></div>
+                      <span class="msr evo-arrow a-pop" style="--t:1s">arrow_forward</span>
+                      <div class="evo-result ok a-pop" style="--t:1.4s"><span class="msr sm fill">check_circle</span>Refund team</div>
                     </div>
-                    <div class="flow-arrow"><span class="msr">arrow_forward</span></div>
-                    <div class="flow-node tone-red">
-                      <div class="flow-node-icon" style="background:var(--md-surface);color:var(--tone-red);"><span class="msr">warning</span></div>
-                      <div><div class="md-title-s">Schema Drift Exception</div><div class="md-body-s">Fatal process crash (exit 1)</div></div>
+                    <div class="evo-lane">
+                      <div class="evo-msg a-in" style="--t:2.4s"><span class="msr sm">mail</span><span>"Can I get my money back?"</span></div>
+                      <span class="msr evo-arrow a-pop" style="--t:3.1s">arrow_forward</span>
+                      <div class="evo-result bad a-bad" style="--t:3.5s"><span class="msr sm fill">error</span>No rule matched · stuck</div>
                     </div>
+                  </div>
+                  <div class="evo-take">
+                    <div><span class="msr sm fill c-green">thumb_up</span><span><strong>Great at:</strong> fast, cheap and 100% predictable</span></div>
+                    <div><span class="msr sm fill c-red">thumb_down</span><span><strong>Limit:</strong> breaks on anything nobody wrote a rule for</span></div>
                   </div>
                 </div>
 
-                <!-- Epoch 2 -->
+                <!-- 2. Machine Learning -->
                 <div class="epoch-panel" id="epochPanel2" role="tabpanel">
-                  <div>
-                    <div class="epoch-title-row">
-                      <h3 class="md-title-l">2. Statistical Machine Learning (Pattern Recognition)</h3>
-                      <span class="md-tag t-blue">2010s</span>
+                  <div class="epoch-title-row">
+                    <div>
+                      <h3 class="md-title-l">Machine Learning: learns patterns from examples</h3>
+                      <p class="md-body-m muted" style="margin-top:4px;">Show it thousands of past tickets and it learns what a refund request looks like.</p>
                     </div>
-                    <p class="md-body-m muted" style="margin-top:6px;">Replaces human rules with mathematical models trained on historic datasets to learn weights, minimize loss, and predict probabilities.</p>
+                    <div style="display:flex;align-items:center;gap:4px;">
+                      <span class="md-tag t-blue">DATA → PREDICTION</span>
+                      <button class="md-icon-btn" onclick="playEpoch(2)" title="Replay animation"><span class="msr">replay</span></button>
+                    </div>
                   </div>
-                  <div class="flow-row">
-                    <div class="flow-node">
-                      <div class="flow-node-icon t-blue"><span class="msr">table_chart</span></div>
-                      <div><div class="md-title-s">Features [x₁, x₂, x₃]</div><div class="md-body-s">Tabular preprocessing</div></div>
+                  <div class="evo-stage evo-ml">
+                    <div class="evo-ml-train">
+                      <div class="md-label-m muted">LEARNED FROM 50,000 PAST TICKETS</div>
+                      <div class="evo-dots"><i class="evo-dot r a-pop" style="--t:0.20s"></i><i class="evo-dot s a-pop" style="--t:0.25s"></i><i class="evo-dot r a-pop" style="--t:0.30s"></i><i class="evo-dot o a-pop" style="--t:0.35s"></i><i class="evo-dot r a-pop" style="--t:0.40s"></i><i class="evo-dot r a-pop" style="--t:0.45s"></i><i class="evo-dot s a-pop" style="--t:0.50s"></i><i class="evo-dot r a-pop" style="--t:0.55s"></i><i class="evo-dot o a-pop" style="--t:0.60s"></i><i class="evo-dot r a-pop" style="--t:0.65s"></i><i class="evo-dot s a-pop" style="--t:0.70s"></i><i class="evo-dot r a-pop" style="--t:0.75s"></i><i class="evo-dot r a-pop" style="--t:0.80s"></i><i class="evo-dot o a-pop" style="--t:0.85s"></i><i class="evo-dot r a-pop" style="--t:0.90s"></i><i class="evo-dot s a-pop" style="--t:0.95s"></i><i class="evo-dot r a-pop" style="--t:1.00s"></i><i class="evo-dot r a-pop" style="--t:1.05s"></i><i class="evo-dot o a-pop" style="--t:1.10s"></i><i class="evo-dot r a-pop" style="--t:1.15s"></i><i class="evo-dot s a-pop" style="--t:1.20s"></i><i class="evo-dot r a-pop" style="--t:1.25s"></i><i class="evo-dot r a-pop" style="--t:1.30s"></i><i class="evo-dot o a-pop" style="--t:1.35s"></i></div>
+                      <div class="evo-legend"><span><i class="evo-dot r"></i>Refund</span><span><i class="evo-dot s"></i>Shipping</span><span><i class="evo-dot o"></i>Other</span></div>
                     </div>
-                    <div class="flow-arrow"><span class="msr">arrow_forward</span></div>
-                    <div class="flow-node">
-                      <div class="flow-node-icon t-blue" style="font-weight:500;">W*</div>
-                      <div><div class="md-title-s">Gradient Weights</div><div class="md-body-s">Loss minimization</div></div>
+                    <div class="evo-ml-predict">
+                      <div class="evo-msg a-in" style="--t:1.6s"><span class="msr sm">mail</span><span>"Can I get my <mark>money back</mark>?"</span></div>
+                      <div class="evo-bars">
+                        <div class="evo-bar"><span>Refund</span><div class="evo-track"><div class="evo-fill r a-grow" style="--t:2.4s;width:96%;"></div></div><b class="a-pop" style="--t:3.2s">96%</b></div>
+                        <div class="evo-bar"><span>Shipping</span><div class="evo-track"><div class="evo-fill s a-grow" style="--t:2.5s;width:3%;"></div></div><b class="a-pop" style="--t:3.2s">3%</b></div>
+                        <div class="evo-bar"><span>Other</span><div class="evo-track"><div class="evo-fill o a-grow" style="--t:2.6s;width:1%;"></div></div><b class="a-pop" style="--t:3.2s">1%</b></div>
+                      </div>
+                      <div class="evo-result ok a-pop" style="--t:3.8s"><span class="msr sm fill">check_circle</span>Refund team, no rule needed</div>
                     </div>
-                    <div class="flow-arrow"><span class="msr">arrow_forward</span></div>
-                    <div class="flow-node tone-green">
-                      <div><div class="flow-metric" style="color:var(--tone-on-green-c);">94.2%</div><div class="md-body-s" style="color:var(--tone-on-green-c);">Class prediction</div></div>
-                    </div>
+                  </div>
+                  <div class="evo-take">
+                    <div><span class="msr sm fill c-green">thumb_up</span><span><strong>Great at:</strong> understands new wording it was never told about</span></div>
+                    <div><span class="msr sm fill c-red">thumb_down</span><span><strong>Limit:</strong> only picks a label. It can't write a reply or fix anything</span></div>
                   </div>
                 </div>
 
-                <!-- Epoch 3 -->
+                <!-- 3. Generative AI -->
                 <div class="epoch-panel" id="epochPanel3" role="tabpanel">
-                  <div>
-                    <div class="epoch-title-row">
-                      <h3 class="md-title-l">3. Generative AI &amp; Foundation Models (Transformers)</h3>
-                      <span class="md-tag t-purple">2022 – Present</span>
+                  <div class="epoch-title-row">
+                    <div>
+                      <h3 class="md-title-l">Generative AI: creates new content</h3>
+                      <p class="md-body-m muted" style="margin-top:4px;">Ask in plain English and it writes something brand new: replies, summaries, code, images.</p>
                     </div>
-                    <p class="md-body-m muted" style="margin-top:6px;">Multi-billion parameter transformers reasoning across multimodal context with multi-head self-attention mechanisms and code synthesis.</p>
+                    <div style="display:flex;align-items:center;gap:4px;">
+                      <span class="md-tag t-purple">PROMPT → CONTENT</span>
+                      <button class="md-icon-btn" onclick="playEpoch(3)" title="Replay animation"><span class="msr">replay</span></button>
+                    </div>
                   </div>
-                  <div class="flow-row">
-                    <div class="flow-node">
-                      <div class="flow-node-icon t-purple"><span class="msr">text_fields</span></div>
-                      <div><div class="md-title-s">Prompt Tokens</div><div class="md-body-s">"Triage K8s Pod..."</div></div>
-                    </div>
-                    <div class="flow-arrow"><span class="msr">arrow_forward</span></div>
-                    <div class="flow-node" style="background:var(--md-primary);border-color:transparent;">
-                      <div class="flow-node-icon" style="background:rgba(255,255,255,.18);color:#fff;"><span class="msr">memory</span></div>
-                      <div><div class="md-title-s" style="color:#fff;">Self-Attention Core</div><div class="md-body-s" style="color:#eaddff;">Q · K · V matrix softmax</div></div>
-                    </div>
-                    <div class="flow-arrow"><span class="msr">arrow_forward</span></div>
-                    <div class="flow-node">
-                      <div class="flow-node-icon t-blue"><span class="msr">stream</span></div>
-                      <div><div class="md-title-s">Token Stream</div><div class="md-body-s">"Invoking MCP Tool..."</div></div>
-                    </div>
+                  <div class="evo-stage">
+                    <div class="evo-chat user a-in" style="--t:.3s"><span class="msr sm">person</span><span>Write a friendly reply to Sam about the broken order.</span></div>
+                    <div class="evo-chat ai a-pop" style="--t:.9s"><span class="msr sm fill">auto_awesome</span><span><span id="evoTyped">Hi Sam, I'm so sorry your order arrived broken! That's not the experience we want for you. I've passed your refund request to our team and you'll hear back within 24 hours.</span><span class="evo-caret"></span></span></div>
+                    <div class="evo-result warn a-pop" style="--t:5.6s"><span class="msr sm fill">info</span>Sounds great, but no refund was actually issued</div>
+                  </div>
+                  <div class="evo-take">
+                    <div><span class="msr sm fill c-green">thumb_up</span><span><strong>Great at:</strong> writes, summarizes and explains like a person</span></div>
+                    <div><span class="msr sm fill c-red">thumb_down</span><span><strong>Limit:</strong> it only produces text. Nothing in the real world happens</span></div>
                   </div>
                 </div>
 
-                <!-- Epoch 4 -->
+                <!-- 4. AI Agent -->
                 <div class="epoch-panel" id="epochPanel4" role="tabpanel">
-                  <div>
-                    <div class="epoch-title-row">
-                      <h3 class="md-title-l">4. Autonomous AI Agents (Self-Governing Swarms)</h3>
-                      <span class="md-tag t-green">Next Gen</span>
+                  <div class="epoch-title-row">
+                    <div>
+                      <h3 class="md-title-l">AI Agent: plans and takes action</h3>
+                      <p class="md-body-m muted" style="margin-top:4px;">Give it a goal and tools. It thinks, acts, checks the result and repeats until the job is done.</p>
                     </div>
-                    <p class="md-body-m muted" style="margin-top:6px;">From following rules to writing their own rules! Autonomous goal-directed reasoning, Model Context Protocol (MCP) tool execution &amp; self-healing.</p>
+                    <div style="display:flex;align-items:center;gap:4px;">
+                      <span class="md-tag t-green">GOAL → DONE</span>
+                      <button class="md-icon-btn" onclick="playEpoch(4)" title="Replay animation"><span class="msr">replay</span></button>
+                    </div>
                   </div>
-                  <div class="flow-row">
-                    <div class="flow-node">
-                      <div class="flow-node-icon" style="background:var(--tone-green);color:#fff;"><span class="msr spin">autorenew</span></div>
-                      <div><div class="md-title-s">ReAct Reasoning Loop</div><div class="md-body-s">Plan → Act → Observe → Reflect</div></div>
+                  <div class="evo-stage">
+                    <div class="evo-agent">
+                      <div class="evo-agent-head">
+                        <div class="evo-goal a-in" style="--t:.2s"><span class="msr sm fill">flag</span>Goal: resolve Sam's ticket #4821</div>
+                        <div class="md-body-s muted">The agent loops <strong>think → act → check</strong> until the goal is met.</div>
+                      </div>
+                      <div class="evo-loop" aria-hidden="true">
+                        <div class="evo-loop-ring"><span class="evo-orbit"></span></div>
+                        <span class="evo-loop-core"><span class="msr fill">smart_toy</span></span>
+                        <span class="evo-loop-lbl l1">Think</span>
+                        <span class="evo-loop-lbl l2">Act</span>
+                        <span class="evo-loop-lbl l3">Check</span>
+                      </div>
+                      <ol class="evo-steps">
+                        <li class="a-in" style="--t:0.8s">
+                          <span class="evo-step-ic"><span class="a-out" style="--t:1.6s"><span class="msr sm evo-spin">progress_activity</span></span><span class="msr sm fill c-green a-pop" style="--t:1.6s">check_circle</span></span>
+                          <div><div class="md-title-s">Look up order #4821</div><div class="md-body-s">Delivered 3 days ago · $49</div></div>
+                          <span class="evo-tool">Orders DB</span>
+                        </li>
+                        <li class="a-in" style="--t:1.9s">
+                          <span class="evo-step-ic"><span class="a-out" style="--t:2.7s"><span class="msr sm evo-spin">progress_activity</span></span><span class="msr sm fill c-green a-pop" style="--t:2.7s">check_circle</span></span>
+                          <div><div class="md-title-s">Check refund policy</div><div class="md-body-s">Damaged item → full refund allowed</div></div>
+                          <span class="evo-tool">Policy docs</span>
+                        </li>
+                        <li class="a-in" style="--t:3.0s">
+                          <span class="evo-step-ic"><span class="a-out" style="--t:3.8s"><span class="msr sm evo-spin">progress_activity</span></span><span class="msr sm fill c-green a-pop" style="--t:3.8s">check_circle</span></span>
+                          <div><div class="md-title-s">Issue the refund</div><div class="md-body-s">$49.00 sent back to Sam's card</div></div>
+                          <span class="evo-tool">Payments API</span>
+                        </li>
+                        <li class="a-in" style="--t:4.1s">
+                          <span class="evo-step-ic"><span class="a-out" style="--t:4.9s"><span class="msr sm evo-spin">progress_activity</span></span><span class="msr sm fill c-green a-pop" style="--t:4.9s">check_circle</span></span>
+                          <div><div class="md-title-s">Email Sam</div><div class="md-body-s">"Your refund is on its way"</div></div>
+                          <span class="evo-tool">Email</span>
+                        </li>
+                      </ol>
                     </div>
-                    <div class="flow-arrow"><span class="msr">arrow_forward</span></div>
-                    <div class="flow-node tone-green">
-                      <div class="flow-node-icon" style="background:var(--md-surface);color:var(--tone-green);"><span class="msr fill">check_circle</span></div>
-                      <div><div class="md-title-s" style="color:var(--tone-on-green-c);">MCP Tool Bus</div><div class="md-body-s" style="color:var(--tone-on-green-c);">K8s · SQL · APIs · Self-healing</div></div>
-                    </div>
+                    <div class="evo-result ok a-pop" style="--t:5.3s"><span class="msr sm fill">task_alt</span>Ticket closed: refund issued and Sam emailed, with no human needed</div>
+                  </div>
+                  <div class="evo-take">
+                    <div><span class="msr sm fill c-green">thumb_up</span><span><strong>Great at:</strong> finishes real multi-step jobs using tools</span></div>
+                    <div><span class="msr sm fill c-amber">shield</span><span><strong>Limit:</strong> needs guardrails: permissions, limits and human approval for risky steps</span></div>
                   </div>
                 </div>
               </div>
 
               <div class="epoch-footer">
-                <span class="md-body-m">Paradigm shift: <strong style="font-weight:500;">from following rules to writing their own rules.</strong></span>
-                <span class="md-label-l c-purple">Autonomous closed-loop execution</span>
+                <span class="md-body-m">Same ticket, four levels: <strong style="font-weight:500;">follows rules → learns patterns → creates content → takes action.</strong></span>
+                <span class="md-label-l c-purple">Rules → AI agents</span>
               </div>
             </div>
           </div>
 
-          <!-- Instructor card -->
-          <div class="md-card elevated instructor-card">
-            <div class="instructor-id">
-              <div class="instructor-avatar">VB<span class="verified"><span class="msr fill">verified</span></span></div>
-              <div>
-                <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap;">
-                  <span class="md-title-l">I am Venkata Bhattaram</span>
-                  <span class="md-tag t-purple">LEAD INSTRUCTOR</span>
-                </div>
-                <div class="md-body-m muted"><strong style="color:var(--md-on-surface);font-weight:500;">18+ years of USA experience</strong> in Enterprise Systems, Data Engineering and AI</div>
-              </div>
-            </div>
-            <div class="md-chip-row">
-              <span class="md-chip"><span class="msr">workspace_premium</span>Enterprise Architect</span>
-              <span class="md-chip"><span class="msr">database</span>Large-Scale Data Systems</span>
-              <span class="md-chip"><span class="msr">smart_toy</span>Agentic AI &amp; MCP Frameworks</span>
-            </div>
-          </div>
+          <footer class="snap-footer">
+            <span>&copy; 2026 Venkata Bhattaram</span>
+            <a href="https://www.linkedin.com/in/venkata-bhattaram/" target="_blank" rel="noopener noreferrer" class="snap-footer-li" title="Venkata Bhattaram on LinkedIn">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 10.9v8.37H9.2V10.9H6.46M7.83 6.45a1.6 1.6 0 1 0 0 3.2 1.6 1.6 0 0 0 0-3.2Z"/></svg>LinkedIn
+            </a>
+          </footer>
         </div>
       </section>
-
-      <!-- Lightbox dialog -->
-      <div id="imageLightboxModal" class="md-scrim" onclick="closeImageLightbox()" role="dialog" aria-modal="true" aria-labelledby="lightboxTitle">
-        <div class="md-dialog" onclick="event.stopPropagation()">
-          <div class="md-dialog-head">
-            <h2 class="md-headline-s" id="lightboxTitle">Architectural Epochs</h2>
-            <button class="md-icon-btn" onclick="closeImageLightbox()" title="Close"><span class="msr">close</span></button>
-          </div>
-          <div class="md-dialog-body">
-            <img src="ai_evolution_stages.jpg" alt="Evolution of AI architecture, full screen">
-          </div>
-          <div class="md-dialog-actions">
-            <span class="md-body-m muted" style="margin-right:auto;align-self:center;">FIG 1.0 · Automation → Traditional ML → Generative AI → Agentic Swarms</span>
-            <button class="md-btn md-btn-text" onclick="closeImageLightbox()">Close</button>
-          </div>
-        </div>
-      </div>
 
       <!-- ================================================================= -->
       <!-- SNAP 2: CORE CURRICULUM CAROUSEL                                  -->
@@ -1542,7 +1678,7 @@
             </div>
           </div>
 
-          <div class="md-card">
+          <div class="md-card" data-zoom="Core Curriculum Slideshow" data-zoom-slot=".carousel-top">
             <div class="carousel-top">
               <span class="md-chip primary" id="slideBadgeText"><span class="msr">layers</span>Pillar 01 · Understanding Automation</span>
               <span class="md-label-l muted" id="slideCounterText">Slide 1 of 5</span>
@@ -1738,201 +1874,94 @@
               </div>
             </div>
           </div>
+          <footer class="snap-footer">
+            <span>&copy; 2026 Venkata Bhattaram</span>
+            <a href="https://www.linkedin.com/in/venkata-bhattaram/" target="_blank" rel="noopener noreferrer" class="snap-footer-li" title="Venkata Bhattaram on LinkedIn">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 10.9v8.37H9.2V10.9H6.46M7.83 6.45a1.6 1.6 0 1 0 0 3.2 1.6 1.6 0 0 0 0-3.2Z"/></svg>LinkedIn
+            </a>
+          </footer>
         </div>
       </section>
 
       <!-- ================================================================= -->
-      <!-- SNAP 3: REMOTION MOTION REEL                                      -->
+      <!-- SNAP 3: AI ENGINEERING STACK                                      -->
       <!-- ================================================================= -->
       <section class="md-snap" id="snap-3" data-snap-index="3">
         <div class="md-snap-inner">
           <div class="md-snap-head">
             <div class="md-chip-row">
-              <span class="md-chip primary"><span class="msr">movie</span>Snap 03 · Remotion Animation Reel</span>
-              <span class="md-chip">Programmatic Video Engine</span>
+              <span class="md-chip primary"><span class="msr">stacks</span>Snap 03 · AI Engineering Stack</span>
+              <span class="md-chip">Concepts · Tools · Projects</span>
             </div>
-            <h2 class="md-headline-m">Remotion Motion Graphics: The Agentic Reasoning Loop</h2>
-            <p class="md-body-l">A React-driven Remotion motion graphic demonstrating continuous multi-agent token stream execution, tool dispatch, and verification in a 30-second loop.</p>
+            <h2 class="md-headline-m">The AI Agent Engineering Stack</h2>
+            <p class="md-body-l">Everything this MasterClass covers, one tab at a time: the core languages, the agent harnesses, the building blocks inside every agent, MLOps, cloud, and real projects across 14 industries. Pick a tab, then a card, to see the details.</p>
           </div>
 
-          <div class="md-card">
-            <div class="md-card-head">
-              <div class="md-card-head-title">
-                <span class="md-chip primary sm"><span class="msr sm">videocam</span>Remotion v4.0</span>
-                <span class="md-title-s">Autonomous SRE Agent Workflow · 60 FPS Canvas</span>
-              </div>
-              <span class="md-body-s muted mono">1920×1080 · ProRes render sim</span>
+          <div class="md-card stack-card" data-zoom="AI Agent Engineering Stack" data-zoom-slot=".stack-top-actions">
+            <div class="stack-top">
+              <div class="stack-tabs" role="tablist" id="stackTabs"></div>
+              <div class="stack-top-actions"></div>
             </div>
-
-            <div class="reel-screen" id="remotionScreen">
-              <svg class="reel-beams" aria-hidden="true">
-                <line x1="14%" y1="16%" x2="86%" y2="16%" stroke="#0b57d0" id="beam1"/>
-                <line x1="86%" y1="16%" x2="14%" y2="84%" stroke="#6750a4" id="beam2"/>
-                <line x1="14%" y1="84%" x2="86%" y2="84%" stroke="#146c2e" id="beam3"/>
-              </svg>
-
-              <div class="reel-node n-user" id="rNodeUser"><span class="reel-node-icon t-blue"><span class="msr sm">person</span></span>User / SRE Trigger</div>
-              <div class="reel-node n-agent" id="rNodeAgent"><span class="reel-node-icon t-purple"><span class="msr sm">memory</span></span>Claude 3.5 Sonnet (Agent)</div>
-              <div class="reel-node n-mcp" id="rNodeMCP"><span class="reel-node-icon t-green"><span class="msr sm">bolt</span></span>MCP Protocol Tool Bus</div>
-              <div class="reel-node n-db" id="rNodeDB"><span class="reel-node-icon t-amber"><span class="msr sm">database</span></span>Kubernetes &amp; RDS Cluster</div>
-
-              <div class="reel-monitor" id="remotionMonitor">
-                <div class="reel-monitor-head">
-                  <span class="md-label-m c-blue mono">Frame <span id="rFrameCount">0</span></span>
-                  <span class="md-tag t-purple" id="rStatusPill">PROMPT INGESTION</span>
-                </div>
-                <div class="reel-monitor-text" id="rTelemetryText">[THINKING] Investigating container crash loop in production namespace. Dispatching 'kubectl_get_events()'...</div>
-              </div>
-            </div>
-
-            <div class="reel-controls">
-              <div class="md-slider" id="videoScrubberTrack" onclick="seekRemotion(event)" role="slider" aria-label="Seek" aria-valuemin="0" aria-valuemax="900" aria-valuenow="0">
-                <div class="md-slider-track"></div>
-                <div class="md-slider-fill" id="videoScrubberFill"></div>
-                <div class="md-slider-thumb" id="videoScrubberThumb"></div>
-              </div>
-              <div class="reel-bar">
-                <div class="reel-bar-group">
-                  <button class="md-icon-btn filled" onclick="toggleRemotionPlay()" id="remotionPlayBtn" title="Play / pause"><span class="msr fill" id="remotionPlayIcon">play_arrow</span></button>
-                  <button class="md-icon-btn" onclick="restartRemotion()" title="Restart"><span class="msr">replay</span></button>
-                  <span class="reel-time"><span id="remotionTimeCurrent">00:00</span> / 00:30</span>
-                </div>
-                <div class="reel-bar-group">
-                  <button class="md-btn md-btn-text" onclick="changeRemotionSpeed()" id="remotionSpeedBtn" title="Playback speed">1.0x</button>
-                  <button class="md-icon-btn" onclick="toggleFullscreenRemotion()" title="Fullscreen"><span class="msr">fullscreen</span></button>
-                </div>
-              </div>
+            <div class="stack-intro" id="stackIntro"></div>
+            <div class="stack-body">
+              <div class="stack-tiles" id="stackTiles" role="listbox" aria-label="Topics"></div>
+              <aside class="stack-detail"><div class="stack-detail-inner" id="stackDetail" aria-live="polite"></div></aside>
             </div>
           </div>
+          <footer class="snap-footer">
+            <span>&copy; 2026 Venkata Bhattaram</span>
+            <a href="https://www.linkedin.com/in/venkata-bhattaram/" target="_blank" rel="noopener noreferrer" class="snap-footer-li" title="Venkata Bhattaram on LinkedIn">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 10.9v8.37H9.2V10.9H6.46M7.83 6.45a1.6 1.6 0 1 0 0 3.2 1.6 1.6 0 0 0 0-3.2Z"/></svg>LinkedIn
+            </a>
+          </footer>
         </div>
       </section>
 
       <!-- ================================================================= -->
-      <!-- SNAP 4: ARCHITECTURE INFOGRAPHIC                                  -->
+      <!-- SNAP 4: AGENT STUDIO DASHBOARD                                   -->
       <!-- ================================================================= -->
       <section class="md-snap" id="snap-4" data-snap-index="4">
         <div class="md-snap-inner">
           <div class="md-snap-head">
             <div class="md-chip-row">
-              <span class="md-chip primary"><span class="msr">hub</span>Snap 04 · Architectural Infographic</span>
-              <span class="md-chip">Interactive Blueprint</span>
+              <span class="md-chip primary"><span class="msr">smart_toy</span>Snap 04 · Agent Studio</span>
+              <span class="md-chip">Build · Run · Test · Observe</span>
             </div>
-            <h2 class="md-headline-m">Full-Stack Enterprise Autonomous Agent Architecture</h2>
-            <p class="md-body-l">An enterprise agentic stack is composed of 5 decoupled layers: Ingress Moderation, Cognitive Planning, MCP Tool Protocols, Memory Vector Store, and Human Verification. Select each layer to inspect its protocol details and operational SLAs.</p>
+            <h2 class="md-headline-m">Build and Run Your First AI Agent Team</h2>
+            <p class="md-body-l">Pick a business, choose the model, add agents, and press Run. Watch the agents think, use tools and ask you for approval, then check the results, the tests, the audit log and the observability dashboard. Everything is simulated and safe to experiment with.</p>
           </div>
 
-          <div class="arch-grid">
-            <div class="md-card">
-              <div class="layer-list" role="listbox" aria-label="Architecture layers">
-                <button class="layer-item active" onclick="selectInfographicLayer(1)" id="layer-1" role="option">
-                  <span class="layer-avatar t-blue">L1</span>
-                  <span class="layer-text"><span class="md-title-m">Semantic Ingress &amp; Moderation Gateway</span><span class="md-body-m">Llama Guard · PII Masking · Tokenizer Throttling</span></span>
-                  <span class="msr layer-trail">chevron_right</span>
-                </button>
-                <button class="layer-item" onclick="selectInfographicLayer(2)" id="layer-2" role="option">
-                  <span class="layer-avatar t-purple">L2</span>
-                  <span class="layer-text"><span class="md-title-m">Cognitive Planner &amp; Reasoning Core</span><span class="md-body-m">ReAct State Machine · Claude 3.5 / DeepSeek R1 · Reflection</span></span>
-                  <span class="msr layer-trail">chevron_right</span>
-                </button>
-                <button class="layer-item" onclick="selectInfographicLayer(3)" id="layer-3" role="option">
-                  <span class="layer-avatar t-green">L3</span>
-                  <span class="layer-text"><span class="md-title-m">Model Context Protocol (MCP) Tool Bus</span><span class="md-body-m">JSON-RPC · MicroServices · Kubernetes CLI · Postgres Runner</span></span>
-                  <span class="msr layer-trail">chevron_right</span>
-                </button>
-                <button class="layer-item" onclick="selectInfographicLayer(4)" id="layer-4" role="option">
-                  <span class="layer-avatar t-amber">L4</span>
-                  <span class="layer-text"><span class="md-title-m">Dual Memory &amp; Semantic Context Store</span><span class="md-body-m">Vector DB (Pinecone/Milvus) · Redis Short-Term Scratchpad</span></span>
-                  <span class="msr layer-trail">chevron_right</span>
-                </button>
-                <button class="layer-item" onclick="selectInfographicLayer(5)" id="layer-5" role="option">
-                  <span class="layer-avatar t-red">L5</span>
-                  <span class="layer-text"><span class="md-title-m">Evaluation, Telemetry &amp; Rollback Hooks</span><span class="md-body-m">OpenTelemetry · Human-in-the-Loop Approval · LangSmith</span></span>
-                  <span class="msr layer-trail">chevron_right</span>
-                </button>
-              </div>
-            </div>
-
-            <div class="md-card filled inspector">
-              <div class="md-card-head" style="padding-bottom:0;">
-                <span class="md-tag t-blue" id="drawerLayerTag"><span class="msr sm">code</span>LAYER 01 SPECIFICATIONS</span>
-              </div>
-              <div class="inspector-body">
-                <h3 class="md-headline-s" id="drawerHeading">Semantic Ingress &amp; Moderation Gateway</h3>
-                <p class="md-body-l" id="drawerDesc">Intercepts incoming requests before LLM inference to validate prompt safety, detect injection attempts, enforce rate limits, and sanitize PII.</p>
-                <pre class="spec-block" id="drawerSpecs"></pre>
-              </div>
-            </div>
-          </div>
+          <div class="md-card lab" id="agentStudio" data-zoom="Agent Studio" data-zoom-slot=".lab-top-actions"></div>
+          <footer class="snap-footer">
+            <span>&copy; 2026 Venkata Bhattaram</span>
+            <a href="https://www.linkedin.com/in/venkata-bhattaram/" target="_blank" rel="noopener noreferrer" class="snap-footer-li" title="Venkata Bhattaram on LinkedIn">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 10.9v8.37H9.2V10.9H6.46M7.83 6.45a1.6 1.6 0 1 0 0 3.2 1.6 1.6 0 0 0 0-3.2Z"/></svg>LinkedIn
+            </a>
+          </footer>
         </div>
       </section>
 
       <!-- ================================================================= -->
-      <!-- SNAP 5: LIVE AGENT SANDBOX                                        -->
+      <!-- SNAP 5: AI CONCEPTS LAB DASHBOARD                                -->
       <!-- ================================================================= -->
       <section class="md-snap" id="snap-5" data-snap-index="5">
         <div class="md-snap-inner">
           <div class="md-snap-head">
             <div class="md-chip-row">
-              <span class="md-chip primary"><span class="msr">terminal</span>Snap 05 · Live Interactive Lab</span>
-              <span class="md-chip">Agent Sandbox</span>
+              <span class="md-chip primary"><span class="msr">science</span>Snap 05 · AI Concepts Lab</span>
+              <span class="md-chip">MCP · RAG · Guardrails · Tokens · Evals</span>
             </div>
-            <h2 class="md-headline-m">Autonomous Multi-Tool Agent Execution Studio</h2>
-            <p class="md-body-l">Choose an enterprise incident scenario, select your inference engine, and run the real-time agentic loop. Watch the model reason, call MCP tools, observe results, and formulate a resolution.</p>
+            <h2 class="md-headline-m">The Buzzwords, Made Visible</h2>
+            <p class="md-body-l">Each tab is one building block behind every agent. Run the live demo to watch an input flow through it, read how it works in plain English, learn the related buzzwords, and test yourself with a quick quiz.</p>
           </div>
 
-          <div class="md-card">
-            <div class="sim-toolbar">
-              <div class="sim-fields">
-                <div class="md-field">
-                  <select id="simScenarioSelect" onchange="changeSimScenario()">
-                    <option value="k8s">Incident A: Kubernetes OOMKilled Pod Loop</option>
-                    <option value="pii">Incident B: Customer DB PII Masking Leak</option>
-                    <option value="drift">Incident C: Snowflake Schema Drift Reconciliation</option>
-                  </select>
-                  <label for="simScenarioSelect">Incident scenario</label>
-                  <span class="msr md-field-icon">arrow_drop_down</span>
-                </div>
-                <div class="md-field">
-                  <select id="simModelSelect">
-                    <option value="claude">Anthropic Claude 3.5 Sonnet</option>
-                    <option value="gpt4o">OpenAI GPT-4o (Omni)</option>
-                    <option value="deepseek">DeepSeek R1 (Chain of Thought)</option>
-                  </select>
-                  <label for="simModelSelect">Reasoning engine</label>
-                  <span class="msr md-field-icon">arrow_drop_down</span>
-                </div>
-                <div class="md-field">
-                  <select id="simAutonomySelect">
-                    <option value="full">Full Autonomy (Auto-Execute)</option>
-                    <option value="hitl">Human-in-the-Loop (Approval Gate)</option>
-                  </select>
-                  <label for="simAutonomySelect">Autonomy level</label>
-                  <span class="msr md-field-icon">arrow_drop_down</span>
-                </div>
-              </div>
-              <div class="sim-actions">
-                <button class="md-btn md-btn-filled" onclick="runSimWorkflow()" id="simRunBtn" style="height:56px;border-radius:var(--md-shape-l);"><span class="msr">play_arrow</span>Run Agent Loop</button>
-                <button class="md-btn md-btn-outlined" onclick="resetSimWorkflow()" style="height:56px;border-radius:var(--md-shape-l);"><span class="msr">replay</span>Reset</button>
-              </div>
-            </div>
-
-            <div class="sim-split">
-              <div class="sim-pane">
-                <div class="sim-pane-head">
-                  <span class="md-label-m">LIVE MCP JSON-RPC TERMINAL</span>
-                  <span class="status-chip c-green"><span class="dot"></span>CONNECTED</span>
-                </div>
-                <div class="sim-terminal" id="simTerminal" aria-live="polite"></div>
-              </div>
-              <div class="sim-pane">
-                <div class="sim-pane-head">
-                  <span class="md-label-m">AGENTIC REASONING TRAJECTORY</span>
-                  <span class="status-chip c-purple" id="trajStatusText"><span class="dot"></span><span>IDLE</span></span>
-                </div>
-                <div class="sim-traj" id="simTrajectoryList"></div>
-              </div>
-            </div>
-          </div>
+          <div class="md-card lab" id="conceptsLab" data-zoom="AI Concepts Lab" data-zoom-slot=".lab-top-actions"></div>
+          <footer class="snap-footer">
+            <span>&copy; 2026 Venkata Bhattaram</span>
+            <a href="https://www.linkedin.com/in/venkata-bhattaram/" target="_blank" rel="noopener noreferrer" class="snap-footer-li" title="Venkata Bhattaram on LinkedIn">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 10.9v8.37H9.2V10.9H6.46M7.83 6.45a1.6 1.6 0 1 0 0 3.2 1.6 1.6 0 0 0 0-3.2Z"/></svg>LinkedIn
+            </a>
+          </footer>
         </div>
       </section>
 
@@ -2009,15 +2038,15 @@
         </button>
         <button class="md-toc-item" onclick="scrollToSnap(3)" data-snap="3">
           <span class="md-toc-num">03</span>
-          <span class="md-toc-text"><span class="md-toc-label">Remotion Video Reel</span><span class="md-toc-sub">Animated loop simulation</span></span>
+          <span class="md-toc-text"><span class="md-toc-label">AI Engineering Stack</span><span class="md-toc-sub">Tools, concepts &amp; projects</span></span>
         </button>
         <button class="md-toc-item" onclick="scrollToSnap(4)" data-snap="4">
           <span class="md-toc-num">04</span>
-          <span class="md-toc-text"><span class="md-toc-label">Agent Infographic</span><span class="md-toc-sub">System topology &amp; specs</span></span>
+          <span class="md-toc-text"><span class="md-toc-label">Agent Studio</span><span class="md-toc-sub">Build, run &amp; audit agents</span></span>
         </button>
         <button class="md-toc-item" onclick="scrollToSnap(5)" data-snap="5">
           <span class="md-toc-num">05</span>
-          <span class="md-toc-text"><span class="md-toc-label">Interactive Sandbox</span><span class="md-toc-sub">Live multi-tool runner</span></span>
+          <span class="md-toc-text"><span class="md-toc-label">AI Concepts Lab</span><span class="md-toc-sub">MCP, RAG, guardrails &amp; more</span></span>
         </button>
       </nav>
 
@@ -2029,7 +2058,27 @@
     </aside>
   </div>
 
-  <!-- SCRIPT: TOUR, SNAP SCROLLSPY, CAROUSEL, REEL, INSPECTOR, SANDBOX -->
+  <!-- Zoom overlay: shared by every image and interactive component -->
+  <div id="zoomOverlay" class="zoom-overlay" role="dialog" aria-modal="true" aria-labelledby="zoomTitle" onclick="if (event.target === this) closeZoom()">
+    <div class="zoom-bar">
+      <span class="md-title-m zoom-title" id="zoomTitle"></span>
+      <div class="zoom-tools">
+        <button class="md-icon-btn" onclick="stepZoom(-1)" title="Zoom out (Ctrl + scroll)"><span class="msr">zoom_out</span></button>
+        <button class="md-btn md-btn-text zoom-pct" onclick="fitZoom()" id="zoomPct" title="Fit to screen">100%</button>
+        <button class="md-icon-btn" onclick="stepZoom(1)" title="Zoom in (Ctrl + scroll)"><span class="msr">zoom_in</span></button>
+        <button class="md-icon-btn" onclick="closeZoom()" title="Close (Esc)"><span class="msr">close</span></button>
+      </div>
+    </div>
+    <div class="zoom-viewport" id="zoomViewport">
+      <div class="zoom-content" id="zoomContent"></div>
+    </div>
+  </div>
+
+  <!-- Agent Studio (snap 4) and AI Concepts Lab (snap 5) dashboards -->
+  <script src="assets/js/agent-studio.js"></script>
+  <script src="assets/js/concepts-lab.js"></script>
+
+  <!-- SCRIPT: TOUR, SNAP SCROLLSPY, CAROUSEL, STACK EXPLORER, ZOOM -->
   <script>
     function setIcon(el, name) { if (el) el.textContent = name; }
 
@@ -2037,7 +2086,7 @@
     // 0. Ripple feedback for Material buttons
     // ------------------------------------------------------------------------
     document.addEventListener('pointerdown', (e) => {
-      const host = e.target.closest('.md-btn, .md-icon-btn, .md-tab, .layer-item');
+      const host = e.target.closest('.md-btn, .md-icon-btn, .md-tab, .stack-tab, .stack-tile');
       if (!host || host.disabled) return;
       const rect = host.getBoundingClientRect();
       const size = Math.max(rect.width, rect.height) * 2;
@@ -2051,7 +2100,7 @@
     });
 
     // ------------------------------------------------------------------------
-    // 1. SNAP 1: 30s evolution tour & lightbox
+    // 1. SNAP 1: 30s evolution tour
     // ------------------------------------------------------------------------
     let currentEpoch = 1;
     const totalEpochs = 4;
@@ -2060,18 +2109,6 @@
     const tourTotalSeconds = 30;
     let tourInterval = null;
 
-    function openImageLightbox() {
-      document.getElementById('imageLightboxModal').classList.add('active');
-    }
-
-    function closeImageLightbox() {
-      document.getElementById('imageLightboxModal').classList.remove('active');
-    }
-
-    document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape') closeImageLightbox();
-    });
-
     function selectEpochStage(idx, fromTour) {
       currentEpoch = idx;
       for (let i = 1; i <= totalEpochs; i++) {
@@ -2079,6 +2116,7 @@
         document.getElementById('epochTab' + i).setAttribute('aria-selected', i === idx);
         document.getElementById('epochPanel' + i).classList.toggle('active', i === idx);
       }
+      playEpoch(idx);
       if (!fromTour) {
         document.getElementById('epochScrubberFill').style.width = (idx / totalEpochs) * 100 + '%';
       }
@@ -2089,6 +2127,7 @@
       setIcon(document.getElementById('tourPlayIcon'), tourPlaying ? 'pause' : 'play_arrow');
       document.getElementById('tourPlayText').textContent = tourPlaying ? 'Pause Tour' : 'Play 30s Tour';
       if (tourPlaying) {
+        if (tourSeconds === 0) selectEpochStage(1, true);
         tourInterval = setInterval(tickTour, 1000);
       } else {
         clearInterval(tourInterval);
@@ -2105,6 +2144,38 @@
       if (epochIdx !== currentEpoch) selectEpochStage(epochIdx, true);
       document.getElementById('epochScrubberFill').style.width = (tourSeconds / tourTotalSeconds) * 100 + '%';
     }
+
+    // Restart a panel's step-by-step animation (and the GenAI typing effect)
+    let evoTypeTimer = null;
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+
+    function playEpoch(idx) {
+      const panel = document.getElementById('epochPanel' + idx);
+      document.querySelectorAll('.epoch-panel.run').forEach(p => p.classList.remove('run'));
+      void panel.offsetWidth;
+      panel.classList.add('run');
+
+      clearTimeout(evoTypeTimer);
+      const typed = document.getElementById('evoTyped');
+      const text = typed.dataset.text || (typed.dataset.text = typed.textContent);
+      if (idx !== 3 || reduceMotion.matches) { typed.textContent = text; return; }
+      typed.textContent = '';
+      let i = 0;
+      (function typeNext() {
+        evoTypeTimer = setTimeout(() => {
+          typed.textContent = text.slice(0, ++i);
+          if (i < text.length) typeNext();
+        }, i === 0 ? 1200 : 22);
+      })();
+    }
+
+    // Play the first example once the card scrolls into view
+    new IntersectionObserver((entries, obs) => {
+      if (entries.some(e => e.isIntersecting)) {
+        if (!tourPlaying) playEpoch(currentEpoch);
+        obs.disconnect();
+      }
+    }, { threshold: 0.4 }).observe(document.getElementById('epochPanel1').parentElement);
 
     // ------------------------------------------------------------------------
     // 2. Snap scroller & scrollspy
@@ -2210,312 +2281,467 @@
     }
 
     // ------------------------------------------------------------------------
-    // 4. SNAP 3: Remotion reel simulator
+    // 4. SNAP 3: AI engineering stack explorer (tabs → cards → details)
     // ------------------------------------------------------------------------
-    let remotionPlaying = false;
-    let remotionFrame = 0;
-    const remotionMaxFrames = 900; // 30s at 30fps
-    let remotionTimer = null;
-    let remotionSpeed = 1.0;
-
-    const remotionScript = [
-      { frame: 0,   status: 'PROMPT INGESTION', tag: 't-blue',   node: 'rNodeUser',  text: "[TOKEN_STREAM] User query received: 'Investigate 502 Bad Gateway in Payment Pod'. Tokenizing..." },
-      { frame: 120, status: 'THOUGHT & PLAN',   tag: 't-purple', node: 'rNodeAgent', text: "[REASONING] Agent checking cluster state. Step 1: Call 'kubectl_get_pods()' via MCP bus." },
-      { frame: 270, status: 'TOOL DISPATCH',    tag: 't-purple', node: 'rNodeMCP',   text: "[MCP_CALL] POST mcp://k8s-cluster -> kubectl_describe_pod(namespace='prod', pod='pay-7a')" },
-      { frame: 450, status: 'OBSERVATION',      tag: 't-amber',  node: 'rNodeDB',    text: '[TOOL_RETURN] Exit Code 137: OOMKilled. Pod memory limit 512Mi exceeded during checkout peak.' },
-      { frame: 630, status: 'SECURITY GATE',    tag: 't-red',    node: 'rNodeAgent', text: '[GUARDRAIL] Policy check passed: Vertical scaling to 1024Mi allowed under SRE tier-1.' },
-      { frame: 780, status: 'REMEDIATION',      tag: 't-green',  node: 'rNodeDB',    text: '[PATCH] kubectl_patch_deployment() deployed. New replica live. Latency normalized to 14ms.' }
+    const stackTabs = [
+      {
+        name: 'Core Languages', icon: 'code',
+        intro: 'The everyday tools every AI engineer uses, before any model is involved.',
+        labels: { what: 'What it is', why: 'Why it matters for AI', uses: 'You will use it for' },
+        items: [
+          { name: 'Python', icon: 'code', tone: 'blue', short: 'The language of AI and agents',
+            what: 'A readable, general-purpose language with the largest AI ecosystem. Every agent framework and model SDK ships for Python first.',
+            why: 'Agent logic, tools, data preparation and APIs are all written in Python, so it is the glue of the whole stack.',
+            uses: ['Agent and tool logic', 'Data work with pandas', 'APIs with FastAPI', 'Calling model SDKs'] },
+          { name: 'SQL', icon: 'database', tone: 'amber', short: 'Ask questions of business data',
+            what: 'The standard language for reading and shaping structured data in databases and warehouses.',
+            why: 'Most business answers live in tables. Agents generate and run SQL to fetch real facts instead of guessing.',
+            uses: ['Text-to-SQL agents', 'Feature tables for ML', 'Analytics and reports', 'Grounding answers in data'] },
+          { name: 'Docker', icon: 'deployed_code', tone: 'blue', short: 'Package once, run anywhere',
+            what: 'Packages an application and everything it needs into a container that runs the same on any machine.',
+            why: 'Agents and their tools must behave identically on a laptop, in CI and in the cloud. Containers also sandbox code an agent runs.',
+            uses: ['Shipping agents and MCP servers', 'Safe code sandboxes', 'Local dev stacks', 'Deploying to Kubernetes'] },
+          { name: 'Git & GitHub', icon: 'commit', tone: 'purple', short: 'Version everything, ship safely',
+            what: 'Version control for code, prompts and configuration, with reviews and automated pipelines on GitHub.',
+            why: 'Prompts and agent settings change often. Git lets the team review changes, roll back and deploy automatically.',
+            uses: ['Prompt and config history', 'Pull-request reviews', 'CI/CD with Actions'] },
+          { name: 'APIs & JSON', icon: 'api', tone: 'green', short: 'How software talks',
+            what: 'Programs exchange requests over HTTP and pass structured data as JSON.',
+            why: 'Every tool call an agent makes is an API call: JSON goes in, JSON comes back.',
+            uses: ['Defining agent tools', 'Integrating SaaS apps', 'Structured model output'] }
+        ]
+      },
+      {
+        name: 'Agent Harnesses', icon: 'hub',
+        intro: 'Frameworks and platforms that run the agent loop for you, so you focus on goals and tools.',
+        labels: { what: 'What it is', why: 'Why teams pick it', uses: 'Best for' },
+        items: [
+          { name: 'Claude Agent SDK', icon: 'smart_toy', tone: 'purple', short: 'The loop behind Claude Code',
+            what: 'Anthropic\'s toolkit for building agents on the same loop that powers Claude Code: tools, files, sub-agents and permissions built in.',
+            why: 'A production-grade agent loop out of the box, with strong reasoning models and native MCP support.',
+            uses: ['Coding and ops agents', 'MCP tool integration', 'Sub-agents', 'Permission-gated actions'] },
+          { name: 'LangGraph', icon: 'account_tree', tone: 'green', short: 'Agents as stateful graphs',
+            what: 'Builds agents as graphs: nodes are steps, edges decide what runs next, and state is saved along the way.',
+            why: 'Precise control over branching, loops, retries and human approvals in long-running workflows.',
+            uses: ['Multi-step workflows', 'Human-in-the-loop checkpoints', 'Resume after failure', 'Multi-agent graphs'] },
+          { name: 'CrewAI', icon: 'groups', tone: 'amber', short: 'Teams of role-based agents',
+            what: 'Defines a crew of agents with roles such as researcher, writer and reviewer that hand work to each other.',
+            why: 'The fastest way to model team-style work where every agent has a clear role and goal.',
+            uses: ['Research and report crews', 'Content pipelines', 'Role-based delegation'] },
+          { name: 'AWS Bedrock', icon: 'cloud', tone: 'amber', short: 'Managed models and agents on AWS',
+            what: 'AWS\'s managed service for foundation models, with agents, knowledge bases and guardrails.',
+            why: 'Runs inside your AWS account with IAM security, private data access and pay-per-use pricing.',
+            uses: ['Enterprise agents on AWS', 'Managed RAG knowledge bases', 'Bedrock Guardrails', 'Lambda actions'] },
+          { name: 'Azure AI Foundry', icon: 'cloud_circle', tone: 'blue', short: 'Microsoft\'s AI app factory',
+            what: 'Microsoft\'s platform to build, evaluate and deploy AI apps and agents using OpenAI and open models.',
+            why: 'A natural fit for Microsoft shops: Entra ID security, Azure data, Teams and Microsoft 365.',
+            uses: ['Foundry Agent Service', 'Evaluations', 'Azure AI Search for RAG', 'Content safety'] },
+          { name: 'AgentCore + Strands', icon: 'rocket_launch', tone: 'red', short: 'Open-source SDK, managed runtime',
+            what: 'Strands Agents is AWS\'s open-source, model-driven agent SDK. Bedrock AgentCore is the managed runtime that hosts agents at scale.',
+            why: 'Write the agent simply in Strands, then let AgentCore handle memory, identity, the tool gateway and tracing.',
+            uses: ['Serverless agent hosting', 'Managed memory and identity', 'MCP tool gateway', 'Production tracing'] }
+        ]
+      },
+      {
+        name: 'Agent Components', icon: 'widgets',
+        intro: 'The building blocks inside every AI agent, from the model to the safety net around it.',
+        labels: { what: 'What it is', why: 'Role in an agent', uses: 'Key ideas' },
+        items: [
+          { name: 'LLMs', icon: 'psychology', tone: 'purple', short: 'The reasoning brain',
+            what: 'Large language models are trained on huge amounts of text to predict the next token. They read, reason and write.',
+            why: 'The LLM decides what the agent does next: plan, call a tool, or answer.',
+            uses: ['Reasoning and planning', 'Choosing tools', 'Model size versus cost'] },
+          { name: 'Tokens', icon: 'token', tone: 'amber', short: 'The unit of cost and memory',
+            what: 'Models read and write text in tokens, roughly three quarters of a word. The context window is how many fit at once.',
+            why: 'Tokens drive cost, speed and how much an agent can remember in one step.',
+            uses: ['Context-window budgets', 'Cost estimates', 'Prompt caching'] },
+          { name: 'Inference', icon: 'bolt', tone: 'amber', short: 'Running the model for an answer',
+            what: 'Running a trained model to produce output, measured by latency, throughput and cost.',
+            why: 'Every agent step is an inference call, so its speed and price shape the user experience.',
+            uses: ['Streaming responses', 'API versus self-hosted', 'Picking the right model'] },
+          { name: 'RAG', icon: 'manage_search', tone: 'blue', short: 'Answer from your own documents',
+            what: 'Retrieval-Augmented Generation searches your documents first, then gives the relevant passages to the model.',
+            why: 'Grounds answers in company facts and cuts hallucinations without retraining any model.',
+            uses: ['Embeddings', 'Vector databases', 'Answers with citations'] },
+          { name: 'MCP', icon: 'cable', tone: 'green', short: 'One plug for every tool',
+            what: 'The Model Context Protocol is an open standard for connecting AI apps to tools and data through one interface.',
+            why: 'Build a tool once and any MCP-compatible agent can use it: databases, APIs, files and SaaS apps.',
+            uses: ['MCP servers', 'Reusable tool catalogs', 'Secure tool access'] },
+          { name: 'Memory', icon: 'memory', tone: 'purple', short: 'Remembering across steps',
+            what: 'Short-term memory is the current task. Long-term memory stores facts and preferences across sessions.',
+            why: 'Agents that remember context can finish long jobs and personalize results.',
+            uses: ['Conversation state', 'User preferences', 'Knowledge stores'] },
+          { name: 'Guardrails', icon: 'shield', tone: 'red', short: 'Safety rails around the model',
+            what: 'Checks on input, output and actions: block unsafe prompts, mask personal data, validate results, limit permissions.',
+            why: 'Lets you give agents real power safely, with human approval for risky steps.',
+            uses: ['Prompt-injection defense', 'PII redaction', 'Approval gates', 'Output validation'] },
+          { name: 'Observability', icon: 'monitoring', tone: 'blue', short: 'See every step an agent takes',
+            what: 'Tracing every prompt, tool call, token count, latency and error in an agent run.',
+            why: 'You cannot fix or trust what you cannot see. Traces show why an agent did what it did.',
+            uses: ['Traces and spans', 'Cost dashboards', 'Debugging bad runs', 'OpenTelemetry'] },
+          { name: 'Evals', icon: 'fact_check', tone: 'green', short: 'Tests for AI quality',
+            what: 'Automated scoring of outputs for accuracy, safety and task success on a fixed set of examples.',
+            why: 'Catches regressions whenever you change a prompt, model or tool.',
+            uses: ['Golden datasets', 'LLM-as-judge', 'Release gates'] }
+        ]
+      },
+      {
+        name: 'Agent Patterns', icon: 'schema',
+        intro: 'Proven ways to organize an agent\'s thinking and teamwork. Most real systems combine several.',
+        labels: { what: 'How it works', why: 'When to use it', uses: 'Watch out for' },
+        items: [
+          { name: 'ReAct Loop', icon: 'autorenew', tone: 'green', short: 'Think, act, observe, repeat',
+            what: 'The agent reasons about the next step, calls a tool, reads the result and repeats until the goal is met.',
+            why: 'The default pattern for open-ended tasks where the path is not known up front.',
+            uses: ['Step limits', 'Loops that never end'] },
+          { name: 'Tool Calling', icon: 'build', tone: 'blue', short: 'The model picks, your code runs',
+            what: 'The model chooses a function and its arguments; your application executes it and returns the result.',
+            why: 'Whenever the agent needs fresh data or must change something in the real world.',
+            uses: ['Clear tool descriptions', 'Validating arguments'] },
+          { name: 'Planner–Executor', icon: 'checklist', tone: 'purple', short: 'Plan first, then do',
+            what: 'One step writes a plan; another carries out each item and reports back.',
+            why: 'Long tasks with many steps that benefit from an upfront checklist.',
+            uses: ['Re-planning when steps fail'] },
+          { name: 'Multi-Agent', icon: 'diversity_3', tone: 'amber', short: 'Specialists with a supervisor',
+            what: 'A supervisor routes work to specialist agents, each with its own tools and instructions.',
+            why: 'Broad problems that span several domains or skill sets.',
+            uses: ['Extra cost', 'Hand-off confusion'] },
+          { name: 'Reflection', icon: 'rate_review', tone: 'purple', short: 'Self-review before answering',
+            what: 'The agent critiques its own draft against criteria, then improves it.',
+            why: 'Quality-critical outputs such as reports, code and customer replies.',
+            uses: ['Extra latency'] },
+          { name: 'Human-in-the-Loop', icon: 'how_to_reg', tone: 'red', short: 'Pause for approval',
+            what: 'The agent stops at defined checkpoints and waits for a person to approve, edit or reject.',
+            why: 'Money movement, customer-facing changes, or anything hard to undo.',
+            uses: ['Approval fatigue'] },
+          { name: 'Router', icon: 'alt_route', tone: 'blue', short: 'Send each request the right way',
+            what: 'A fast classifier step sends each request to the best model, tool or agent.',
+            why: 'Mixed traffic where simple requests should stay cheap and fast.',
+            uses: ['Misrouted edge cases'] }
+        ]
+      },
+      {
+        name: 'MLOps & LLMOps', icon: 'model_training',
+        intro: 'How models and agents get from a notebook to production and stay healthy once they are there.',
+        labels: { what: 'What it does', why: 'Why it matters', uses: 'Popular tools' },
+        items: [
+          { name: 'Experiment Tracking', icon: 'science', tone: 'blue', short: 'Remember every run',
+            what: 'Records parameters, metrics, data versions and artifacts for every training or prompt experiment.',
+            why: 'Lets you compare runs and reproduce the winner months later.',
+            uses: ['MLflow', 'Weights & Biases'] },
+          { name: 'Model Registry', icon: 'inventory_2', tone: 'purple', short: 'One home for approved models',
+            what: 'A catalog of model versions with stages such as staging, production and archived.',
+            why: 'Clear ownership and a safe path to promote or roll back models.',
+            uses: ['MLflow Registry', 'SageMaker Registry', 'Azure ML'] },
+          { name: 'Data Versioning', icon: 'folder_copy', tone: 'amber', short: 'Git for datasets',
+            what: 'Tracks which version of the data trained which model.',
+            why: 'Debugging and audits depend on knowing exactly what data the model saw.',
+            uses: ['DVC', 'lakeFS', 'Delta Lake'] },
+          { name: 'Feature Store', icon: 'storage', tone: 'green', short: 'Reusable, consistent features',
+            what: 'Stores ML features once and serves them the same way for training and live predictions.',
+            why: 'Prevents training/serving skew and saves teams from rebuilding features.',
+            uses: ['Feast', 'Databricks', 'SageMaker'] },
+          { name: 'ML Pipelines', icon: 'conveyor_belt', tone: 'blue', short: 'Automated train-to-deploy',
+            what: 'Orchestrates data prep, training, evaluation and deployment as repeatable steps.',
+            why: 'Turns one-off notebooks into reliable, scheduled processes.',
+            uses: ['Kubeflow', 'Airflow', 'SageMaker Pipelines', 'Vertex AI'] },
+          { name: 'CI/CD for ML', icon: 'published_with_changes', tone: 'green', short: 'Test and ship automatically',
+            what: 'Every change to code, prompts or models runs tests and evals, then deploys if it passes.',
+            why: 'Fast, safe releases without manual hand-offs.',
+            uses: ['GitHub Actions', 'Azure DevOps', 'Eval gates'] },
+          { name: 'Model Serving', icon: 'dns', tone: 'red', short: 'Models behind fast APIs',
+            what: 'Hosts models as scalable endpoints with batching, autoscaling and GPU scheduling.',
+            why: 'Serving cost and latency often matter more than training.',
+            uses: ['vLLM', 'KServe', 'BentoML', 'Triton'] },
+          { name: 'Drift Monitoring', icon: 'query_stats', tone: 'amber', short: 'Catch silent decay',
+            what: 'Watches live inputs and predictions for drift away from training data, and for falling accuracy.',
+            why: 'Models degrade quietly as the world changes; monitoring triggers retraining.',
+            uses: ['Evidently', 'Arize', 'WhyLabs'] },
+          { name: 'LLMOps', icon: 'insights', tone: 'purple', short: 'Ops for prompts and agents',
+            what: 'Prompt versioning, tracing, evals and cost tracking for LLM apps and agents.',
+            why: 'Agents change behavior with every prompt tweak; LLMOps keeps that measurable.',
+            uses: ['LangSmith', 'Langfuse', 'Arize Phoenix'] }
+        ]
+      },
+      {
+        name: 'Cloud & Data', icon: 'cloud',
+        intro: 'Where agents run and where their data lives in an enterprise.',
+        labels: { what: 'What it is', why: 'Why it matters', uses: 'Key services' },
+        items: [
+          { name: 'AWS', icon: 'cloud', tone: 'amber', short: 'Bedrock, Lambda and more',
+            what: 'Amazon\'s cloud: managed models, serverless compute, containers and storage.',
+            why: 'The most common enterprise cloud and home of Bedrock and AgentCore.',
+            uses: ['Bedrock', 'Lambda', 'ECS / EKS', 'S3'] },
+          { name: 'Azure', icon: 'cloud_circle', tone: 'blue', short: 'Foundry, OpenAI and M365',
+            what: 'Microsoft\'s cloud with Azure OpenAI, AI Foundry and deep Microsoft 365 integration.',
+            why: 'The default choice in Microsoft-centric organizations.',
+            uses: ['AI Foundry', 'Functions', 'AKS', 'Cosmos DB'] },
+          { name: 'Google Cloud', icon: 'cloud_queue', tone: 'green', short: 'Vertex AI and BigQuery',
+            what: 'Google\'s cloud with Vertex AI, Gemini models and BigQuery analytics.',
+            why: 'Strong data analytics and Gemini model access.',
+            uses: ['Vertex AI', 'Cloud Run', 'BigQuery'] },
+          { name: 'Kubernetes', icon: 'view_in_ar', tone: 'blue', short: 'Containers at scale',
+            what: 'Runs and scales containers across a cluster, restarting anything that fails.',
+            why: 'Standard platform for hosting agents, tools and model servers in production.',
+            uses: ['EKS', 'AKS', 'GKE', 'Helm'] },
+          { name: 'Serverless', icon: 'electric_bolt', tone: 'purple', short: 'Pay only when it runs',
+            what: 'Functions that start on demand and scale to zero when idle.',
+            why: 'Ideal for agent tools and webhooks with spiky traffic.',
+            uses: ['Lambda', 'Azure Functions', 'Cloud Run'] },
+          { name: 'Vector Databases', icon: 'scatter_plot', tone: 'green', short: 'Search by meaning',
+            what: 'Stores embeddings so you can find text by meaning instead of exact keywords.',
+            why: 'The retrieval engine behind RAG and long-term agent memory.',
+            uses: ['pgvector', 'Pinecone', 'OpenSearch', 'Azure AI Search'] },
+          { name: 'Data Platforms', icon: 'warehouse', tone: 'amber', short: 'Lakehouse and warehouse',
+            what: 'Central platforms that store and process company data at scale.',
+            why: 'Agents are only as good as the data they can reach.',
+            uses: ['Snowflake', 'Databricks', 'BigQuery', 'Fabric'] },
+          { name: 'Identity & Secrets', icon: 'key', tone: 'red', short: 'Who can do what',
+            what: 'Authentication, permissions and secret storage for people, services and agents.',
+            why: 'Agents act on behalf of users, so least-privilege access is essential.',
+            uses: ['IAM / Entra ID', 'OAuth', 'Key Vault', 'Secrets Manager'] }
+        ]
+      },
+      {
+        name: 'Industry Projects', icon: 'rocket_launch',
+        intro: 'Real agent projects you can build, each with the problem, how the agent works and the result.',
+        labels: { what: 'The agent', steps: 'How it works', uses: 'Data & tools', impact: 'Business impact' },
+        items: [
+          { name: 'Retail', icon: 'storefront', tone: 'blue', short: 'Inventory & pricing agent',
+            what: 'Watches sales, stock and competitor prices, then recommends reorders and price changes.',
+            steps: ['Reads point-of-sale data and stock levels', 'Forecasts demand per store with ML', 'Drafts reorders and price updates for approval'],
+            uses: ['POS data', 'Demand forecasting', 'ERP connector', 'Slack approvals'], impact: 'Fewer stock-outs and less markdown waste' },
+          { name: 'Finance', icon: 'account_balance', tone: 'green', short: 'Fraud & reconciliation agent',
+            what: 'Flags suspicious transactions, explains why, and reconciles ledgers automatically.',
+            steps: ['Scores each transaction with a fraud model', 'Pulls customer history to explain the risk', 'Opens a case or clears low-risk items'],
+            uses: ['Transaction data', 'Anomaly detection', 'Case management', 'Audit trail'], impact: 'Faster investigations and fewer false alarms' },
+          { name: 'Logistics', icon: 'local_shipping', tone: 'amber', short: 'Shipment exception agent',
+            what: 'Spots deliveries at risk of running late and fixes them before customers notice.',
+            steps: ['Tracks shipments, weather and traffic', 'Predicts late deliveries', 'Re-routes or notifies the customer'],
+            uses: ['GPS and telematics', 'ETA model', 'Carrier APIs', 'SMS and email'], impact: 'Higher on-time delivery and fewer support calls' },
+          { name: 'Insurance', icon: 'health_and_safety', tone: 'purple', short: 'Claims intake agent',
+            what: 'Reads new claims, checks coverage and prepares a decision for the adjuster.',
+            steps: ['Extracts details from forms and photos', 'Checks the policy and fraud signals', 'Drafts a decision for adjuster sign-off'],
+            uses: ['Document AI', 'Policy RAG', 'Claims system', 'Human approval'], impact: 'Claims settled in days, not weeks' },
+          { name: 'Services', icon: 'support_agent', tone: 'blue', short: 'Customer support agent',
+            what: 'Resolves customer requests end to end across chat, email and phone.',
+            steps: ['Understands the request on any channel', 'Looks up orders and the knowledge base', 'Resolves it or hands off with a summary'],
+            uses: ['Zendesk / ServiceNow', 'Knowledge RAG', 'Order system'], impact: 'Most tickets resolved with no wait' },
+          { name: 'CRM', icon: 'contacts', tone: 'green', short: 'Sales rep copilot',
+            what: 'Keeps the CRM clean and preps reps for every customer conversation.',
+            steps: ['Summarizes account history before calls', 'Logs notes and next steps automatically', 'Suggests the next best action'],
+            uses: ['Salesforce / HubSpot', 'Call transcripts', 'Email and calendar'], impact: 'More selling time and accurate pipeline data' },
+          { name: 'ERP', icon: 'factory', tone: 'amber', short: 'Procure-to-pay agent',
+            what: 'Automates invoice processing and matching inside the ERP.',
+            steps: ['Reads invoices and purchase orders', 'Matches PO, receipt and invoice', 'Posts clean ones and routes mismatches'],
+            uses: ['SAP / Oracle / Dynamics', 'OCR', 'Approval workflow'], impact: 'Faster month-end close and fewer late fees' },
+          { name: 'Social Media Analytics', icon: 'forum', tone: 'red', short: 'Brand listening agent',
+            what: 'Monitors what people say about the brand and reacts in time.',
+            steps: ['Collects mentions across platforms', 'Classifies sentiment and topics', 'Alerts on spikes and drafts responses'],
+            uses: ['Social platform APIs', 'Sentiment model', 'Dashboards'], impact: 'Issues spotted hours earlier' },
+          { name: 'Sales & Marketing', icon: 'campaign', tone: 'purple', short: 'Campaign & lead agent',
+            what: 'Finds the best leads and runs personalized outreach at scale.',
+            steps: ['Scores and enriches new leads', 'Writes personalized outreach', 'Tests variants and reports results'],
+            uses: ['CRM', 'Lead-scoring model', 'Email platform', 'GenAI copy'], impact: 'Higher conversion and faster campaigns' },
+          { name: 'Telecom', icon: 'cell_tower', tone: 'blue', short: 'Network operations agent',
+            what: 'Watches the network, finds root causes and starts the fix.',
+            steps: ['Monitors alarms and network KPIs', 'Finds the root cause across sites', 'Opens tickets or runs approved runbooks'],
+            uses: ['NOC alarms', 'Anomaly detection', 'Ticketing', 'Runbooks'], impact: 'Shorter outages and lower churn' },
+          { name: 'Utilities', icon: 'electric_meter', tone: 'amber', short: 'Grid & outage agent',
+            what: 'Predicts equipment failures and coordinates outage response.',
+            steps: ['Reads smart-meter and sensor data', 'Predicts failures and outages', 'Dispatches crews and updates customers'],
+            uses: ['Smart meters / IoT', 'Predictive maintenance', 'Field service app'], impact: 'Fewer outages and faster restoration' },
+          { name: 'Healthcare', icon: 'medical_services', tone: 'red', short: 'Clinical admin agent',
+            what: 'Takes paperwork off clinicians, starting with prior authorizations.',
+            steps: ['Reads referrals and patient records', 'Checks payer rules for the request', 'Prepares the submission for staff sign-off'],
+            uses: ['EHR (FHIR)', 'Payer policy RAG', 'PHI guardrails'], impact: 'Less paperwork and faster care' },
+          { name: 'HR', icon: 'badge', tone: 'green', short: 'Recruiting & HR helpdesk agent',
+            what: 'Speeds up hiring and answers employee questions instantly.',
+            steps: ['Screens resumes against the role', 'Schedules interviews', 'Answers policy questions with sources'],
+            uses: ['Applicant tracking system', 'HR policy RAG', 'Calendar'], impact: 'Faster hiring and instant HR answers' },
+          { name: 'Manufacturing', icon: 'precision_manufacturing', tone: 'purple', short: 'Quality & maintenance agent',
+            what: 'Keeps lines running by predicting breakdowns and catching defects.',
+            steps: ['Monitors machine sensors and camera images', 'Predicts failures and finds defect causes', 'Schedules maintenance work orders'],
+            uses: ['IoT sensors', 'Computer vision', 'Maintenance system'], impact: 'Less downtime and lower scrap' }
+        ]
+      }
     ];
 
-    function startRemotionTimer() {
-      clearInterval(remotionTimer);
-      remotionTimer = setInterval(tickRemotion, 33 / remotionSpeed);
-    }
+    let stackTabIdx = 0;
+    const escHtml = (t) => String(t).replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
 
-    function toggleRemotionPlay() {
-      remotionPlaying = !remotionPlaying;
-      setIcon(document.getElementById('remotionPlayIcon'), remotionPlaying ? 'pause' : 'play_arrow');
-      if (remotionPlaying) startRemotionTimer(); else clearInterval(remotionTimer);
-    }
+    document.getElementById('stackTabs').innerHTML = stackTabs.map((t, i) =>
+      `<button class="stack-tab" role="tab" onclick="selectStackTab(${i})"><span class="msr sm">${t.icon}</span>${escHtml(t.name)}<span class="stack-tab-count">${t.items.length}</span></button>`
+    ).join('');
 
-    function tickRemotion() {
-      remotionFrame = remotionFrame >= remotionMaxFrames ? 0 : remotionFrame + 1;
-      renderRemotionState();
-    }
-
-    function renderRemotionState() {
-      const pct = (remotionFrame / remotionMaxFrames) * 100;
-      document.getElementById('videoScrubberFill').style.width = pct + '%';
-      document.getElementById('videoScrubberThumb').style.left = pct + '%';
-      document.getElementById('videoScrubberTrack').setAttribute('aria-valuenow', remotionFrame);
-      document.getElementById('rFrameCount').textContent = remotionFrame;
-      document.getElementById('remotionTimeCurrent').textContent =
-        '00:' + String(Math.floor(remotionFrame / 30)).padStart(2, '0');
-
-      let ev = remotionScript[0];
-      for (const s of remotionScript) if (remotionFrame >= s.frame) ev = s;
-
-      const pill = document.getElementById('rStatusPill');
-      pill.textContent = ev.status;
-      pill.className = 'md-tag ' + ev.tag;
-      document.getElementById('rTelemetryText').textContent = ev.text;
-
-      document.querySelectorAll('.reel-node').forEach(n => n.classList.toggle('live', n.id === ev.node));
-      document.getElementById('beam1').classList.toggle('on', remotionFrame >= 30 && remotionFrame < 300);
-      document.getElementById('beam2').classList.toggle('on', remotionFrame >= 270 && remotionFrame < 500);
-      document.getElementById('beam3').classList.toggle('on', remotionFrame >= 480 && remotionFrame < 750);
-    }
-
-    function restartRemotion() {
-      remotionFrame = 0;
-      renderRemotionState();
-      if (!remotionPlaying) toggleRemotionPlay();
-    }
-
-    function seekRemotion(event) {
-      const rect = document.getElementById('videoScrubberTrack').getBoundingClientRect();
-      const pct = Math.max(0, Math.min(1, (event.clientX - rect.left) / rect.width));
-      remotionFrame = Math.floor(pct * remotionMaxFrames);
-      renderRemotionState();
-    }
-
-    function changeRemotionSpeed() {
-      const speeds = [1.0, 1.5, 2.0];
-      remotionSpeed = speeds[(speeds.indexOf(remotionSpeed) + 1) % speeds.length];
-      document.getElementById('remotionSpeedBtn').textContent = remotionSpeed.toFixed(1) + 'x';
-      if (remotionPlaying) startRemotionTimer();
-    }
-
-    function toggleFullscreenRemotion() {
-      const el = document.getElementById('remotionScreen');
-      if (!document.fullscreenElement) {
-        el.requestFullscreen && el.requestFullscreen().catch(() => {});
-      } else {
-        document.exitFullscreen();
-      }
-    }
-
-    // ------------------------------------------------------------------------
-    // 5. SNAP 4: architecture layer inspector
-    // ------------------------------------------------------------------------
-    const layerData = {
-      1: {
-        tag: 'LAYER 01 SPECIFICATIONS', tone: 't-blue',
-        heading: 'Semantic Ingress & Moderation Gateway',
-        desc: 'Intercepts incoming requests before LLM inference to validate prompt safety, detect injection attempts, enforce rate limits, and sanitize PII.',
-        specs: '• Ingress Protocol: gRPC / High-Performance ASGI\n• Average Latency: < 18ms\n• Defense Filters:\n  - Regex PII & SSN scrubbers\n  - Vector cosine check against injection vector database\n  - Token quota checks backed by Redis cluster\n• Failure Mode: Fail-closed with audit alert'
-      },
-      2: {
-        tag: 'LAYER 02 SPECIFICATIONS', tone: 't-purple',
-        heading: 'Cognitive Planner & Reasoning Core',
-        desc: 'The central cognitive state machine that generates multi-step plans, parses intermediate observations, and performs self-reflection loops.',
-        specs: '• Architecture: ReAct / Plan-and-Solve State Machine\n• Supported Models: Claude 3.5 Sonnet, DeepSeek R1, GPT-4o\n• Max Plan Depth: 12 sequential recursive loops\n• Reflection Mechanism: Critic sub-agent scores action accuracy\n• Checkpointing: Snapshot state persisted to Postgres JSONB'
-      },
-      3: {
-        tag: 'LAYER 03 SPECIFICATIONS', tone: 't-green',
-        heading: 'Model Context Protocol (MCP) Tool Bus',
-        desc: 'Open standard client-server protocol enabling models to dynamically authenticate, discover, and invoke external software tools.',
-        specs: '• Protocol Standard: Anthropic MCP JSON-RPC 2.0\n• Registered Integrations:\n  - Kubernetes / Docker CLI Runner\n  - PostgreSQL / Snowflake Read-Write Executors\n  - GitHub & GitLab API PR Automators\n  - Vector RAG Knowledge Retrieval Endpoints\n• Security: Single-use scoped JWT authentication per tool invocation'
-      },
-      4: {
-        tag: 'LAYER 04 SPECIFICATIONS', tone: 't-amber',
-        heading: 'Dual Memory & Semantic Context Store',
-        desc: 'Maintains ephemeral short-term scratchpad context during multi-turn reasoning alongside persistent vector embeddings of past resolutions.',
-        specs: '• Short-Term Store: Redis 7.2 in-memory conversation buffer\n• Long-Term Store: Pinecone & Milvus Vector Database\n• Embedding Dimension: 1536 (text-embedding-3-small)\n• Retrieval Algorithm: Hybrid BM25 keyword + HNSW dense vector\n• Cache Hit Latency: < 22ms'
-      },
-      5: {
-        tag: 'LAYER 05 SPECIFICATIONS', tone: 't-red',
-        heading: 'Evaluation, Telemetry & Rollback Hooks',
-        desc: 'Ensures comprehensive auditability with distributed tracing, automated rollback actions for broken migrations, and Slack human approval triggers.',
-        specs: "• Telemetry Standard: OpenTelemetry (OTel) traces & spans\n• Monitoring Platform: LangSmith & Prometheus dashboard exporter\n• Human Gate Trigger: Tool operations marked 'destructive' (DROP, DELETE, RESTART)\n• Rollback Engine: Automated git revert & compensating database transactions"
-      }
-    };
-
-    function selectInfographicLayer(num) {
-      document.querySelectorAll('.layer-item').forEach((el, idx) => {
-        el.classList.toggle('active', idx + 1 === num);
-        el.setAttribute('aria-selected', idx + 1 === num);
+    function selectStackTab(idx) {
+      stackTabIdx = idx;
+      const tab = stackTabs[idx];
+      document.querySelectorAll('.stack-tab').forEach((el, i) => {
+        el.classList.toggle('active', i === idx);
+        el.setAttribute('aria-selected', i === idx);
+        if (i === idx) el.scrollIntoView({ block: 'nearest', inline: 'nearest' });
       });
-      const data = layerData[num];
-      const tag = document.getElementById('drawerLayerTag');
-      tag.className = 'md-tag ' + data.tone;
-      tag.innerHTML = '<span class="msr sm">code</span>';
-      tag.appendChild(document.createTextNode(data.tag));
-      document.getElementById('drawerHeading').textContent = data.heading;
-      document.getElementById('drawerDesc').textContent = data.desc;
-      document.getElementById('drawerSpecs').textContent = data.specs;
+      document.getElementById('stackIntro').innerHTML =
+        `<span class="msr sm">${tab.icon}</span><span><strong>${escHtml(tab.name)}:</strong> ${escHtml(tab.intro)}</span>`;
+      document.getElementById('stackTiles').innerHTML = tab.items.map((it, i) =>
+        `<button class="stack-tile" role="option" style="--i:${i}" onclick="selectStackItem(${i}, true)">
+          <span class="stack-icon t-${it.tone}"><span class="msr">${it.icon}</span></span>
+          <span class="md-title-s">${escHtml(it.name)}</span>
+          <span class="md-body-s">${escHtml(it.short)}</span>
+        </button>`
+      ).join('');
+      selectStackItem(0);
     }
 
-    // ------------------------------------------------------------------------
-    // 6. SNAP 5: multi-tool agent sandbox
-    // ------------------------------------------------------------------------
-    const scenarioWorkflows = {
-      k8s: {
-        name: 'Kubernetes OOMKilled Pod Loop',
-        steps: [
-          { tag: 'THOUGHT', class: 'tag-thought', text: "Alert received: Pod 'checkout-api-48b' status CrashLoopBackOff in production. I need to inspect pod logs and describe container status." },
-          { tag: 'ACTION', class: 'tag-action', text: "Invoking MCP tool: kubectl_describe_pod(namespace='prod', pod='checkout-api-48b')" },
-          { tag: 'OBSERVATION', class: 'tag-observation', text: 'Terminated with exit code 137 (OOMKilled). Container limit 512Mi reached at 14:22 UTC.' },
-          { tag: 'THOUGHT', class: 'tag-thought', text: 'Memory spike matches Black Friday traffic burst. Safe remediation is to patch deployment limit to 1024Mi and observe restart.' },
-          { tag: 'ACTION', class: 'tag-action', text: "Invoking MCP tool: kubectl_patch_deployment(deployment='checkout-api', memory='1024Mi')" },
-          { tag: 'RESULT', class: 'tag-result', text: 'Success: Pod restarted cleanly with 1024Mi. Readiness probe HTTP 200 OK. Resolved in 2.4s.' }
-        ],
-        logs: [
-          '[AGENT] Scenario initialized: Kubernetes CrashLoopBackOff Triage.',
-          '[MODEL] Dispatched prompt to {model} (Temp=0.0).',
-          '[TOOL_CALL] POST mcp://k8s-agent -> kubectl_describe_pod()',
-          '[TELEMETRY] OOMKilled error code 137 parsed.',
-          '[TOOL_CALL] POST mcp://k8s-agent -> kubectl_patch_deployment()',
-          '[VERIFIED] Container state Healthy. Emitted incident closure note to #sre-alerts.'
-        ]
-      },
-      pii: {
-        name: 'Customer DB PII Masking Leak',
-        steps: [
-          { tag: 'THOUGHT', class: 'tag-thought', text: "Security anomaly: Customer address table in Postgres contains unmasked Social Security Numbers in 'notes' column." },
-          { tag: 'ACTION', class: 'tag-action', text: "Invoking MCP tool: postgres_run_scan(table='customers', pii_pattern='SSN')" },
-          { tag: 'OBSERVATION', class: 'tag-observation', text: 'Found 1,420 unmasked records matching regex ^\\d{3}-\\d{2}-\\d{4}$ in staging database.' },
-          { tag: 'THOUGHT', class: 'tag-thought', text: 'Applying deterministic hashing mask SHA-256 with enterprise salt to redact sensitive digits.' },
-          { tag: 'ACTION', class: 'tag-action', text: "Invoking MCP tool: postgres_execute_mask(column='notes', rule='SSN_REDACT')" },
-          { tag: 'RESULT', class: 'tag-result', text: 'Success: 1,420 records redacted. Zero plaintext SSN remaining. Compliance report submitted.' }
-        ],
-        logs: [
-          '[AGENT] Scenario initialized: PII Data Leak Mitigation.',
-          '[MODEL] Dispatched prompt to {model} Security Auditor.',
-          '[TOOL_CALL] POST mcp://postgres -> run_pii_scanner()',
-          '[TELEMETRY] 1,420 unredacted SSN tokens identified.',
-          '[TOOL_CALL] POST mcp://postgres -> execute_masking_dml()',
-          '[AUDIT] GDPR / HIPAA compliance verified. Alert marked Resolved.'
-        ]
-      },
-      drift: {
-        name: 'Snowflake Schema Drift Reconciliation',
-        steps: [
-          { tag: 'THOUGHT', class: 'tag-thought', text: "Pipeline alert: Ingestion JSON payload contains 2 new fields 'customer_tier' and 'device_fingerprint' absent in Snowflake target table." },
-          { tag: 'ACTION', class: 'tag-action', text: "Invoking MCP tool: snowflake_get_ddl(table='raw_orders_stream')" },
-          { tag: 'OBSERVATION', class: 'tag-observation', text: "Target schema has 14 columns. Missing VARCHAR 'customer_tier' and VARCHAR 'device_fingerprint'." },
-          { tag: 'THOUGHT', class: 'tag-thought', text: 'Generating non-destructive ALTER TABLE ADD COLUMN statements with null defaults.' },
-          { tag: 'ACTION', class: 'tag-action', text: "Invoking MCP tool: snowflake_exec_ddl(sql='ALTER TABLE raw_orders_stream ADD COLUMN customer_tier VARCHAR, device_fingerprint VARCHAR;')" },
-          { tag: 'RESULT', class: 'tag-result', text: 'Success: Table schema migrated safely. Streaming pipeline resumed with zero record drop.' }
-        ],
-        logs: [
-          '[AGENT] Scenario initialized: Automated Schema Drift.',
-          '[MODEL] Dispatched prompt to {model} Data Engineer.',
-          '[TOOL_CALL] POST mcp://snowflake -> get_ddl_and_compare()',
-          '[TELEMETRY] 2 schema additions detected.',
-          '[TOOL_CALL] POST mcp://snowflake -> exec_ddl_migration()',
-          '[PIPELINE] Ingestion resumed. Latency backlog cleared.'
-        ]
+    function selectStackItem(i, fromClick) {
+      const tab = stackTabs[stackTabIdx];
+      const it = tab.items[i];
+      const L = tab.labels;
+      document.querySelectorAll('.stack-tile').forEach((el, j) => {
+        el.classList.toggle('active', j === i);
+        el.setAttribute('aria-selected', j === i);
+      });
+      const sec = (icon, title, body, n) =>
+        `<div class="stack-sec" style="--i:${n}"><div class="stack-sec-title md-title-s"><span class="msr sm">${icon}</span>${title}</div>${body}</div>`;
+      let n = 1;
+      let html = `<div class="stack-detail-head" style="--i:0">
+          <span class="stack-icon xl t-${it.tone}"><span class="msr">${it.icon}</span></span>
+          <div><div class="md-label-m">${escHtml(tab.name.toUpperCase())}</div>
+          <h3 class="md-headline-s">${escHtml(it.name)}</h3>
+          <div class="md-body-m muted">${escHtml(it.short)}</div></div>
+        </div>`;
+      html += sec('info', L.what, `<p>${escHtml(it.what)}</p>`, n++);
+      if (it.why) html += sec('lightbulb', L.why, `<p>${escHtml(it.why)}</p>`, n++);
+      if (it.steps) html += sec('route', L.steps, `<ol class="stack-steps">${it.steps.map(s => `<li>${escHtml(s)}</li>`).join('')}</ol>`, n++);
+      html += sec('category', L.uses,
+        `<div class="stack-chips">${it.uses.map(u => `<span class="stack-chip"><span class="msr">check</span>${escHtml(u)}</span>`).join('')}</div>`, n++);
+      if (it.impact) html += `<div class="stack-impact" style="--i:${n}"><span class="msr fill">trending_up</span><span>${escHtml(L.impact)}: ${escHtml(it.impact)}</span></div>`;
+
+      const detail = document.getElementById('stackDetail');
+      detail.classList.remove('swap');
+      detail.innerHTML = html;
+      void detail.offsetWidth;
+      detail.classList.add('swap');
+      // On stacked (narrow) layouts the details sit below the cards, so bring them into view
+      if (fromClick && window.matchMedia('(max-width: 1100px)').matches) {
+        detail.scrollIntoView({ behavior: 'smooth', block: 'start' });
       }
-    };
-
-    let simTimer = null;
-
-    function selectedText(id) {
-      const sel = document.getElementById(id);
-      return sel.options[sel.selectedIndex].text;
-    }
-
-    function prefixClass(prefix) {
-      if (/AGENT|SESSION/.test(prefix)) return 'px-agent';
-      if (/TOOL|MCP|MODEL/.test(prefix)) return 'px-tool';
-      if (/VERIFIED|AUDIT|PIPELINE|DONE/.test(prefix)) return 'px-ok';
-      if (/TELEMETRY|GATE/.test(prefix)) return 'px-tele';
-      return 'px-misc';
-    }
-
-    function termLine(text) {
-      const term = document.getElementById('simTerminal');
-      const line = document.createElement('span');
-      line.className = 'ln';
-      const m = text.match(/^(\[[A-Z_]+\])(.*)$/);
-      if (m) {
-        const px = document.createElement('span');
-        px.className = 'px ' + prefixClass(m[1]);
-        px.textContent = m[1];
-        line.appendChild(px);
-        line.appendChild(document.createTextNode(m[2]));
-      } else {
-        line.textContent = text;
-      }
-      term.appendChild(line);
-      term.scrollTop = term.scrollHeight;
-    }
-
-    function trajStep(tag, cls, html) {
-      const list = document.getElementById('simTrajectoryList');
-      const item = document.createElement('div');
-      item.className = 'traj-step';
-      item.innerHTML = '<span class="md-tag ' + cls + '"></span><div></div>';
-      item.firstChild.textContent = tag;
-      if (html) item.lastChild.innerHTML = html; else item.lastChild.textContent = '';
-      list.appendChild(item);
-      list.scrollTop = list.scrollHeight;
-      return item;
-    }
-
-    function setTrajStatus(text, colorClass) {
-      const el = document.getElementById('trajStatusText');
-      el.className = 'status-chip ' + colorClass;
-      el.lastElementChild.textContent = text;
-    }
-
-    function changeSimScenario() { resetSimWorkflow(); }
-
-    function resetSimWorkflow() {
-      clearInterval(simTimer);
-      simTimer = null;
-      document.getElementById('simRunBtn').disabled = false;
-      setTrajStatus('IDLE', 'c-purple');
-
-      const scenario = scenarioWorkflows[document.getElementById('simScenarioSelect').value];
-      document.getElementById('simTerminal').innerHTML = '';
-      termLine('[AGENT_CORE] Initialized agent runtime session #agent-8921.');
-      termLine('[MCP_BUS] Discovered 18 registered tools via mcp://localhost:8080. Loaded ' + scenario.name + '.');
-      termLine("[STATUS] Ready. Click 'Run Agent Loop' to execute.");
-
-      document.getElementById('simTrajectoryList').innerHTML = '';
-      const init = trajStep('INIT', 'tag-thought');
-      init.lastChild.innerHTML = '<strong>Scenario ready:</strong> ';
-      init.lastChild.appendChild(document.createTextNode(scenario.name));
-    }
-
-    function runSimWorkflow() {
-      if (simTimer) return;
-      document.getElementById('simRunBtn').disabled = true;
-      setTrajStatus('EXECUTING LOOP…', 'c-blue');
-
-      const scenario = scenarioWorkflows[document.getElementById('simScenarioSelect').value];
-      const model = selectedText('simModelSelect');
-      const hitl = document.getElementById('simAutonomySelect').value === 'hitl';
-
-      document.getElementById('simTerminal').innerHTML = '';
-      termLine('[SESSION_START] Running autonomous loop with ' + model + (hitl ? ' (human approval gate on).' : ' (full autonomy).'));
-
-      let step = 0;
-      simTimer = setInterval(() => {
-        if (step < scenario.steps.length) {
-          const s = scenario.steps[step];
-          if (hitl && s.tag === 'ACTION' && step === scenario.steps.length - 2) {
-            termLine('[GATE] Destructive change requires approval → approved by on-call SRE.');
-          }
-          termLine(scenario.logs[step].replace('{model}', model));
-          trajStep(s.tag, s.class).lastChild.textContent = s.text;
-          step++;
-        } else {
-          clearInterval(simTimer);
-          simTimer = null;
-          document.getElementById('simRunBtn').disabled = false;
-          setTrajStatus('COMPLETED (SUCCESS)', 'c-green');
-          termLine('[AGENT_CORE] Objective achieved. Session finalized successfully.');
-        }
-      }, 700);
     }
 
     // Initial state
-    selectInfographicLayer(1);
-    resetSimWorkflow();
-    renderRemotionState();
+    selectStackTab(0);
+
+    // ------------------------------------------------------------------------
+    // 6. Zoom: open any image or [data-zoom] component full screen.
+    //    Components are moved (not copied) so they stay fully interactive.
+    // ------------------------------------------------------------------------
+    const zoomOverlay = document.getElementById('zoomOverlay');
+    const zoomViewport = document.getElementById('zoomViewport');
+    const zoomContent = document.getElementById('zoomContent');
+    let zoomTarget = null, zoomHolder = null, zoomLevel = 1, zoomFitLevel = 1;
+
+    function setZoom(z) {
+      zoomLevel = Math.min(4, Math.max(0.25, z));
+      zoomContent.style.setProperty('--zoom', zoomLevel);
+      document.getElementById('zoomPct').textContent = Math.round(zoomLevel * 100) + '%';
+    }
+    function stepZoom(dir) { setZoom(Math.round((zoomLevel + dir * 0.25) * 4) / 4); }
+    function fitZoom() { setZoom(zoomFitLevel); zoomViewport.scrollTo(0, 0); }
+
+    function openZoom(el) {
+      if (zoomTarget) closeZoom();
+      const isImg = el.tagName === 'IMG';
+      document.getElementById('zoomTitle').textContent = el.dataset.zoomTitle || el.dataset.zoom || el.alt || 'Zoom';
+      zoomOverlay.classList.add('active');
+      document.body.style.overflow = 'hidden';
+      const vw = zoomViewport.clientWidth - 48, vh = zoomViewport.clientHeight - 48;
+
+      if (isImg) {
+        const img = el.cloneNode();
+        img.removeAttribute('id');
+        const nw = el.naturalWidth || el.offsetWidth || vw, nh = el.naturalHeight || el.offsetHeight || vh;
+        img.style.width = nw + 'px';
+        zoomContent.appendChild(img);
+        zoomFitLevel = Math.min(vw / nw, vh / nh);
+        zoomViewport.classList.add('pannable');
+      } else {
+        // Leave a same-size placeholder so the page doesn't jump, then move the live element
+        zoomHolder = document.createElement('div');
+        zoomHolder.style.height = el.offsetHeight + 'px';
+        el.before(zoomHolder);
+        el.style.width = Math.min(1100, vw) + 'px';
+        zoomContent.appendChild(el);
+        setZoom(1);
+        zoomFitLevel = Math.max(1, Math.min(1.6, vh / el.offsetHeight, vw / el.offsetWidth));
+        const trigger = el.querySelector('.zoom-trigger .msr');
+        setIcon(trigger, 'close_fullscreen');
+      }
+      zoomTarget = el;
+      fitZoom();
+    }
+
+    function closeZoom() {
+      if (!zoomTarget) return;
+      if (zoomHolder) {
+        zoomTarget.style.width = '';
+        zoomHolder.replaceWith(zoomTarget);
+        setIcon(zoomTarget.querySelector('.zoom-trigger .msr'), 'zoom_out_map');
+        zoomHolder = null;
+      }
+      zoomContent.replaceChildren();
+      zoomViewport.classList.remove('pannable');
+      zoomOverlay.classList.remove('active');
+      document.body.style.overflow = '';
+      zoomTarget = null;
+    }
+
+    // A zoom button on every [data-zoom] component (in its header slot if it has one)
+    document.querySelectorAll('[data-zoom]').forEach(el => {
+      const btn = document.createElement('button');
+      btn.className = 'md-icon-btn zoom-trigger';
+      btn.title = 'Zoom / full screen';
+      btn.innerHTML = '<span class="msr">zoom_out_map</span>';
+      btn.addEventListener('click', () => (zoomTarget === el ? closeZoom() : openZoom(el)));
+      const slot = el.dataset.zoomSlot && el.querySelector(el.dataset.zoomSlot);
+      if (slot) slot.appendChild(btn);
+      else { btn.classList.add('zoom-float'); el.prepend(btn); }
+    });
+
+    // Click any content image to zoom it
+    document.querySelectorAll('main img:not(.master-brand-logo)').forEach(img => {
+      img.addEventListener('click', () => openZoom(img));
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (!zoomTarget) return;
+      if (e.key === 'Escape') closeZoom();
+      else if (e.key === '+' || e.key === '=') stepZoom(1);
+      else if (e.key === '-') stepZoom(-1);
+      else if (e.key === '0') fitZoom();
+    });
+
+    // Ctrl/Cmd + wheel (and trackpad pinch) zooms inside the overlay
+    zoomViewport.addEventListener('wheel', (e) => {
+      if (!e.ctrlKey && !e.metaKey) return;
+      e.preventDefault();
+      setZoom(zoomLevel * (e.deltaY < 0 ? 1.1 : 1 / 1.1));
+    }, { passive: false });
+
+    // Drag to pan zoomed images
+    let panStart = null;
+    zoomViewport.addEventListener('pointerdown', (e) => {
+      if (!zoomViewport.classList.contains('pannable')) return;
+      panStart = { x: e.clientX, y: e.clientY, left: zoomViewport.scrollLeft, top: zoomViewport.scrollTop };
+      zoomViewport.classList.add('panning');
+      zoomViewport.setPointerCapture(e.pointerId);
+    });
+    zoomViewport.addEventListener('pointermove', (e) => {
+      if (!panStart) return;
+      zoomViewport.scrollLeft = panStart.left - (e.clientX - panStart.x);
+      zoomViewport.scrollTop = panStart.top - (e.clientY - panStart.y);
+    });
+    zoomViewport.addEventListener('pointerup', () => { panStart = null; zoomViewport.classList.remove('panning'); });
   </script>
 </body>
 </html>

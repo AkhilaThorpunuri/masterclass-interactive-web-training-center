@@ -17,22 +17,20 @@
   }
 }
 
-@keyframes instructor-shine-slash {
-  0% {
-    transform: translateX(-220%) skewX(-25deg);
-    opacity: 0;
-  }
-  8% {
-    opacity: 1;
-  }
-  38% {
-    transform: translateX(450%) skewX(-25deg);
-    opacity: 1;
-  }
-  39%, 100% {
-    transform: translateX(450%) skewX(-25deg);
-    opacity: 0;
-  }
+/* Two shine streaks start at opposite ends, cross in the middle and run to the far edge.
+   `left` is animated (not translateX) so the travel always spans the full tag width. */
+@keyframes beam-shine-ltr {
+  0%       { left: -48px; opacity: 0; }
+  6%       { opacity: 1; }
+  44%      { opacity: 1; }
+  50%, 100% { left: calc(100% + 18px); opacity: 0; }
+}
+
+@keyframes beam-shine-rtl {
+  0%       { left: calc(100% + 18px); opacity: 0; }
+  6%       { opacity: 1; }
+  44%      { opacity: 1; }
+  50%, 100% { left: -48px; opacity: 0; }
 }
 
 :root {
@@ -183,6 +181,34 @@ code, kbd, samp, pre {
   border-color: #fde047;
 }
 
+/* "Why TinitiateAI" header call-to-action: small gold pill with a throbbing glow */
+.master-nav-btn.why-tinitiate-btn {
+  position: relative;
+  color: #1c0a00 !important;
+  background: linear-gradient(135deg, #fde047 0%, #f59e0b 100%) !important;
+  border: 1px solid rgba(255, 255, 255, 0.55) !important;
+  padding: 7px 13px;
+  font-weight: 800;
+  animation: why-throb 2s ease-in-out infinite;
+}
+.master-nav-btn.why-tinitiate-btn svg { animation: why-twinkle 2s ease-in-out infinite; }
+.master-nav-btn.why-tinitiate-btn:hover { transform: translateY(-1px) scale(1.04); filter: brightness(1.06); }
+.master-nav-btn.why-tinitiate-btn.is-current { animation: none; box-shadow: 0 0 0 2px #fff, 0 0 18px rgba(250, 204, 21, 0.7); }
+@keyframes why-throb {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(250, 204, 21, 0.65), 0 0 10px rgba(250, 204, 21, 0.35); }
+  50% { box-shadow: 0 0 0 7px rgba(250, 204, 21, 0), 0 0 22px rgba(250, 204, 21, 0.75); }
+}
+@keyframes why-twinkle {
+  0%, 100% { transform: scale(1) rotate(0); opacity: 1; }
+  50% { transform: scale(1.25) rotate(18deg); opacity: .75; }
+}
+@media (max-width: 640px) {
+  .master-nav-btn.why-tinitiate-btn span { display: none; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .master-nav-btn.why-tinitiate-btn, .master-nav-btn.why-tinitiate-btn svg { animation: none; }
+}
+
 /* Subjects Dropdown (PySpark Rich Visual Menu) */
 .master-dropdown {
   position: static;
@@ -287,9 +313,10 @@ code, kbd, samp, pre {
   display: flex !important;
 }
 
+/* Animates `translate`, not `transform`, so it never fights the menu's centering transform */
 @keyframes dropdownFade {
-  from { opacity: 0; transform: translateY(-5px); }
-  to { opacity: 1; transform: translateY(0); }
+  from { opacity: 0; translate: 0 -5px; }
+  to { opacity: 1; translate: 0 0; }
 }
 
 .master-dropdown-item {
@@ -590,6 +617,7 @@ code, kbd, samp, pre {
     right: 10px;
     width: calc(100vw - 20px);
     max-height: calc(100vh - 70px);
+    transform: none;
   }
   .mega-menu-grid {
     grid-template-columns: 1fr;
@@ -656,9 +684,32 @@ code, kbd, samp, pre {
     rgba(255, 255, 255, 0) 100%
   );
   box-shadow: 0 0 16px rgba(255, 255, 255, 0.9), 0 0 8px rgba(250, 204, 21, 0.7);
-  transform: translateX(-220%) skewX(-25deg);
+  transform: skewX(-25deg);
   pointer-events: none;
-  animation: instructor-shine-slash 3.5s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+  animation: beam-shine-ltr 3.5s cubic-bezier(0.45, 0, 0.25, 1) infinite;
+  z-index: 5;
+}
+
+/* Mirror streak: enters from the right, leaning the other way, with a warmer gold glint */
+.master-instructor-beam::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: 0;
+  width: 30px;
+  height: 200%;
+  background: linear-gradient(
+    90deg,
+    rgba(253, 230, 138, 0) 0%,
+    rgba(253, 230, 138, 0.25) 25%,
+    rgba(255, 251, 235, 0.95) 50%,
+    rgba(253, 230, 138, 0.25) 75%,
+    rgba(253, 230, 138, 0) 100%
+  );
+  box-shadow: 0 0 16px rgba(255, 255, 255, 0.8), 0 0 8px rgba(250, 204, 21, 0.8);
+  transform: skewX(25deg);
+  pointer-events: none;
+  animation: beam-shine-rtl 3.5s cubic-bezier(0.45, 0, 0.25, 1) infinite;
   z-index: 5;
 }
 
