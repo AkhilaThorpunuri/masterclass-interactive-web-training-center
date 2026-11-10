@@ -44,10 +44,6 @@
       background-attachment: fixed !important;
     }
 
-<<<<<<< HEAD
-    /* Keep the existing page content above the decorative canvas. */
-=======
->>>>>>> d61b10a (Update masterclass tutorials, dashboard assets, and modules)
     #rog-connection-canvas {
       position: fixed !important;
       inset: 0 !important;
@@ -106,10 +102,6 @@
       text-shadow: 0 1px 7px rgba(22, 55, 85, .28);
     }
 
-<<<<<<< HEAD
-    /* Social links remain aligned and visible at the right side of the header. */
-=======
->>>>>>> d61b10a (Update masterclass tutorials, dashboard assets, and modules)
     .master-nav-actions {
       flex: 0 0 auto !important;
       display: flex !important;
@@ -128,11 +120,6 @@
       z-index: 1;
     }
 
-<<<<<<< HEAD
-    /* Use translucent teal surfaces so the ROG mesh is visible without
-       reducing contrast in the existing text and cards. */
-=======
->>>>>>> d61b10a (Update masterclass tutorials, dashboard assets, and modules)
     .subject-hero-card,
     .job-market-box,
     .pillars-matrix-grid>div {
@@ -184,166 +171,9 @@
         opacity: .24 !important;
       }
     }
-<<<<<<< HEAD
-
-
-    /* Desktop lesson workspace: progress dashboard in the left sidebar,
-     with the video and interactive slide player in the main column. */
-    @media (min-width: 980px) {
-      .page-main-wrap.py-wrap {
-        display: grid !important;
-        grid-template-columns: minmax(285px, 355px) minmax(0, 1fr) !important;
-        grid-template-rows: auto minmax(0, 1fr) !important;
-        align-items: start !important;
-        column-gap: 24px !important;
-        row-gap: 22px !important;
-      }
-
-      .page-main-wrap.py-wrap>.py-hero {
-        grid-column: 1 / -1 !important;
-        grid-row: 1 !important;
-        width: 100% !important;
-        min-width: 0 !important;
-      }
-
-      .page-main-wrap.py-wrap>#dashboard {
-        grid-column: 1 !important;
-        grid-row: 2 !important;
-        width: 100% !important;
-        min-width: 0 !important;
-        margin: 0 !important;
-        padding: 20px !important;
-        border: 1px solid rgba(103, 226, 242, .34) !important;
-        border-radius: 16px !important;
-        background: linear-gradient(150deg, rgba(7, 39, 59, .97), rgba(3, 27, 44, .98)) !important;
-        box-shadow: 0 14px 32px rgba(0, 10, 22, .28) !important;
-      }
-
-      .page-main-wrap.py-wrap>#player {
-        grid-column: 2 !important;
-        grid-row: 2 !important;
-        min-width: 0 !important;
-        margin: 0 !important;
-      }
-
-      #dashboard>div:first-child {
-        display: flex !important;
-        flex-direction: column !important;
-        align-items: stretch !important;
-        gap: 14px !important;
-      }
-
-      #dashboard>div:first-child>div:last-child {
-        display: grid !important;
-        grid-template-columns: 1fr 1fr !important;
-        gap: 8px !important;
-      }
-
-      #dashboard>div:first-child .py-btn {
-        width: 100% !important;
-        justify-content: center !important;
-        padding: 10px 8px !important;
-        font-size: .82rem !important;
-      }
-
-      #dashboard .py-stats {
-        display: grid !important;
-        grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
-        gap: 10px !important;
-        margin: 18px 0 !important;
-      }
-
-      #dashboard .py-stat {
-        min-width: 0 !important;
-        padding: 13px !important;
-      }
-
-      #dashboard .py-stat strong {
-        font-size: 1.35rem !important;
-      }
-
-      #dashboard .py-two-col,
-      #dashboard .py-two-col>div:first-child {
-        display: block !important;
-        width: 100% !important;
-        max-width: none !important;
-      }
-
-      #dashboard .py-h3 {
-        font-size: 1rem !important;
-        line-height: 1.35 !important;
-        margin: 16px 0 10px !important;
-      }
-
-      #dashboard .py-h3 span {
-        display: block;
-        margin-top: 4px;
-      }
-
-      #dashboard #py-learn {
-        display: grid !important;
-        grid-template-columns: minmax(0, 1fr) !important;
-        gap: 8px !important;
-      }
-
-      #dashboard #py-learn>* {
-        min-width: 0 !important;
-        width: 100% !important;
-      }
-
-      #dashboard .py-sub {
-        font-size: .9rem !important;
-        line-height: 1.5 !important;
-      }
-    }
-
-    @media (max-width: 979px) {
-      .page-main-wrap.py-wrap {
-        display: flex !important;
-        flex-direction: column !important;
-      }
-
-      .page-main-wrap.py-wrap>.py-hero,
-            .page-main-wrap.py-wrap>#dashboard,
-      .page-main-wrap.py-wrap>#player {
-        width: 100% !important;
-      }
-
-      .page-main-wrap.py-wrap>#dashboard {
-        order: 3;
-      }
-
-      .page-main-wrap.py-wrap>#player {
-        order: 4;
-      }
-
-      .page-main-wrap.py-wrap>#py-modnav {
-        order: 5;
-        width: 100% !important;
-      }
-
-      #dashboard .py-stats {
-        grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
-      }
-
-      #dashboard #py-learn {
-        grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
-      }
-    }
-
-    @media (max-width: 560px) {
-      #dashboard #py-learn {
-        grid-template-columns: 1fr !important;
-      }
-    }
-  </style>
-  <style id="shared-rog-header-fit">
-    /* Match the Why Tinitiate AI page's dark navy / blue / teal header. */
-=======
   </style>
 
   <style id="shared-rog-header-fit">
->>>>>>> d61b10a (Update masterclass tutorials, dashboard assets, and modules)
     .master-top-nav {
       position: sticky !important;
       top: 0 !important;
@@ -416,9 +246,6 @@
 
     .master-brand-badge {
       flex: 0 0 auto !important;
-<<<<<<< HEAD
-      width: auto !important; min-width: fit-content !important; max-width: clamp(200px, 34vw, 380px) !important; white-space: normal !important; overflow-wrap: break-word !important; text-align: center !important; line-height: 1.2 !important; box-sizing: border-box !important;
-=======
       width: auto !important;
       min-width: fit-content !important;
       max-width: clamp(200px, 34vw, 380px) !important;
@@ -427,7 +254,6 @@
       text-align: center !important;
       line-height: 1.2 !important;
       box-sizing: border-box !important;
->>>>>>> d61b10a (Update masterclass tutorials, dashboard assets, and modules)
       color: #D6E9FF !important;
       background: rgba(96, 165, 250, .13) !important;
       border: 1px solid rgba(147, 197, 253, .34) !important;
@@ -523,10 +349,6 @@
       max-width: calc(100vw - 24px) !important;
     }
 
-<<<<<<< HEAD
-    /* Slightly tighter desktop sizing before switching to a two-row header. */
-=======
->>>>>>> d61b10a (Update masterclass tutorials, dashboard assets, and modules)
     @media (max-width: 1380px) and (min-width: 1061px) {
       .master-top-nav-inner {
         gap: 7px !important;
@@ -559,10 +381,6 @@
       }
     }
 
-<<<<<<< HEAD
-    /* At narrower widths use two tidy rows instead of pushing social links off-screen. */
-=======
->>>>>>> d61b10a (Update masterclass tutorials, dashboard assets, and modules)
     @media (max-width: 1060px) {
       .master-top-nav-inner {
         flex-wrap: wrap !important;
@@ -639,10 +457,7 @@
       }
     }
   </style>
-<<<<<<< HEAD
-=======
 
->>>>>>> d61b10a (Update masterclass tutorials, dashboard assets, and modules)
   <style id="python-print-rog-course-theme">
     :root {
       --py-panel: #05304b;
@@ -681,10 +496,6 @@
       color: var(--py-copy);
     }
 
-<<<<<<< HEAD
-    /* Hero panel uses the same deep blue-teal treatment as the reference page. */
-=======
->>>>>>> d61b10a (Update masterclass tutorials, dashboard assets, and modules)
     .subject-hero-card,
     .py-hero {
       background:
@@ -697,10 +508,6 @@
       color: var(--py-copy) !important;
     }
 
-<<<<<<< HEAD
-    /* Learning steps, progress indicators and dynamically generated module cards. */
-=======
->>>>>>> d61b10a (Update masterclass tutorials, dashboard assets, and modules)
     .py-step,
     .py-stat,
     .py-dash-grid>*,
@@ -776,181 +583,6 @@
       border-color: rgba(103, 226, 242, .42);
     }
 
-<<<<<<< HEAD
-    .site-footer {
-      position: relative;
-      z-index: 1;
-      background: linear-gradient(135deg, #061e31 0%, #062b3d 55%, #073344 100%) !important;
-      border-top: 1px solid rgba(103, 226, 242, .28) !important;
-      color: var(--py-copy) !important;
-    }
-
-    .site-footer p,
-    .site-footer span,
-    .site-footer a,
-    .site-footer li {
-      color: var(--py-copy);
-    }
-
-    .site-footer .footer-col-title,
-    .site-footer .footer-bottom-bar strong {
-      color: var(--py-heading) !important;
-    }
-
-    @media (max-width: 760px) {
-      .page-main-wrap.py-wrap {
-        padding: 22px 14px !important;
-      }
-
-      .subject-hero-card,
-      .py-hero {
-        padding: 26px 20px !important;
-      }
-
-      .py-steps {
-        grid-template-columns: 1fr !important;
-      }
-    }
-
-    /* Print lesson dashboard, interactive slide player and editor surfaces. */
-    .py-section {
-      position: relative;
-      z-index: 1;
-      color: var(--py-copy) !important;
-    }
-
-    .py-stat,
-    .py-glossary,
-    .py-learn-grid,
-    .py-player,
-    .py-player-layout,
-    .py-stage,
-    .py-player-top,
-    .py-player-controls,
-    .py-modnav,
-    .py-outline,
-    .py-speed,
-    .py-dots {
-      background: linear-gradient(145deg, rgba(5, 48, 73, .96), rgba(3, 35, 55, .97)) !important;
-      color: var(--py-copy) !important;
-      border-color: var(--py-border) !important;
-      box-shadow: 0 12px 28px rgba(0, 12, 24, .22), inset 0 1px 0 rgba(174, 229, 244, .05);
-    }
-
-    .py-player {
-      overflow: hidden;
-    }
-
-    .py-player-top,
-    .py-player-controls {
-      background: linear-gradient(105deg, #073b57, #052e49) !important;
-    }
-
-    .py-stage {
-      background:
-        radial-gradient(ellipse at 85% 0%, rgba(31, 143, 177, .13), transparent 45%),
-        linear-gradient(145deg, #062f49, #04283f) !important;
-    }
-
-    .py-stage :is(h1, h2, h3, h4, h5, strong, b) {
-      color: var(--py-heading) !important;
-    }
-
-    .py-stage :is(p, li, span, label, small) {
-      color: var(--py-copy);
-    }
-
-    .py-stage pre,
-    .py-stage code,
-    .py-stage .CodeMirror,
-    .py-stage .CodeMirror-gutters,
-    .py-stage .CodeMirror-scroll {
-      background: #021c2c !important;
-      color: #d8f3ff !important;
-      border-color: rgba(65, 190, 218, .35) !important;
-    }
-
-    .py-stage .CodeMirror-cursor {
-      border-left-color: #67e2f2 !important;
-    }
-
-    .py-stage .CodeMirror-selected {
-      background: rgba(54, 190, 220, .22) !important;
-    }
-
-    .py-btn,
-    .py-icon-btn {
-      background: linear-gradient(135deg, #07506c, #06364f) !important;
-      color: #eafaff !important;
-      border: 1px solid rgba(67, 197, 222, .58) !important;
-    }
-
-    .py-btn.primary,
-    .py-icon-btn.play {
-      background: linear-gradient(135deg, #087e9f, #075b7b) !important;
-      color: #ffffff !important;
-      border-color: rgba(103, 226, 242, .8) !important;
-    }
-
-    .py-btn:hover,
-    .py-icon-btn:hover {
-      filter: brightness(1.16);
-      box-shadow: 0 0 18px rgba(55, 197, 225, .2);
-    }
-
-    .py-kbd,
-    .py-counter {
-      background: rgba(2, 24, 38, .78) !important;
-      color: #bceefa !important;
-      border: 1px solid rgba(78, 193, 218, .35) !important;
-    }
-
-    .py-meter,
-    .py-progress,
-    .py-autobar {
-      background: rgba(1, 19, 31, .78) !important;
-    }
-
-    .py-meter span,
-    .py-progress span,
-    .py-autobar span {
-      background: linear-gradient(90deg, #168db3, #67e2f2) !important;
-    }
-
-    .py-eyebrow {
-      color: #67e2f2 !important;
-    }
-
-    .py-h2,
-    .py-h3 {
-      color: #effaff !important;
-    }
-
-    .py-sub {
-      color: #bdd5e0 !important;
-    }
-
-    .site-footer {
-      position: relative;
-      z-index: 1;
-      background: linear-gradient(135deg, #032b40, #021e30) !important;
-      color: #c9dce8 !important;
-      border-top: 1px solid rgba(75, 198, 222, .3) !important;
-    }
-
-    .site-footer :is(h2, h3, h4, strong) {
-      color: #effaff !important;
-    }
-
-    .site-footer a {
-      color: #9ceafa;
-    }
-
-
-
-    /* Requested lesson layout: YouTube video first, progress dashboard below. */
-=======
->>>>>>> d61b10a (Update masterclass tutorials, dashboard assets, and modules)
     .site-footer,
     footer.site-footer {
       background: #000000 !important;
@@ -971,32 +603,6 @@
       color: #67e2f2 !important;
     }
 
-<<<<<<< HEAD
-    .py-video-section {
-      position: relative;
-      z-index: 1;
-      margin: 0 0 28px;
-      padding: 24px;
-      border: 1px solid rgba(103, 226, 242, .32);
-      border-radius: 18px;
-      background: linear-gradient(145deg, rgba(5, 48, 73, .97), rgba(3, 29, 47, .98));
-      box-shadow: 0 16px 34px rgba(0, 10, 22, .28);
-    }
-
-    .py-video-frame {
-      position: relative;
-      width: 100%;
-      aspect-ratio: 16 / 9;
-      overflow: hidden;
-      border: 1px solid rgba(103, 226, 242, .42);
-      border-radius: 14px;
-      background: radial-gradient(ellipse at center, rgba(12, 91, 119, .35), transparent 60%), #020b12;
-      display: grid;
-      place-items: center;
-    }
-
-    .py-video-frame iframe {
-=======
     /* Video player styling locked identical across modules */
     .py-video-section {
       position: relative;
@@ -1027,7 +633,6 @@
 
     .py-video-frame iframe,
     .py-video-frame video {
->>>>>>> d61b10a (Update masterclass tutorials, dashboard assets, and modules)
       position: absolute;
       inset: 0;
       width: 100%;
@@ -1064,16 +669,9 @@
 
     .py-video-placeholder span {
       color: #a9cbd8;
-<<<<<<< HEAD
-      font-size: .9rem;
-    }
-
-    /* Keep the progress dashboard as a single left-aligned column. */
-=======
       font-size: .88rem;
     }
 
->>>>>>> d61b10a (Update masterclass tutorials, dashboard assets, and modules)
     #dashboard {
       width: 100%;
       max-width: 100%;
@@ -1098,27 +696,9 @@
     #dashboard #py-glossary {
       display: none !important;
     }
-<<<<<<< HEAD
-
-    @media (max-width: 760px) {
-      .py-video-section {
-        padding: 16px;
-      }
-
-      .py-video-placeholder {
-        padding: 14px;
-      }
-    }
   </style>
 
   <style id="remove-slide-outline-panel">
-    /* Remove the separate all-slides representation from the slide-player area.
-     Keep an empty hidden mount for compatibility with python-course.js. */
-=======
-  </style>
-
-  <style id="remove-slide-outline-panel">
->>>>>>> d61b10a (Update masterclass tutorials, dashboard assets, and modules)
     .py-player-layout {
       display: grid !important;
       grid-template-columns: minmax(0, 1fr) !important;
@@ -1147,11 +727,6 @@
   </style>
 
   <style id="python-print-full-viewport-fit">
-<<<<<<< HEAD
-    /* Use the full browser width instead of leaving unused gutters around
-     the lesson workspace. Keep the dashboard and lesson area in two columns. */
-=======
->>>>>>> d61b10a (Update masterclass tutorials, dashboard assets, and modules)
     html,
     body {
       width: 100% !important;
@@ -1180,16 +755,6 @@
       margin-right: 0 !important;
     }
 
-<<<<<<< HEAD
-    @media (min-width: 980px) {
-      .page-main-wrap.py-wrap {
-        display: grid !important;
-        grid-template-columns: clamp(285px, 23vw, 360px) minmax(0, 1fr) !important;
-        grid-template-rows: auto minmax(0, 1fr) !important;
-        column-gap: clamp(12px, 1.25vw, 20px) !important;
-        row-gap: clamp(14px, 1.4vw, 22px) !important;
-        align-items: start !important;
-=======
     /* DESKTOP 2-COLUMN GRID:
        Left Column (Col 1): Fixed 340px Dashboard extending full height
        Right Column (Col 2): Row 2 = Video, Row 3 = Slide Player (Matching Width)
@@ -1202,7 +767,6 @@
         column-gap: 24px !important;
         row-gap: 20px !important;
         align-items: stretch !important;
->>>>>>> d61b10a (Update masterclass tutorials, dashboard assets, and modules)
       }
 
       .page-main-wrap.py-wrap>.py-hero {
@@ -1210,19 +774,6 @@
         grid-row: 1 !important;
       }
 
-<<<<<<< HEAD
-      .page-main-wrap.py-wrap>#dashboard {
-        grid-column: 1 !important;
-        grid-row: 2 !important;
-        width: 100% !important;
-        min-width: 0 !important;
-        max-width: none !important;
-        margin: 0 !important;
-        align-self: stretch !important;
-      }
-
-      .page-main-wrap.py-wrap>#player {
-=======
       /* Left Side: Module Dashboard runs down the entire left column track */
       .page-main-wrap.py-wrap>#dashboard {
         grid-column: 1 !important;
@@ -1248,14 +799,10 @@
 
       /* Right Side Top: Video Player */
       .page-main-wrap.py-wrap>#lesson-video {
->>>>>>> d61b10a (Update masterclass tutorials, dashboard assets, and modules)
         grid-column: 2 !important;
         grid-row: 2 !important;
         width: 100% !important;
         min-width: 0 !important;
-<<<<<<< HEAD
-        max-width: none !important;
-=======
         max-width: 100% !important;
         margin: 0 !important;
       }
@@ -1267,7 +814,6 @@
         width: 100% !important;
         min-width: 0 !important;
         max-width: 100% !important;
->>>>>>> d61b10a (Update masterclass tutorials, dashboard assets, and modules)
         margin: 0 !important;
       }
 
@@ -1277,11 +823,6 @@
         width: 100% !important;
         margin: 24px 0 0 !important;
       }
-<<<<<<< HEAD
-    }
-
-    /* Prevent child components from forcing the page wider than the viewport. */
-=======
 
       #dashboard>div:first-child {
         display: flex !important;
@@ -1354,7 +895,6 @@
       }
     }
 
->>>>>>> d61b10a (Update masterclass tutorials, dashboard assets, and modules)
     #dashboard,
     #lesson-video,
     #player,
@@ -1369,26 +909,6 @@
       max-width: 100% !important;
     }
 
-<<<<<<< HEAD
-    #lesson-video {
-      width: 100% !important;
-      padding: clamp(14px, 1.5vw, 24px) !important;
-    }
-
-    .py-video-frame {
-      width: 100% !important;
-      aspect-ratio: 16 / 9 !important;
-      height: auto !important;
-      max-height: none !important;
-    }
-
-    .py-video-frame iframe {
-      width: 100% !important;
-      height: 100% !important;
-    }
-
-=======
->>>>>>> d61b10a (Update masterclass tutorials, dashboard assets, and modules)
     #player {
       width: 100% !important;
     }
@@ -1403,10 +923,7 @@
       max-width: none !important;
     }
 
-<<<<<<< HEAD
-=======
     /* Tablet and Mobile Stacking */
->>>>>>> d61b10a (Update masterclass tutorials, dashboard assets, and modules)
     @media (max-width: 979px) {
       .page-main-wrap.py-wrap {
         display: flex !important;
@@ -1415,31 +932,13 @@
         padding: 14px !important;
       }
 
-<<<<<<< HEAD
-      .page-main-wrap.py-wrap>.py-hero,
-      .page-main-wrap.py-wrap>#dashboard,
-            .page-main-wrap.py-wrap>#player {
-=======
       .page-main-wrap.py-wrap>.py-hero {
         order: 1 !important;
->>>>>>> d61b10a (Update masterclass tutorials, dashboard assets, and modules)
         width: 100% !important;
         max-width: none !important;
         margin: 0 !important;
       }
 
-<<<<<<< HEAD
-      .page-main-wrap.py-wrap>.py-hero {
-        order: 1 !important;
-      }
-
-      .page-main-wrap.py-wrap>#dashboard {
-        order: 3 !important;
-      }
-
-      .page-main-wrap.py-wrap>#player {
-        order: 4 !important;
-=======
       .page-main-wrap.py-wrap>#lesson-video {
         order: 2 !important;
         width: 100% !important;
@@ -1458,15 +957,12 @@
         width: 100% !important;
         max-width: none !important;
         margin: 0 !important;
->>>>>>> d61b10a (Update masterclass tutorials, dashboard assets, and modules)
       }
 
       .page-main-wrap.py-wrap>#py-modnav {
         order: 5 !important;
         width: 100% !important;
       }
-<<<<<<< HEAD
-=======
 
       #dashboard .py-stats {
         grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
@@ -1475,7 +971,6 @@
       #dashboard #py-learn {
         grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
       }
->>>>>>> d61b10a (Update masterclass tutorials, dashboard assets, and modules)
     }
 
     @media (max-width: 560px) {
@@ -1491,13 +986,10 @@
         padding: 12px !important;
       }
 
-<<<<<<< HEAD
-=======
       #dashboard #py-learn {
         grid-template-columns: 1fr !important;
       }
 
->>>>>>> d61b10a (Update masterclass tutorials, dashboard assets, and modules)
       #dashboard .py-stats {
         grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
       }
@@ -1505,11 +997,6 @@
   </style>
 
   <style id="python-module-navigation-reference-layout">
-<<<<<<< HEAD
-    /* Bottom module navigation strip:
-       Back option in the left bottom corner, Next Module button in the right bottom corner. */
-=======
->>>>>>> d61b10a (Update masterclass tutorials, dashboard assets, and modules)
     .page-main-wrap.py-wrap>#py-modnav,
     #py-modnav {
       display: flex !important;
@@ -1530,10 +1017,6 @@
       order: 5 !important;
     }
 
-<<<<<<< HEAD
-    /* Handle either two direct navigation links or a wrapper inserted by JS. */
-=======
->>>>>>> d61b10a (Update masterclass tutorials, dashboard assets, and modules)
     #py-modnav> :only-child {
       display: flex !important;
       flex-direction: row !important;
@@ -1622,26 +1105,7 @@
       box-shadow: 0 12px 28px rgba(0, 10, 25, .4) !important;
     }
 
-<<<<<<< HEAD
-    @media (min-width: 980px) {
-      .page-main-wrap.py-wrap>#py-modnav {
-        grid-column: 1 / -1 !important;
-        grid-row: 4 !important;
-      }
-    }
-
-    @media (max-width: 979px) {
-      .page-main-wrap.py-wrap>#py-modnav {
-        order: 5 !important;
-        width: 100% !important;
-      }
-    }
-
     @media (max-width: 560px) {
-      .page-main-wrap.py-wrap>#py-modnav,
-=======
-    @media (max-width: 560px) {
->>>>>>> d61b10a (Update masterclass tutorials, dashboard assets, and modules)
       #py-modnav {
         padding: 10px 10px 14px !important;
         gap: 10px !important;
@@ -2518,8 +1982,6 @@
           <div class="py-learn-grid" id="py-learn"></div>
         </div>
         <div id="py-glossary" class="py-glossary" hidden aria-hidden="true"></div>
-<<<<<<< HEAD
-=======
       </div>
     </section>
 
@@ -2530,10 +1992,9 @@
           controls
           preload="metadata"
           style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: contain; background: #000;">
-          <source src="../../Final-videos/foundational-python-print.mp4" type="video/mp4">
+          <source src="../../Final-videos/foundational-python-operators.mp4" type="video/mp4">
           Your browser does not support the MP4 video format.
         </video>
->>>>>>> d61b10a (Update masterclass tutorials, dashboard assets, and modules)
       </div>
     </section>
 
