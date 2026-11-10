@@ -1,0 +1,1959 @@
+{
+  "id": "foundational-python-operators",
+  "page": "foundational/python/operators.html",
+  "createdAt": "2026-11-10T05:00:08.875Z",
+  "silent": false,
+  "video": "assets/dashboard-tutorials/foundational-python-operators.mp4",
+  "duration": 577.066667,
+  "resolution": "1920x1080",
+  "status": "complete",
+  "audioTargetLufs": -16,
+  "sceneCount": 35,
+  "scenes": [
+    {
+      "scene": 1,
+      "title": "Welcome to the dashboard",
+      "at": 1.474,
+      "seconds": 33.179313,
+      "target": "#dashboard",
+      "action": "show",
+      "layout": {
+        "stage": "#dashboard",
+        "target": "#dashboard",
+        "stageRect": {
+          "x": 80,
+          "y": 38,
+          "left": 80,
+          "top": 38,
+          "right": 1840,
+          "bottom": 948,
+          "width": 1760,
+          "height": 910
+        },
+        "targetRect": {
+          "x": 80,
+          "y": 38,
+          "left": 80,
+          "top": 38,
+          "right": 1840,
+          "bottom": 948,
+          "width": 1760,
+          "height": 910
+        },
+        "visible": true,
+        "invalid": [],
+        "rawHeight": 908,
+        "renderedHeight": 910,
+        "refit": false
+      },
+      "finalEffectAudit": {
+        "active": true,
+        "valid": true,
+        "driftPx": 0,
+        "pointerDriftPx": 0
+      },
+      "interactionAudit": null
+    },
+    {
+      "scene": 2,
+      "title": "What this dashboard contains",
+      "at": 36.204,
+      "seconds": 20.547646,
+      "target": "#py-learn",
+      "action": "show",
+      "layout": {
+        "stage": "#dashboard",
+        "target": "#py-learn",
+        "stageRect": {
+          "x": 80,
+          "y": 38,
+          "left": 80,
+          "top": 38,
+          "right": 1840,
+          "bottom": 948,
+          "width": 1760,
+          "height": 910
+        },
+        "targetRect": {
+          "x": 100.80000305175781,
+          "y": 364.0375061035156,
+          "left": 100.80000305175781,
+          "top": 364.0375061035156,
+          "right": 1819.2000274658203,
+          "bottom": 502.83750915527344,
+          "width": 1718.4000244140625,
+          "height": 138.8000030517578
+        },
+        "visible": true,
+        "invalid": [],
+        "rawHeight": 908,
+        "renderedHeight": 910,
+        "refit": false
+      },
+      "finalEffectAudit": {
+        "active": true,
+        "valid": true,
+        "driftPx": 0,
+        "pointerDriftPx": 0
+      },
+      "interactionAudit": null
+    },
+    {
+      "scene": 3,
+      "title": "Your progress",
+      "at": 58.206,
+      "seconds": 8.798354,
+      "target": "#py-stat-progress",
+      "action": "show",
+      "layout": {
+        "stage": "#dashboard",
+        "target": "#py-stat-progress",
+        "stageRect": {
+          "x": 80,
+          "y": 38,
+          "left": 80,
+          "top": 38,
+          "right": 1840,
+          "bottom": 948,
+          "width": 1760,
+          "height": 910
+        },
+        "targetRect": {
+          "x": 113.5999984741211,
+          "y": 229.40000915527344,
+          "left": 113.5999984741211,
+          "top": 229.40000915527344,
+          "right": 149.61249923706055,
+          "bottom": 259.8000087738037,
+          "width": 36.01250076293945,
+          "height": 30.399999618530273
+        },
+        "visible": true,
+        "invalid": [],
+        "rawHeight": 908,
+        "renderedHeight": 910,
+        "refit": false
+      },
+      "finalEffectAudit": {
+        "active": true,
+        "valid": true,
+        "driftPx": 0,
+        "pointerDriftPx": 0
+      },
+      "interactionAudit": null
+    },
+    {
+      "scene": 4,
+      "title": "Start learning",
+      "at": 68.436,
+      "seconds": 8.008875,
+      "target": "#py-continue",
+      "action": "click",
+      "layout": {
+        "stage": "#dashboard",
+        "target": "#py-continue",
+        "stageRect": {
+          "x": 80,
+          "y": 38,
+          "left": 80,
+          "top": 38,
+          "right": 1840,
+          "bottom": 948,
+          "width": 1760,
+          "height": 910
+        },
+        "targetRect": {
+          "x": 100.80000305175781,
+          "y": 158,
+          "left": 100.80000305175781,
+          "top": 158,
+          "right": 956.0000152587891,
+          "bottom": 194.79999923706055,
+          "width": 855.2000122070312,
+          "height": 36.79999923706055
+        },
+        "visible": true,
+        "invalid": [],
+        "rawHeight": 908,
+        "renderedHeight": 910,
+        "refit": false
+      },
+      "finalEffectAudit": {
+        "active": true,
+        "valid": true,
+        "driftPx": 0,
+        "pointerDriftPx": 0
+      },
+      "interactionAudit": {
+        "beforeLabel": "Start learning",
+        "afterLabel": "Continue at slide 3",
+        "beforeRect": {
+          "x": 100.80000305175781,
+          "y": 158,
+          "width": 855.2000122070312,
+          "height": 36.79999923706055,
+          "right": 956.0000152587891,
+          "bottom": 194.79999923706055,
+          "cx": 528.4000091552734,
+          "cy": 176.39999961853027
+        },
+        "afterRect": {
+          "x": 100.80000305175781,
+          "y": 158,
+          "width": 855.2000122070312,
+          "height": 36.79999923706055,
+          "right": 956.0000152587891,
+          "bottom": 194.79999923706055,
+          "cx": 528.4000091552734,
+          "cy": 176.39999961853027
+        },
+        "driftPx": 0,
+        "pointerDriftPx": 0,
+        "hitTest": true,
+        "valid": true
+      }
+    },
+    {
+      "scene": 5,
+      "title": "Return to slide one",
+      "at": 77.965,
+      "seconds": 6.615667,
+      "target": "#py-first",
+      "action": "click",
+      "layout": {
+        "stage": "#player",
+        "target": "#py-first",
+        "stageRect": {
+          "x": 80,
+          "y": 38,
+          "left": 80,
+          "top": 38,
+          "right": 1840,
+          "bottom": 948,
+          "width": 1760,
+          "height": 910
+        },
+        "targetRect": {
+          "x": 111.5999984741211,
+          "y": 884.2999877929688,
+          "left": 111.5999984741211,
+          "top": 884.2999877929688,
+          "right": 145.5999984741211,
+          "bottom": 918.2999877929688,
+          "width": 34,
+          "height": 34
+        },
+        "visible": true,
+        "invalid": [],
+        "rawHeight": 908,
+        "renderedHeight": 910,
+        "refit": false
+      },
+      "finalEffectAudit": {
+        "active": true,
+        "valid": true,
+        "driftPx": 0,
+        "pointerDriftPx": 0
+      },
+      "interactionAudit": {
+        "beforeLabel": "First slide",
+        "afterLabel": "First slide",
+        "beforeRect": {
+          "x": 111.5999984741211,
+          "y": 884.2999877929688,
+          "width": 34,
+          "height": 34,
+          "right": 145.5999984741211,
+          "bottom": 918.2999877929688,
+          "cx": 128.5999984741211,
+          "cy": 901.2999877929688
+        },
+        "afterRect": {
+          "x": 111.5999984741211,
+          "y": 884.2999877929688,
+          "width": 34,
+          "height": 34,
+          "right": 145.5999984741211,
+          "bottom": 918.2999877929688,
+          "cx": 128.5999984741211,
+          "cy": 901.2999877929688
+        },
+        "driftPx": 0,
+        "pointerDriftPx": 0,
+        "hitTest": true,
+        "valid": true
+      }
+    },
+    {
+      "scene": 6,
+      "title": "Understand the first topic",
+      "at": 85.996,
+      "seconds": 26.956354,
+      "target": "#py-stage",
+      "action": "show",
+      "layout": {
+        "stage": "#player",
+        "target": "#py-stage",
+        "stageRect": {
+          "x": 80,
+          "y": 38,
+          "left": 80,
+          "top": 38,
+          "right": 1840,
+          "bottom": 948,
+          "width": 1760,
+          "height": 910
+        },
+        "targetRect": {
+          "x": 99.5999984741211,
+          "y": 205.6999969482422,
+          "left": 99.5999984741211,
+          "top": 205.6999969482422,
+          "right": 1820.400047302246,
+          "bottom": 873.4000091552734,
+          "width": 1720.800048828125,
+          "height": 667.7000122070312
+        },
+        "visible": true,
+        "invalid": [],
+        "rawHeight": 908,
+        "renderedHeight": 910,
+        "refit": false
+      },
+      "finalEffectAudit": {
+        "active": true,
+        "valid": true,
+        "driftPx": 0,
+        "pointerDriftPx": 0
+      },
+      "interactionAudit": null
+    },
+    {
+      "scene": 7,
+      "title": "The code editor",
+      "at": 114.413,
+      "seconds": 11.073896,
+      "target": "#py-editor",
+      "action": "show",
+      "layout": {
+        "stage": "#player",
+        "target": "#py-editor",
+        "stageRect": {
+          "x": 80,
+          "y": 38,
+          "left": 80,
+          "top": 38,
+          "right": 1840,
+          "bottom": 948,
+          "width": 1760,
+          "height": 910
+        },
+        "targetRect": {
+          "x": 951.5,
+          "y": 257.8999938964844,
+          "left": 951.5,
+          "top": 257.8999938964844,
+          "right": 1806.6000366210938,
+          "bottom": 382.8999938964844,
+          "width": 855.1000366210938,
+          "height": 125
+        },
+        "visible": true,
+        "invalid": [],
+        "rawHeight": 908,
+        "renderedHeight": 910,
+        "refit": false
+      },
+      "finalEffectAudit": {
+        "active": true,
+        "valid": true,
+        "driftPx": 0,
+        "pointerDriftPx": 0
+      },
+      "interactionAudit": null
+    },
+    {
+      "scene": 8,
+      "title": "Run the code",
+      "at": 126.917,
+      "seconds": 6.151271,
+      "target": "#py-run",
+      "action": "click",
+      "layout": {
+        "stage": "#player",
+        "target": "#py-run",
+        "stageRect": {
+          "x": 80,
+          "y": 38,
+          "left": 80,
+          "top": 38,
+          "right": 1840,
+          "bottom": 948,
+          "width": 1760,
+          "height": 910
+        },
+        "targetRect": {
+          "x": 1739.4749755859375,
+          "y": 224.5,
+          "left": 1739.4749755859375,
+          "top": 224.5,
+          "right": 1796.5999755859375,
+          "bottom": 250.10000038146973,
+          "width": 57.125,
+          "height": 25.600000381469727
+        },
+        "visible": true,
+        "invalid": [],
+        "rawHeight": 908,
+        "renderedHeight": 910,
+        "refit": false
+      },
+      "finalEffectAudit": {
+        "active": true,
+        "valid": true,
+        "driftPx": 0,
+        "pointerDriftPx": 0
+      },
+      "interactionAudit": {
+        "beforeLabel": "▶ Run",
+        "afterLabel": "▶ Run",
+        "beforeRect": {
+          "x": 1739.4749755859375,
+          "y": 224.5,
+          "width": 57.125,
+          "height": 25.600000381469727,
+          "right": 1796.5999755859375,
+          "bottom": 250.10000038146973,
+          "cx": 1768.0374755859375,
+          "cy": 237.30000019073486
+        },
+        "afterRect": {
+          "x": 1739.4749755859375,
+          "y": 224.5,
+          "width": 57.125,
+          "height": 25.600000381469727,
+          "right": 1796.5999755859375,
+          "bottom": 250.10000038146973,
+          "cx": 1768.0374755859375,
+          "cy": 237.30000019073486
+        },
+        "driftPx": 0,
+        "pointerDriftPx": 0,
+        "hitTest": true,
+        "valid": true
+      }
+    },
+    {
+      "scene": 9,
+      "title": "Read the output",
+      "at": 134.663,
+      "seconds": 6.94075,
+      "target": "#py-term",
+      "action": "show",
+      "layout": {
+        "stage": "#player",
+        "target": "#py-term",
+        "stageRect": {
+          "x": 80,
+          "y": 38,
+          "left": 80,
+          "top": 38,
+          "right": 1840,
+          "bottom": 948,
+          "width": 1760,
+          "height": 910
+        },
+        "targetRect": {
+          "x": 951.5,
+          "y": 459.5,
+          "left": 951.5,
+          "top": 459.5,
+          "right": 1806.6000366210938,
+          "bottom": 521.5,
+          "width": 855.1000366210938,
+          "height": 62
+        },
+        "visible": true,
+        "invalid": [],
+        "rawHeight": 908,
+        "renderedHeight": 910,
+        "refit": false
+      },
+      "finalEffectAudit": {
+        "active": true,
+        "valid": true,
+        "driftPx": 0,
+        "pointerDriftPx": 0
+      },
+      "interactionAudit": null
+    },
+    {
+      "scene": 10,
+      "title": "Open the next topic",
+      "at": 143.144,
+      "seconds": 7.962438000000001,
+      "target": "#py-next",
+      "action": "click",
+      "layout": {
+        "stage": "#player",
+        "target": "#py-next",
+        "stageRect": {
+          "x": 80,
+          "y": 38,
+          "left": 80,
+          "top": 38,
+          "right": 1840,
+          "bottom": 948,
+          "width": 1760,
+          "height": 910
+        },
+        "targetRect": {
+          "x": 237.60000610351562,
+          "y": 884.2999877929688,
+          "left": 237.60000610351562,
+          "top": 884.2999877929688,
+          "right": 271.6000061035156,
+          "bottom": 918.2999877929688,
+          "width": 34,
+          "height": 34
+        },
+        "visible": true,
+        "invalid": [],
+        "rawHeight": 908,
+        "renderedHeight": 910,
+        "refit": false
+      },
+      "finalEffectAudit": {
+        "active": true,
+        "valid": true,
+        "driftPx": 0,
+        "pointerDriftPx": 0
+      },
+      "interactionAudit": {
+        "beforeLabel": "Next slide",
+        "afterLabel": "Next slide",
+        "beforeRect": {
+          "x": 237.60000610351562,
+          "y": 884.2999877929688,
+          "width": 34,
+          "height": 34,
+          "right": 271.6000061035156,
+          "bottom": 918.2999877929688,
+          "cx": 254.60000610351562,
+          "cy": 901.2999877929688
+        },
+        "afterRect": {
+          "x": 237.60000610351562,
+          "y": 884.2999877929688,
+          "width": 34,
+          "height": 34,
+          "right": 271.6000061035156,
+          "bottom": 918.2999877929688,
+          "cx": 254.60000610351562,
+          "cy": 901.2999877929688
+        },
+        "driftPx": 0,
+        "pointerDriftPx": 0,
+        "hitTest": true,
+        "valid": true
+      }
+    },
+    {
+      "scene": 11,
+      "title": "Learn topic 2",
+      "at": 152.673,
+      "seconds": 15.764332999999999,
+      "target": "#py-stage",
+      "action": "show",
+      "layout": {
+        "stage": "#player",
+        "target": "#py-stage",
+        "stageRect": {
+          "x": 80,
+          "y": 38,
+          "left": 80,
+          "top": 38,
+          "right": 1840,
+          "bottom": 948,
+          "width": 1760,
+          "height": 910
+        },
+        "targetRect": {
+          "x": 99.5999984741211,
+          "y": 205.6999969482422,
+          "left": 99.5999984741211,
+          "top": 205.6999969482422,
+          "right": 1820.400047302246,
+          "bottom": 873.4000091552734,
+          "width": 1720.800048828125,
+          "height": 667.7000122070312
+        },
+        "visible": true,
+        "invalid": [],
+        "rawHeight": 908,
+        "renderedHeight": 910,
+        "refit": false
+      },
+      "finalEffectAudit": {
+        "active": true,
+        "valid": true,
+        "driftPx": 0,
+        "pointerDriftPx": 0
+      },
+      "interactionAudit": null
+    },
+    {
+      "scene": 12,
+      "title": "The slide outline",
+      "at": 170.016,
+      "seconds": 10.191542,
+      "target": "#py-stage",
+      "action": "show",
+      "layout": {
+        "stage": "#player",
+        "target": "#py-stage",
+        "stageRect": {
+          "x": 80,
+          "y": 38,
+          "left": 80,
+          "top": 38,
+          "right": 1840,
+          "bottom": 948,
+          "width": 1760,
+          "height": 910
+        },
+        "targetRect": {
+          "x": 99.5999984741211,
+          "y": 205.6999969482422,
+          "left": 99.5999984741211,
+          "top": 205.6999969482422,
+          "right": 1820.400047302246,
+          "bottom": 873.4000091552734,
+          "width": 1720.800048828125,
+          "height": 667.7000122070312
+        },
+        "visible": true,
+        "invalid": [],
+        "rawHeight": 908,
+        "renderedHeight": 910,
+        "refit": false
+      },
+      "finalEffectAudit": {
+        "active": true,
+        "valid": true,
+        "driftPx": 0,
+        "pointerDriftPx": 0
+      },
+      "interactionAudit": null
+    },
+    {
+      "scene": 13,
+      "title": "Open slide 3: // and %: share out, count the leftovers",
+      "at": 181.747,
+      "seconds": 8.659021,
+      "target": "#py-next",
+      "action": "click",
+      "layout": {
+        "stage": "#player",
+        "target": "#py-next",
+        "stageRect": {
+          "x": 80,
+          "y": 38,
+          "left": 80,
+          "top": 38,
+          "right": 1840,
+          "bottom": 948,
+          "width": 1760,
+          "height": 910
+        },
+        "targetRect": {
+          "x": 237.60000610351562,
+          "y": 884.2999877929688,
+          "left": 237.60000610351562,
+          "top": 884.2999877929688,
+          "right": 271.6000061035156,
+          "bottom": 918.2999877929688,
+          "width": 34,
+          "height": 34
+        },
+        "visible": true,
+        "invalid": [],
+        "rawHeight": 908,
+        "renderedHeight": 910,
+        "refit": false
+      },
+      "finalEffectAudit": {
+        "active": true,
+        "valid": true,
+        "driftPx": 0,
+        "pointerDriftPx": 0
+      },
+      "interactionAudit": {
+        "beforeLabel": "Next slide",
+        "afterLabel": "Next slide",
+        "beforeRect": {
+          "x": 237.60000610351562,
+          "y": 884.2999877929688,
+          "width": 34,
+          "height": 34,
+          "right": 271.6000061035156,
+          "bottom": 918.2999877929688,
+          "cx": 254.60000610351562,
+          "cy": 901.2999877929688
+        },
+        "afterRect": {
+          "x": 237.60000610351562,
+          "y": 884.2999877929688,
+          "width": 34,
+          "height": 34,
+          "right": 271.6000061035156,
+          "bottom": 918.2999877929688,
+          "cx": 254.60000610351562,
+          "cy": 901.2999877929688
+        },
+        "driftPx": 0,
+        "pointerDriftPx": 0,
+        "hitTest": true,
+        "valid": true
+      }
+    },
+    {
+      "scene": 14,
+      "title": "Teach slide 3: // and %: share out, count the leftovers",
+      "at": 191.949,
+      "seconds": 24.634354,
+      "target": "#py-stage",
+      "action": "show",
+      "layout": {
+        "stage": "#player",
+        "target": "#py-stage",
+        "stageRect": {
+          "x": 80,
+          "y": 38,
+          "left": 80,
+          "top": 38,
+          "right": 1840,
+          "bottom": 948,
+          "width": 1760,
+          "height": 910
+        },
+        "targetRect": {
+          "x": 99.5999984741211,
+          "y": 205.6999969482422,
+          "left": 99.5999984741211,
+          "top": 205.6999969482422,
+          "right": 1820.400047302246,
+          "bottom": 873.4000091552734,
+          "width": 1720.800048828125,
+          "height": 667.7000122070312
+        },
+        "visible": true,
+        "invalid": [],
+        "rawHeight": 908,
+        "renderedHeight": 910,
+        "refit": false
+      },
+      "finalEffectAudit": {
+        "active": true,
+        "valid": true,
+        "driftPx": 0,
+        "pointerDriftPx": 0
+      },
+      "interactionAudit": null
+    },
+    {
+      "scene": 15,
+      "title": "Open slide 4: Powers with **",
+      "at": 218.14,
+      "seconds": 5.965521,
+      "target": "#py-next",
+      "action": "click",
+      "layout": {
+        "stage": "#player",
+        "target": "#py-next",
+        "stageRect": {
+          "x": 80,
+          "y": 38,
+          "left": 80,
+          "top": 38,
+          "right": 1840,
+          "bottom": 948,
+          "width": 1760,
+          "height": 910
+        },
+        "targetRect": {
+          "x": 237.60000610351562,
+          "y": 884.2999877929688,
+          "left": 237.60000610351562,
+          "top": 884.2999877929688,
+          "right": 271.6000061035156,
+          "bottom": 918.2999877929688,
+          "width": 34,
+          "height": 34
+        },
+        "visible": true,
+        "invalid": [],
+        "rawHeight": 908,
+        "renderedHeight": 910,
+        "refit": false
+      },
+      "finalEffectAudit": {
+        "active": true,
+        "valid": true,
+        "driftPx": 0,
+        "pointerDriftPx": 0
+      },
+      "interactionAudit": {
+        "beforeLabel": "Next slide",
+        "afterLabel": "Next slide",
+        "beforeRect": {
+          "x": 237.60000610351562,
+          "y": 884.2999877929688,
+          "width": 34,
+          "height": 34,
+          "right": 271.6000061035156,
+          "bottom": 918.2999877929688,
+          "cx": 254.60000610351562,
+          "cy": 901.2999877929688
+        },
+        "afterRect": {
+          "x": 237.60000610351562,
+          "y": 884.2999877929688,
+          "width": 34,
+          "height": 34,
+          "right": 271.6000061035156,
+          "bottom": 918.2999877929688,
+          "cx": 254.60000610351562,
+          "cy": 901.2999877929688
+        },
+        "driftPx": 0,
+        "pointerDriftPx": 0,
+        "hitTest": true,
+        "valid": true
+      }
+    },
+    {
+      "scene": 16,
+      "title": "Teach slide 4: Powers with **",
+      "at": 225.646,
+      "seconds": 19.572416999999998,
+      "target": "#py-stage",
+      "action": "show",
+      "layout": {
+        "stage": "#player",
+        "target": "#py-stage",
+        "stageRect": {
+          "x": 80,
+          "y": 38,
+          "left": 80,
+          "top": 38,
+          "right": 1840,
+          "bottom": 948,
+          "width": 1760,
+          "height": 910
+        },
+        "targetRect": {
+          "x": 99.5999984741211,
+          "y": 205.6999969482422,
+          "left": 99.5999984741211,
+          "top": 205.6999969482422,
+          "right": 1820.400047302246,
+          "bottom": 873.4000091552734,
+          "width": 1720.800048828125,
+          "height": 667.7000122070312
+        },
+        "visible": true,
+        "invalid": [],
+        "rawHeight": 908,
+        "renderedHeight": 910,
+        "refit": false
+      },
+      "finalEffectAudit": {
+        "active": true,
+        "valid": true,
+        "driftPx": 0,
+        "pointerDriftPx": 0
+      },
+      "interactionAudit": null
+    },
+    {
+      "scene": 17,
+      "title": "Open slide 5: Comparisons: ask a yes/no question",
+      "at": 246.752,
+      "seconds": 8.194625,
+      "target": "#py-next",
+      "action": "click",
+      "layout": {
+        "stage": "#player",
+        "target": "#py-next",
+        "stageRect": {
+          "x": 80,
+          "y": 38,
+          "left": 80,
+          "top": 38,
+          "right": 1840,
+          "bottom": 948,
+          "width": 1760,
+          "height": 910
+        },
+        "targetRect": {
+          "x": 237.60000610351562,
+          "y": 884.2999877929688,
+          "left": 237.60000610351562,
+          "top": 884.2999877929688,
+          "right": 271.6000061035156,
+          "bottom": 918.2999877929688,
+          "width": 34,
+          "height": 34
+        },
+        "visible": true,
+        "invalid": [],
+        "rawHeight": 908,
+        "renderedHeight": 910,
+        "refit": false
+      },
+      "finalEffectAudit": {
+        "active": true,
+        "valid": true,
+        "driftPx": 0,
+        "pointerDriftPx": 0
+      },
+      "interactionAudit": {
+        "beforeLabel": "Next slide",
+        "afterLabel": "Next slide",
+        "beforeRect": {
+          "x": 237.60000610351562,
+          "y": 884.2999877929688,
+          "width": 34,
+          "height": 34,
+          "right": 271.6000061035156,
+          "bottom": 918.2999877929688,
+          "cx": 254.60000610351562,
+          "cy": 901.2999877929688
+        },
+        "afterRect": {
+          "x": 237.60000610351562,
+          "y": 884.2999877929688,
+          "width": 34,
+          "height": 34,
+          "right": 271.6000061035156,
+          "bottom": 918.2999877929688,
+          "cx": 254.60000610351562,
+          "cy": 901.2999877929688
+        },
+        "driftPx": 0,
+        "pointerDriftPx": 0,
+        "hitTest": true,
+        "valid": true
+      }
+    },
+    {
+      "scene": 18,
+      "title": "Teach slide 5: Comparisons: ask a yes/no question",
+      "at": 256.452,
+      "seconds": 23.705562999999998,
+      "target": "#py-stage",
+      "action": "show",
+      "layout": {
+        "stage": "#player",
+        "target": "#py-stage",
+        "stageRect": {
+          "x": 80,
+          "y": 38,
+          "left": 80,
+          "top": 38,
+          "right": 1840,
+          "bottom": 948,
+          "width": 1760,
+          "height": 910
+        },
+        "targetRect": {
+          "x": 99.5999984741211,
+          "y": 205.6999969482422,
+          "left": 99.5999984741211,
+          "top": 205.6999969482422,
+          "right": 1820.400047302246,
+          "bottom": 873.4000091552734,
+          "width": 1720.800048828125,
+          "height": 667.7000122070312
+        },
+        "visible": true,
+        "invalid": [],
+        "rawHeight": 908,
+        "renderedHeight": 910,
+        "refit": false
+      },
+      "finalEffectAudit": {
+        "active": true,
+        "valid": true,
+        "driftPx": 0,
+        "pointerDriftPx": 0
+      },
+      "interactionAudit": null
+    },
+    {
+      "scene": 19,
+      "title": "Open slide 6: Shortcuts: += -= *= and friends",
+      "at": 281.723,
+      "seconds": 9.030541999999999,
+      "target": "#py-next",
+      "action": "click",
+      "layout": {
+        "stage": "#player",
+        "target": "#py-next",
+        "stageRect": {
+          "x": 80,
+          "y": 38,
+          "left": 80,
+          "top": 38,
+          "right": 1840,
+          "bottom": 948,
+          "width": 1760,
+          "height": 910
+        },
+        "targetRect": {
+          "x": 237.60000610351562,
+          "y": 884.2999877929688,
+          "left": 237.60000610351562,
+          "top": 884.2999877929688,
+          "right": 271.6000061035156,
+          "bottom": 918.2999877929688,
+          "width": 34,
+          "height": 34
+        },
+        "visible": true,
+        "invalid": [],
+        "rawHeight": 908,
+        "renderedHeight": 910,
+        "refit": false
+      },
+      "finalEffectAudit": {
+        "active": true,
+        "valid": true,
+        "driftPx": 0,
+        "pointerDriftPx": 0
+      },
+      "interactionAudit": {
+        "beforeLabel": "Next slide",
+        "afterLabel": "Next slide",
+        "beforeRect": {
+          "x": 237.60000610351562,
+          "y": 884.2999877929688,
+          "width": 34,
+          "height": 34,
+          "right": 271.6000061035156,
+          "bottom": 918.2999877929688,
+          "cx": 254.60000610351562,
+          "cy": 901.2999877929688
+        },
+        "afterRect": {
+          "x": 237.60000610351562,
+          "y": 884.2999877929688,
+          "width": 34,
+          "height": 34,
+          "right": 271.6000061035156,
+          "bottom": 918.2999877929688,
+          "cx": 254.60000610351562,
+          "cy": 901.2999877929688
+        },
+        "driftPx": 0,
+        "pointerDriftPx": 0,
+        "hitTest": true,
+        "valid": true
+      }
+    },
+    {
+      "scene": 20,
+      "title": "Teach slide 6: Shortcuts: += -= *= and friends",
+      "at": 292.293,
+      "seconds": 24.634354,
+      "target": "#py-stage",
+      "action": "show",
+      "layout": {
+        "stage": "#player",
+        "target": "#py-stage",
+        "stageRect": {
+          "x": 80,
+          "y": 38,
+          "left": 80,
+          "top": 38,
+          "right": 1840,
+          "bottom": 948,
+          "width": 1760,
+          "height": 910
+        },
+        "targetRect": {
+          "x": 99.5999984741211,
+          "y": 205.6999969482422,
+          "left": 99.5999984741211,
+          "top": 205.6999969482422,
+          "right": 1820.400047302246,
+          "bottom": 873.4000091552734,
+          "width": 1720.800048828125,
+          "height": 667.7000122070312
+        },
+        "visible": true,
+        "invalid": [],
+        "rawHeight": 908,
+        "renderedHeight": 910,
+        "refit": false
+      },
+      "finalEffectAudit": {
+        "active": true,
+        "valid": true,
+        "driftPx": 0,
+        "pointerDriftPx": 0
+      },
+      "interactionAudit": null
+    },
+    {
+      "scene": 21,
+      "title": "Open slide 7: A chain of updates",
+      "at": 318.55,
+      "seconds": 6.755,
+      "target": "#py-next",
+      "action": "click",
+      "layout": {
+        "stage": "#player",
+        "target": "#py-next",
+        "stageRect": {
+          "x": 80,
+          "y": 38,
+          "left": 80,
+          "top": 38,
+          "right": 1840,
+          "bottom": 948,
+          "width": 1760,
+          "height": 910
+        },
+        "targetRect": {
+          "x": 237.60000610351562,
+          "y": 884.2999877929688,
+          "left": 237.60000610351562,
+          "top": 884.2999877929688,
+          "right": 271.6000061035156,
+          "bottom": 918.2999877929688,
+          "width": 34,
+          "height": 34
+        },
+        "visible": true,
+        "invalid": [],
+        "rawHeight": 908,
+        "renderedHeight": 910,
+        "refit": false
+      },
+      "finalEffectAudit": {
+        "active": true,
+        "valid": true,
+        "driftPx": 0,
+        "pointerDriftPx": 0
+      },
+      "interactionAudit": {
+        "beforeLabel": "Next slide",
+        "afterLabel": "Next slide",
+        "beforeRect": {
+          "x": 237.60000610351562,
+          "y": 884.2999877929688,
+          "width": 34,
+          "height": 34,
+          "right": 271.6000061035156,
+          "bottom": 918.2999877929688,
+          "cx": 254.60000610351562,
+          "cy": 901.2999877929688
+        },
+        "afterRect": {
+          "x": 237.60000610351562,
+          "y": 884.2999877929688,
+          "width": 34,
+          "height": 34,
+          "right": 271.6000061035156,
+          "bottom": 918.2999877929688,
+          "cx": 254.60000610351562,
+          "cy": 901.2999877929688
+        },
+        "driftPx": 0,
+        "pointerDriftPx": 0,
+        "hitTest": true,
+        "valid": true
+      }
+    },
+    {
+      "scene": 22,
+      "title": "Teach slide 7: A chain of updates",
+      "at": 327.052,
+      "seconds": 34.711813,
+      "target": "#py-stage",
+      "action": "show",
+      "layout": {
+        "stage": "#player",
+        "target": "#py-stage",
+        "stageRect": {
+          "x": 80,
+          "y": 42,
+          "left": 80,
+          "top": 42,
+          "right": 1840,
+          "bottom": 952,
+          "width": 1760,
+          "height": 910
+        },
+        "targetRect": {
+          "x": 93.5999984741211,
+          "y": 190.6999969482422,
+          "left": 93.5999984741211,
+          "top": 190.6999969482422,
+          "right": 1826.400047302246,
+          "bottom": 883.4000091552734,
+          "width": 1732.800048828125,
+          "height": 692.7000122070312
+        },
+        "visible": true,
+        "invalid": [],
+        "rawHeight": 908,
+        "renderedHeight": 910,
+        "refit": true
+      },
+      "finalEffectAudit": {
+        "active": true,
+        "valid": true,
+        "driftPx": 0,
+        "pointerDriftPx": 0
+      },
+      "interactionAudit": null
+    },
+    {
+      "scene": 23,
+      "title": "Open slide 8: Logic: and, or, not",
+      "at": 363.334,
+      "seconds": 7.637354,
+      "target": "#py-next",
+      "action": "click",
+      "layout": {
+        "stage": "#player",
+        "target": "#py-next",
+        "stageRect": {
+          "x": 80,
+          "y": 42,
+          "left": 80,
+          "top": 42,
+          "right": 1840,
+          "bottom": 952,
+          "width": 1760,
+          "height": 910
+        },
+        "targetRect": {
+          "x": 229.60000610351562,
+          "y": 894.2999877929688,
+          "left": 229.60000610351562,
+          "top": 894.2999877929688,
+          "right": 263.6000061035156,
+          "bottom": 928.2999877929688,
+          "width": 34,
+          "height": 34
+        },
+        "visible": true,
+        "invalid": [],
+        "rawHeight": 908,
+        "renderedHeight": 910,
+        "refit": true
+      },
+      "finalEffectAudit": {
+        "active": true,
+        "valid": true,
+        "driftPx": 0,
+        "pointerDriftPx": 0
+      },
+      "interactionAudit": {
+        "beforeLabel": "Next slide",
+        "afterLabel": "Next slide",
+        "beforeRect": {
+          "x": 229.60000610351562,
+          "y": 894.2999877929688,
+          "width": 34,
+          "height": 34,
+          "right": 263.6000061035156,
+          "bottom": 928.2999877929688,
+          "cx": 246.60000610351562,
+          "cy": 911.2999877929688
+        },
+        "afterRect": {
+          "x": 229.60000610351562,
+          "y": 894.2999877929688,
+          "width": 34,
+          "height": 34,
+          "right": 263.6000061035156,
+          "bottom": 928.2999877929688,
+          "cx": 246.60000610351562,
+          "cy": 911.2999877929688
+        },
+        "driftPx": 0,
+        "pointerDriftPx": 0,
+        "hitTest": true,
+        "valid": true
+      }
+    },
+    {
+      "scene": 24,
+      "title": "Teach slide 8: Logic: and, or, not",
+      "at": 372.555,
+      "seconds": 17.668375,
+      "target": "#py-stage",
+      "action": "show",
+      "layout": {
+        "stage": "#player",
+        "target": "#py-stage",
+        "stageRect": {
+          "x": 80,
+          "y": 42,
+          "left": 80,
+          "top": 42,
+          "right": 1840,
+          "bottom": 952,
+          "width": 1760,
+          "height": 910
+        },
+        "targetRect": {
+          "x": 93.5999984741211,
+          "y": 190.6999969482422,
+          "left": 93.5999984741211,
+          "top": 190.6999969482422,
+          "right": 1826.400047302246,
+          "bottom": 883.4000091552734,
+          "width": 1732.800048828125,
+          "height": 692.7000122070312
+        },
+        "visible": true,
+        "invalid": [],
+        "rawHeight": 908,
+        "renderedHeight": 910,
+        "refit": true
+      },
+      "finalEffectAudit": {
+        "active": true,
+        "valid": true,
+        "driftPx": 0,
+        "pointerDriftPx": 0
+      },
+      "interactionAudit": null
+    },
+    {
+      "scene": 25,
+      "title": "Open slide 9: The truth table",
+      "at": 391.769,
+      "seconds": 6.708563,
+      "target": "#py-next",
+      "action": "click",
+      "layout": {
+        "stage": "#player",
+        "target": "#py-next",
+        "stageRect": {
+          "x": 80,
+          "y": 42,
+          "left": 80,
+          "top": 42,
+          "right": 1840,
+          "bottom": 952,
+          "width": 1760,
+          "height": 910
+        },
+        "targetRect": {
+          "x": 229.60000610351562,
+          "y": 894.2999877929688,
+          "left": 229.60000610351562,
+          "top": 894.2999877929688,
+          "right": 263.6000061035156,
+          "bottom": 928.2999877929688,
+          "width": 34,
+          "height": 34
+        },
+        "visible": true,
+        "invalid": [],
+        "rawHeight": 908,
+        "renderedHeight": 910,
+        "refit": true
+      },
+      "finalEffectAudit": {
+        "active": true,
+        "valid": true,
+        "driftPx": 0,
+        "pointerDriftPx": 0
+      },
+      "interactionAudit": {
+        "beforeLabel": "Next slide",
+        "afterLabel": "Next slide",
+        "beforeRect": {
+          "x": 229.60000610351562,
+          "y": 894.2999877929688,
+          "width": 34,
+          "height": 34,
+          "right": 263.6000061035156,
+          "bottom": 928.2999877929688,
+          "cx": 246.60000610351562,
+          "cy": 911.2999877929688
+        },
+        "afterRect": {
+          "x": 229.60000610351562,
+          "y": 894.2999877929688,
+          "width": 34,
+          "height": 34,
+          "right": 263.6000061035156,
+          "bottom": 928.2999877929688,
+          "cx": 246.60000610351562,
+          "cy": 911.2999877929688
+        },
+        "driftPx": 0,
+        "pointerDriftPx": 0,
+        "hitTest": true,
+        "valid": true
+      }
+    },
+    {
+      "scene": 26,
+      "title": "Teach slide 9: The truth table",
+      "at": 399.982,
+      "seconds": 11.631188,
+      "target": "#py-stage",
+      "action": "show",
+      "layout": {
+        "stage": "#player",
+        "target": "#py-stage",
+        "stageRect": {
+          "x": 80,
+          "y": 42,
+          "left": 80,
+          "top": 42,
+          "right": 1840,
+          "bottom": 952,
+          "width": 1760,
+          "height": 910
+        },
+        "targetRect": {
+          "x": 93.5999984741211,
+          "y": 190.6999969482422,
+          "left": 93.5999984741211,
+          "top": 190.6999969482422,
+          "right": 1826.400047302246,
+          "bottom": 883.4000091552734,
+          "width": 1732.800048828125,
+          "height": 692.7000122070312
+        },
+        "visible": true,
+        "invalid": [],
+        "rawHeight": 908,
+        "renderedHeight": 910,
+        "refit": true
+      },
+      "finalEffectAudit": {
+        "active": true,
+        "valid": true,
+        "driftPx": 0,
+        "pointerDriftPx": 0
+      },
+      "interactionAudit": null
+    },
+    {
+      "scene": 27,
+      "title": "Open slide 10: Bitwise: working with 0s and 1s",
+      "at": 413.133,
+      "seconds": 8.705479,
+      "target": "#py-next",
+      "action": "click",
+      "layout": {
+        "stage": "#player",
+        "target": "#py-next",
+        "stageRect": {
+          "x": 80,
+          "y": 42,
+          "left": 80,
+          "top": 42,
+          "right": 1840,
+          "bottom": 952,
+          "width": 1760,
+          "height": 910
+        },
+        "targetRect": {
+          "x": 229.60000610351562,
+          "y": 894.2999877929688,
+          "left": 229.60000610351562,
+          "top": 894.2999877929688,
+          "right": 263.6000061035156,
+          "bottom": 928.2999877929688,
+          "width": 34,
+          "height": 34
+        },
+        "visible": true,
+        "invalid": [],
+        "rawHeight": 908,
+        "renderedHeight": 910,
+        "refit": true
+      },
+      "finalEffectAudit": {
+        "active": true,
+        "valid": true,
+        "driftPx": 0,
+        "pointerDriftPx": 0
+      },
+      "interactionAudit": {
+        "beforeLabel": "Next slide",
+        "afterLabel": "Next slide",
+        "beforeRect": {
+          "x": 229.60000610351562,
+          "y": 894.2999877929688,
+          "width": 34,
+          "height": 34,
+          "right": 263.6000061035156,
+          "bottom": 928.2999877929688,
+          "cx": 246.60000610351562,
+          "cy": 911.2999877929688
+        },
+        "afterRect": {
+          "x": 229.60000610351562,
+          "y": 894.2999877929688,
+          "width": 34,
+          "height": 34,
+          "right": 263.6000061035156,
+          "bottom": 928.2999877929688,
+          "cx": 246.60000610351562,
+          "cy": 911.2999877929688
+        },
+        "driftPx": 0,
+        "pointerDriftPx": 0,
+        "hitTest": true,
+        "valid": true
+      }
+    },
+    {
+      "scene": 28,
+      "title": "Teach slide 10: Bitwise: working with 0s and 1s",
+      "at": 423.498,
+      "seconds": 34.990458000000004,
+      "target": "#py-stage",
+      "action": "show",
+      "layout": {
+        "stage": "#player",
+        "target": "#py-stage",
+        "stageRect": {
+          "x": 80,
+          "y": 42,
+          "left": 80,
+          "top": 42,
+          "right": 1840,
+          "bottom": 952,
+          "width": 1760,
+          "height": 910
+        },
+        "targetRect": {
+          "x": 93.5999984741211,
+          "y": 190.6999969482422,
+          "left": 93.5999984741211,
+          "top": 190.6999969482422,
+          "right": 1826.400047302246,
+          "bottom": 883.4000091552734,
+          "width": 1732.800048828125,
+          "height": 692.7000122070312
+        },
+        "visible": true,
+        "invalid": [],
+        "rawHeight": 908,
+        "renderedHeight": 910,
+        "refit": true
+      },
+      "finalEffectAudit": {
+        "active": true,
+        "valid": true,
+        "driftPx": 0,
+        "pointerDriftPx": 0
+      },
+      "interactionAudit": null
+    },
+    {
+      "scene": 29,
+      "title": "Open slide 11: Identity: is and is not",
+      "at": 460.15,
+      "seconds": 7.916,
+      "target": "#py-next",
+      "action": "click",
+      "layout": {
+        "stage": "#player",
+        "target": "#py-next",
+        "stageRect": {
+          "x": 80,
+          "y": 42,
+          "left": 80,
+          "top": 42,
+          "right": 1840,
+          "bottom": 952,
+          "width": 1760,
+          "height": 910
+        },
+        "targetRect": {
+          "x": 229.60000610351562,
+          "y": 894.2999877929688,
+          "left": 229.60000610351562,
+          "top": 894.2999877929688,
+          "right": 263.6000061035156,
+          "bottom": 928.2999877929688,
+          "width": 34,
+          "height": 34
+        },
+        "visible": true,
+        "invalid": [],
+        "rawHeight": 908,
+        "renderedHeight": 910,
+        "refit": true
+      },
+      "finalEffectAudit": {
+        "active": true,
+        "valid": true,
+        "driftPx": 0,
+        "pointerDriftPx": 0
+      },
+      "interactionAudit": {
+        "beforeLabel": "Next slide",
+        "afterLabel": "Next slide",
+        "beforeRect": {
+          "x": 229.60000610351562,
+          "y": 894.2999877929688,
+          "width": 34,
+          "height": 34,
+          "right": 263.6000061035156,
+          "bottom": 928.2999877929688,
+          "cx": 246.60000610351562,
+          "cy": 911.2999877929688
+        },
+        "afterRect": {
+          "x": 229.60000610351562,
+          "y": 894.2999877929688,
+          "width": 34,
+          "height": 34,
+          "right": 263.6000061035156,
+          "bottom": 928.2999877929688,
+          "cx": 246.60000610351562,
+          "cy": 911.2999877929688
+        },
+        "driftPx": 0,
+        "pointerDriftPx": 0,
+        "hitTest": true,
+        "valid": true
+      }
+    },
+    {
+      "scene": 30,
+      "title": "Teach slide 11: Identity: is and is not",
+      "at": 469.652,
+      "seconds": 26.352646,
+      "target": "#py-stage",
+      "action": "show",
+      "layout": {
+        "stage": "#player",
+        "target": "#py-stage",
+        "stageRect": {
+          "x": 80,
+          "y": 42,
+          "left": 80,
+          "top": 42,
+          "right": 1840,
+          "bottom": 952,
+          "width": 1760,
+          "height": 910
+        },
+        "targetRect": {
+          "x": 93.5999984741211,
+          "y": 190.6999969482422,
+          "left": 93.5999984741211,
+          "top": 190.6999969482422,
+          "right": 1826.400047302246,
+          "bottom": 883.4000091552734,
+          "width": 1732.800048828125,
+          "height": 692.7000122070312
+        },
+        "visible": true,
+        "invalid": [],
+        "rawHeight": 908,
+        "renderedHeight": 910,
+        "refit": true
+      },
+      "finalEffectAudit": {
+        "active": true,
+        "valid": true,
+        "driftPx": 0,
+        "pointerDriftPx": 0
+      },
+      "interactionAudit": null
+    },
+    {
+      "scene": 31,
+      "title": "Open slide 12: Membership: in and not in",
+      "at": 497.501,
+      "seconds": 7.172958,
+      "target": "#py-next",
+      "action": "click",
+      "layout": {
+        "stage": "#player",
+        "target": "#py-next",
+        "stageRect": {
+          "x": 80,
+          "y": 42,
+          "left": 80,
+          "top": 42,
+          "right": 1840,
+          "bottom": 952,
+          "width": 1760,
+          "height": 910
+        },
+        "targetRect": {
+          "x": 229.60000610351562,
+          "y": 894.2999877929688,
+          "left": 229.60000610351562,
+          "top": 894.2999877929688,
+          "right": 263.6000061035156,
+          "bottom": 928.2999877929688,
+          "width": 34,
+          "height": 34
+        },
+        "visible": true,
+        "invalid": [],
+        "rawHeight": 908,
+        "renderedHeight": 910,
+        "refit": true
+      },
+      "finalEffectAudit": {
+        "active": true,
+        "valid": true,
+        "driftPx": 0,
+        "pointerDriftPx": 0
+      },
+      "interactionAudit": {
+        "beforeLabel": "Next slide",
+        "afterLabel": "Next slide",
+        "beforeRect": {
+          "x": 229.60000610351562,
+          "y": 894.2999877929688,
+          "width": 34,
+          "height": 34,
+          "right": 263.6000061035156,
+          "bottom": 928.2999877929688,
+          "cx": 246.60000610351562,
+          "cy": 911.2999877929688
+        },
+        "afterRect": {
+          "x": 229.60000610351562,
+          "y": 894.2999877929688,
+          "width": 34,
+          "height": 34,
+          "right": 263.6000061035156,
+          "bottom": 928.2999877929688,
+          "cx": 246.60000610351562,
+          "cy": 911.2999877929688
+        },
+        "driftPx": 0,
+        "pointerDriftPx": 0,
+        "hitTest": true,
+        "valid": true
+      }
+    },
+    {
+      "scene": 32,
+      "title": "Teach slide 12: Membership: in and not in",
+      "at": 506.09,
+      "seconds": 22.126604,
+      "target": "#py-stage",
+      "action": "show",
+      "layout": {
+        "stage": "#player",
+        "target": "#py-stage",
+        "stageRect": {
+          "x": 80,
+          "y": 42,
+          "left": 80,
+          "top": 42,
+          "right": 1840,
+          "bottom": 952,
+          "width": 1760,
+          "height": 910
+        },
+        "targetRect": {
+          "x": 93.5999984741211,
+          "y": 190.6999969482422,
+          "left": 93.5999984741211,
+          "top": 190.6999969482422,
+          "right": 1826.400047302246,
+          "bottom": 883.4000091552734,
+          "width": 1732.800048828125,
+          "height": 692.7000122070312
+        },
+        "visible": true,
+        "invalid": [],
+        "rawHeight": 908,
+        "renderedHeight": 910,
+        "refit": true
+      },
+      "finalEffectAudit": {
+        "active": true,
+        "valid": true,
+        "driftPx": 0,
+        "pointerDriftPx": 0
+      },
+      "interactionAudit": null
+    },
+    {
+      "scene": 33,
+      "title": "Open slide 13: Cheat sheet: operators",
+      "at": 529.678,
+      "seconds": 8.333957999999999,
+      "target": "#py-next",
+      "action": "click",
+      "layout": {
+        "stage": "#player",
+        "target": "#py-next",
+        "stageRect": {
+          "x": 80,
+          "y": 42,
+          "left": 80,
+          "top": 42,
+          "right": 1840,
+          "bottom": 952,
+          "width": 1760,
+          "height": 910
+        },
+        "targetRect": {
+          "x": 229.60000610351562,
+          "y": 894.2999877929688,
+          "left": 229.60000610351562,
+          "top": 894.2999877929688,
+          "right": 263.6000061035156,
+          "bottom": 928.2999877929688,
+          "width": 34,
+          "height": 34
+        },
+        "visible": true,
+        "invalid": [],
+        "rawHeight": 908,
+        "renderedHeight": 910,
+        "refit": true
+      },
+      "finalEffectAudit": {
+        "active": true,
+        "valid": true,
+        "driftPx": 0,
+        "pointerDriftPx": 0
+      },
+      "interactionAudit": {
+        "beforeLabel": "Next slide",
+        "afterLabel": "Next slide",
+        "beforeRect": {
+          "x": 229.60000610351562,
+          "y": 894.2999877929688,
+          "width": 34,
+          "height": 34,
+          "right": 263.6000061035156,
+          "bottom": 928.2999877929688,
+          "cx": 246.60000610351562,
+          "cy": 911.2999877929688
+        },
+        "afterRect": {
+          "x": 229.60000610351562,
+          "y": 894.2999877929688,
+          "width": 34,
+          "height": 34,
+          "right": 263.6000061035156,
+          "bottom": 928.2999877929688,
+          "cx": 246.60000610351562,
+          "cy": 911.2999877929688
+        },
+        "driftPx": 0,
+        "pointerDriftPx": 0,
+        "hitTest": true,
+        "valid": true
+      }
+    },
+    {
+      "scene": 34,
+      "title": "Teach slide 13: Cheat sheet: operators",
+      "at": 539.444,
+      "seconds": 24.587917,
+      "target": "#py-stage",
+      "action": "show",
+      "layout": {
+        "stage": "#player",
+        "target": "#py-stage",
+        "stageRect": {
+          "x": 80,
+          "y": 42,
+          "left": 80,
+          "top": 42,
+          "right": 1840,
+          "bottom": 952,
+          "width": 1760,
+          "height": 910
+        },
+        "targetRect": {
+          "x": 93.5999984741211,
+          "y": 190.6999969482422,
+          "left": 93.5999984741211,
+          "top": 190.6999969482422,
+          "right": 1826.400047302246,
+          "bottom": 883.4000091552734,
+          "width": 1732.800048828125,
+          "height": 692.7000122070312
+        },
+        "visible": true,
+        "invalid": [],
+        "rawHeight": 908,
+        "renderedHeight": 910,
+        "refit": true
+      },
+      "finalEffectAudit": {
+        "active": true,
+        "valid": true,
+        "driftPx": 0,
+        "pointerDriftPx": 0
+      },
+      "interactionAudit": null
+    },
+    {
+      "scene": 35,
+      "title": "Finish the walkthrough",
+      "at": 565.447,
+      "seconds": 10.841707999999999,
+      "target": "#py-stage",
+      "action": "show",
+      "layout": {
+        "stage": "#player",
+        "target": "#py-stage",
+        "stageRect": {
+          "x": 80,
+          "y": 42,
+          "left": 80,
+          "top": 42,
+          "right": 1840,
+          "bottom": 952,
+          "width": 1760,
+          "height": 910
+        },
+        "targetRect": {
+          "x": 93.5999984741211,
+          "y": 190.6999969482422,
+          "left": 93.5999984741211,
+          "top": 190.6999969482422,
+          "right": 1826.400047302246,
+          "bottom": 883.4000091552734,
+          "width": 1732.800048828125,
+          "height": 692.7000122070312
+        },
+        "visible": true,
+        "invalid": [],
+        "rawHeight": 908,
+        "renderedHeight": 910,
+        "refit": true
+      },
+      "finalEffectAudit": {
+        "active": true,
+        "valid": true,
+        "driftPx": 0,
+        "pointerDriftPx": 0
+      },
+      "interactionAudit": null
+    }
+  ]
+}

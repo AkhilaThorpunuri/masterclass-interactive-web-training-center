@@ -1,0 +1,28 @@
+/* A small, responsive recorder that inherits existing Academy colors. */
+.auto-tutor-panel {box-sizing:border-box; width:100%; min-width:0; color:#e6faff; font-family:Inter,system-ui,sans-serif;}
+.auto-tutor-panel * {box-sizing:border-box;}
+.auto-tutor-standalone {margin:1.5rem 0; padding:1.25rem; border:1px solid #2e94b3; border-radius:16px; background:linear-gradient(140deg,#072f46,#041d30);}
+.auto-tutor-head {display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;margin-bottom:12px;}
+.auto-tutor-copy{display:grid;gap:4px;}
+.auto-tutor-copy strong{font-size:1.08rem;color:#f3fbff;}
+.auto-tutor-copy small{color:#c2e0e9;font-size:.84rem;}
+.auto-tutor-button{background:#086c8c;color:#fff;border:1px solid #4fc8e2;border-radius:11px;padding:11px 15px;font:inherit;font-weight:700;cursor:pointer;}
+.auto-tutor-button:hover:not(:disabled){background:#087f9f;}
+.auto-tutor-button:disabled{opacity:.65;cursor:progress;}
+.auto-tutor-button[hidden],.auto-tutor-video[hidden],.auto-tutor-empty[hidden]{display:none!important;}
+.auto-tutor-shell{width:100%;aspect-ratio:16/9;min-height:175px;background:#021825;border-radius:12px;overflow:hidden;display:grid;place-items:center;}
+.auto-tutor-video{width:100%;height:100%;object-fit:contain;background:#000;}
+.auto-tutor-empty{text-align:center;line-height:1.5;color:#bdd9e4;padding:1rem;}
+.auto-tutor-status{font-size:.86rem;color:#bfe2ee!important;margin:11px 0 0;}
+.auto-tutor-status[data-error="true"]{color:#ffb6ad!important;}
+@media(max-width:560px){.auto-tutor-head{align-items:stretch}.auto-tutor-button{width:100%}}
+
+/* Put tutorial above the interactive Python player, preserving the sidebar. */
+@media(min-width:980px){
+ .page-main-wrap.py-wrap:has(>.auto-tutor-python){grid-template-rows:auto auto minmax(0,1fr)!important;}
+ .page-main-wrap.py-wrap>.auto-tutor-python{grid-column:2!important;grid-row:2!important;min-width:0!important;margin:0!important;}
+ .page-main-wrap.py-wrap>#dashboard:has(~ .auto-tutor-python),
+ .page-main-wrap.py-wrap:has(>.auto-tutor-python)>#dashboard{grid-column:1!important;grid-row:2/4!important;}
+ .page-main-wrap.py-wrap:has(>.auto-tutor-python)>#player{grid-column:2!important;grid-row:3!important;}
+}
+.py-wrap>.auto-tutor-python{max-width:100%;}

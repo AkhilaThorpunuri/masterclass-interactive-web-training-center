@@ -1,1 +1,10 @@
 scratch/
+<<<<<<< HEAD
+=======
+node_modules/
+dashboard-tutor/work/
+Final-videos/*.webm
+call
+cd
+
+>>>>>>> d61b10a (Update masterclass tutorials, dashboard assets, and modules)

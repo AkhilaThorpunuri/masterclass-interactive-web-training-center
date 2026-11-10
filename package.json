@@ -1,8 +1,11 @@
 {
   "dependencies": {
     "lucide-react": "^1.33.0"
+<<<<<<< HEAD
   },
   "scripts": {
     "start": "node server.js"
+=======
+>>>>>>> d61b10a (Update masterclass tutorials, dashboard assets, and modules)
   }
 }
