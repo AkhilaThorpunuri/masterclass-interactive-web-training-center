@@ -61,7 +61,7 @@ async function recordDashboard({page:pagePath,baseUrl, silent=false,limit=0,prog
  try{
    mkdir(path.join(work,'video'));
    const context=await browser.newContext({viewport:{width:1920,height:1080},deviceScaleFactor:1,recordVideo:{dir:path.join(work,'video'),size:{width:1920,height:1080}}});
-   const pageCreate=Date.now();const pw=await context.newPage();
+   const pw=await context.newPage();const pageCreate=Date.now();
    await pw.goto(u.href,{waitUntil:'domcontentloaded',timeout:45000});
    await pw.locator(manifest.adapter==='pycourse'?'#py-stage':manifest.anchor).first().waitFor({state:'attached',timeout:25000}).catch(()=>{});
    await pw.waitForTimeout(1300);
@@ -121,9 +121,13 @@ async function recordDashboard({page:pagePath,baseUrl, silent=false,limit=0,prog
  finally{await browser.close();}
  progress({state:'rendering',completed:scenes.length,total:scenes.length});
  const target=path.join(generatedDir,`${id}.mp4`),tmp=path.join(work,`${id}.mp4`);
- await mux(rawVideo,clips,timeline,trim,seconds,tmp);
+ const rawDur=await duration(rawVideo).catch(()=>seconds+trim);
+ const effectiveTrim=rawDur>seconds?Math.min(trim,Math.max(0,rawDur-seconds)):Math.max(0,Math.min(trim,rawDur*0.1));
+ await mux(rawVideo,clips,timeline,effectiveTrim,seconds,tmp);
  const actual=await duration(tmp);
- if(actual<Math.max(1,seconds-1.2)||fs.statSync(tmp).size<2000)throw Error(`Invalid output duration or size: ${actual}`);
+ const expectedDur=Math.min(seconds,Math.max(1,rawDur-effectiveTrim));
+ const tolerance=Math.max(3.5,expectedDur*0.03);
+ if(!Number.isFinite(actual)||actual<Math.max(1,expectedDur-tolerance)||fs.statSync(tmp).size<2000)throw Error(`Invalid output duration or size: ${actual}`);
  // Short/silent test clips never replace a previously published narrated lesson.
  const preview=!!silent||limit>0;
  if(!preview)fs.copyFileSync(tmp,target);

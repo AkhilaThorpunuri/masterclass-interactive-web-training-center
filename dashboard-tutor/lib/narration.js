@@ -30,10 +30,20 @@ async function prepareAudio(scenes,dir,{silent=false}={}){
  const clips=[];
  for(let i=0;i<scenes.length;i++){
    const number=String(i+1).padStart(2,'0');const raw=path.join(dir,number+'.mp3');const file=path.join(dir,number+'-normalized.wav');
-   const response=await fetch(`https://api.elevenlabs.io/v1/text-to-speech/${encodeURIComponent(voice)}/with-timestamps`,{
-    method:'POST',headers:{'xi-api-key':key,'Content-Type':'application/json'},
-    body:JSON.stringify({text:scenes[i].narration,model_id:process.env.ELEVENLABS_MODEL_ID||'eleven_multilingual_v2',output_format:'mp3_44100_128',voice_settings:{stability:0.55,similarity_boost:0.75}})
-   });
+   let response,lastErr;
+   for(let attempt=1;attempt<=3;attempt++){
+    try{
+     response=await fetch(`https://api.elevenlabs.io/v1/text-to-speech/${encodeURIComponent(voice)}/with-timestamps`,{
+      method:'POST',headers:{'xi-api-key':key,'Content-Type':'application/json'},
+      body:JSON.stringify({text:scenes[i].narration,model_id:process.env.ELEVENLABS_MODEL_ID||'eleven_multilingual_v2',output_format:'mp3_44100_128',voice_settings:{stability:0.55,similarity_boost:0.75}})
+     });
+     break;
+    }catch(err){
+     lastErr=err;
+     if(attempt===3)throw err;
+     await new Promise(r=>setTimeout(r,1500*attempt));
+    }
+   }
    if(!response.ok)throw Error(`ElevenLabs narration failed for scene ${i+1}: HTTP ${response.status}: ${(await response.text()).slice(0,300)}`);
    const data=await response.json();if(!data.audio_base64)throw Error('ElevenLabs response did not contain audio_base64');
    fs.writeFileSync(raw,Buffer.from(data.audio_base64,'base64'));

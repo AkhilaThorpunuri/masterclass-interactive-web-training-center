@@ -9,6 +9,15 @@ test('original Academy Python Print is discovered automatically, but not rewritt
  const r=inject(original,'foundational/python/print.html');assert.equal(r.enabled,true);
  assert.match(r.html,/data-tutor-auto/);assert.equal(fs.readFileSync(sourceFile,'utf8'),original);
 });
+test('all Academy Python modules use pycourse adapter and #dashboard anchor',()=>{
+ const pyModules=['print.html','variables.html','datatypes.html','operators.html','strings.html','lists.html','sets.html','tuples.html','conversions-between-lists-tuples-and-dictionaries.html','conditional_decision_making.html','iterative_loops.html','python_functions.html','python-exceptions.html'];
+ for(const file of pyModules){
+  const m=getManifest('foundational/python/'+file);
+  assert.equal(m.matched,true,file);
+  assert.equal(m.adapter,'pycourse',file);
+  assert.equal(m.anchor,'#dashboard',file);
+ }
+});
 test('root homepage and Python modules retain original links',()=>{
  assert.ok(fs.readFileSync(path.join(repoRoot,'index.html'),'utf8').includes('foundational/python/print.html'));
  assert.ok(fs.readFileSync(path.join(repoRoot,'foundational/python/index.html'),'utf8').includes('print.html'));

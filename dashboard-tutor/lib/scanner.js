@@ -6,7 +6,7 @@ function cleanHtml(html){return html.replace(/<header\b[\s\S]*?<\/header>/gi,'')
 function titleOf(html){const m=html.match(/<h1[^>]*>([\s\S]*?)<\/h1>/i)||html.match(/<title[^>]*>([\s\S]*?)<\/title>/i);return (m?m[1]:'Interactive Dashboard').replace(/<[^>]+>/g,'').replace(/&[^;]+;/g,' ').replace(/\s+/g,' ').trim().slice(0,140);}
 function analyze(p){const html=fs.readFileSync(path.join(repoRoot,p),'utf8');const main=(html.match(/<main\b[\s\S]*?<\/main>/i)||[])[0]||html;
  const body=cleanHtml(main);const buttonCount=(body.match(/<button\b/gi)||[]).length;const inputCount=(body.match(/<(input|select|textarea)\b/gi)||[]).length;const onclickCount=(body.match(/\bon(?:click|change|input)\s*=/gi)||[]).length;
- const python=/data-py-page=["'](?:print|variables|datatypes|operators|strings|lists)["']/.test(html)&&/id=["']py-player["']/.test(html);
+ const python=/data-py-page=["'](?!home["'])[^"']+["']/.test(html)&&/id=["']py-player["']/.test(html);
  const react=/<script[^>]*type=["']text\/babel["']/i.test(html)||/react(?:dom)?[^"']*\.js/i.test(html);
  const simulator=/id=["']btn-(?:run|step)["']/.test(html)||/id=["']btn-dag-(?:step|play)["']/.test(html);
  const diagram=/joint(?:\.min)?\.js|d3(?:\.min)?\.js|<svg\b/i.test(body)&&/(?:simulator|diagram|workflow|lineage)/i.test(body);
