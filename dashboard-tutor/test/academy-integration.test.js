@@ -10,7 +10,7 @@ test('original Academy Python Print is discovered automatically, but not rewritt
  assert.match(r.html,/data-tutor-auto/);assert.equal(fs.readFileSync(sourceFile,'utf8'),original);
 });
 test('all Academy Python modules use pycourse adapter and #dashboard anchor',()=>{
- const pyModules=['print.html','variables.html','datatypes.html','operators.html','strings.html','lists.html','sets.html','tuples.html','conversions-between-lists-tuples-and-dictionaries.html','conditional_decision_making.html','iterative_loops.html','python_functions.html','python-exceptions.html'];
+ const pyModules=['print.html','variables.html','datatypes.html','operators.html','strings.html','lists.html','sets.html','tuples.html','dictionaries.html','conversions-between-lists-tuples-and-dictionaries.html','conditional_decision_making.html','iterative_loops.html','python_functions.html','python-exceptions.html'];
  for(const file of pyModules){
   const m=getManifest('foundational/python/'+file);
   assert.equal(m.matched,true,file);

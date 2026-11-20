@@ -1859,6 +1859,166 @@ const PyCourse = (() => {
     ]
   };
 
+  DECKS.dictionaries = {
+    name: 'Python Dictionaries', short: 'Dictionaries', icon: 'k:v', accent: '#fb7185', page: 'dictionaries.html', folder: 'python-core-language/python-dictionaries',
+    blurb: 'Store and look up key-value pairs: create, access, nest, modify, use keys/values/items/pop/popitem and build dict comprehensions.',
+    glossary: [
+      ['dictionary (dict)', 'A mutable collection of key: value pairs inside curly braces, like {"name": "John", "age": 30}.'],
+      ['key', 'The unique identifier on the left of the colon (:) used to look up a value.'],
+      ['value', 'The data stored for a key on the right of the colon (:).'],
+      ['get(key)', 'Safely looks up a key and returns None (or a default) instead of raising a KeyError.'],
+      ['keys() / values() / items()', 'Methods returning live views of a dictionary\'s keys, values, or (key, value) pairs.'],
+      ['dict comprehension', 'Builds a dictionary in one line: {x: x ** 2 for x in numbers}.']
+    ],
+    slides: [
+      {
+        title: 'What is a dictionary? Creating dictionaries', file: '01_dictionaries_creation.py',
+        idea: 'A <code>dict</code> stores <strong>key: value</strong> pairs inside curly braces <code>{ }</code>. Each key is unique and maps to its value.',
+        analogy: 'Like a real dictionary or contact list: you look up a unique <strong>key</strong> (word or person\'s name) to find its <strong>value</strong> (meaning or details).',
+        explain: `<p>An empty pair of curly braces <code>{}</code> creates an empty dictionary.</p>`,
+        visual: resultTable(['Key', 'Value'], [['APPLE', 'FRUIT', true], ['POTATO', 'ROOT', false], ['OKRA', 'VEGETABLE', false]]) + '<div style="margin-top:10px;">' + badges([['Unique keys', true], ['Can be changed (mutable)', true], ['Preserves insertion order', true]]) + '</div>',
+        code: `eats = {'APPLE': 'FRUIT', 'POTATO': 'ROOT', 'OKRA': 'VEGETABLE'}\nprint(eats)\n\nmy_dict = {'name': 'John', 'age': 30, 'gender': 'Male'}\nprint(my_dict)\n\n# Empty Dictionary\ndict0 = {}\nprint(dict0)`,
+        out: "{'APPLE': 'FRUIT', 'POTATO': 'ROOT', 'OKRA': 'VEGETABLE'}\n{'name': 'John', 'age': 30, 'gender': 'Male'}\n{}",
+        tip: 'Keys are usually strings or numbers, while values can be any Python datatype.'
+      },
+      {
+        title: 'Accessing elements in dictionaries', file: '02_dictionaries_accessing_elements.py',
+        idea: 'Use square brackets <code>my_dict[key]</code> or <code>my_dict.get(key)</code> to retrieve the value for a key.',
+        explain: `<p><code>my_dict.get(key)</code> is safe: if the key is missing, it returns <code>None</code> instead of crashing with a <code>KeyError</code>.</p>`,
+        controls: [
+          { key: 'name', label: "value for 'name'", type: 'text', value: 'John' },
+          { key: 'age', label: "value for 'age'", type: 'number', value: 30 },
+          { key: 'k', label: 'key to inspect', type: 'select', value: 0, options: ['name', 'age', 'gender'] }
+        ],
+        render: v => {
+          const dStr = `{'name': ${repr(v.name)}, 'age': ${v.age}, 'gender': 'Male'}`;
+          const picked = v.k === 'name' ? v.name : (v.k === 'age' ? String(v.age) : 'Male');
+          return {
+            code: `my_dict = ${dStr}\n\nprint(my_dict['name'])\nprint(my_dict['age'])\nprint(my_dict.get('gender'))\nprint("Selected key:", my_dict[${repr(v.k)}])`,
+            out: `${v.name}\n${v.age}\nMale\nSelected key: ${picked}`,
+            visual: resultTable(['Key', 'Value'], [
+              ['name', v.name, v.k === 'name'],
+              ['age', String(v.age), v.k === 'age'],
+              ['gender', 'Male', v.k === 'gender']
+            ])
+          };
+        }
+      },
+      {
+        title: 'Accessing nested dictionary elements', file: '03_dictionaries_accessing_nested_dictionary_elements.py',
+        idea: 'Dictionaries can hold inner dictionaries or live inside a list. Chain lookups like <code>my_dict["person"]["name"]</code> or <code>list_dict[2]["EmpName"]</code>.',
+        controls: [
+          { key: 'idx', label: 'employee index in list_dict (0..2)', type: 'range', value: 2, min: 0, max: 2 }
+        ],
+        render: v => {
+          const emps = [
+            { id: 1, name: 'Venkat' },
+            { id: 2, name: 'Sujatha' },
+            { id: 3, name: 'Taran' }
+          ];
+          const picked = emps[v.idx];
+          return {
+            code: `# Nested dict variation 1\nmy_dict = {'person': {'name': 'John', 'age': 30}}\nprint(my_dict['person'])\nprint(my_dict['person']['name'])\nprint(my_dict['person']['age'])\n\n# Nested dict variation 2: list of dictionaries\nlist_dict = [{'EmpID': 1, 'EmpName': 'Venkat'},\n             {'EmpID': 2, 'EmpName': 'Sujatha'},\n             {'EmpID': 3, 'EmpName': 'Taran'}]\nprint(list_dict[${v.idx}]['EmpName'])`,
+            out: `{'name': 'John', 'age': 30}\nJohn\n30\n${picked.name}`,
+            visual: resultTable(['Index', 'Employee Dictionary'], emps.map((e, i) => [`list_dict[${i}]`, `{'EmpID': ${e.id}, 'EmpName': '${e.name}'}`, i === v.idx]))
+          };
+        }
+      },
+      {
+        title: 'Modifying dictionaries: update, add, del & clear', file: '04_dictionaries_modification.py',
+        idea: 'Assign <code>my_dict[key] = value</code> to update an existing key or add a new key. Use <code>del my_dict[key]</code> to remove a key, or <code>my_dict.clear()</code> to empty the dictionary.',
+        controls: [
+          { key: 'newAge', label: "updated 'age'", type: 'number', value: 35 },
+          { key: 'gender', label: "added 'gender'", type: 'text', value: 'Male' }
+        ],
+        render: v => {
+          const g = repr(v.gender);
+          return {
+            code: `my_dict = {'name': 'John', 'age': 30}\nprint(my_dict)\n\n# Modifying existing value\nmy_dict['age'] = ${v.newAge}\nprint(my_dict)\n\n# Adding new key-value pair\nmy_dict['gender'] = ${g}\nprint(my_dict)\n\n# Remove the key 'gender' and its value\ndel my_dict['gender']\nprint(my_dict)\n\n# Remove everything in dictionary\nmy_dict.clear()\nprint(my_dict)`,
+            out: `{'name': 'John', 'age': 30}\n{'name': 'John', 'age': ${v.newAge}}\n{'name': 'John', 'age': ${v.newAge}, 'gender': ${g}}\n{'name': 'John', 'age': ${v.newAge}}\n{}`,
+            visual: boxRow([
+              varBox('start', "{'name': 'John', 'age': 30}"),
+              arrow,
+              varBox('updated + added', `{'name': 'John', 'age': ${v.newAge}, 'gender': ${g}}`),
+              arrow,
+              varBox('after clear()', '{}')
+            ])
+          };
+        }
+      },
+      {
+        title: 'Dictionary views: keys(), values() and items()', file: '05_dictionaries_methods.py',
+        idea: '<code>keys()</code> shows all keys, <code>values()</code> shows all values, and <code>items()</code> shows all <code>(key, value)</code> pairs.',
+        controls: [
+          { key: 'view', label: 'highlight view', type: 'select', value: 0, options: ['keys()', 'values()', 'items()'] }
+        ],
+        render: v => ({
+          code: `my_dict = {'name': 'John', 'age': 30, 'gender': 'Male'}\n\nprint(my_dict.keys())\nprint(my_dict.values())\nprint(my_dict.items())`,
+          out: "dict_keys(['name', 'age', 'gender'])\ndict_values(['John', 30, 'Male'])\ndict_items([('name', 'John'), ('age', 30), ('gender', 'Male')])",
+          visual: resultTable(['Method', 'Returned View'], [
+            ['my_dict.keys()', "dict_keys(['name', 'age', 'gender'])", v.view === 'keys()'],
+            ['my_dict.values()', "dict_values(['John', 30, 'Male'])", v.view === 'values()'],
+            ['my_dict.items()', "dict_items([('name', 'John'), ('age', 30), ('gender', 'Male')])", v.view === 'items()']
+          ])
+        })
+      },
+      {
+        title: 'Removing & returning items: pop() and popitem()', file: '05_dictionaries_methods.py',
+        idea: '<code>pop(key)</code> removes a specific key and hands back its value. <code>popitem()</code> removes and hands back the <strong>last inserted</strong> <code>(key, value)</code> pair.',
+        controls: [
+          { key: 'age', label: 'initial age', type: 'number', value: 30 }
+        ],
+        render: v => ({
+          code: `my_dict = {'name': 'John', 'age': ${v.age}, 'gender': 'Male'}\n\n# pop() removes a specified key and returns its value\nvalue = my_dict.pop('age')\nprint(value)\nprint(my_dict)\n\n# popitem() removes and returns the last inserted (key, value) pair\nkey, value = my_dict.popitem()\nprint(key, value)\nprint(my_dict)`,
+          out: `${v.age}\n{'name': 'John', 'gender': 'Male'}\ngender Male\n{'name': 'John'}`,
+          visual: boxRow([
+            varBox("pop('age')", String(v.age)),
+            arrow,
+            varBox('popitem()', "('gender', 'Male')"),
+            arrow,
+            varBox('remaining', "{'name': 'John'}")
+          ])
+        })
+      },
+      {
+        title: 'Dictionary comprehensions', file: '06_dictionaries_comprehensions.py',
+        idea: 'Build a dictionary from any sequence in one line: <code>{x: x ** 2 for x in numbers}</code>.',
+        analogy: 'Like a label maker that stamps both the key (<code>x</code>) and its calculated value (<code>x ** 2</code>) for every item in a collection.',
+        controls: [
+          { key: 'items', label: 'numbers', type: 'text', value: '1, 2, 3, 4, 5' },
+          { key: 'expr', label: 'value expression', type: 'select', value: 0, options: ['x ** 2', 'x * 10', 'x ** 3'] }
+        ],
+        render: v => {
+          const nums = [...new Set(intsFrom(v.items))].sort((a, b) => a - b);
+          const fn = { 'x ** 2': x => x * x, 'x * 10': x => x * 10, 'x ** 3': x => x * x * x }[v.expr];
+          const inSet = nums.length ? `{${nums.join(', ')}}` : 'set()';
+          const pairs = nums.map(x => `${x}: ${fn(x)}`);
+          return {
+            code: `numbers = ${inSet}\nnumbers_dict = {x: ${v.expr} for x in numbers}\nprint(numbers_dict)`,
+            out: `{${pairs.join(', ')}}`,
+            visual: '<div class="py-map">' + nums.map((x, i) => `<div style="animation-delay:${i * 0.06}s"><code>${x}</code><span>&rarr;</span><code>${x}: ${fn(x)}</code></div>`).join('') + '</div>'
+          };
+        }
+      },
+      {
+        title: 'Cheat sheet: dictionaries', file: 'recap',
+        idea: 'Every dictionary operation and method from this module on one page.',
+        visual: recapTable([
+          ['create a dict / empty dict', "d = {'name': 'John', 'age': 30}   empty = {}"],
+          ['read a value / safe read', "d['name']   d.get('gender')"],
+          ['nested lookup', "d['person']['name']   list_dict[2]['EmpName']"],
+          ['add or update a key', "d['age'] = 35   d['gender'] = 'Male'"],
+          ['delete a key / empty all', "del d['gender']   d.clear()"],
+          ['views of keys, values, pairs', 'd.keys()   d.values()   d.items()'],
+          ['remove & return value / last pair', "d.pop('age')   d.popitem()"],
+          ['dict comprehension', '{x: x ** 2 for x in numbers}']
+        ]),
+        code: `d = {'name': 'John', 'age': 30}\nd['age'] = 35\nd['gender'] = 'Male'\nprint("Keys:", list(d.keys()))\nprint("Popped age:", d.pop('age'))\nprint("Squares:", {x: x ** 2 for x in (1, 2, 3)})`,
+        out: "Keys: ['name', 'age', 'gender']\nPopped age: 35\nSquares: {1: 1, 2: 4, 3: 9}"
+      }
+    ]
+  };
+
   DECKS['conversions-between-lists-tuples-and-dictionaries'] = {
     name: 'Conversions: Lists, Tuples & Dicts', short: 'Conversions', icon: '&harr;', accent: '#f59e0b', page: 'conversions-between-lists-tuples-and-dictionaries.html', folder: 'python-core-language/conversions-between-lists-tuples-and-dictionaries',
     blurb: 'Convert freely between lists, tuples and dictionaries using tuple(), list(), dict(), zip(), keys(), values() and items().',
@@ -2591,7 +2751,7 @@ const PyCourse = (() => {
     ]
   };
 
-  const ORDER = ['print', 'variables', 'datatypes', 'operators', 'strings', 'lists', 'sets', 'tuples', 'conversions-between-lists-tuples-and-dictionaries', 'conditional_decision_making', 'iterative_loops', 'python_functions', 'python-exceptions'];
+  const ORDER = ['print', 'variables', 'datatypes', 'operators', 'strings', 'lists', 'sets', 'tuples', 'dictionaries', 'conversions-between-lists-tuples-and-dictionaries', 'conditional_decision_making', 'iterative_loops', 'python_functions', 'python-exceptions'];
 
   // ---------- State + persistence ----------
   const STORE_KEY = 'tinitiate.python.core.progress.v2';

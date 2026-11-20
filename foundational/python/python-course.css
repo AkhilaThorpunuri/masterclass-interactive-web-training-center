@@ -327,7 +327,7 @@
 .py-stdin textarea { width:100%; resize:vertical; border-radius:8px; border:1px solid rgba(255,255,255,0.14); background:rgba(2,6,23,0.8); color:#f8fafc; padding:6px 10px; font-family:var(--font-mono) !important; font-size:0.84rem; }
 
 /* Visuals for the variables, operators and lists modules */
-.py-mod-card:nth-child(4) { animation-delay:.24s; } .py-mod-card:nth-child(5) { animation-delay:.32s; } .py-mod-card:nth-child(6) { animation-delay:.4s; } .py-mod-card:nth-child(7) { animation-delay:.48s; }
+.py-mod-card:nth-child(4) { animation-delay:.24s; } .py-mod-card:nth-child(5) { animation-delay:.32s; } .py-mod-card:nth-child(6) { animation-delay:.4s; } .py-mod-card:nth-child(7) { animation-delay:.48s; } .py-mod-card:nth-child(8) { animation-delay:.56s; }
 .py-cell .ch.wide { width:auto; min-width:34px; padding:0 8px; white-space:pre; font-size:0.85rem; }
 .py-cell.gone .ch { background:rgba(239,68,68,0.16); border-color:rgba(248,113,113,0.6); color:#fca5a5; text-decoration:line-through; }
 .py-cell.gone .ix { color:#f87171; }
