@@ -1930,6 +1930,12 @@
           </svg>
           <span>Open the Slides</span>
         </a>
+        <a href="#lesson-video" class="py-btn" style="padding:12px 20px;font-size:0.95rem;">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polygon points="5 3 19 12 5 21 5 3" />
+          </svg>
+          <span>Watch Video</span>
+        </a>
         <a href="#dashboard" class="py-btn" style="padding:12px 20px;font-size:0.95rem;">
           <span>My Progress</span>
         </a>
@@ -1976,6 +1982,19 @@
           <div class="py-learn-grid" id="py-learn"></div>
         </div>
         <div id="py-glossary" class="py-glossary" hidden aria-hidden="true"></div>
+      </div>
+    </section>
+
+    <!-- RIGHT COLUMN (TOP): Local Video Player with matching width -->
+    <section id="lesson-video" class="py-video-section">
+      <div class="py-video-frame">
+        <video
+          controls
+          preload="metadata"
+          style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: contain; background: #000;">
+          <source src="../../Final-videos/foundational-python-conditional-decision-making.mp4" type="video/mp4">
+          Your browser does not support the MP4 video format.
+        </video>
       </div>
     </section>
 
