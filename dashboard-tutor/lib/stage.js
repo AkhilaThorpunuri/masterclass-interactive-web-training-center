@@ -16,7 +16,18 @@ html.tutor-capture main,html.tutor-capture .py-wrap {
      Academy theme creates its own stacking context on main/sections. */
   position:relative!important;z-index:1!important;
 }
-html.tutor-capture main > .tutor-hidden {display:none!important;}
+html.tutor-capture main > .tutor-hidden,
+html.tutor-capture .page-main-wrap.py-wrap > #dashboard.tutor-hidden,
+html.tutor-capture .page-main-wrap.py-wrap > #player.tutor-hidden,
+html.tutor-capture .page-main-wrap.py-wrap > #lesson-video.tutor-hidden,
+html.tutor-capture .page-main-wrap.py-wrap > #py-modnav.tutor-hidden,
+html.tutor-capture #dashboard.tutor-hidden,
+html.tutor-capture #player.tutor-hidden,
+html.tutor-capture #lesson-video.tutor-hidden,
+html.tutor-capture #py-modnav.tutor-hidden {
+  display:none!important;
+  visibility:hidden!important;
+}
 /* The backdrop is a BODY child, BELOW main. Placing it on <html> with
    z-index:99 covers the complete lesson because the Academy body/main form
    independent stacking contexts. That previously produced a blank MP4 with
@@ -87,6 +98,9 @@ html.tutor-capture.tutor-capture-refit #dashboard.tutor-active-stage #py-learn >
 html.tutor-capture.tutor-capture-refit #dashboard.tutor-active-stage .py-h3 {margin:9px 0 6px!important;}
 
 /* Compact, readable presentation of the Python progress dashboard. */
+html.tutor-capture #dashboard.tutor-active-stage > div:first-child {flex-direction:row!important;align-items:flex-end!important;justify-content:space-between!important;}
+html.tutor-capture #dashboard.tutor-active-stage > div:first-child > div:last-child {display:flex!important;gap:10px!important;}
+html.tutor-capture #dashboard.tutor-active-stage > div:first-child .py-btn {width:auto!important;padding:10px 18px!important;font-size:14px!important;}
 html.tutor-capture #dashboard.tutor-active-stage .py-stats {margin:12px 0!important;grid-template-columns:repeat(4,minmax(0,1fr))!important;gap:9px!important;}
 html.tutor-capture #dashboard.tutor-active-stage .py-stat {padding:9px 12px!important;}
 html.tutor-capture #dashboard.tutor-active-stage .py-two-col {grid-template-columns:minmax(0,1.65fr) minmax(0,0.9fr)!important;gap:16px!important;}
@@ -99,6 +113,8 @@ html.tutor-capture #player.tutor-active-stage {display:flex!important;flex-direc
 html.tutor-capture #player.tutor-active-stage > .py-eyebrow {flex:none!important;}
 html.tutor-capture #player.tutor-active-stage > .py-h2 {margin:0!important;line-height:1.2!important;font-size:29px!important;flex:none!important;}
 html.tutor-capture #player.tutor-active-stage > .py-sub {margin:0!important;font-size:15px!important;line-height:1.3!important;flex:none!important;}
+html.tutor-capture #player.tutor-active-stage > .sql-dialect-note {flex:none!important;margin:0!important;padding:4px 10px!important;font-size:12.5px!important;line-height:1.25!important;}
+html.tutor-capture.tutor-capture-refit #player.tutor-active-stage > .sql-dialect-note {display:none!important;}
 html.tutor-capture #player.tutor-active-stage .py-player-layout {
   display:grid!important;grid-template-columns:minmax(0,1fr) 226px!important;
   gap:12px!important;flex:1!important;min-height:0!important;height:auto!important;max-width:100%!important;
@@ -162,6 +178,10 @@ html.tutor-capture.tutor-capture-long-output #player.tutor-active-stage .py-code
 html.tutor-capture.tutor-capture-long-output #player.tutor-active-stage .py-code-col .py-code-fallback {
   height:100%!important;max-height:100%!important;resize:none!important;overflow-y:auto!important;
 }
+html.tutor-capture.tutor-capture-long-output #player.tutor-active-stage .py-code-col > .py-panel:not(:first-child) {
+  display:flex!important;flex-direction:column!important;
+  flex:0 1 auto!important;max-height:32%!important;min-height:0!important;overflow:hidden!important;
+}
 html.tutor-capture.tutor-capture-long-output #player.tutor-active-stage .py-code-col > .py-panel:last-child {
   display:flex!important;flex-direction:column!important;
   flex:0 0 auto!important;max-height:35%!important;min-height:0!important;
@@ -170,6 +190,14 @@ html.tutor-capture.tutor-capture-long-output #player.tutor-active-stage #py-term
   max-height:min(205px,21vh)!important;min-height:0!important;overflow-y:auto!important;
   overflow-x:hidden!important;scrollbar-width:thin!important;
 }
+html.tutor-capture.tutor-capture-long-output #player.tutor-active-stage #sql-db {
+  max-height:min(145px,15vh)!important;min-height:0!important;overflow-y:auto!important;
+  overflow-x:hidden!important;scrollbar-width:thin!important;
+}
+html.tutor-capture #player.tutor-active-stage .py-code-col:has(#sql-db) {gap:6px!important;}
+html.tutor-capture #player.tutor-active-stage .py-code-col:has(#sql-db) .py-editor .CodeMirror {min-height:76px!important;max-height:148px!important;}
+html.tutor-capture #player.tutor-active-stage .py-code-col:has(#sql-db) #py-term {min-height:44px!important;max-height:130px!important;padding:6px 8px!important;overflow-y:auto!important;}
+html.tutor-capture #player.tutor-active-stage .py-code-col:has(#sql-db) #sql-db {min-height:44px!important;max-height:140px!important;padding:6px 8px!important;overflow-y:auto!important;}
 
 html.tutor-capture #player.tutor-active-stage .py-slide-title {font-size:24px!important;margin:4px 0 8px!important;}
 html.tutor-capture #player.tutor-active-stage .py-slide-explain {font-size:15px!important;line-height:1.45!important;}
@@ -306,7 +334,7 @@ async function setup(page){
     const drift=Math.max(...Object.values(errors));
     const pointerOffset=Math.hypot(cursor.x+3-b.cx,cursor.y+2-b.cy);
     const hit=document.elementFromPoint(Math.max(0,Math.min(innerWidth-1,b.cx)),Math.max(0,Math.min(innerHeight-1,b.cy)));
-    const hitTest=!!hit&&(hit===fx.element||fx.element.contains(hit));
+    const hitTest=!!hit&&(hit===fx.element||fx.element.contains(hit)||hit.contains(fx.element));
     return {active:true,selector:fx.selector,label:(fx.element.innerText||fx.element.getAttribute('aria-label')||'').trim().slice(0,120),
       target:b,highlight:actual,driftPx:Math.round(drift*100)/100,
       pointerDriftPx:Math.round(pointerOffset*100)/100,hitTest,
@@ -403,8 +431,10 @@ async function focus(page,stageSelector,targetSelector){
  },{stageSelector,targetSelector});
  // Two rendering frames followed by slide-entry animation completion. Avoids
  // measuring the old dashboard geometry while the player becomes visible.
+ const changedStage=await page.evaluate(()=>window.__tutorLastStageId!==(document.querySelector('.tutor-active-stage')?.id||''));
+ await page.evaluate(()=>{window.__tutorLastStageId=document.querySelector('.tutor-active-stage')?.id||'';});
  await page.evaluate(()=>new Promise(resolve=>requestAnimationFrame(()=>requestAnimationFrame(resolve))));
- await page.waitForTimeout(550);
+ await page.waitForTimeout(changedStage?480:160);
  let result=await measure(page,stageSelector,targetSelector);
  if(result.invalid.length&&result.stageRect.width){
   await page.evaluate(()=>document.documentElement.classList.add('tutor-capture-refit'));
@@ -422,7 +452,11 @@ async function focus(page,stageSelector,targetSelector){
  return result;
 }
 async function point(page,selector){
- const candidate=selector==='#py-stage'?'#py-stage .py-slide-title':selector==='#dashboard'?'#dashboard .py-h2':selector==='#player'?'#player .py-h2':null;
+ let candidate=null;
+ if(selector==='#py-stage'){
+   candidate=(await page.locator('#py-stage .py-idea').count())?'#py-stage .py-idea':(await page.locator('#py-stage .py-anim').count())?'#py-stage .py-anim':'#py-stage .py-slide-title';
+ }else if(selector==='#dashboard')candidate='#dashboard .py-h2';
+ else if(selector==='#player')candidate='#player .py-h2';
  const effective=candidate&&await page.locator(candidate).count()?candidate:selector;
  await page.locator(effective).first().waitFor({state:'visible',timeout:20000});
  const b=await page.locator(effective).first().boundingBox();
@@ -431,7 +465,7 @@ async function point(page,selector){
  if(b.x<6||b.y<10||b.x+b.width>v.width-6||b.y+b.height>v.height-103)
    throw Error('Target clipped in capture viewport: '+effective+' '+JSON.stringify(b));
  await page.evaluate(selector=>window.__tutorFx.activate(selector),effective);
- await page.waitForTimeout(670); // finish the intentional arrival animation
+ await page.waitForTimeout(420); // finish the intentional arrival animation
  await page.evaluate(()=>window.__tutorFx.follow());
  const result=await page.evaluate(()=>window.__tutorFx.audit());
  if(result.active&&!result.ok)throw Error('Highlight did not align with target: '+JSON.stringify(result));

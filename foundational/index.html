@@ -984,7 +984,7 @@
                       </svg>
                       <span>Foundational</span>
                     </span>
-                    <span class="mega-cat-count">8 Tracks</span>
+                    <span class="mega-cat-count">9 Tracks</span>
                   </div>
                   <div class="mega-category-list">
                     <a href="../foundational/index.html" class="mega-category-item"
@@ -1009,6 +1009,19 @@
                         </svg></span>
                       <span class="mega-item-text">
                         <span class="mega-item-name">Python</span>
+                      </span>
+                    </a>
+                    <a href="../foundational/sql/index.html" class="mega-category-item"
+                      title="SQL: PostgreSQL DDL, DML &amp; DQL on a real database in your browser">
+                      <span class="mega-item-arrow">&gt;</span>
+                      <span class="mega-item-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                          stroke-width="2">
+                          <ellipse cx="12" cy="5" rx="9" ry="3" />
+                          <path d="M3 5v14a9 3 0 0 0 18 0V5" />
+                          <path d="M3 12a9 3 0 0 0 18 0" />
+                        </svg></span>
+                      <span class="mega-item-text">
+                        <span class="mega-item-name">SQL</span>
                       </span>
                     </a>
                     <a href="../foundational/data-structures/index.html" class="mega-category-item"
@@ -1729,6 +1742,111 @@
           </svg>
           <span>Explore Architecture Pillars</span>
         </a>
+      </div>
+    </section>
+
+    <style>
+      .vt-topics { margin-bottom: 36px; scroll-margin-top: 80px; padding: 28px; border-radius: 16px;
+        background: rgba(15, 23, 42, 0.75); border: 1px solid rgba(255, 255, 255, 0.08); }
+      .vt-topics-head { display: flex; align-items: flex-end; justify-content: space-between; gap: 16px; flex-wrap: wrap; margin-bottom: 18px; }
+      .vt-topics-eyebrow { font-size: 0.75rem; font-weight: 800; letter-spacing: 0.06em; text-transform: uppercase; color: var(--domain-accent); }
+      .vt-topics-title { font-size: 1.5rem; font-weight: 700; color: #ffffff; margin: 4px 0 0; }
+      .vt-topics-title span { font-size: 0.85rem; font-weight: 600; color: #94a3b8; margin-left: 8px; }
+      @media (max-width: 640px) { .vt-topics { padding: 18px; } }
+      .vt-topics .topic-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 16px; }
+      .vt-topics .topic-card { display: flex; flex-direction: column; gap: 14px; padding: 16px; border-radius: 14px;
+        background: rgba(255, 255, 255, 0.04); border: 1px solid rgba(255, 255, 255, 0.1); border-top: 3px solid var(--domain-accent);
+        transition: transform 0.18s ease, border-color 0.18s ease, box-shadow 0.18s ease; }
+      .vt-topics .topic-card:hover { transform: translateY(-2px); border-color: color-mix(in srgb, var(--domain-accent) 55%, transparent);
+        box-shadow: 0 12px 28px rgba(0, 0, 0, 0.45); }
+      .vt-topics .topic-card-link { display: flex; flex-direction: column; gap: 6px; flex: 1; color: inherit; text-decoration: none; }
+      .vt-topics .topic-head { display: flex; align-items: flex-start; justify-content: space-between; gap: 8px; }
+      .vt-topics .topic-icon { width: 38px; height: 38px; border-radius: 10px; display: flex; align-items: center; justify-content: center;
+        background: color-mix(in srgb, var(--domain-accent) 18%, transparent); color: var(--domain-accent); }
+      .vt-topics .topic-icon svg { width: 18px; height: 18px; }
+      .vt-topics .topic-name { font-size: 1.05rem; font-weight: 700; color: #ffffff; margin: 8px 0 0; }
+      .vt-topics .topic-desc { font-size: 0.88rem; line-height: 1.5; color: #94a3b8; margin: 0; }
+      .vt-topics .topic-actions { display: flex; gap: 6px; flex-wrap: wrap; }
+      .vt-topics .topic-btn { display: inline-flex; align-items: center; gap: 5px; padding: 7px 12px; border-radius: 999px;
+        font-size: 0.8rem; font-weight: 700; text-decoration: none; transition: filter 0.15s ease, background 0.15s ease; }
+      .vt-topics .topic-btn svg { width: 14px; height: 14px; }
+      .vt-topics .topic-btn-primary { background: var(--domain-accent); color: #0b1220; }
+      .vt-topics .topic-btn-primary:hover { filter: brightness(1.12); }
+      .vt-topics .topic-btn-ghost { border: 1px solid rgba(255, 255, 255, 0.22); color: #e2e8f0; }
+      .vt-topics .topic-btn-ghost:hover { background: rgba(255, 255, 255, 0.08); }
+    </style>
+    <section class="vt-topics" id="sec-topics" style="--domain-accent:#38bdf8;">
+      <div class="vt-topics-head">
+        <div>
+          <span class="vt-topics-eyebrow">All topics in this vertical</span>
+          <h2 class="vt-topics-title">Foundational Topics<span>8 tracks</span></h2>
+        </div>
+      </div>
+      <div class="topic-grid">
+        <article class="topic-card">
+          <a href="python/index.html" class="topic-card-link">
+            <span class="topic-head"><span class="topic-icon"><i data-lucide="terminal"></i></span></span>
+            <h4 class="topic-name">Python</h4>
+            <p class="topic-desc">14 Interactive Modules: Print, Variables, Data Types, Collections, Loops, Functions &amp; Exceptions</p>
+          </a>
+          <div class="topic-actions"><a href="python/index.html" class="topic-btn topic-btn-primary">Open course<i data-lucide="arrow-up-right"></i></a><a href="python/print.html" class="topic-btn topic-btn-ghost"><i data-lucide="play"></i>Start</a></div>
+        </article>
+        <article class="topic-card">
+          <a href="sql/index.html" class="topic-card-link">
+            <span class="topic-head"><span class="topic-icon"><i data-lucide="database"></i></span></span>
+            <h4 class="topic-name">SQL</h4>
+            <p class="topic-desc">16 Interactive Modules: PostgreSQL DDL, Constraints, DML, Joins, Functions &amp; CTEs in your browser</p>
+          </a>
+          <div class="topic-actions"><a href="sql/index.html" class="topic-btn topic-btn-primary">Open course<i data-lucide="arrow-up-right"></i></a><a href="sql/introduction.html" class="topic-btn topic-btn-ghost"><i data-lucide="play"></i>Start</a></div>
+        </article>
+        <article class="topic-card">
+          <a href="data-structures/index.html" class="topic-card-link">
+            <span class="topic-head"><span class="topic-icon"><i data-lucide="network"></i></span></span>
+            <h4 class="topic-name">Data Structures</h4>
+            <p class="topic-desc">Trees, Graphs, HashTables &amp; Heaps</p>
+          </a>
+          <div class="topic-actions"><a href="data-structures/index.html" class="topic-btn topic-btn-primary">Open course<i data-lucide="arrow-up-right"></i></a><a href="data-structures/demo.html" class="topic-btn topic-btn-ghost"><i data-lucide="play"></i>Demo</a></div>
+        </article>
+        <article class="topic-card">
+          <a href="authentication/index.html" class="topic-card-link">
+            <span class="topic-head"><span class="topic-icon"><i data-lucide="key-round"></i></span></span>
+            <h4 class="topic-name">Authentication</h4>
+            <p class="topic-desc">OAuth2, OIDC, JWT, SAML &amp; PKCE</p>
+          </a>
+          <div class="topic-actions"><a href="authentication/index.html" class="topic-btn topic-btn-primary">Open course<i data-lucide="arrow-up-right"></i></a><a href="authentication/demo.html" class="topic-btn topic-btn-ghost"><i data-lucide="play"></i>Demo</a></div>
+        </article>
+        <article class="topic-card">
+          <a href="apis/index.html" class="topic-card-link">
+            <span class="topic-head"><span class="topic-icon"><i data-lucide="webhook"></i></span></span>
+            <h4 class="topic-name">APIs</h4>
+            <p class="topic-desc">REST, GraphQL, gRPC &amp; WebSockets</p>
+          </a>
+          <div class="topic-actions"><a href="apis/index.html" class="topic-btn topic-btn-primary">Open course<i data-lucide="arrow-up-right"></i></a><a href="apis/demo.html" class="topic-btn topic-btn-ghost"><i data-lucide="play"></i>Demo</a></div>
+        </article>
+        <article class="topic-card">
+          <a href="microservices/index.html" class="topic-card-link">
+            <span class="topic-head"><span class="topic-icon"><i data-lucide="boxes"></i></span></span>
+            <h4 class="topic-name">MicroServices</h4>
+            <p class="topic-desc">Sagas, Service Mesh &amp; Event-Driven</p>
+          </a>
+          <div class="topic-actions"><a href="microservices/index.html" class="topic-btn topic-btn-primary">Open course<i data-lucide="arrow-up-right"></i></a><a href="microservices/demo.html" class="topic-btn topic-btn-ghost"><i data-lucide="play"></i>Demo</a></div>
+        </article>
+        <article class="topic-card">
+          <a href="oop/index.html" class="topic-card-link">
+            <span class="topic-head"><span class="topic-icon"><i data-lucide="blocks"></i></span></span>
+            <h4 class="topic-name">OOP</h4>
+            <p class="topic-desc">SOLID, Polymorphism &amp; Abstraction</p>
+          </a>
+          <div class="topic-actions"><a href="oop/index.html" class="topic-btn topic-btn-primary">Open course<i data-lucide="arrow-up-right"></i></a><a href="oop/demo.html" class="topic-btn topic-btn-ghost"><i data-lucide="play"></i>Demo</a></div>
+        </article>
+        <article class="topic-card">
+          <a href="design-patterns/index.html" class="topic-card-link">
+            <span class="topic-head"><span class="topic-icon"><i data-lucide="puzzle"></i></span></span>
+            <h4 class="topic-name">Design Patterns</h4>
+            <p class="topic-desc">GoF Creational, Structural &amp; Behavioral</p>
+          </a>
+          <div class="topic-actions"><a href="design-patterns/index.html" class="topic-btn topic-btn-primary">Open course<i data-lucide="arrow-up-right"></i></a><a href="design-patterns/demo.html" class="topic-btn topic-btn-ghost"><i data-lucide="play"></i>Demo</a></div>
+        </article>
       </div>
     </section>
 

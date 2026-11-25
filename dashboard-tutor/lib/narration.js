@@ -29,6 +29,10 @@ async function prepareAudio(scenes,dir,{silent=false}={}){
  if(!key||!voice)throw Error('Set ELEVENLABS_API_KEY and ELEVENLABS_VOICE_ID, or run with --silent to test without voice.');
  const clips=[];
  for(let i=0;i<scenes.length;i++){
+   if(scenes[i].skipAudio || !String(scenes[i].narration||'').trim()){
+     clips.push({file:null,duration:Math.max(0.6,(scenes[i].holdMs||650)/1000),targetLufs:null,measuredInputLufs:null});
+     continue;
+   }
    const number=String(i+1).padStart(2,'0');const raw=path.join(dir,number+'.mp3');const file=path.join(dir,number+'-normalized.wav');
    let response,lastErr;
    for(let attempt=1;attempt<=3;attempt++){

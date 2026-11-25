@@ -18,6 +18,15 @@ test('all Academy Python modules use pycourse adapter and #dashboard anchor',()=
   assert.equal(m.anchor,'#dashboard',file);
  }
 });
+test('all 16 Academy SQL modules use pycourse adapter and #dashboard anchor',()=>{
+ const sqlModules=['introduction.html','database-schema-user.html','datatypes.html','ddl.html','ddl-constraints.html','dml.html','dql-data-setup.html','dql.html','dql-basic-operators.html','dql-set-operations.html','dql-joins.html','dql-string-functions.html','dql-date-functions.html','dql-aggregate-functions.html','dql-analytical-functions.html','dql-cte.html'];
+ for(const file of sqlModules){
+  const m=getManifest('foundational/sql/'+file);
+  assert.equal(m.matched,true,file);
+  assert.equal(m.adapter,'pycourse',file);
+  assert.equal(m.anchor,'#dashboard',file);
+ }
+});
 test('root homepage and Python modules retain original links',()=>{
  assert.ok(fs.readFileSync(path.join(repoRoot,'index.html'),'utf8').includes('foundational/python/print.html'));
  assert.ok(fs.readFileSync(path.join(repoRoot,'foundational/python/index.html'),'utf8').includes('print.html'));

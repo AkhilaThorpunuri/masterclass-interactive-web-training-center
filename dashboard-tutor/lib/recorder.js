@@ -6,6 +6,25 @@ const {prepareAudio,duration}=require('./narration');
 const stage=require('./stage');
 const live=require('./live');
 function chromiumTool(){try{return require('playwright').chromium}catch(e){if(process.env.PLAYWRIGHT_CORE_PATH)return require(process.env.PLAYWRIGHT_CORE_PATH).chromium;throw Error('Playwright is not installed: run npm install inside dashboard-tutor');}}
+function resolveExecutable(chromium){
+ if(process.env.TUTOR_CHROMIUM && fs.existsSync(process.env.TUTOR_CHROMIUM))return process.env.TUTOR_CHROMIUM;
+ try{const def=chromium.executablePath();if(def&&fs.existsSync(def))return undefined;}catch{}
+ const localApp=process.env.LOCALAPPDATA||path.join(process.env.USERPROFILE||'','AppData','Local');
+ const msDir=path.join(localApp,'ms-playwright');
+ if(fs.existsSync(msDir)){
+   const dirs=fs.readdirSync(msDir).filter(d=>/^chromium-\d+$/.test(d)).sort().reverse();
+   for(const d of dirs){
+     for(const sub of ['chrome-win64','chrome-win']){
+       const candidate=path.join(msDir,d,sub,'chrome.exe');
+       if(fs.existsSync(candidate))return candidate;
+     }
+   }
+ }
+ for(const sys of ['C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe','C:\\Program Files (x86)\\Google\\Chrome\\Application\\chrome.exe']){
+   if(fs.existsSync(sys))return sys;
+ }
+ return undefined;
+}
 async function mux(video,audios,timeline,trim,seconds,out){const hasVoice=audios.some(a=>a.file);const args=['-y','-loglevel','error','-ss',trim.toFixed(3),'-i',video];
  for(const a of audios.filter(x=>x.file))args.push('-i',a.file);
  if(hasVoice){const chains=[];let n=0;
@@ -38,7 +57,7 @@ async function action(page,scene){const locator=page.locator(scene.target).first
 async function recordDashboard({page:pagePath,baseUrl, silent=false,limit=0,progress=()=>{}}){
  pagePath=safePage(pagePath);const manifest=getManifest(pagePath);if(!manifest.matched)throw Error(`Not identified as an interactive dashboard: ${pagePath}`);
  const id=idFor(pagePath);const stamp=new Date().toISOString().replace(/[^\d]/g,'').slice(0,14);const work=path.join(workDir,`${id}-${stamp}`);mkdir(work);mkdir(generatedDir);
- const chromium=chromiumTool();const visible=process.env.TUTOR_VISIBLE==='1'||(process.platform==='win32'&&process.env.TUTOR_VISIBLE!=='0');const launchOpts={headless:!visible,args:['--no-sandbox','--disable-dev-shm-usage',...(visible?['--start-fullscreen','--start-maximized']:[])]};if(process.env.TUTOR_CHROMIUM)launchOpts.executablePath=process.env.TUTOR_CHROMIUM;
+ const chromium=chromiumTool();const visible=process.env.TUTOR_VISIBLE==='1'||(process.platform==='win32'&&process.env.TUTOR_VISIBLE!=='0');const launchOpts={headless:!visible,args:['--no-sandbox','--disable-dev-shm-usage',...(visible?['--start-maximized','--window-size=1920,1080']:[])]};const exe=resolveExecutable(chromium);if(exe)launchOpts.executablePath=exe;
  const u=new URL(pagePath,baseUrl.endsWith('/')?baseUrl:baseUrl+'/');
  // AUTO_TUTOR_V1: the recorder captures the lesson, without recorder controls.
  u.searchParams.set('__tutor_capture','1');
@@ -49,8 +68,9 @@ async function recordDashboard({page:pagePath,baseUrl, silent=false,limit=0,prog
  // Never aim the capture spotlight at a non-visible element.
  if(manifest.adapter==='pycourse') for(const scene of fullScenes){
    if(scene.target==='#py-outline'){
+     const isSql=/(?:^|\/)sql\//i.test(pagePath);
      scene.target='#py-stage';scene.stage='#player';
-     scene.narration='The lesson player combines explanations, editable Python code and output. Use the navigation controls to revisit and practise the examples.';
+     scene.narration=isSql?'The lesson player combines explanations, editable SQL queries, query results and live database inspection. Use the navigation controls to revisit and practise the examples.':'The lesson player combines explanations, editable Python code and output. Use the navigation controls to revisit and practise the examples.';
    }
  }
  const scenes=limit>0?fullScenes.slice(0,limit):fullScenes;
@@ -79,24 +99,42 @@ async function recordDashboard({page:pagePath,baseUrl, silent=false,limit=0,prog
        }
        if(process.env.TUTOR_DEBUG==='1'){await pw.screenshot({path:path.join(work,`scene-${String(i+1).padStart(2,'0')}.png`),fullPage:false});}
        if(!(await pw.locator(scene.target).count()))throw Error('Missing element: '+scene.target);
-       await stage.point(pw,scene.target);
+       let activeTarget=scene.target;
+       await stage.point(pw,activeTarget);
        const at=(Date.now()-origin)/1000;
-       const expected=Math.max(2.7,(clips[i]?.duration||4.2)+0.95,scene.holdMs/1000);
+       const expected=scene.skipAudio?Math.max(0.65,(scene.holdMs||600)/1000):Math.max(1.8,(clips[i]?.duration||3.2)+0.35,(scene.holdMs||900)/1000);
        await stage.caption(pw,scene.narration,expected);
-       const before=scene.action==='click'?await stage.visualAudit(pw,scene.target):null;
+       const before=scene.action==='click'?await stage.visualAudit(pw,activeTarget):null;
        await action(pw,scene);
        // The target may change from 'Start learning' to 'Continue at slide 3'
        // after opening a lesson. Track both its label AND its new rectangle.
        let interactionAudit=null;
        if(scene.action==='click'){
          await pw.waitForTimeout(150);
-         interactionAudit=await stage.visualAudit(pw,scene.target);
+         interactionAudit=await stage.visualAudit(pw,activeTarget);
+       }
+       if(scene.action==='show' && Array.isArray(scene.focusSteps) && scene.focusSteps.length>1){
+         const steps=scene.focusSteps;
+         const sliceMs=Math.max(800,Math.floor((expected*1000)/steps.length));
+         for(let sIdx=0;sIdx<steps.length;sIdx++){
+           const candidate=steps[sIdx];
+           const elapsedNow=(Date.now()-origin)/1000-at;
+           if(elapsedNow>=expected-0.65)break;
+           if(sIdx>0 && await pw.locator(candidate).count()){
+             try{
+               await stage.point(pw,candidate);
+               activeTarget=candidate;
+             }catch{/* keep previous target if sub-panel is not visible */}
+           }
+           const waitMs=Math.min(sliceMs,Math.max(0,(expected-((Date.now()-origin)/1000-at)-0.25)*1000));
+           if(waitMs>50)await pw.waitForTimeout(waitMs);
+         }
        }
        const elapsed=(Date.now()-origin)/1000-at;
        await pw.waitForTimeout(Math.max(0,expected-elapsed)*1000);
        // Last-frame audit catches late content/size mutations during narration,
        // even in non-click teaching scenes. Reflow once; never publish drift.
-       const finalFx=await stage.visualAudit(pw,scene.target);
+       const finalFx=await stage.visualAudit(pw,activeTarget);
        timeline.push({scene:i+1,title:scene.title,at,seconds:Math.max(expected,elapsed),target:scene.target,action:scene.action,layout,
          finalEffectAudit:{active:finalFx.active,valid:finalFx.ok,driftPx:finalFx.driftPx??null,pointerDriftPx:finalFx.pointerDriftPx??null},
          interactionAudit:interactionAudit?{

@@ -12,11 +12,21 @@ const brief = (value, limit=210) => {
 function overview(slides=[],name='this lesson'){
   const names=slides.map(s=>s.title).filter(Boolean);
   if(!names.length)return `This is ${name}. Explore the explanation, change a value, and compare the resulting output.`;
-  const sample=names.slice(0,5).join(', ');
-  return `This module covers ${names.length} topics, including ${sample}${names.length>5?', and more':''}. We will briefly explain each concept and demonstrate the actual controls.`;
+  const sample=names.slice(0,3).join(', ');
+  return `This module covers ${names.length} topics, including ${sample}${names.length>3?', and more':''}.`;
 }
 function teachSlide(s,opts={}){
   const name=strip(s.title)||'this topic';
+  if(opts.concise){
+    const budget=opts.maxChars||145;
+    const key=brief(s.idea,Math.min(115,budget));
+    const detail=brief(s.explain||s.analogy||'',Math.max(55,budget-key.length));
+    const parts=[`${name}.`,key];
+    if(detail && !key.toLowerCase().includes(detail.toLowerCase()) && (key.length+detail.length)<=budget+25){
+      parts.push(detail);
+    }
+    return parts.filter(Boolean).join(' ').replace(/\s+/g,' ').trim();
+  }
   const key=brief(s.idea,210);
   const analogy=brief(s.analogy,170);
   const explain=brief(s.explain,210);
@@ -37,30 +47,36 @@ function sequence(page,manifest){
  const heading=manifest.title||'this interactive dashboard';
  if(manifest.adapter==='pycourse'){
   const slides=Array.isArray(manifest.slides)?manifest.slides:[];
-  push('Welcome to the dashboard','#dashboard','show',`Welcome to ${heading}. ${overview(slides,heading)} The progress dashboard helps you choose a topic, review useful terms and see which slides you have opened.`,'#dashboard');
-  push('What this dashboard contains','#py-learn','show',`These are the topics in the lesson. ${brief(slides.slice(0,4).map(s=>s.title).join(', '),160)}. Select a topic to jump to its interactive example. The glossary explains unfamiliar words.`,'#dashboard');
-  push('Your progress','#py-stat-progress','show','The completion meter tracks the slides you have opened, and your progress is saved in this browser. It does not measure a graded exam.','#dashboard');
-  push('Start learning','#py-continue','click','Let us open the lesson. On each slide, we will explain the idea, inspect the example, and see what the program does.','#dashboard');
-  push('Return to slide one','#py-first','click','This button takes us back to the beginning of the course. We will introduce each topic in order.','#player');
-  if(slides[0])push('Understand the first topic','#py-stage','show',teachSlide(slides[0],{code:true,output:true}),'#player',{conceptIndex:0});
-  push('The code editor','#py-editor','show','This is the editable Python program. The syntax uses real Python. You can change it, run it and compare the result with the visual explanation.','#player');
-  push('Run the code','#py-run','click','Click Run to execute the current Python example. The output panel shows the result.','#player',{verify:'#py-term'});
-  push('Read the output','#py-term','show',`This panel displays what the program produces. ${slides[0]?.output?`For our first example the expected result is ${brief(slides[0].output,100)}.`:'Compare it with the example above to understand what the code does.'}`,'#player');
-  if(/\/print(?:-v\d+)?\.html$/.test('/'+page)){ /* AUTO_TUTOR_V1 */
-   push('Edit an example','#py-editor','edit','Let us change the printed message. Anything between quotation marks is text, and changing it will change the displayed result.','#player',{value:'print("I can use Python!")'});
-   push('Run the edited example','#py-run','click','Run the modified program. We should see the new message, I can use Python, because print displays the text we supplied.','#player',{verify:'#py-term',expectContains:'I can use Python!'});
-   push('Reset the example','#py-reset-code','click','Reset restores the original example, so you can experiment safely and begin again.','#player');
+  const isSql=/(?:^|\/)sql\//i.test(page);
+  // Keep every module video under 5 minutes (<300s) by scaling per-slide script length to slide count.
+  const slideBudget=slides.length>=14?125:slides.length>=10?145:165;
+  const slideFocusSteps=isSql?['#py-stage .py-idea','#py-stage .py-anim','#py-stage .py-code-col']:['#py-stage .py-idea','#py-stage .py-anim','#py-stage .py-code-col'];
+  push('Welcome to the dashboard','#dashboard','show',`Welcome to ${heading}. ${overview(slides,heading)}`,'#dashboard');
+  push('What this dashboard contains','#py-learn','show',`Select any topic here to jump straight to its interactive example.`,'#dashboard');
+  push('Your progress','#py-stat-progress','show','The completion meter tracks the slides you have opened in this browser.','#dashboard');
+  push('Start learning','#py-continue','click',`Let us open the lesson and explore the interactive slides.`,'#dashboard');
+  push('Return to slide one','#py-first','click','Starting at slide one.','#player',{skipAudio:true,holdMs:550});
+  if(slides[0])push('Understand the first topic','#py-stage','show',teachSlide(slides[0],{concise:true,maxChars:slideBudget+20}),'#player',{conceptIndex:0,focusSteps:['#py-stage .py-idea','#py-stage .py-anim']});
+  push('The code editor','#py-editor','show',isSql?'On the right is the editable SQL query, running on real PostgreSQL in your browser.':'On the right is the editable Python code editor. You can modify any example and run it.','#player');
+  push('Run the code','#py-run','click',isSql?'Click Run to execute the SQL query.':'Click Run to execute the Python code.','#player',{verify:'#py-term'});
+  push('Read the output','#py-term','show',isSql?'This panel shows what PostgreSQL returns for each statement.':`This panel shows the program output.${slides[0]?.output?` Here it prints ${brief(slides[0].output,70)}.`:''}`,'#player');
+  if(isSql){
+   push('Inspect the database','#sql-db','show','Below it, the database panel shows your live schema, tables, and any new, changed, or removed rows.','#player');
   }
-  push('Open the next topic','#py-next','click',slides[1]?`The next lesson is ${slides[1].title}. Watch how the explanation and the sample code change together.`:'Use Next to move forward through the course.','#player');
-  if(slides[1])push('Learn topic 2','#py-stage','show',teachSlide(slides[1],{code:true,output:true}),'#player',{conceptIndex:1});
-  push('The slide outline','#py-outline','show','The outline lists all available lessons. You can come back to any topic without losing your progress.','#player');
-  // Every discovered lesson is explained, not just the first few UI controls.
+  if(/\/print(?:-v\d+)?\.html$/.test('/'+page)){ /* AUTO_TUTOR_V1 */
+   push('Edit an example','#py-editor','edit','Let us change the printed message inside the quotation marks.','#player',{value:'print("I can use Python!")'});
+   push('Run the edited example','#py-run','click','Run the updated code to see I can use Python in the output.','#player',{verify:'#py-term',expectContains:'I can use Python!'});
+   push('Reset the example','#py-reset-code','click','Reset restores the original slide example.','#player');
+  }
+  push('Open the next topic','#py-next','click',slides[1]?`Next: ${slides[1].title}.`:'Moving to the next slide.','#player',{skipAudio:true,holdMs:600});
+  if(slides[1])push('Learn topic 2','#py-stage','show',teachSlide(slides[1],{concise:true,maxChars:slideBudget}),'#player',{conceptIndex:1,focusSteps:slideFocusSteps});
+  // Every discovered lesson is explained concisely while highlighting its concept and code panels.
   for(let i=2;i<slides.length;i++){
     const s=slides[i];
-    push(`Open slide ${i+1}: ${s.title}`,'#py-next','click',`Next, ${s.title}. We will explore what this concept means and where it is useful.`,'#player',{conceptIndex:i});
-    push(`Teach slide ${i+1}: ${s.title}`,'#py-stage','show',teachSlide(s,{code:true,output:true,tip:true}),'#player',{conceptIndex:i});
+    push(`Open slide ${i+1}: ${s.title}`,'#py-next','click',`Slide ${i+1}: ${s.title}`,'#player',{conceptIndex:i,skipAudio:true,holdMs:550});
+    push(`Teach slide ${i+1}: ${s.title}`,'#py-stage','show',teachSlide(s,{concise:true,maxChars:slideBudget}),'#player',{conceptIndex:i,focusSteps:slideFocusSteps});
   }
-  if(slides.length)push('Finish the walkthrough','#py-outline','show',`You have now seen all ${slides.length} topics in this module. Revisit a slide, change its examples, and use Run and Reset to check your understanding.`,'#player');
+  if(slides.length)push('Finish the walkthrough','#py-outline','show',`That completes all ${slides.length} topics in ${heading}. Edit the examples and use Run and Reset to practice.`,'#player');
  }else{
   const anchor=manifest.anchor==='main'?'main':manifest.anchor;
   const facts=manifest.pageOverview || {};

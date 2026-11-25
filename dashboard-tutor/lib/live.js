@@ -24,11 +24,15 @@ async function discoverDetailed(chromium,url,launchOptions={}){
   const controls=await decorate(page);
   const slides=await page.evaluate(()=>{
    const key=document.querySelector('[data-py-page]')?.dataset.pyPage;
-   const course=(typeof PyCourse!=='undefined')?PyCourse:window.PyCourse;
+   const course=(typeof PyCourse!=='undefined')?PyCourse:(typeof SqlCourse!=='undefined')?SqlCourse:(window.PyCourse||window.SqlCourse);
    const deck=course?.DECKS?.[key];
    if(!deck)return [];
-   const asText=html=>{const div=document.createElement('div');div.innerHTML=String(html||'');return (div.textContent||'').replace(/\s+/g,' ').trim();};
-   return deck.slides.map((s,i)=>({index:i,title:s.title,idea:asText(s.idea).slice(0,300),analogy:asText(s.analogy).slice(0,260),explain:asText(s.explain).slice(0,400),tip:asText(s.tip).slice(0,200),code:typeof s.code==='string'?s.code.slice(0,240):'',output:typeof s.out==='string'?s.out.slice(0,160):'',controls:(s.controls||[]).map(c=>({label:c.label,type:c.type})).slice(0,12)}));
+   const asText=html=>{
+     const div=document.createElement('div');
+     div.innerHTML=String(html||'').replace(/<\/(li|p|div|h[1-6]|tr)>/gi,'. ').replace(/<br\s*\/?>/gi,' ');
+     return (div.textContent||'').replace(/\s*\.\s*\./g,'.').replace(/:\s*\./g,':').replace(/\s+/g,' ').trim();
+   };
+   return deck.slides.map((s,i)=>{const rawOut=typeof s.out==='string'?s.out:typeof s.output==='string'?s.output:'';return {index:i,title:s.title,idea:asText(s.idea).slice(0,300),analogy:asText(s.analogy).slice(0,260),explain:asText(s.explain).slice(0,400),tip:asText(s.tip).slice(0,200),code:typeof s.code==='string'?s.code.slice(0,240):'',output:rawOut.slice(0,160),controls:(s.controls||[]).map(c=>({label:c.label,type:c.type})).slice(0,12)};});
   });
   const pageOverview=await page.evaluate(()=>{
    const main=document.querySelector('main')||document.body;
